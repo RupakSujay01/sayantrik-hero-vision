@@ -45,31 +45,40 @@ const Hero = () => {
         {/* Stats Banner */}
         <div className="absolute bottom-0 left-0 right-0 bg-secondary/90 backdrop-blur-md border-t border-border animate-fade-in">
           <div className="container mx-auto px-6 py-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 text-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
               <div className="space-y-2">
-                <div className="text-4xl md:text-5xl font-bold text-primary glow-text">
-                  14+
+                <div className="text-3xl md:text-4xl font-bold text-primary glow-text">
+                  13
                 </div>
-                <div className="text-sm md:text-base text-muted-foreground font-medium">
-                  Years of Excellence
+                <div className="text-xs md:text-sm text-muted-foreground font-medium">
+                  Years
                 </div>
               </div>
               
               <div className="space-y-2">
-                <div className="text-4xl md:text-5xl font-bold text-primary glow-text">
+                <div className="text-3xl md:text-4xl font-bold text-primary glow-text">
                   250+
                 </div>
-                <div className="text-sm md:text-base text-muted-foreground font-medium">
-                  Projects Delivered
+                <div className="text-xs md:text-sm text-muted-foreground font-medium">
+                  Projects
                 </div>
               </div>
               
               <div className="space-y-2">
-                <div className="text-4xl md:text-5xl font-bold text-primary glow-text">
-                  200+
+                <div className="text-3xl md:text-4xl font-bold text-primary glow-text">
+                  1M
                 </div>
-                <div className="text-sm md:text-base text-muted-foreground font-medium">
-                  Dedicated Resources
+                <div className="text-xs md:text-sm text-muted-foreground font-medium">
+                  Manhours
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <div className="text-3xl md:text-4xl font-bold text-primary glow-text">
+                  160
+                </div>
+                <div className="text-xs md:text-sm text-muted-foreground font-medium">
+                  Employees
                 </div>
               </div>
             </div>
