@@ -1,20 +1,90 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import { 
+  Building2, 
+  Gauge, 
+  Flame, 
+  Lightbulb, 
+  Factory, 
+  Wrench,
+  Database,
+  Shield
+} from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const location = useLocation();
 
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/about", label: "About Us" },
-    { path: "/services", label: "Services" },
-    { path: "/projects", label: "Projects" },
+    { path: "/about", label: "About Us", hasDropdown: true },
+    { path: "/services", label: "Services", hasDropdown: true },
+    { path: "/projects", label: "Projects", hasDropdown: true },
     { path: "/leadership", label: "Leadership" },
     { path: "/contact", label: "Contact" },
   ];
+
+  const servicesDropdown = {
+    sections: [
+      {
+        title: "Engineering Services",
+        items: [
+          { icon: Building2, label: "Multi-discipline Engineering", description: "Complete engineering solutions" },
+          { icon: Gauge, label: "Pressure Vessel Design", description: "As per ASME standards" },
+          { icon: Flame, label: "Piping Engineering", description: "Comprehensive piping design" },
+          { icon: Lightbulb, label: "Electrical & Instrumentation", description: "Advanced E&I solutions" },
+        ]
+      },
+      {
+        title: "Specialized Services",
+        items: [
+          { icon: Factory, label: "Steel Fabrication", description: "High-quality fabrication" },
+          { icon: Wrench, label: "As-Built Services", description: "Accurate documentation" },
+          { icon: Database, label: "Project Management", description: "End-to-end delivery" },
+          { icon: Shield, label: "Quality Assurance", description: "Rigorous standards" },
+        ]
+      }
+    ]
+  };
+
+  const projectsDropdown = {
+    sections: [
+      {
+        title: "Project Categories",
+        items: [
+          { icon: Building2, label: "Oil & Gas", description: "Upstream & downstream" },
+          { icon: Factory, label: "Petrochemicals", description: "Process engineering" },
+          { icon: Flame, label: "Refineries", description: "Refining solutions" },
+          { icon: Lightbulb, label: "Energy Transition", description: "Sustainable projects" },
+        ]
+      }
+    ]
+  };
+
+  const aboutDropdown = {
+    sections: [
+      {
+        title: "Company",
+        items: [
+          { icon: Building2, label: "Who We Are", description: "Our story and values" },
+          { icon: Lightbulb, label: "Our Vision", description: "Future aspirations" },
+          { icon: Shield, label: "Quality & Safety", description: "Our commitments" },
+        ]
+      }
+    ]
+  };
+
+  const getDropdownContent = (label: string) => {
+    switch(label) {
+      case "Services": return servicesDropdown;
+      case "Projects": return projectsDropdown;
+      case "About Us": return aboutDropdown;
+      default: return null;
+    }
+  };
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -32,17 +102,66 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
-              <Link
+              <div
                 key={item.path}
-                to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(item.path)
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                }`}
+                className="relative"
+                onMouseEnter={() => item.hasDropdown && setHoveredMenu(item.label)}
+                onMouseLeave={() => setHoveredMenu(null)}
               >
-                {item.label}
-              </Link>
+                <Link
+                  to={item.path}
+                  className={`text-sm font-medium transition-all duration-300 hover:text-primary inline-flex items-center gap-1 ${
+                    isActive(item.path)
+                      ? "text-primary"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  {item.label}
+                  {item.hasDropdown && (
+                    <ChevronDown 
+                      className={`h-4 w-4 transition-transform duration-300 ${
+                        hoveredMenu === item.label ? 'rotate-180' : ''
+                      }`}
+                    />
+                  )}
+                </Link>
+
+                {/* Mega Menu Dropdown */}
+                {item.hasDropdown && hoveredMenu === item.label && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 animate-in fade-in-0 slide-in-from-top-2 duration-300">
+                    <div className="bg-card border border-border rounded-lg shadow-2xl p-6 min-w-[600px]">
+                      <div className="grid grid-cols-2 gap-6">
+                        {getDropdownContent(item.label)?.sections.map((section, idx) => (
+                          <div key={idx}>
+                            <h3 className="text-sm font-semibold text-foreground mb-4 pb-2 border-b border-border">
+                              {section.title}
+                            </h3>
+                            <div className="space-y-2">
+                              {section.items.map((subItem, subIdx) => (
+                                <Link
+                                  key={subIdx}
+                                  to={item.path}
+                                  className="group flex items-start gap-3 p-3 rounded-md transition-all duration-300 hover:bg-secondary/50 hover:translate-x-1"
+                                >
+                                  <subItem.icon className="h-5 w-5 text-primary mt-0.5 transition-transform duration-300 group-hover:scale-110" />
+                                  <div className="flex-1">
+                                    <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-300">
+                                      {subItem.label}
+                                    </p>
+                                    <p className="text-xs text-muted-foreground mt-0.5">
+                                      {subItem.description}
+                                    </p>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </nav>
 
