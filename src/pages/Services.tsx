@@ -1,16 +1,26 @@
+import { Briefcase, Target, Wrench, Award, Users } from "lucide-react";
+
 const Services = () => {
   return (
     <main className="min-h-screen bg-background py-20">
       <div className="container mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-8 animate-fade-in">
-          Our Services
-        </h1>
+        <div className="flex items-center gap-4 mb-8 animate-fade-in">
+          <div className="p-3 bg-primary/10 rounded-lg">
+            <Briefcase className="w-8 h-8 text-primary" />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+            Our Services
+          </h1>
+        </div>
 
         {/* Business Verticals */}
         <section className="mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-            Business Verticals
-          </h2>
+          <div className="flex items-center gap-3 mb-6">
+            <Target className="w-7 h-7 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold text-primary">
+              Business Verticals
+            </h2>
+          </div>
           <p className="text-lg text-muted-foreground mb-6">
             Our suite of services is extensive and includes, but is not limited to:
           </p>
@@ -33,9 +43,12 @@ const Services = () => {
 
         {/* Multi-discipline Engineering Services */}
         <section className="mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-            Multi-discipline Engineering Services
-          </h2>
+          <div className="flex items-center gap-3 mb-6">
+            <Wrench className="w-7 h-7 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold text-primary">
+              Multi-discipline Engineering Services
+            </h2>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[
               "Process Engineering",
@@ -55,9 +68,12 @@ const Services = () => {
 
         {/* Expertise */}
         <section className="mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-            Our Expertise
-          </h2>
+          <div className="flex items-center gap-3 mb-6">
+            <Award className="w-7 h-7 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold text-primary">
+              Our Expertise
+            </h2>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               "Green Hydrogen Plants",
@@ -78,9 +94,12 @@ const Services = () => {
 
         {/* Customer-Centric Approach */}
         <section className="animate-fade-in bg-card border border-border rounded-lg p-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Our Customer-Centric Approach
-          </h2>
+          <div className="flex items-center gap-3 mb-6">
+            <Users className="w-7 h-7 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Our Customer-Centric Approach
+            </h2>
+          </div>
           <p className="text-lg text-muted-foreground leading-relaxed mb-6">
             At Sayantrik Engineer, we prioritize building robust partnerships with our clients. We believe in open communication and collaboration throughout every project. Our customer-centric approach ensures that we thoroughly understand your requirements and work closely with you to achieve optimal results.
           </p>

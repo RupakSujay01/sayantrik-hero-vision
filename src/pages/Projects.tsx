@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { FolderKanban, FileText, Hammer, Container } from "lucide-react";
 
 const Projects = () => {
   const engineeringProjects = [
@@ -108,9 +109,14 @@ const Projects = () => {
   return (
     <main className="min-h-screen bg-background py-20">
       <div className="container mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-8 animate-fade-in">
-          Our Projects
-        </h1>
+        <div className="flex items-center gap-4 mb-8 animate-fade-in">
+          <div className="p-3 bg-primary/10 rounded-lg">
+            <FolderKanban className="w-8 h-8 text-primary" />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+            Our Projects
+          </h1>
+        </div>
 
         <Tabs defaultValue="engineering" className="space-y-8">
           <TabsList className="grid w-full md:w-auto grid-cols-2 md:grid-cols-4">

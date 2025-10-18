@@ -1,12 +1,19 @@
+import { Building2, Award, Target, Users } from "lucide-react";
+
 const About = () => {
   return (
     <main className="min-h-screen bg-background">
       <div className="container mx-auto px-6 py-20">
         {/* Who We Are */}
         <section className="mb-16 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
-            Who We Are
-          </h1>
+          <div className="flex items-center gap-4 mb-8">
+            <div className="p-3 bg-primary/10 rounded-lg">
+              <Building2 className="w-8 h-8 text-primary" />
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+              Who We Are
+            </h1>
+          </div>
           <div className="space-y-6">
             <h2 className="text-2xl md:text-3xl font-bold text-primary">
               A story behind our company's growth
@@ -22,9 +29,12 @@ const About = () => {
 
         {/* Our Legacy */}
         <section className="mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Our Legacy
-          </h2>
+          <div className="flex items-center gap-3 mb-6">
+            <Award className="w-7 h-7 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Our Legacy
+            </h2>
+          </div>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
             Founded in 2012, Sayantrik Engineer India Pvt Ltd has steadily evolved into a prominent player in the industry. With offices strategically located in Hyderabad, Mumbai, and Chennai, we have cultivated a team of over 150 dedicated permanent resources. Our experts bring a wealth of experience and technical prowess to the projects we undertake.
           </p>
@@ -62,9 +72,12 @@ const About = () => {
 
         {/* What We Offer */}
         <section className="mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            What We Offer
-          </h2>
+          <div className="flex items-center gap-3 mb-6">
+            <Target className="w-7 h-7 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              What We Offer
+            </h2>
+          </div>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
             At Sayantrik Engineers, our mission is straightforward but profound - to provide comprehensive engineering solutions that are meticulously tailored to meet the specific needs of our clients. The Oil & Gas, Petrochemicals, and Chemicals sectors are known for their unique challenges, and our team is not just well-versed in these challenges, but we thrive on surpassing industry standards.
           </p>
@@ -72,9 +85,12 @@ const About = () => {
 
         {/* We Support */}
         <section className="animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            We Support
-          </h2>
+          <div className="flex items-center gap-3 mb-6">
+            <Users className="w-7 h-7 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              We Support
+            </h2>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               "Owner operators",
