@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import logo from "@/assets/logo-white.png";
+import logo from "@/assets/logo.png";
 import { 
   Building2, 
   Gauge, 
@@ -131,12 +131,12 @@ const Header = () => {
 
                 {/* Mega Menu Dropdown */}
                 {item.hasDropdown && hoveredMenu === item.label && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 animate-in fade-in-0 slide-in-from-top-2 duration-300 z-50">
-                    <div className="bg-background/80 backdrop-blur-xl border border-border/50 rounded-lg shadow-2xl p-6 min-w-[600px]">
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 animate-in fade-in-0 slide-in-from-top-2 duration-300">
+                    <div className="bg-card border border-border rounded-lg shadow-2xl p-6 min-w-[600px]">
                       <div className="grid grid-cols-2 gap-6">
                         {getDropdownContent(item.label)?.sections.map((section, idx) => (
                           <div key={idx}>
-                            <h3 className="text-sm font-semibold text-foreground mb-4 pb-2 border-b border-border/50">
+                            <h3 className="text-sm font-semibold text-foreground mb-4 pb-2 border-b border-border">
                               {section.title}
                             </h3>
                             <div className="space-y-2">
@@ -144,14 +144,14 @@ const Header = () => {
                                 <Link
                                   key={subIdx}
                                   to={item.path}
-                                  className="group flex items-start gap-3 p-3 rounded-md transition-all duration-300 hover:bg-primary/10 hover:translate-x-1 hover:shadow-lg"
+                                  className="group flex items-start gap-3 p-3 rounded-md transition-all duration-300 hover:bg-secondary/50 hover:translate-x-1"
                                 >
-                                  <subItem.icon className="h-5 w-5 text-primary mt-0.5 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6" />
+                                  <subItem.icon className="h-5 w-5 text-primary mt-0.5 transition-transform duration-300 group-hover:scale-110" />
                                   <div className="flex-1">
                                     <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-300">
                                       {subItem.label}
                                     </p>
-                                    <p className="text-xs text-muted-foreground mt-0.5 group-hover:text-foreground/70 transition-colors">
+                                    <p className="text-xs text-muted-foreground mt-0.5">
                                       {subItem.description}
                                     </p>
                                   </div>
