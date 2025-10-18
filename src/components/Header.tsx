@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import logo from "@/assets/logo.png";
 import { 
   Building2, 
   Gauge, 
@@ -94,12 +93,10 @@ const Header = () => {
       <div className="container mx-auto px-6">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center group">
-            <img 
-              src={logo} 
-              alt="Sayantrik Engineers - Energy | Chemicals" 
-              className="h-10 md:h-12 w-auto transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-lg"
-            />
+          <Link to="/" className="flex items-center space-x-2">
+            <span className="text-xl md:text-2xl font-bold text-primary">
+              Sayantrik Engineers
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
