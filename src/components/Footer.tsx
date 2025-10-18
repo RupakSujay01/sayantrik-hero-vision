@@ -75,7 +75,7 @@ const Footer = () => {
                 <span>+91 79955 79900</span>
               </li>
               <li className="text-sm text-muted-foreground">
-                Hyderabad, Mumbai, Chennai
+                Hyderabad, Mumbai, Chennai , Malaysia
               </li>
             </ul>
           </div>
