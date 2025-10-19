@@ -8,62 +8,61 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 13% 13%;
+    --background: 220 26% 6%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 13% 13%;
+    --card: 220 20% 10%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 13%;
+    --popover: 220 20% 10%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 217 91% 45%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 214 32% 91%;
-    --secondary-foreground: 220 13% 13%;
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 220 15% 20%;
+    --muted-foreground: 215 15% 65%;
 
-    --accent: 217 91% 45%;
+    --accent: 217 91% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 217 91% 45%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 217 91% 60%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Samsung-inspired Engineering Colors */
-    --samsung-blue: 217 91% 45%;
-    --samsung-blue-light: 217 91% 60%;
-    --samsung-blue-dark: 221 83% 35%;
-    --tech-silver: 215 16% 47%;
-    --light-gray: 210 40% 96%;
-    --dark-text: 220 13% 13%;
+    /* Corporate Engineering Colors */
+    --corporate-blue: 217 91% 60%;
+    --corporate-blue-dark: 221 83% 53%;
+    --tech-silver: 210 11% 71%;
+    --deep-space: 220 26% 6%;
+    --glow-blue: 217 91% 70%;
     
     /* Hero specific */
     --hero-overlay: 220 26% 6%;
     --hero-text: 0 0% 100%;
-    --hero-accent: 217 91% 45%;
+    --hero-accent: 217 91% 60%;
     
     /* Gradient definitions */
-    --gradient-hero: linear-gradient(135deg, hsl(220 26% 6% / 0.85), hsl(221 83% 35% / 0.75));
-    --gradient-section: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
-    --gradient-card: linear-gradient(135deg, hsl(217 91% 45% / 0.05), hsl(217 91% 60% / 0.05));
+    --gradient-hero: linear-gradient(135deg, hsl(220 26% 6% / 0.95), hsl(221 83% 53% / 0.8));
+    --gradient-stats: linear-gradient(90deg, hsl(220 20% 15%), hsl(220 20% 10%));
+    --glow-shadow: 0 0 40px hsl(217 91% 60% / 0.3);
     
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 220 13% 13%;
-    --sidebar-primary: 217 91% 45%;
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 214 32% 91%;
-    --sidebar-accent-foreground: 220 13% 13%;
-    --sidebar-border: 214 32% 91%;
-    --sidebar-ring: 217 91% 45%;
+    --sidebar-accent: 220 20% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 20% 20%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -114,22 +113,18 @@ All colors MUST be HSL.
 
 @layer utilities {
   .text-gradient-hero {
-    background: linear-gradient(135deg, hsl(var(--hero-text)), hsl(var(--samsung-blue-light)));
+    background: linear-gradient(135deg, hsl(var(--hero-text)), hsl(var(--glow-blue)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--glow-blue) / 0.5);
+  }
+  
   .hero-overlay {
     background: var(--gradient-hero);
-  }
-  
-  .section-gradient {
-    background: var(--gradient-section);
-  }
-  
-  .card-gradient {
-    background: var(--gradient-card);
   }
 
   /* Smooth scrolling utilities */
