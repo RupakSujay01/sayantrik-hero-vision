@@ -123,12 +123,12 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-white/95 backdrop-blur-lg shadow-sm">
       <div className="container mx-auto px-6">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <span className="text-xl md:text-2xl font-bold text-primary">
+          <Link to="/" className="flex items-center space-x-2 group">
+            <span className="text-xl md:text-2xl font-bold text-samsung-blue transition-all duration-300 group-hover:text-samsung-blue-light">
               Sayantrik Engineer India Pvt Ltd
             </span>
           </Link>
@@ -155,16 +155,16 @@ const Header = () => {
               >
                 <Link
                   to={item.path}
-                  className={`text-sm font-medium transition-all duration-300 hover:text-primary inline-flex items-center gap-1 ${
+                  className={`text-sm font-medium transition-all duration-300 hover:text-samsung-blue inline-flex items-center gap-1 ${
                     isActive(item.path)
-                      ? "text-primary"
-                      : "text-muted-foreground"
+                      ? "text-samsung-blue"
+                      : "text-dark-text"
                   }`}
                 >
                   {item.label}
                   {item.hasDropdown && (
                     <ChevronDown 
-                      className={`h-4 w-4 transition-transform duration-500 ease-out ${
+                      className={`h-4 w-4 transition-transform duration-300 ${
                         hoveredMenu === item.label ? 'rotate-180' : ''
                       }`}
                     />
@@ -173,23 +173,23 @@ const Header = () => {
 
                 {/* Mega Menu Dropdown */}
                 {item.hasDropdown && hoveredMenu === item.label && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 animate-in fade-in-0 slide-in-from-top-2 duration-700 ease-in-out">
-                    <div className="bg-card border border-border rounded-lg shadow-2xl p-6 min-w-[600px]">
-                      <div className="grid grid-cols-2 gap-6">
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 animate-fade-in">
+                    <div className="bg-white border border-border rounded-xl shadow-2xl p-8 min-w-[600px]">
+                      <div className="grid grid-cols-2 gap-8">
                         {getDropdownContent(item.label)?.sections.map((section, idx) => (
                           <div key={idx}>
-                            <h3 className="text-sm font-semibold text-foreground mb-4 pb-2 border-b border-border">
+                            <h3 className="text-sm font-semibold text-samsung-blue mb-4 pb-2 border-b border-samsung-blue/20">
                               {section.title}
                             </h3>
                             <div className="space-y-2">
                               {section.items.map((subItem, subIdx) => (
                                 <div
                                   key={subIdx}
-                                  className="group flex items-start gap-3 p-3 rounded-md transition-all duration-500 ease-out hover:bg-secondary/50 cursor-default select-none"
+                                  className="group flex items-start gap-3 p-3 rounded-lg transition-all duration-300 hover:bg-samsung-blue/5 cursor-default select-none"
                                 >
-                                  <subItem.icon className="h-5 w-5 text-primary mt-0.5 transition-transform duration-500 ease-out group-hover:scale-110" />
+                                  <subItem.icon className="h-5 w-5 text-samsung-blue mt-0.5 transition-transform duration-300 group-hover:scale-110" />
                                   <div className="flex-1">
-                                    <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-500 ease-out">
+                                    <p className="text-sm font-medium text-dark-text group-hover:text-samsung-blue transition-colors duration-300">
                                       {subItem.label}
                                     </p>
                                     {subItem.subItems && (
@@ -232,10 +232,10 @@ const Header = () => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block py-2 text-sm font-medium transition-colors hover:text-primary ${
+                className={`block py-3 px-4 text-sm font-medium transition-all duration-300 rounded-lg hover:bg-samsung-blue/5 ${
                   isActive(item.path)
-                    ? "text-primary"
-                    : "text-muted-foreground"
+                    ? "text-samsung-blue bg-samsung-blue/5"
+                    : "text-dark-text"
                 }`}
               >
                 {item.label}
