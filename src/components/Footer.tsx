@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <h3 className="text-xl font-bold text-primary mb-4">
-              Sayantrik Engineers
+              Sayantrik Engineer India Pvt Ltd
             </h3>
             <p className="text-muted-foreground text-sm mb-4">
               Engineering Excellence in Oil & Gas, Refinery, Petrochemicals, Chemicals, and Pharmaceutical industries.

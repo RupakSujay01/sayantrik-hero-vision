@@ -34,21 +34,31 @@ const Header = () => {
   const servicesDropdown = {
     sections: [
       {
-        title: "Engineering Services",
+        title: "Pre-Bid Engineering Services",
         items: [
-          { icon: Building2, label: "Multi-discipline Engineering", description: "Complete engineering solutions" },
-          { icon: Gauge, label: "Pressure Vessel Design", description: "As per ASME standards" },
-          { icon: Flame, label: "Piping Engineering", description: "Comprehensive piping design" },
-          { icon: Lightbulb, label: "Electrical & Instrumentation", description: "Advanced E&I solutions" },
+          { icon: Flame, label: "Oil & Gas", subItems: ["Onshore", "Offshore"] },
+          { icon: Factory, label: "Refinery" },
+          { icon: Building2, label: "Petrochem" },
+          { icon: Lightbulb, label: "Chem" },
+          { icon: Gauge, label: "Renewable" },
         ]
       },
       {
         title: "Specialized Services",
         items: [
-          { icon: Factory, label: "Steel Fabrication", description: "High-quality fabrication" },
-          { icon: Wrench, label: "As-Built Services", description: "Accurate documentation" },
-          { icon: Database, label: "Project Management", description: "End-to-end delivery" },
-          { icon: Shield, label: "Quality Assurance", description: "Rigorous standards" },
+          { icon: Wrench, label: "As-Built Services" },
+          { 
+            icon: Shield, 
+            label: "Engineering Disciplines:", 
+            subItems: [
+              "Process Engineering",
+              "Mechanical (Static)",
+              "Mechanical (Rotatory)",
+              "Piping",
+              "Civil",
+              "Structural"
+            ]
+          }
         ]
       }
     ]
@@ -119,7 +129,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <span className="text-xl md:text-2xl font-bold text-primary">
-              Sayantrik Engineers
+              Sayantrik Engineer India Pvt Ltd
             </span>
           </Link>
 
@@ -173,21 +183,24 @@ const Header = () => {
                             </h3>
                             <div className="space-y-2">
                               {section.items.map((subItem, subIdx) => (
-                                <Link
+                                <div
                                   key={subIdx}
-                                  to={item.path}
-                                  className="group flex items-start gap-3 p-3 rounded-md transition-all duration-500 ease-out hover:bg-secondary/50 hover:translate-x-1"
+                                  className="group flex items-start gap-3 p-3 rounded-md transition-all duration-500 ease-out hover:bg-secondary/50 cursor-default select-none"
                                 >
                                   <subItem.icon className="h-5 w-5 text-primary mt-0.5 transition-transform duration-500 ease-out group-hover:scale-110" />
                                   <div className="flex-1">
                                     <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-500 ease-out">
                                       {subItem.label}
                                     </p>
-                                    <p className="text-xs text-muted-foreground mt-0.5">
-                                      {subItem.description}
-                                    </p>
+                                    {subItem.subItems && (
+                                      <ul className="mt-2 ml-4 list-disc text-xs text-muted-foreground space-y-1 cursor-default select-none">
+                                        {subItem.subItems.map((s: string, i: number) => (
+                                          <li key={i} className="cursor-default select-none">{s}</li>
+                                        ))}
+                                      </ul>
+                                    )}
                                   </div>
-                                </Link>
+                                </div>
                               ))}
                             </div>
                           </div>
