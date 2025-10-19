@@ -16,6 +16,12 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
+                href="mailto:info@sayantrik.com"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Mail className="h-5 w-5" />
+              </a>
+              <a
                 href="https://www.linkedin.com/company/sayantrikengineers"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -50,6 +56,11 @@ const Footer = () => {
               <li>
                 <Link to="/projects" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                   Projects
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                  Careers
                 </Link>
               </li>
               <li>

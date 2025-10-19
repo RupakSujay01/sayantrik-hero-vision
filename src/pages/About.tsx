@@ -19,9 +19,6 @@ const About = () => {
               A story behind our company's growth
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              which talks on passion for engineering, how we have grown over challenges and what can we deliver to this world with our strengths.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
               <span className="font-semibold text-foreground">Sayantrik Engineer India Pvt Ltd</span> is a name synonymous with engineering excellence in the dynamic and demanding fields of Oil & Gas, Petrochemicals, and Chemicals. Our journey, now spanning over a decade, is marked by a relentless commitment to delivering top-tier engineering solutions. We have risen as an emerging engineering consultancy with a reputation for excellence and innovation.
             </p>
           </div>
@@ -84,7 +81,7 @@ const About = () => {
         </section>
 
         {/* We Support */}
-        <section className="animate-fade-in">
+        <section className="mb-16 animate-fade-in">
           <div className="flex items-center gap-3 mb-6">
             <Users className="w-7 h-7 text-primary" />
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
@@ -103,6 +100,45 @@ const About = () => {
                 <p className="text-lg font-medium text-foreground">{item}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Leadership */}
+        <section className="animate-fade-in">
+          <div className="flex items-center gap-3 mb-6">
+            <Users className="w-7 h-7 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Leadership Team
+            </h2>
+          </div>
+          <div className="bg-card border border-border rounded-lg p-8">
+            <h3 className="text-2xl font-bold text-primary mb-4">Organization Chart</h3>
+            <p className="text-muted-foreground mb-6">
+              Our leadership team brings decades of combined experience in engineering excellence and project delivery. They guide our strategic vision and ensure we maintain the highest standards of quality and innovation.
+            </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="text-center p-6 bg-secondary/50 rounded-lg">
+                <div className="w-20 h-20 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Users className="w-10 h-10 text-primary" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-2">Executive Leadership</h4>
+                <p className="text-sm text-muted-foreground">Strategic direction and company vision</p>
+              </div>
+              <div className="text-center p-6 bg-secondary/50 rounded-lg">
+                <div className="w-20 h-20 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Award className="w-10 h-10 text-primary" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-2">Technical Directors</h4>
+                <p className="text-sm text-muted-foreground">Engineering excellence and innovation</p>
+              </div>
+              <div className="text-center p-6 bg-secondary/50 rounded-lg">
+                <div className="w-20 h-20 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Target className="w-10 h-10 text-primary" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground mb-2">Project Leaders</h4>
+                <p className="text-sm text-muted-foreground">Project delivery and client success</p>
+              </div>
+            </div>
           </div>
         </section>
       </div>
