@@ -114,15 +114,15 @@ const Projects = () => {
           </h1>
         </div>
 
-        <Tabs defaultValue="engineering" className="space-y-8">
+        <Tabs defaultValue="feed" className="space-y-8">
           <TabsList className="grid w-full md:w-auto grid-cols-2 md:grid-cols-4">
-            <TabsTrigger value="engineering">Engineering Projects</TabsTrigger>
-            <TabsTrigger value="asbuilt">As-Built Projects</TabsTrigger>
-            <TabsTrigger value="fabrication">Steel Fabrication</TabsTrigger>
-            <TabsTrigger value="tanks">Storage Tanks</TabsTrigger>
+            <TabsTrigger value="feed">FEED Engineering</TabsTrigger>
+            <TabsTrigger value="detail">Detail Engineering</TabsTrigger>
+            <TabsTrigger value="asbuilt">As-Built Engineering</TabsTrigger>
+            <TabsTrigger value="prebid">Pre-Bid Engineering</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="engineering" className="space-y-6">
+          <TabsContent value="feed" className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               {/* Oil Plant Image Card */}
               <Card className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden relative border-primary/10">
@@ -164,6 +164,20 @@ const Projects = () => {
             </div>
           </TabsContent>
 
+          <TabsContent value="detail">
+            <Card>
+              <CardHeader>
+                <CardTitle>Detail Engineering Projects</CardTitle>
+                <CardDescription>Comprehensive detailed engineering services</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Complete detailed engineering solutions including design, documentation, and technical specifications for industrial projects.
+                </p>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
           <TabsContent value="asbuilt">
             <Card>
               <CardHeader>
@@ -178,29 +192,15 @@ const Projects = () => {
             </Card>
           </TabsContent>
 
-          <TabsContent value="fabrication">
+          <TabsContent value="prebid">
             <Card>
               <CardHeader>
-                <CardTitle>Steel Fabrication Projects</CardTitle>
-                <CardDescription>Custom steel fabrication solutions</CardDescription>
+                <CardTitle>Pre-Bid Engineering Projects</CardTitle>
+                <CardDescription>Pre-bid engineering and feasibility studies</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Specialized steel fabrication services for industrial applications across various sectors.
-                </p>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          <TabsContent value="tanks">
-            <Card>
-              <CardHeader>
-                <CardTitle>Storage Tanks Projects</CardTitle>
-                <CardDescription>Tank design and engineering services</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Comprehensive storage tank engineering, design, and implementation services.
+                  Pre-bid engineering services including feasibility analysis, cost estimation, and technical proposal support.
                 </p>
               </CardContent>
             </Card>
