@@ -1,14 +1,10 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FolderKanban, FileText, Hammer, Container } from "lucide-react";
+import oilPlantImage from "@/assets/oil-plant.png";
 
 const Projects = () => {
   const engineeringProjects = [
-    {
-      name: "Compressor Station Project",
-      scope: "Detailed Engineering",
-      description: "Comprehensive detailed engineering and multidisciplinary support for EPC procurement and construction of the Compressor Station Project (3 working + 1 standby compressors, total flow capacity 1,945,000 Sm³/h)."
-    },
     {
       name: "600 MTPD Sulphuric Acid (SA - V) Plant",
       scope: "Detailed Engineering",
@@ -126,8 +122,31 @@ const Projects = () => {
             <TabsTrigger value="tanks">Storage Tanks</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="engineering" className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
+          <TabsContent value="engineering" className="space-y-6 relative">
+            {/* Watermark */}
+            <div className="absolute inset-0 pointer-events-none opacity-5 bg-repeat" 
+                 style={{
+                   backgroundImage: `url(${oilPlantImage})`,
+                   backgroundSize: '200px 200px',
+                   backgroundPosition: 'center'
+                 }}>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 relative z-10">
+              {/* Oil Plant Image Card */}
+              <Card className="hover:shadow-lg transition-shadow overflow-hidden">
+                <CardContent className="p-0">
+                  <img 
+                    src={oilPlantImage} 
+                    alt="Oil Plant" 
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-center">Oil Plant</h3>
+                  </div>
+                </CardContent>
+              </Card>
+
               {engineeringProjects.map((project, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
                   <CardHeader>
