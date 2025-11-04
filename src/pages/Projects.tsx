@@ -122,19 +122,10 @@ const Projects = () => {
             <TabsTrigger value="tanks">Storage Tanks</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="engineering" className="space-y-6 relative">
-            {/* Watermark */}
-            <div className="absolute inset-0 pointer-events-none opacity-30 bg-repeat" 
-                 style={{
-                   backgroundImage: `url(${oilPlantImage})`,
-                   backgroundSize: '200px 200px',
-                   backgroundPosition: 'center'
-                 }}>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-6 relative z-10">
+          <TabsContent value="engineering" className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
               {/* Oil Plant Image Card */}
-              <Card className="hover:shadow-lg transition-shadow overflow-hidden relative">
+              <Card className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden relative border-primary/10">
                 <CardContent className="p-0 relative">
                   <img 
                     src={oilPlantImage} 
@@ -158,7 +149,7 @@ const Projects = () => {
               </Card>
 
               {engineeringProjects.map((project, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
+                <Card key={index} className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 border-primary/10">
                   <CardHeader>
                     <CardTitle className="text-xl">{project.name}</CardTitle>
                     <CardDescription className="text-primary font-semibold">
