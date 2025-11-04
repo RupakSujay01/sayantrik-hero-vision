@@ -168,11 +168,11 @@ const Projects = () => {
             <Card>
               <CardHeader>
                 <CardTitle>Detail Engineering Projects</CardTitle>
-                <CardDescription>Comprehensive detailed engineering services</CardDescription>
+                <CardDescription>Comprehensive detail engineering services</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Complete detailed engineering solutions including design, documentation, and technical specifications for industrial projects.
+                  Comprehensive detail engineering services for various industrial projects and facilities.
                 </p>
               </CardContent>
             </Card>
@@ -196,11 +196,11 @@ const Projects = () => {
             <Card>
               <CardHeader>
                 <CardTitle>Pre-Bid Engineering Projects</CardTitle>
-                <CardDescription>Pre-bid engineering and feasibility studies</CardDescription>
+                <CardDescription>Pre-bid engineering and estimation services</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Pre-bid engineering services including feasibility analysis, cost estimation, and technical proposal support.
+                  Comprehensive pre-bid engineering and estimation services for project proposals and tenders.
                 </p>
               </CardContent>
             </Card>
