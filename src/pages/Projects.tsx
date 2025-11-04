@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FolderKanban, FileText, Hammer, Container } from "lucide-react";
-import oilPlantImage from "@/assets/oil-plant.png";
+import oilPlantImage from "@/assets/oil-plant-hq.jpg";
 
 const Projects = () => {
   const engineeringProjects = [
@@ -124,7 +124,7 @@ const Projects = () => {
 
           <TabsContent value="engineering" className="space-y-6 relative">
             {/* Watermark */}
-            <div className="absolute inset-0 pointer-events-none opacity-15 bg-repeat" 
+            <div className="absolute inset-0 pointer-events-none opacity-30 bg-repeat" 
                  style={{
                    backgroundImage: `url(${oilPlantImage})`,
                    backgroundSize: '200px 200px',
@@ -142,7 +142,14 @@ const Projects = () => {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent flex flex-col justify-end p-6">
-                    <h3 className="text-2xl font-bold text-white mb-2 bg-primary px-3 py-1 inline-block w-fit">Oil Plant</h3>
+                    <h3 
+                      className="text-2xl font-bold text-white mb-2 inline-block w-fit"
+                      style={{
+                        textShadow: '0 0 20px hsl(var(--glow-blue)), 0 0 40px hsl(var(--glow-blue) / 0.5), 0 0 60px hsl(var(--primary) / 0.3)'
+                      }}
+                    >
+                      Oil Plant
+                    </h3>
                     <p className="text-white/90 text-sm">
                       Detailed engineering and EPC support for a 600 MTPD Sulphuric Acid Plant, covering high-temperature and low-pressure piping, static equipment design, GA drawings, datasheets, P&IDs, plot plans, MTOs, vendor document review.
                     </p>
