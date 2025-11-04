@@ -124,7 +124,7 @@ const Projects = () => {
 
           <TabsContent value="engineering" className="space-y-6 relative">
             {/* Watermark */}
-            <div className="absolute inset-0 pointer-events-none opacity-5 bg-repeat" 
+            <div className="absolute inset-0 pointer-events-none opacity-15 bg-repeat" 
                  style={{
                    backgroundImage: `url(${oilPlantImage})`,
                    backgroundSize: '200px 200px',
@@ -134,15 +134,18 @@ const Projects = () => {
             
             <div className="grid md:grid-cols-2 gap-6 relative z-10">
               {/* Oil Plant Image Card */}
-              <Card className="hover:shadow-lg transition-shadow overflow-hidden">
-                <CardContent className="p-0">
+              <Card className="hover:shadow-lg transition-shadow overflow-hidden relative">
+                <CardContent className="p-0 relative">
                   <img 
                     src={oilPlantImage} 
                     alt="Oil Plant" 
-                    className="w-full h-64 object-cover"
+                    className="w-full h-full object-cover"
                   />
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-center">Oil Plant</h3>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent flex flex-col justify-end p-6">
+                    <h3 className="text-2xl font-bold text-white mb-2 bg-primary px-3 py-1 inline-block w-fit">Oil Plant</h3>
+                    <p className="text-white/90 text-sm">
+                      Detailed engineering and EPC support for a 600 MTPD Sulphuric Acid Plant, covering high-temperature and low-pressure piping, static equipment design, GA drawings, datasheets, P&IDs, plot plans, MTOs, vendor document review.
+                    </p>
                   </div>
                 </CardContent>
               </Card>
