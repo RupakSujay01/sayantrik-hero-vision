@@ -20,15 +20,28 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
           {/* Main Headline */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white glow-text">
-            Your Trusted Partner for Multi-discipline Engineering Excellence
+            Engineering Excellence. Global Delivery. Innovation Leadership.
           </h1>
 
           {/* Sub-headline */}
           <p className="text-xl md:text-2xl text-tech-silver max-w-3xl mx-auto leading-relaxed">
-            An emerging engineering consultancy delivering multi-discipline global and domestic services in Oil & Gas, Refinery, Petrochemicals, Chemicals, and Pharmaceutical industries.
+            Your Trusted Partner for Multi-discipline Engineering Excellence in Oil & Gas, Refinery, Petrochemicals, Chemicals and Pharmaceutical industries
           </p>
 
-          
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+            <Link to="/services">
+              <Button size="lg" className="group">
+                Explore Our Services
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button size="lg" variant="outline" className="bg-background/10 border-white/20 text-white hover:bg-white/20">
+                Get Quote
+              </Button>
+            </Link>
+          </div>
         </div>
 
         {/* Stats Banner (no glow) */}
@@ -36,20 +49,20 @@ const Hero = () => {
           <div className="container mx-auto px-6 py-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
               <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-bold text-primary">13</div>
-                <div className="text-xs md:text-sm text-muted-foreground font-medium">Years</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary">13+</div>
+                <div className="text-xs md:text-sm text-muted-foreground font-medium">Years of Excellence</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl md:text-4xl font-bold text-primary">250+</div>
-                <div className="text-xs md:text-sm text-muted-foreground font-medium">Projects</div>
+                <div className="text-xs md:text-sm text-muted-foreground font-medium">Projects Completed</div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-bold text-primary">1M</div>
-                <div className="text-xs md:text-sm text-muted-foreground font-medium">Manhours</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary">15+</div>
+                <div className="text-xs md:text-sm text-muted-foreground font-medium">Global Reach Countries</div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-bold text-primary">160</div>
-                <div className="text-xs md:text-sm text-muted-foreground font-medium">Employees</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary">160+</div>
+                <div className="text-xs md:text-sm text-muted-foreground font-medium">Expert Team Engineers</div>
               </div>
             </div>
           </div>
