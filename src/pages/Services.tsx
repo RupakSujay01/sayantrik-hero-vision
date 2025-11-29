@@ -5,10 +5,10 @@ const Services = () => {
     <main className="min-h-screen bg-background py-20">
       <div className="container mx-auto px-6">
         <div className="flex items-center gap-4 mb-8 animate-fade-in">
-          <div className="p-3 bg-primary/10 rounded-lg">
-            <Briefcase className="w-8 h-8 text-primary" />
+          <div className="p-3 bg-muted rounded-lg">
+            <Briefcase className="w-8 h-8 text-muted-foreground" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+          <h1 className="font-heading text-foreground">
             Our Services
           </h1>
         </div>
@@ -16,12 +16,12 @@ const Services = () => {
         {/* Oil & Gas - Onshore & Offshore */}
         <section id="oil-gas" className="mb-16 animate-fade-in scroll-mt-20">
           <div className="flex items-center gap-3 mb-6">
-            <Flame className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">
+            <Flame className="w-7 h-7 text-muted-foreground" />
+            <h2 className="font-heading text-foreground">
               Oil & Gas – Onshore & Offshore
             </h2>
           </div>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className="text-lg text-muted-foreground mb-8 font-medium">
             Sayantrik delivers full-scope engineering, digitalization, and revamp support for upstream and midstream Oil & Gas assets.
           </p>
 
@@ -30,7 +30,7 @@ const Services = () => {
             <div className="bg-card border border-border rounded-lg p-6">
               <h3 className="text-xl font-bold text-foreground mb-4">Onshore Units</h3>
               <ul className="space-y-2">
-                <li className="text-muted-foreground">• Gas–Oil Separation Plants (GOSP)</li>
+                <li className="text-muted-foreground font-medium">• Gas–Oil Separation Plants (GOSP)</li>
                 <li className="text-muted-foreground">• Early Production Facilities (EPF)</li>
                 <li className="text-muted-foreground">• Oil & Gas Gathering Stations</li>
                 <li className="text-muted-foreground">• Slug Catchers & Manifolds</li>
@@ -71,12 +71,12 @@ const Services = () => {
         {/* Refineries */}
         <section id="refineries" className="mb-16 animate-fade-in scroll-mt-20">
           <div className="flex items-center gap-3 mb-6">
-            <Factory className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">
+            <Factory className="w-7 h-7 text-muted-foreground" />
+            <h2 className="font-heading text-foreground">
               Refineries
             </h2>
           </div>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className="text-lg text-muted-foreground mb-8 font-medium">
             We engineer all primary processing, conversion, treating, and utility units of modern refineries.
           </p>
 
@@ -139,12 +139,12 @@ const Services = () => {
         {/* Petrochemical & Chemical Plants */}
         <section id="petrochemical" className="mb-16 animate-fade-in scroll-mt-20">
           <div className="flex items-center gap-3 mb-6">
-            <Building2 className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">
+            <Building2 className="w-7 h-7 text-muted-foreground" />
+            <h2 className="font-heading text-foreground">
               Petrochemical & Chemical Plants
             </h2>
           </div>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className="text-lg text-muted-foreground mb-8 font-medium">
             We support complex petrochemical, polymer, aromatics, and specialty chemical facilities.
           </p>
 
@@ -192,12 +192,12 @@ const Services = () => {
         {/* Fertilizer & Methanol Units */}
         <section id="fertilizer" className="mb-16 animate-fade-in scroll-mt-20">
           <div className="flex items-center gap-3 mb-6">
-            <Gauge className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">
+            <Gauge className="w-7 h-7 text-muted-foreground" />
+            <h2 className="font-heading text-foreground">
               Fertilizer & Methanol Units
             </h2>
           </div>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className="text-lg text-muted-foreground mb-8 font-medium">
             Complete engineering services for ammonia, urea, syngas and methanol complexes.
           </p>
 
@@ -242,12 +242,12 @@ const Services = () => {
         {/* Terminals & Tank Farms */}
         <section id="terminals" className="mb-16 animate-fade-in scroll-mt-20">
           <div className="flex items-center gap-3 mb-6">
-            <Database className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">
+            <Database className="w-7 h-7 text-muted-foreground" />
+            <h2 className="font-heading text-foreground">
               Terminals & Tank Farms
             </h2>
           </div>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className="text-lg text-muted-foreground mb-8 font-medium">
             Engineering support for petroleum product storage, distribution, and loading facilities.
           </p>
 
@@ -294,12 +294,12 @@ const Services = () => {
         {/* Utility & Offsite Systems */}
         <section id="utility" className="mb-16 animate-fade-in scroll-mt-20">
           <div className="flex items-center gap-3 mb-6">
-            <Wrench className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">
+            <Wrench className="w-7 h-7 text-muted-foreground" />
+            <h2 className="font-heading text-foreground">
               Utility & Offsite Systems
             </h2>
           </div>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className="text-lg text-muted-foreground mb-8 font-medium">
             Utilities are the backbone of every process plant — we engineer all utility and offsite facilities.
           </p>
 

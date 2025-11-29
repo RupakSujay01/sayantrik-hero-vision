@@ -19,12 +19,12 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 pt-6 md:pt-8 pb-40">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
           {/* Main Headline */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white glow-text">
+          <h1 className="font-heading leading-tight text-white glow-text">
             Engineering Excellence. Global Delivery. Innovation Leadership.
           </h1>
 
           {/* Sub-headline */}
-          <p className="text-xl md:text-2xl text-tech-silver max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-tech-silver max-w-3xl mx-auto leading-relaxed font-medium">
             Your Trusted Partner for Multi-discipline Engineering Excellence in Oil & Gas, Refinery, Petrochemicals, Chemicals and Pharmaceutical industries
           </p>
 
@@ -37,7 +37,7 @@ const Hero = () => {
               </Button>
             </Link>
             <Link to="/contact">
-              <Button size="lg" variant="outline" className="bg-background/10 border-white/20 text-white hover:bg-white/20">
+              <Button size="lg" variant="outline" className="bg-background/10 border-white/30 text-white hover:bg-white/20 font-semibold">
                 Get Quote
               </Button>
             </Link>
@@ -49,20 +49,20 @@ const Hero = () => {
           <div className="container mx-auto px-6 py-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
               <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-bold text-primary">13+</div>
-                <div className="text-xs md:text-sm text-muted-foreground font-medium">Years of Excellence</div>
+                <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">13+</div>
+                <div className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wide">Years of Excellence</div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-bold text-primary">250+</div>
-                <div className="text-xs md:text-sm text-muted-foreground font-medium">Projects Completed</div>
+                <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">250+</div>
+                <div className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wide">Projects Completed</div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-bold text-primary">15+</div>
-                <div className="text-xs md:text-sm text-muted-foreground font-medium">Global Reach Countries</div>
+                <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">15+</div>
+                <div className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wide">Global Reach Countries</div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-bold text-primary">160+</div>
-                <div className="text-xs md:text-sm text-muted-foreground font-medium">Expert Team Engineers</div>
+                <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">160+</div>
+                <div className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wide">Expert Team Engineers</div>
               </div>
             </div>
           </div>

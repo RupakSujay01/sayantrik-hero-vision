@@ -7,15 +7,15 @@ const About = () => {
         {/* Who We Are */}
         <section className="mb-16 animate-fade-in">
           <div className="flex items-center gap-4 mb-8">
-            <div className="p-3 bg-primary/10 rounded-lg">
-              <Building2 className="w-8 h-8 text-primary" />
+            <div className="p-3 bg-muted rounded-lg">
+              <Building2 className="w-8 h-8 text-muted-foreground" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+            <h1 className="font-heading text-foreground">
               Who We Are
             </h1>
           </div>
           <div className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary">
+            <h2 className="font-heading text-foreground">
               A story behind our company's growth
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -27,8 +27,8 @@ const About = () => {
         {/* Our Legacy */}
         <section className="mb-16 animate-fade-in">
           <div className="flex items-center gap-3 mb-6">
-            <Award className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            <Award className="w-7 h-7 text-muted-foreground" />
+            <h2 className="font-heading text-foreground">
               Our Legacy
             </h2>
           </div>
@@ -70,8 +70,8 @@ const About = () => {
         {/* What We Offer */}
         <section className="mb-16 animate-fade-in">
           <div className="flex items-center gap-3 mb-6">
-            <Target className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            <Target className="w-7 h-7 text-muted-foreground" />
+            <h2 className="font-heading text-foreground">
               What We Offer
             </h2>
           </div>
@@ -83,7 +83,7 @@ const About = () => {
         {/* Global Presence */}
         <section className="mb-16 animate-fade-in border border-border rounded-lg p-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="font-heading text-foreground mb-4">
               Global Presence
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -95,10 +95,10 @@ const About = () => {
             {/* Head Office - Hyderabad */}
             <div className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow">
               <div className="flex justify-between items-start mb-6">
-                <span className="text-sm font-medium text-muted-foreground">Head Office</span>
-                <Building2 className="w-5 h-5 text-primary" />
+                <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Head Office</span>
+                <Building2 className="w-5 h-5 text-muted-foreground" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Hyderabad, India</h3>
+              <h3 className="font-heading text-foreground mb-4">Hyderabad, India</h3>
               <p className="text-muted-foreground mb-4">
                 Plot no. 56, Opp Srikara Hospitals Lane, Mythrinagar, Madinaguda
               </p>
@@ -111,10 +111,10 @@ const About = () => {
             {/* Delivery Center - Mumbai */}
             <div className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow">
               <div className="flex justify-between items-start mb-6">
-                <span className="text-sm font-medium text-muted-foreground">Delivery Center</span>
-                <Building2 className="w-5 h-5 text-primary" />
+                <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Delivery Center</span>
+                <Building2 className="w-5 h-5 text-muted-foreground" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Mumbai, India</h3>
+              <h3 className="font-heading text-foreground mb-4">Mumbai, India</h3>
               <p className="text-muted-foreground mb-4">
                 Engineering support and project coordination
               </p>
@@ -127,10 +127,10 @@ const About = () => {
             {/* Delivery Center - Chennai */}
             <div className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow">
               <div className="flex justify-between items-start mb-6">
-                <span className="text-sm font-medium text-muted-foreground">Delivery Center</span>
-                <Building2 className="w-5 h-5 text-primary" />
+                <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Delivery Center</span>
+                <Building2 className="w-5 h-5 text-muted-foreground" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Chennai, India</h3>
+              <h3 className="font-heading text-foreground mb-4">Chennai, India</h3>
               <p className="text-muted-foreground mb-4">
                 Multi-discipline engineering services
               </p>
@@ -143,10 +143,10 @@ const About = () => {
             {/* Regional Office - Malaysia */}
             <div className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow">
               <div className="flex justify-between items-start mb-6">
-                <span className="text-sm font-medium text-muted-foreground">Regional Office</span>
-                <Building2 className="w-5 h-5 text-primary" />
+                <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Regional Office</span>
+                <Building2 className="w-5 h-5 text-muted-foreground" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Kuala Lumpur, Malaysia</h3>
+              <h3 className="font-heading text-foreground mb-4">Kuala Lumpur, Malaysia</h3>
               <p className="text-muted-foreground mb-4">
                 Business development and client interface
               </p>
@@ -161,36 +161,36 @@ const About = () => {
         {/* Leadership */}
         <section className="animate-fade-in">
           <div className="flex items-center gap-3 mb-6">
-            <Users className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            <Users className="w-7 h-7 text-muted-foreground" />
+            <h2 className="font-heading text-foreground">
               Leadership Team
             </h2>
           </div>
           <div className="bg-card border border-border rounded-lg p-8">
-            <h3 className="text-2xl font-bold text-primary mb-4">Organization Chart</h3>
+            <h3 className="font-heading text-foreground mb-4">Organization Chart</h3>
             <p className="text-muted-foreground mb-6">
               Our leadership team brings decades of combined experience in engineering excellence and project delivery. They guide our strategic vision and ensure we maintain the highest standards of quality and innovation.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="text-center p-6 bg-secondary/50 rounded-lg">
-                <div className="w-20 h-20 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Users className="w-10 h-10 text-primary" />
+                <div className="w-20 h-20 bg-muted rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Users className="w-10 h-10 text-muted-foreground" />
                 </div>
-                <h4 className="text-lg font-semibold text-foreground mb-2">Executive Leadership</h4>
+                <h4 className="text-lg font-bold text-foreground mb-2">Executive Leadership</h4>
                 <p className="text-sm text-muted-foreground">Strategic direction and company vision</p>
               </div>
               <div className="text-center p-6 bg-secondary/50 rounded-lg">
-                <div className="w-20 h-20 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Award className="w-10 h-10 text-primary" />
+                <div className="w-20 h-20 bg-muted rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Award className="w-10 h-10 text-muted-foreground" />
                 </div>
-                <h4 className="text-lg font-semibold text-foreground mb-2">Technical Directors</h4>
+                <h4 className="text-lg font-bold text-foreground mb-2">Technical Directors</h4>
                 <p className="text-sm text-muted-foreground">Engineering excellence and innovation</p>
               </div>
               <div className="text-center p-6 bg-secondary/50 rounded-lg">
-                <div className="w-20 h-20 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Target className="w-10 h-10 text-primary" />
+                <div className="w-20 h-20 bg-muted rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Target className="w-10 h-10 text-muted-foreground" />
                 </div>
-                <h4 className="text-lg font-semibold text-foreground mb-2">Project Leaders</h4>
+                <h4 className="text-lg font-bold text-foreground mb-2">Project Leaders</h4>
                 <p className="text-sm text-muted-foreground">Project delivery and client success</p>
               </div>
             </div>
