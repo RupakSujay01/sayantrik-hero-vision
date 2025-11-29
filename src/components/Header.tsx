@@ -36,7 +36,12 @@ const Header = () => {
       {
         title: "Engineering Services",
         items: [
-          { icon: Gauge, label: "Speciality chemicals" },
+          { icon: Flame, label: "Oil & Gas", subItems: ["Onshore", "Offshore"] },
+          { icon: Factory, label: "Refineries" },
+          { icon: Building2, label: "Petrochemical & Chemical Plants" },
+          { icon: Gauge, label: "Fertilizer & Methanol Units" },
+          { icon: Database, label: "Terminals & Tank Farms" },
+          { icon: Wrench, label: "Utility & Offsite Systems" },
         ]
       },
       {
