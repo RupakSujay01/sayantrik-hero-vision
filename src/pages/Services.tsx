@@ -92,24 +92,6 @@ const Services = () => {
           </div>
         </section>
 
-        {/* Customer-Centric Approach */}
-        <section className="animate-fade-in bg-card border border-border rounded-lg p-8">
-          <div className="flex items-center gap-3 mb-6">
-            <Users className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Our Customer-Centric Approach
-            </h2>
-          </div>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            At Sayantrik Engineer, we prioritize building robust partnerships with our clients. We believe in open communication and collaboration throughout every project. Our customer-centric approach ensures that we thoroughly understand your requirements and work closely with you to achieve optimal results.
-          </p>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            Thank you for visiting our website. We invite you to explore the wealth of information about our services and the expertise we bring to the table. When you partner with Sayantrik Engineer India Pvt Ltd, you're partnering with excellence in engineering.
-          </p>
-          <p className="text-xl font-bold text-primary text-center">
-            Engineering Excellence, Trusted Partnerships, Lasting Success.
-          </p>
-        </section>
       </div>
     </main>
   );
