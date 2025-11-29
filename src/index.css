@@ -11,10 +11,10 @@ All colors MUST be HSL.
     --background: 0 0% 10%;
     --foreground: 0 0% 98%;
 
-    --card: 0 0% 12%;
+    --card: 0 0% 14%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 12%;
+    --popover: 0 0% 14%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 180 100% 50%;
@@ -24,7 +24,7 @@ All colors MUST be HSL.
     --secondary-foreground: 0 0% 98%;
 
     --muted: 0 0% 8%;
-    --muted-foreground: 0 0% 35%;
+    --muted-foreground: 0 0% 75%;
 
     --accent: 180 100% 50%;
     --accent-foreground: 0 0% 0%;
@@ -41,7 +41,7 @@ All colors MUST be HSL.
     /* Corporate Engineering Colors */
     --corporate-blue: 180 100% 50%;
     --corporate-blue-dark: 180 100% 45%;
-    --tech-silver: 0 0% 30%;
+    --tech-silver: 0 0% 85%;
     --deep-space: 0 0% 10%;
     --glow-blue: 180 100% 60%;
     
