@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useRef, useState } from "react";
 import { 
@@ -149,16 +149,13 @@ const Header = () => {
               >
                 <Link
                   to={item.path}
-                  className={`text-sm font-medium transition-all duration-300 hover:text-primary inline-flex items-center gap-1 relative pb-1 ${
+                  className={`text-sm font-medium transition-all duration-300 hover:text-primary inline-flex items-center relative pb-1 ${
                     isActive(item.path)
                       ? "text-primary"
                       : "text-muted-foreground"
                   }`}
                 >
                   {item.label}
-                  {item.hasDropdown && (
-                    <ChevronDown className="h-4 w-4" />
-                  )}
                   {/* Animated underline */}
                   <span 
                     className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
