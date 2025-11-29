@@ -186,9 +186,9 @@ const Header = () => {
                                     <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-500 ease-out">
                                       {subItem.label}
                                     </p>
-                                    {subItem.subItems && (
+                                    {'subItems' in subItem && subItem.subItems && Array.isArray(subItem.subItems) && (
                                       <ul className="mt-2 ml-4 list-disc text-xs text-muted-foreground space-y-1 cursor-default select-none">
-                                        {subItem.subItems.map((s: string, i: number) => (
+                                        {(subItem.subItems as string[]).map((s: string, i: number) => (
                                           <li key={i} className="cursor-default select-none">{s}</li>
                                         ))}
                                       </ul>
