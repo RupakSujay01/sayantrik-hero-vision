@@ -40,28 +40,28 @@ const About = () => {
           <div className="bg-card border border-border rounded-lg p-8 overflow-x-auto">
             <div className="grid grid-cols-2 md:grid-cols-6 gap-6 min-w-max">
               <div className="text-center space-y-2">
-                <div className="text-2xl font-bold text-primary">2012</div>
-                <p className="text-sm text-muted-foreground">Establishment of Sayantrik</p>
+                <div className="text-2xl font-bold text-foreground">2012</div>
+                <p className="text-sm text-muted-foreground font-medium">Establishment of Sayantrik</p>
               </div>
               <div className="text-center space-y-2">
-                <div className="text-2xl font-bold text-primary">2013</div>
-                <p className="text-sm text-muted-foreground">First International work order</p>
+                <div className="text-2xl font-bold text-foreground">2013</div>
+                <p className="text-sm text-muted-foreground font-medium">First International work order</p>
               </div>
               <div className="text-center space-y-2">
-                <div className="text-2xl font-bold text-primary">2018</div>
-                <p className="text-sm text-muted-foreground">First Global office in India</p>
+                <div className="text-2xl font-bold text-foreground">2018</div>
+                <p className="text-sm text-muted-foreground font-medium">First Global office in India</p>
               </div>
               <div className="text-center space-y-2">
-                <div className="text-2xl font-bold text-primary">2020</div>
-                <p className="text-sm text-muted-foreground">First Branch</p>
+                <div className="text-2xl font-bold text-foreground">2020</div>
+                <p className="text-sm text-muted-foreground font-medium">First Branch</p>
               </div>
               <div className="text-center space-y-2">
-                <div className="text-2xl font-bold text-primary">2022</div>
-                <p className="text-sm text-muted-foreground">500000 manhours milestone</p>
+                <div className="text-2xl font-bold text-foreground">2022</div>
+                <p className="text-sm text-muted-foreground font-medium">500000 manhours milestone</p>
               </div>
               <div className="text-center space-y-2">
-                <div className="text-2xl font-bold text-primary">2023</div>
-                <p className="text-sm text-muted-foreground">Entry into Green H2 market</p>
+                <div className="text-2xl font-bold text-foreground">2023</div>
+                <p className="text-sm text-muted-foreground font-medium">Entry into Green H2 market</p>
               </div>
             </div>
           </div>
@@ -93,64 +93,64 @@ const About = () => {
           
           <div className="grid md:grid-cols-2 gap-6">
             {/* Head Office - Hyderabad */}
-            <div className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow">
+            <div className="bg-card border-2 border-border rounded-lg p-8 hover:shadow-lg hover:border-border transition-all">
               <div className="flex justify-between items-start mb-6">
-                <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Head Office</span>
+                <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Head Office</span>
                 <Building2 className="w-5 h-5 text-muted-foreground" />
               </div>
               <h3 className="font-heading text-foreground mb-4">Hyderabad, India</h3>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 leading-relaxed">
                 Plot no. 56, Opp Srikara Hospitals Lane, Mythrinagar, Madinaguda
               </p>
-              <div className="flex items-center gap-2 text-foreground font-medium">
+              <div className="flex items-center gap-2 text-primary font-semibold">
                 <Users className="w-4 h-4" />
                 <span>120+ Engineers</span>
               </div>
             </div>
 
             {/* Delivery Center - Mumbai */}
-            <div className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow">
+            <div className="bg-card border-2 border-border rounded-lg p-8 hover:shadow-lg hover:border-border transition-all">
               <div className="flex justify-between items-start mb-6">
-                <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Delivery Center</span>
+                <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Delivery Center</span>
                 <Building2 className="w-5 h-5 text-muted-foreground" />
               </div>
               <h3 className="font-heading text-foreground mb-4">Mumbai, India</h3>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 leading-relaxed">
                 Engineering support and project coordination
               </p>
-              <div className="flex items-center gap-2 text-foreground font-medium">
+              <div className="flex items-center gap-2 text-primary font-semibold">
                 <Users className="w-4 h-4" />
                 <span>25+ Engineers</span>
               </div>
             </div>
 
             {/* Delivery Center - Chennai */}
-            <div className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow">
+            <div className="bg-card border-2 border-border rounded-lg p-8 hover:shadow-lg hover:border-border transition-all">
               <div className="flex justify-between items-start mb-6">
-                <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Delivery Center</span>
+                <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Delivery Center</span>
                 <Building2 className="w-5 h-5 text-muted-foreground" />
               </div>
               <h3 className="font-heading text-foreground mb-4">Chennai, India</h3>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 leading-relaxed">
                 Multi-discipline engineering services
               </p>
-              <div className="flex items-center gap-2 text-foreground font-medium">
+              <div className="flex items-center gap-2 text-primary font-semibold">
                 <Users className="w-4 h-4" />
                 <span>15+ Engineers</span>
               </div>
             </div>
 
             {/* Regional Office - Malaysia */}
-            <div className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow">
+            <div className="bg-card border-2 border-border rounded-lg p-8 hover:shadow-lg hover:border-border transition-all">
               <div className="flex justify-between items-start mb-6">
-                <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Regional Office</span>
+                <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Regional Office</span>
                 <Building2 className="w-5 h-5 text-muted-foreground" />
               </div>
               <h3 className="font-heading text-foreground mb-4">Kuala Lumpur, Malaysia</h3>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 leading-relaxed">
                 Business development and client interface
               </p>
-              <div className="flex items-center gap-2 text-foreground font-medium">
+              <div className="flex items-center gap-2 text-primary font-semibold">
                 <Users className="w-4 h-4" />
                 <span>5+ Engineers</span>
               </div>
