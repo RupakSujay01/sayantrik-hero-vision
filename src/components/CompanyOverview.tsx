@@ -37,22 +37,22 @@ const CompanyOverview = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Downstream Refining */}
-          <Link to="/services" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-pointer">
+          <Link to="/services#comprehensive-engineering" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-pointer">
             <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Downstream Refining</h3>
           </Link>
 
           {/* Midstream Processing */}
-          <Link to="/services" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-pointer">
+          <Link to="/services#comprehensive-engineering" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-pointer">
             <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Midstream Processing</h3>
           </Link>
 
           {/* Upstream Production */}
-          <Link to="/services" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-pointer">
+          <Link to="/services#comprehensive-engineering" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-pointer">
             <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Upstream Production</h3>
           </Link>
 
           {/* Energy & Sustainability */}
-          <Link to="/services" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-pointer">
+          <Link to="/services#comprehensive-engineering" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-pointer">
             <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Energy & Sustainability</h3>
           </Link>
         </div>
