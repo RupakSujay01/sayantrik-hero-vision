@@ -149,7 +149,7 @@ const Header = () => {
               >
                 <Link
                   to={item.path}
-                  className={`text-sm font-medium transition-all duration-300 hover:text-primary inline-flex items-center gap-1 ${
+                  className={`text-sm font-medium transition-all duration-300 hover:text-primary inline-flex items-center gap-1 relative pb-1 ${
                     isActive(item.path)
                       ? "text-primary"
                       : "text-muted-foreground"
@@ -157,12 +157,16 @@ const Header = () => {
                 >
                   {item.label}
                   {item.hasDropdown && (
-                    <ChevronDown 
-                      className={`h-4 w-4 transition-transform duration-500 ease-out ${
-                        hoveredMenu === item.label ? 'rotate-180' : ''
-                      }`}
-                    />
+                    <ChevronDown className="h-4 w-4" />
                   )}
+                  {/* Animated underline */}
+                  <span 
+                    className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                      isActive(item.path) || hoveredMenu === item.label
+                        ? 'w-full'
+                        : 'w-0'
+                    }`}
+                  />
                 </Link>
 
                 {/* Mega Menu Dropdown */}
