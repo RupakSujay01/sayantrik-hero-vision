@@ -82,41 +82,78 @@ const About = () => {
 
         {/* Global Presence */}
         <section className="mb-16 animate-fade-in">
-          <div className="flex items-center gap-3 mb-6">
-            <Building2 className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Global Presence
             </h2>
+            <p className="text-lg text-muted-foreground">
+              Strategic offices and delivery centers across multiple regions
+            </p>
           </div>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Based in India, we operate from strategic offices in Hyderabad (head office), delivery centres in Hyderabad, Mumbai, and Chennai with a representation office in Malaysia and a subsidiary company "C&C Engineering INC" in USA. With over a decade of experience in Engineering Consultancy Services, we are proud to be a part of the industry's landscape for the past 13+ years. Our dedicated team comprises more than 200 permanent resources, bringing their expertise to every project we undertake.
-          </p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-primary mb-3">India Operations</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• Hyderabad (Head Office)</li>
-                <li>• Mumbai (Delivery Centre)</li>
-                <li>• Chennai (Delivery Centre)</li>
-              </ul>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Head Office - Hyderabad */}
+            <div className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow">
+              <div className="flex justify-between items-start mb-6">
+                <span className="text-sm font-medium text-muted-foreground">Head Office</span>
+                <Building2 className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Hyderabad, India</h3>
+              <p className="text-muted-foreground mb-4">
+                Plot no. 56, Opp Srikara Hospitals Lane, Mythrinagar, Madinaguda
+              </p>
+              <div className="flex items-center gap-2 text-foreground font-medium">
+                <Users className="w-4 h-4" />
+                <span>120+ Engineers</span>
+              </div>
             </div>
-            
-            <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-primary mb-3">International Presence</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• Malaysia (Representation Office)</li>
-                <li>• USA (C&C Engineering INC)</li>
-              </ul>
+
+            {/* Delivery Center - Mumbai */}
+            <div className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow">
+              <div className="flex justify-between items-start mb-6">
+                <span className="text-sm font-medium text-muted-foreground">Delivery Center</span>
+                <Building2 className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Mumbai, India</h3>
+              <p className="text-muted-foreground mb-4">
+                Engineering support and project coordination
+              </p>
+              <div className="flex items-center gap-2 text-foreground font-medium">
+                <Users className="w-4 h-4" />
+                <span>25+ Engineers</span>
+              </div>
             </div>
-            
-            <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-primary mb-3">Our Strength</h3>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• 200+ Permanent Resources</li>
-                <li>• 13+ Years of Experience</li>
-                <li>• 15+ Countries Reach</li>
-              </ul>
+
+            {/* Delivery Center - Chennai */}
+            <div className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow">
+              <div className="flex justify-between items-start mb-6">
+                <span className="text-sm font-medium text-muted-foreground">Delivery Center</span>
+                <Building2 className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Chennai, India</h3>
+              <p className="text-muted-foreground mb-4">
+                Multi-discipline engineering services
+              </p>
+              <div className="flex items-center gap-2 text-foreground font-medium">
+                <Users className="w-4 h-4" />
+                <span>15+ Engineers</span>
+              </div>
+            </div>
+
+            {/* Regional Office - Malaysia */}
+            <div className="bg-card border border-border rounded-lg p-8 hover:shadow-lg transition-shadow">
+              <div className="flex justify-between items-start mb-6">
+                <span className="text-sm font-medium text-muted-foreground">Regional Office</span>
+                <Building2 className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Kuala Lumpur, Malaysia</h3>
+              <p className="text-muted-foreground mb-4">
+                Business development and client interface
+              </p>
+              <div className="flex items-center gap-2 text-foreground font-medium">
+                <Users className="w-4 h-4" />
+                <span>5+ Engineers</span>
+              </div>
             </div>
           </div>
         </section>
