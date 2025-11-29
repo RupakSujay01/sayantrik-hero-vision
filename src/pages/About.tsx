@@ -80,29 +80,6 @@ const About = () => {
           </p>
         </section>
 
-        {/* We Support */}
-        <section className="mb-16 animate-fade-in">
-          <div className="flex items-center gap-3 mb-6">
-            <Users className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              We Support
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              "Owner operators",
-              "EPC",
-              "Technology providers",
-              "Engineering consultants",
-              "Piping and Steel Fabricators"
-            ].map((item, index) => (
-              <div key={index} className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-                <p className="text-lg font-medium text-foreground">{item}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Leadership */}
         <section className="animate-fade-in">
           <div className="flex items-center gap-3 mb-6">
