@@ -80,6 +80,47 @@ const About = () => {
           </p>
         </section>
 
+        {/* Global Presence */}
+        <section className="mb-16 animate-fade-in">
+          <div className="flex items-center gap-3 mb-6">
+            <Building2 className="w-7 h-7 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Global Presence
+            </h2>
+          </div>
+          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+            Based in India, we operate from strategic offices in Hyderabad (head office), delivery centres in Hyderabad, Mumbai, and Chennai with a representation office in Malaysia and a subsidiary company "C&C Engineering INC" in USA. With over a decade of experience in Engineering Consultancy Services, we are proud to be a part of the industry's landscape for the past 13+ years. Our dedicated team comprises more than 200 permanent resources, bringing their expertise to every project we undertake.
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold text-primary mb-3">India Operations</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>• Hyderabad (Head Office)</li>
+                <li>• Mumbai (Delivery Centre)</li>
+                <li>• Chennai (Delivery Centre)</li>
+              </ul>
+            </div>
+            
+            <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold text-primary mb-3">International Presence</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>• Malaysia (Representation Office)</li>
+                <li>• USA (C&C Engineering INC)</li>
+              </ul>
+            </div>
+            
+            <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <h3 className="text-xl font-bold text-primary mb-3">Our Strength</h3>
+              <ul className="space-y-2 text-muted-foreground">
+                <li>• 200+ Permanent Resources</li>
+                <li>• 13+ Years of Experience</li>
+                <li>• 15+ Countries Reach</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Leadership */}
         <section className="animate-fade-in">
           <div className="flex items-center gap-3 mb-6">
