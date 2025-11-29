@@ -85,7 +85,6 @@ const Header = () => {
         items: [
           { icon: Building2, label: "Who We Are", description: "Our story and values" },
           { icon: Lightbulb, label: "Our Vision", description: "Future aspirations" },
-          { icon: Shield, label: "Quality & Safety", description: "Our commitments" },
         ]
       },
       {
