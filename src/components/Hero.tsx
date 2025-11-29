@@ -31,13 +31,13 @@ const Hero = () => {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Link to="/services">
-              <Button size="lg" className="group">
+              <Button size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
                 Explore Our Services
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link to="/contact">
-              <Button size="lg" variant="outline" className="bg-background/10 border-white/30 text-white hover:bg-white/20 font-semibold">
+              <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-background font-semibold">
                 Get Quote
               </Button>
             </Link>

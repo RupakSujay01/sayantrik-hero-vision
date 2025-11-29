@@ -37,23 +37,23 @@ const CompanyOverview = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Downstream Refining */}
-          <Link to="/services#comprehensive-engineering" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/50 transition-all duration-300 cursor-pointer">
-            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Downstream Refining</h3>
+          <Link to="/services#comprehensive-engineering" className="group bg-card border-2 border-border rounded-lg p-6 hover:shadow-xl hover:border-primary transition-all duration-300 cursor-pointer">
+            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">Downstream Refining</h3>
           </Link>
 
           {/* Midstream Processing */}
-          <Link to="/services#comprehensive-engineering" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/50 transition-all duration-300 cursor-pointer">
-            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Midstream Processing</h3>
+          <Link to="/services#comprehensive-engineering" className="group bg-card border-2 border-border rounded-lg p-6 hover:shadow-xl hover:border-primary transition-all duration-300 cursor-pointer">
+            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">Midstream Processing</h3>
           </Link>
 
           {/* Upstream Production */}
-          <Link to="/services#comprehensive-engineering" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/50 transition-all duration-300 cursor-pointer">
-            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Upstream Production</h3>
+          <Link to="/services#comprehensive-engineering" className="group bg-card border-2 border-border rounded-lg p-6 hover:shadow-xl hover:border-primary transition-all duration-300 cursor-pointer">
+            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">Upstream Production</h3>
           </Link>
 
           {/* Energy & Sustainability */}
-          <Link to="/services#comprehensive-engineering" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/50 transition-all duration-300 cursor-pointer">
-            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Energy & Sustainability</h3>
+          <Link to="/services#comprehensive-engineering" className="group bg-card border-2 border-border rounded-lg p-6 hover:shadow-xl hover:border-primary transition-all duration-300 cursor-pointer">
+            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">Energy & Sustainability</h3>
           </Link>
         </div>
       </div>
