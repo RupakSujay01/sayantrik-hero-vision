@@ -34,22 +34,20 @@ const Header = () => {
   const servicesDropdown = {
     sections: [
       {
-        title: "Pre-Bid Engineering Services",
+        title: "Engineering Services",
         items: [
-          { icon: Flame, label: "Oil & Gas", subItems: ["Onshore", "Offshore"] },
-          { icon: Factory, label: "Refinery" },
-          { icon: Building2, label: "Petrochem" },
-          { icon: Lightbulb, label: "Chem" },
-          { icon: Gauge, label: "Renewable" },
+          { icon: Gauge, label: "Speciality chemicals" },
         ]
       },
       {
         title: "Specialized Services",
         items: [
-          { icon: Wrench, label: "As-Built Services" },
+          { icon: Wrench, label: "Pre-bid Eng Services" },
+          { icon: Factory, label: "Pharmaceutical" },
+          { icon: Wrench, label: "Lazer Sanning" },
           { 
             icon: Shield, 
-            label: "Engineering Disciplines"
+            label: "PSV Adequecy check"
           }
         ]
       }
