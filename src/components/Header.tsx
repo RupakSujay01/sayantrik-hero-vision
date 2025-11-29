@@ -36,20 +36,20 @@ const Header = () => {
       {
         title: "Engineering Services",
         items: [
-          { icon: Flame, label: "Oil & Gas", subItems: ["Onshore", "Offshore"] },
-          { icon: Factory, label: "Refineries" },
-          { icon: Building2, label: "Petrochemical & Chemical Plants" },
-          { icon: Gauge, label: "Fertilizer & Methanol Units" },
-          { icon: Database, label: "Terminals & Tank Farms" },
-          { icon: Wrench, label: "Utility & Offsite Systems" },
+          { icon: Flame, label: "Oil & Gas", link: "/services#oil-gas" },
+          { icon: Factory, label: "Refineries", link: "/services#refineries" },
+          { icon: Building2, label: "Petrochemical & Chemical Plants", link: "/services#petrochemical" },
+          { icon: Gauge, label: "Fertilizer & Methanol Units", link: "/services#fertilizer" },
+          { icon: Database, label: "Terminals & Tank Farms", link: "/services#terminals" },
+          { icon: Wrench, label: "Utility & Offsite Systems", link: "/services#utility" },
         ]
       },
-      {
+      {n
         title: "Specialized Services",
         items: [
           { icon: Wrench, label: "Pre-bid Eng Services" },
           { icon: Factory, label: "Pharmaceutical" },
-          { icon: Wrench, label: "Lazer Sanning" },
+          { icon: Wrench, label: "Laser Scanning" },
           { 
             icon: Shield, 
             label: "PSV Adequecy check"
@@ -176,26 +176,47 @@ const Header = () => {
                               {section.title}
                             </h3>
                             <div className="space-y-2">
-                              {section.items.map((subItem, subIdx) => (
-                                <div
-                                  key={subIdx}
-                                  className="group flex items-start gap-3 p-3 rounded-md transition-all duration-500 ease-out hover:bg-secondary/50 cursor-default select-none"
-                                >
-                                  <subItem.icon className="h-5 w-5 text-primary mt-0.5 transition-transform duration-500 ease-out group-hover:scale-110" />
-                                  <div className="flex-1">
-                                    <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-500 ease-out">
-                                      {subItem.label}
-                                    </p>
-                                    {'subItems' in subItem && subItem.subItems && Array.isArray(subItem.subItems) && (
-                                      <ul className="mt-2 ml-4 list-disc text-xs text-muted-foreground space-y-1 cursor-default select-none">
-                                        {(subItem.subItems as string[]).map((s: string, i: number) => (
-                                          <li key={i} className="cursor-default select-none">{s}</li>
-                                        ))}
-                                      </ul>
-                                    )}
+                              {section.items.map((subItem, subIdx) => {
+                                const content = (
+                                  <>
+                                    <subItem.icon className="h-5 w-5 text-primary mt-0.5 transition-transform duration-500 ease-out group-hover:scale-110" />
+                                    <div className="flex-1">
+                                      <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-500 ease-out">
+                                        {subItem.label}
+                                      </p>
+                                      {'subItems' in subItem && subItem.subItems && Array.isArray(subItem.subItems) && (
+                                        <ul className="mt-2 ml-4 list-disc text-xs text-muted-foreground space-y-1 cursor-default select-none">
+                                          {(subItem.subItems as string[]).map((s: string, i: number) => (
+                                            <li key={i} className="cursor-default select-none">{s}</li>
+                                          ))}
+                                        </ul>
+                                      )}
+                                    </div>
+                                  </>
+                                );
+
+                                if ('link' in subItem && subItem.link) {
+                                  return (
+                                    <Link
+                                      key={subIdx}
+                                      to={subItem.link}
+                                      onClick={() => setHoveredMenu(null)}
+                                      className="group flex items-start gap-3 p-3 rounded-md transition-all duration-500 ease-out hover:bg-secondary/50 cursor-pointer select-none no-underline"
+                                    >
+                                      {content}
+                                    </Link>
+                                  );
+                                }
+
+                                return (
+                                  <div
+                                    key={subIdx}
+                                    className="group flex items-start gap-3 p-3 rounded-md transition-all duration-500 ease-out hover:bg-secondary/50 cursor-default select-none"
+                                  >
+                                    {content}
                                   </div>
-                                </div>
-                              ))}
+                                );
+                              })}
                             </div>
                           </div>
                         ))}
