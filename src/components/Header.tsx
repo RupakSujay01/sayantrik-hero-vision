@@ -151,11 +151,7 @@ const Header = () => {
               >
                 <Link
                   to={item.path}
-                  className={`text-sm font-medium transition-all duration-300 hover:text-primary inline-flex items-center relative pb-1 ${
-                    isActive(item.path)
-                      ? "text-primary"
-                      : "text-muted-foreground"
-                  }`}
+                  className={`text-sm font-medium transition-all duration-300 hover:text-primary inline-flex items-center relative pb-1 text-black`}
                 >
                   {item.label}
                   {/* Animated underline */}
@@ -250,11 +246,7 @@ const Header = () => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block py-2 text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(item.path)
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                }`}
+                className={`block py-2 text-sm font-medium transition-colors hover:text-primary text-black`}
               >
                 {item.label}
               </Link>
