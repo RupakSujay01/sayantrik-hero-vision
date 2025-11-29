@@ -37,68 +37,24 @@ const CompanyOverview = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Downstream Refining */}
-          <div className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-            <h3 className="text-xl font-bold text-foreground mb-3">Downstream Refining</h3>
-            <p className="text-muted-foreground mb-4">
-              Complete process engineering for refinery operations, catalytic processes, and petrochemical manufacturing.
-            </p>
-            <ul className="space-y-2 mb-4">
-              <li className="text-sm text-muted-foreground">• Crude Oil Processing</li>
-              <li className="text-sm text-muted-foreground">• Catalytic Cracking</li>
-              <li className="text-sm text-muted-foreground">• Product Upgrading</li>
-            </ul>
-            <Link to="/services" className="text-primary hover:underline text-sm font-medium">
-              Learn More →
-            </Link>
-          </div>
+          <Link to="/services" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-pointer">
+            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Downstream Refining</h3>
+          </Link>
 
           {/* Midstream Processing */}
-          <div className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-            <h3 className="text-xl font-bold text-foreground mb-3">Midstream Processing</h3>
-            <p className="text-muted-foreground mb-4">
-              Comprehensive natural gas processing, transportation, and LNG/LPG systems engineering.
-            </p>
-            <ul className="space-y-2 mb-4">
-              <li className="text-sm text-muted-foreground">• Gas Treatment</li>
-              <li className="text-sm text-muted-foreground">• NGL Recovery</li>
-              <li className="text-sm text-muted-foreground">• Pipeline Systems</li>
-            </ul>
-            <Link to="/services" className="text-primary hover:underline text-sm font-medium">
-              Learn More →
-            </Link>
-          </div>
+          <Link to="/services" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-pointer">
+            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Midstream Processing</h3>
+          </Link>
 
           {/* Upstream Production */}
-          <div className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-            <h3 className="text-xl font-bold text-foreground mb-3">Upstream Production</h3>
-            <p className="text-muted-foreground mb-4">
-              Innovative solutions for oil & gas production optimization, EOR systems, and offshore platforms.
-            </p>
-            <ul className="space-y-2 mb-4">
-              <li className="text-sm text-muted-foreground">• Production Systems</li>
-              <li className="text-sm text-muted-foreground">• Enhanced Oil Recovery</li>
-              <li className="text-sm text-muted-foreground">• Platform Engineering</li>
-            </ul>
-            <Link to="/services" className="text-primary hover:underline text-sm font-medium">
-              Learn More →
-            </Link>
-          </div>
+          <Link to="/services" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-pointer">
+            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Upstream Production</h3>
+          </Link>
 
           {/* Energy & Sustainability */}
-          <div className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-            <h3 className="text-xl font-bold text-foreground mb-3">Energy & Sustainability</h3>
-            <p className="text-muted-foreground mb-4">
-              Leading clean energy transition with green hydrogen, carbon capture, and sustainable aviation fuel.
-            </p>
-            <ul className="space-y-2 mb-4">
-              <li className="text-sm text-muted-foreground">• Green Hydrogen</li>
-              <li className="text-sm text-muted-foreground">• Carbon Capture</li>
-              <li className="text-sm text-muted-foreground">• Renewable Integration</li>
-            </ul>
-            <Link to="/services" className="text-primary hover:underline text-sm font-medium">
-              Learn More →
-            </Link>
-          </div>
+          <Link to="/services" className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-pointer">
+            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">Energy & Sustainability</h3>
+          </Link>
         </div>
       </div>
     </section>
