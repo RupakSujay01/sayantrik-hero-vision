@@ -81,7 +81,7 @@ const About = () => {
         </section>
 
         {/* Global Presence */}
-        <section className="mb-16 animate-fade-in">
+        <section className="mb-16 animate-fade-in border border-border rounded-lg p-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Global Presence
