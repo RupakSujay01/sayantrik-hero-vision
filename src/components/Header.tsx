@@ -49,15 +49,7 @@ const Header = () => {
           { icon: Wrench, label: "As-Built Services" },
           { 
             icon: Shield, 
-            label: "Engineering Disciplines:", 
-            subItems: [
-              "Process Engineering",
-              "Mechanical (Static)",
-              "Mechanical (Rotatory)",
-              "Piping",
-              "Civil",
-              "Structural"
-            ]
+            label: "Engineering Disciplines"
           }
         ]
       }
