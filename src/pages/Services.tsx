@@ -14,7 +14,7 @@ const Services = () => {
         </div>
 
         {/* Comprehensive Engineering Solutions */}
-        <section className="mb-16 animate-fade-in">
+        <section id="comprehensive-engineering" className="mb-16 animate-fade-in scroll-mt-20">
           <div className="text-center mb-12 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
               Comprehensive Engineering Solutions
