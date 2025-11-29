@@ -123,7 +123,7 @@ const Header = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <img src={logo} alt="Sayantrik Engineer India Logo" className="h-10 w-10 object-contain bg-transparent" />
+            <img src={logo} alt="Sayantrik Engineer India Logo" className="h-10 w-10 object-contain" />
             <span className="text-xl md:text-2xl font-bold text-black">
               Sayantrik Engineer India Pvt Ltd
             </span>
@@ -175,7 +175,7 @@ const Header = () => {
                       <div className="grid grid-cols-2 gap-6">
                         {getDropdownContent(item.label)?.sections.map((section, idx) => (
                           <div key={idx}>
-                            <h3 className="text-sm font-semibold text-black mb-4 pb-2 border-b border-border">
+                            <h3 className="text-sm font-semibold text-foreground mb-4 pb-2 border-b border-border">
                               {section.title}
                             </h3>
                             <div className="space-y-2">
