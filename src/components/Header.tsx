@@ -14,6 +14,7 @@ import {
   Users,
   Award
 } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -117,12 +118,13 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/90 shadow-sm">
       <div className="container mx-auto px-6">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <span className="text-xl md:text-2xl font-bold text-primary">
+          <Link to="/" className="flex items-center space-x-3">
+            <img src={logo} alt="Sayantrik Engineer India Logo" className="h-10 w-10 object-contain" />
+            <span className="text-xl md:text-2xl font-bold text-black">
               Sayantrik Engineer India Pvt Ltd
             </span>
           </Link>
