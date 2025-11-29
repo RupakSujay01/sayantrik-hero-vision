@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { 
   Building2, 
   Gauge, 
@@ -15,13 +15,31 @@ import {
   Award
 } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { removeBackground, loadImageFromUrl } from "@/utils/removeBackground";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
+  const [logoUrl, setLogoUrl] = useState<string>(logo);
   const hoverOpenTimeoutRef = useRef<number | null>(null);
   const hoverCloseTimeoutRef = useRef<number | null>(null);
   const location = useLocation();
+
+  useEffect(() => {
+    const processLogo = async () => {
+      try {
+        const img = await loadImageFromUrl(logo);
+        const blob = await removeBackground(img);
+        const url = URL.createObjectURL(blob);
+        setLogoUrl(url);
+      } catch (error) {
+        console.error('Failed to remove logo background:', error);
+        // Keep original logo on error
+      }
+    };
+    
+    processLogo();
+  }, []);
 
   const navItems = [
     { path: "/", label: "Home" },
@@ -118,12 +136,12 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/90 shadow-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-white backdrop-blur supports-[backdrop-filter]:bg-white/95 shadow-sm">
       <div className="container mx-auto px-6">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <img src={logo} alt="Sayantrik Engineer India Logo" className="h-10 w-10 object-contain" />
+            <img src={logoUrl} alt="Sayantrik Engineer India Logo" className="h-10 w-10 object-contain" />
             <span className="text-xl md:text-2xl font-bold text-black">
               Sayantrik Engineer India Pvt Ltd
             </span>
