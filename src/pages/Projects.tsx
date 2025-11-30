@@ -4,101 +4,63 @@ import { FolderKanban, FileText, Hammer, Container } from "lucide-react";
 import oilPlantImage from "@/assets/oil-plant-hq.jpg";
 
 const Projects = () => {
-  const engineeringProjects = [
+  const feedProjects = [
     {
-      name: "600 MTPD Sulphuric Acid (SA - V) Plant",
-      scope: "Detailed Engineering",
-      description: "Detailed engineering and EPC support for a 600 MTPD Sulphuric Acid Plant, covering high-temperature and low-pressure piping, static equipment design, GA drawings, datasheets, P&IDs, plot plans, MTOs, vendor document review."
+      name: "Centralized Wastewater Treatment Plant",
+      description: "Development of Preliminary 3D Model and Plot Plan for the Centralized Wastewater Treatment Plant, including major equipment placement and key process lines."
     },
     {
-      name: "300 MTPD Sulphuric Acid Plant",
-      scope: "Detailed Engineering",
-      description: "Detailed engineering for a 300 MTPD Sulphuric Acid Plant including civil, structural, piping, electrical, and instrumentation works."
+      name: "Water Intake and Pumping Station",
+      description: "Conceptual 3D Layout and Feasibility Study model for the Water Intake structure, pump house, and preliminary piping headers."
+    }
+  ];
+
+  const detailProjects = [
+    {
+      name: "New 3-Tank MBR Plant for a Textile Mill",
+      description: "Complete Detailed Engineering for the new 3-tank MBR Plant in a textile mill, including 3D modeling, GA drawings, Equipment, Piping & Isometrics, Civil & Structural modeling and drawings."
     },
     {
-      name: "9 MMTPA CPCL Refinery - Pipelines and Terminals",
-      scope: "Detailed Engineering",
-      description: "End-to-end detailed engineering for onshore pipelines and terminals at Cauvery Basin Refinery. Scope covered PFDs, P&IDs, datasheets, HAZOP/SIL support, 3D modeling, plot plans, procurement support."
+      name: "Effluent Treatment Plant (ETP) Revamp",
+      description: "Detailed 3D Modeling and Deliverables for the Effluent Treatment Plant (ETP) Revamp, covering Equipment, Piping, Isometrics, and Structural modeling."
     },
     {
-      name: "60MW / 90MW LNG / LPG Storage and Regasification",
-      scope: "FEED Plus",
-      description: "FEED and engineering services for LNG/LPG storage and regasification plants across 5 European sites. Scope included feasibility validation, process design, vaporization/storage sizing (30–200 MT)."
+      name: "200 MLD Water Treatment Plant (WTP)",
+      description: "Detailed Engineering support including 3D modeling for Equipment, Piping, Structural, and GA drawings for a large 200 MLD WTP project."
     },
     {
-      name: "15 TPD Green Hydrogen Plant",
-      scope: "Pre-FEED",
-      description: "Pre-FEED engineering for 15 TPD Green Hydrogen Plant (625 kg/hr) including process design (PFD/P&ID), piping MTOs, civil/structural MTOs, static equipment design, electrical load lists."
+      name: "MBR Plant for Municipality",
+      description: "Detailed Engineering and 3D modeling for the MBR Plant, which includes Equipment, Piping, and Structural design and documentation."
     },
     {
-      name: "2 TPD Green Hydrogen Plant",
-      scope: "Pre-FEED",
-      description: "Pre-FEED for 2 TPD Green Hydrogen Plant including PFD/P&ID development, piping MTOs, civil/structural MTOs, electrolyser foundation design, electrical lists, and instrumentation scope."
+      name: "Pre-Fabricated WTP for Power Plant",
+      description: "3D Modeling & Detailed Engineering for a skid-mounted, pre-fabricated WTP for a power plant, including Equipment, Process Piping, and Instrumentation layout."
     },
     {
-      name: "Verification of 700 PSVs",
-      scope: "Engineering Validation",
-      description: "Verification and validation of ~700 PSVs against latest API standards. Delivered detailed compliance reports, gap analysis, and recommendations across 17 operating scenarios."
+      name: "Demineralization (DM) Plant",
+      description: "Detailed Engineering and 3D model preparation for the Demineralization Plant, including all associated Equipment, Interconnecting Piping, and Structural elements."
+    }
+  ];
+
+  const asBuiltProjects = [
+    {
+      name: "Reverse Osmosis (RO) Plant Upgrade",
+      description: "Modification of existing Detailed Engineering Model to reflect the As-Built condition after the RO Plant upgrade, including red-line markups and final spool documentation."
     },
     {
-      name: "Thermal Reactor & Incinerator Package - IOCL SRU",
-      scope: "Detailed Engineering",
-      description: "Detailed engineering of Thermal Reactor & Incinerator Packages and 40 static equipment units for IOCL SRU. Scope: review of licensor package, 3D model development, datasheets, GA drawings."
+      name: "Process Piping Rerouting Project",
+      description: "Updating the 3D model to capture the As-Built configuration of the newly routed process piping and support structures as installed on-site."
+    }
+  ];
+
+  const preBidProjects = [
+    {
+      name: "EPC Bid Support for Oil & Gas Sector",
+      description: "Pre-Bid 3D model for Material Take-Off (MTO) and Preliminary Layout optimization to support the commercial proposal for an EPC Bid."
     },
     {
-      name: "MB-01 Meglumine Project",
-      scope: "Basic Engineering",
-      description: "Basic engineering for MB-01 Meglumine Project. Scope included process deliverables (P&IDs, line lists), equipment datasheets, piping layouts, BOQs, electrical system design."
-    },
-    {
-      name: "HRRL Refinery TEA Injection",
-      scope: "Detailed Engineering",
-      description: "Detailed engineering for TEA Injection package at HRRL Refinery. Scope included piping, civil, and structural engineering, vendor document reviews, and coordination with licensor Heurtey."
-    },
-    {
-      name: "AR Ratawi - Gas Midstream Project",
-      scope: "Detailed Engineering",
-      description: "Pipeline engineering for AR Ratawi Gas Midstream Project (114.9 km). Deliverables: alignment sheets, horizontal/vertical profiles, crossing schedules, condensate pipeline (10\" & 24\")."
-    },
-    {
-      name: "Petrobras P-80 FPSO Project",
-      scope: "Detailed Engineering",
-      description: "Instrumentation engineering support for Petrobras P-80 FPSO Project in Brazil. Scope included cable scheduling, routing, 3D modeling of tray systems, tray layout sheets."
-    },
-    {
-      name: "Civil Design - EDC Plant",
-      scope: "Detailed Engineering",
-      description: "Civil & structural engineering design for Tekla for EDC Plant. Scope included modularization design, 3D modeling, pile caps, vent blower sheds, pedestals, and structural detailing."
-    },
-    {
-      name: "Electrical Lighting Layouts - Ammonia Plant",
-      scope: "Detailed Engineering",
-      description: "Electrical lighting engineering for Ammonia Plant O&U area in Mexico. Scope: lighting design calculations, layouts for 25 areas, illumination reports, and BOQs."
-    },
-    {
-      name: "Vendor Drawing Review - Ammonia Plant",
-      scope: "Detailed Engineering",
-      description: "Vendor document review of 115 static equipment drawings for Ammonia Plant in Mexico. Scope: GA reviews, detailed drawing checks, and vendor compliance validation."
-    },
-    {
-      name: "Pilot Reactor and Flaker Plant",
-      scope: "Detailed Engineering",
-      description: "Detailed engineering for Pilot Reactor & Flaker Plant. Scope: basic plant layout, GA drawings, piping/isometrics, civil foundations, structural design, load mapping."
-    },
-    {
-      name: "Agro Pellet Feeding Systems",
-      scope: "Detailed Engineering",
-      description: "Civil & structural design for Agro Pellet Feeding Systems. Scope included conveyor supports, chute/silo foundations, construction drawings, safety-focused designs."
-    },
-    {
-      name: "Chimney Foundation",
-      scope: "Detailed Engineering",
-      description: "Civil & structural foundation design for Chimney Project. Delivered foundation analysis, soil condition review, structural drawings, and construction-ready packages."
-    },
-    {
-      name: "Boiler Area External Sheds",
-      scope: "Detailed Engineering",
-      description: "Engineering and structural design for Boiler Area External Sheds. Scope: foundation design, fire-resistant structures, safety integration, access platforms."
+      name: "Skid-Mounted Water Treatment Unit",
+      description: "Creation of a Fast-Track 3D Model and basic Equipment List to generate an estimated Bill of Material (BOM) for the bid submission."
     }
   ];
 
@@ -148,13 +110,10 @@ const Projects = () => {
                 </CardContent>
               </Card>
 
-              {engineeringProjects.map((project, index) => (
+              {feedProjects.map((project, index) => (
                 <Card key={index} className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 border-primary/10">
                   <CardHeader>
                     <CardTitle className="text-xl">{project.name}</CardTitle>
-                    <CardDescription className="text-primary font-semibold">
-                      {project.scope}
-                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">{project.description}</p>
@@ -164,46 +123,49 @@ const Projects = () => {
             </div>
           </TabsContent>
 
-          <TabsContent value="detail">
-            <Card>
-              <CardHeader>
-                <CardTitle>Detail Engineering Projects</CardTitle>
-                <CardDescription>Comprehensive detailed engineering services</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Complete detailed engineering solutions for industrial projects including process, piping, civil, structural, electrical, and instrumentation disciplines.
-                </p>
-              </CardContent>
-            </Card>
+          <TabsContent value="detail" className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              {detailProjects.map((project, index) => (
+                <Card key={index} className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 border-primary/10">
+                  <CardHeader>
+                    <CardTitle className="text-xl">{project.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{project.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </TabsContent>
 
-          <TabsContent value="asbuilt">
-            <Card>
-              <CardHeader>
-                <CardTitle>As-Built Engineering Projects</CardTitle>
-                <CardDescription>Laser scanning and 3D modelling projects</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Comprehensive as-built documentation services including laser scanning and 3D modeling for various industrial facilities.
-                </p>
-              </CardContent>
-            </Card>
+          <TabsContent value="asbuilt" className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              {asBuiltProjects.map((project, index) => (
+                <Card key={index} className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 border-primary/10">
+                  <CardHeader>
+                    <CardTitle className="text-xl">{project.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{project.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </TabsContent>
 
-          <TabsContent value="prebid">
-            <Card>
-              <CardHeader>
-                <CardTitle>Pre-Bid Engineering Projects</CardTitle>
-                <CardDescription>Pre-bid engineering and estimation services</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Pre-bid engineering support including feasibility studies, preliminary designs, and cost estimation for project bidding.
-                </p>
-              </CardContent>
-            </Card>
+          <TabsContent value="prebid" className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              {preBidProjects.map((project, index) => (
+                <Card key={index} className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 border-primary/10">
+                  <CardHeader>
+                    <CardTitle className="text-xl">{project.name}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{project.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </TabsContent>
         </Tabs>
       </div>
