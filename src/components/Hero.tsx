@@ -20,7 +20,9 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
           {/* Main Headline */}
           <h1 className="font-heading leading-tight text-white glow-text">
-            Engineering Excellence. Global Delivery. Innovation Leadership.
+            Engineering Excellence.<br />
+            Global Delivery.<br />
+            Innovation Leadership.
           </h1>
 
           {/* Sub-headline */}
