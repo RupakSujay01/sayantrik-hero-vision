@@ -1,6 +1,23 @@
 import { Briefcase, Target, Wrench, Award, Users, Flame, Factory, Building2, Gauge, Database } from "lucide-react";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Services = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Handle hash navigation (e.g., /services#comprehensive-engineering)
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        // Add a small delay to ensure the page has rendered
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <main className="min-h-screen bg-background py-20">
       <div className="container mx-auto px-6">
