@@ -215,7 +215,7 @@ const Projects = () => {
                     <h3 
                       className="text-2xl font-bold text-white mb-2 inline-block w-fit"
                       style={{
-                        textShadow: '0 0 10px hsl(var(--glow-blue)), 0 0 20px hsl(var(--glow-blue) / 0.5), 0 0 30px hsl(var(--primary) / 0.3)'
+                        textShadow: '0 0 20px hsl(var(--glow-blue)), 0 0 40px hsl(var(--glow-blue) / 0.5), 0 0 60px hsl(var(--primary) / 0.3)'
                       }}
                     >
                       Oil Plant
