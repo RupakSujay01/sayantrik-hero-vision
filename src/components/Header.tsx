@@ -117,13 +117,13 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-white backdrop-blur supports-[backdrop-filter]:bg-white/95 shadow-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-transparent backdrop-blur-sm">
       <div className="container mx-auto px-6">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <img src={logoUrl} alt="Sayantrik Engineer India Logo" className="h-14 w-14 object-contain" />
-            <span className="text-xl md:text-2xl font-bold text-black">Sayantrik Engineer India Pvt Ltd</span>
+            <span className="text-xl md:text-2xl font-bold text-white">Sayantrik Engineer India Pvt Ltd</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -148,7 +148,7 @@ const Header = () => {
               >
                 <Link
                   to={item.path}
-                  className={`text-sm font-medium transition-all duration-300 hover:text-primary inline-flex items-center relative pb-1 text-black`}
+                  className={`text-sm font-medium transition-all duration-300 hover:text-primary inline-flex items-center relative pb-1 text-white`}
                 >
                   {item.label}
                   {/* Animated underline */}
@@ -211,20 +211,20 @@ const Header = () => {
           </nav>
 
           {/* Mobile Menu Button */}
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <Button variant="ghost" size="icon" className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-4 space-y-3 animate-fade-in">
+          <nav className="md:hidden py-4 space-y-3 animate-fade-in bg-background/90 backdrop-blur-sm rounded-lg px-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block py-2 text-sm font-medium transition-colors hover:text-primary text-black`}
+                className={`block py-2 text-sm font-medium transition-colors hover:text-primary text-white`}
               >
                 {item.label}
               </Link>
