@@ -166,13 +166,13 @@ const Header = () => {
                       <div className="grid grid-cols-2 gap-6">
                         {getDropdownContent(item.label)?.sections.map((section, idx) => (
                           <div key={idx}>
-                            <h3 className="text-sm font-semibold text-foreground mb-4 pb-2 border-b border-border">
+                            <h3 className="text-sm font-bold uppercase tracking-wide text-foreground mb-3 pb-2 border-b border-border/50">
                               {section.title}
                             </h3>
-                            <div className="space-y-2">
+                            <div className="space-y-1">
                               {section.items.map((subItem, subIdx) => {
                                 const content = (
-                                  <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-500 ease-out">
+                                  <p className="text-sm font-normal text-muted-foreground group-hover:text-primary transition-colors duration-500 ease-out">
                                     {subItem.label}
                                   </p>
                                 );
