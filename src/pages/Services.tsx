@@ -1,4 +1,3 @@
-import { Briefcase, Target, Wrench, Award, Users, Flame, Factory, Building2, Gauge, Database } from "lucide-react";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -21,10 +20,7 @@ const Services = () => {
   return (
     <main className="min-h-screen bg-background py-20">
       <div className="container mx-auto px-6">
-        <div className="flex items-center gap-4 mb-8 animate-fade-in">
-          <div className="p-3 bg-muted rounded-lg">
-            <Briefcase className="w-8 h-8 text-muted-foreground" />
-          </div>
+        <div className="mb-8 animate-fade-in">
           <h1 className="font-heading text-foreground">
             Our Services
           </h1>
@@ -32,12 +28,9 @@ const Services = () => {
 
         {/* Oil & Gas - Onshore & Offshore */}
         <section id="oil-gas" className="mb-16 animate-fade-in scroll-mt-20">
-          <div className="flex items-center gap-3 mb-6">
-            <Flame className="w-7 h-7 text-muted-foreground" />
-            <h2 className="font-heading text-foreground">
-              Oil & Gas – Onshore & Offshore
-            </h2>
-          </div>
+          <h2 className="font-heading text-foreground mb-6">
+            Oil & Gas – Onshore & Offshore
+          </h2>
           <p className="text-lg text-muted-foreground mb-8 font-medium">
             Sayantrik delivers full-scope engineering, digitalization, and revamp support for upstream and midstream Oil & Gas assets.
           </p>
@@ -87,12 +80,9 @@ const Services = () => {
 
         {/* Refineries */}
         <section id="refineries" className="mb-16 animate-fade-in scroll-mt-20">
-          <div className="flex items-center gap-3 mb-6">
-            <Factory className="w-7 h-7 text-muted-foreground" />
-            <h2 className="font-heading text-foreground">
-              Refineries
-            </h2>
-          </div>
+          <h2 className="font-heading text-foreground mb-6">
+            Refineries
+          </h2>
           <p className="text-lg text-muted-foreground mb-8 font-medium">
             We engineer all primary processing, conversion, treating, and utility units of modern refineries.
           </p>
@@ -155,12 +145,9 @@ const Services = () => {
 
         {/* Petrochemical & Chemical Plants */}
         <section id="petrochemical" className="mb-16 animate-fade-in scroll-mt-20">
-          <div className="flex items-center gap-3 mb-6">
-            <Building2 className="w-7 h-7 text-muted-foreground" />
-            <h2 className="font-heading text-foreground">
-              Petrochemical & Chemical Plants
-            </h2>
-          </div>
+          <h2 className="font-heading text-foreground mb-6">
+            Petrochemical & Chemical Plants
+          </h2>
           <p className="text-lg text-muted-foreground mb-8 font-medium">
             We support complex petrochemical, polymer, aromatics, and specialty chemical facilities.
           </p>
@@ -208,12 +195,9 @@ const Services = () => {
 
         {/* Fertilizer & Methanol Units */}
         <section id="fertilizer" className="mb-16 animate-fade-in scroll-mt-20">
-          <div className="flex items-center gap-3 mb-6">
-            <Gauge className="w-7 h-7 text-muted-foreground" />
-            <h2 className="font-heading text-foreground">
-              Fertilizer & Methanol Units
-            </h2>
-          </div>
+          <h2 className="font-heading text-foreground mb-6">
+            Fertilizer & Methanol Units
+          </h2>
           <p className="text-lg text-muted-foreground mb-8 font-medium">
             Complete engineering services for ammonia, urea, syngas and methanol complexes.
           </p>
@@ -258,12 +242,9 @@ const Services = () => {
 
         {/* Terminals & Tank Farms */}
         <section id="terminals" className="mb-16 animate-fade-in scroll-mt-20">
-          <div className="flex items-center gap-3 mb-6">
-            <Database className="w-7 h-7 text-muted-foreground" />
-            <h2 className="font-heading text-foreground">
-              Terminals & Tank Farms
-            </h2>
-          </div>
+          <h2 className="font-heading text-foreground mb-6">
+            Terminals & Tank Farms
+          </h2>
           <p className="text-lg text-muted-foreground mb-8 font-medium">
             Engineering support for petroleum product storage, distribution, and loading facilities.
           </p>
@@ -310,12 +291,9 @@ const Services = () => {
 
         {/* Utility & Offsite Systems */}
         <section id="utility" className="mb-16 animate-fade-in scroll-mt-20">
-          <div className="flex items-center gap-3 mb-6">
-            <Wrench className="w-7 h-7 text-muted-foreground" />
-            <h2 className="font-heading text-foreground">
-              Utility & Offsite Systems
-            </h2>
-          </div>
+          <h2 className="font-heading text-foreground mb-6">
+            Utility & Offsite Systems
+          </h2>
           <p className="text-lg text-muted-foreground mb-8 font-medium">
             Utilities are the backbone of every process plant — we engineer all utility and offsite facilities.
           </p>
@@ -426,12 +404,9 @@ const Services = () => {
 
         {/* Business Verticals */}
         <section className="mb-16 animate-fade-in">
-          <div className="flex items-center gap-3 mb-6">
-            <Target className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">
-              Business Verticals
-            </h2>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+            Business Verticals
+          </h2>
           <p className="text-lg text-muted-foreground mb-6">
             Our suite of services is extensive and includes, but is not limited to:
           </p>
@@ -454,12 +429,9 @@ const Services = () => {
 
         {/* Multi-discipline Engineering Services */}
         <section className="mb-16 animate-fade-in">
-          <div className="flex items-center gap-3 mb-6">
-            <Wrench className="w-7 h-7 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">
-              Multi-discipline Engineering Services
-            </h2>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+            Multi-discipline Engineering Services
+          </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[
               "Process Engineering",
