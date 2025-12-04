@@ -21,11 +21,11 @@ const Header = () => {
         const url = URL.createObjectURL(blob);
         setLogoUrl(url);
       } catch (error) {
-        console.error('Failed to remove logo background:', error);
+        console.error("Failed to remove logo background:", error);
         // Keep original logo on error
       }
     };
-    
+
     processLogo();
   }, []);
 
@@ -49,7 +49,7 @@ const Header = () => {
           { label: "Fertilizer & Methanol Units", link: "/services#fertilizer" },
           { label: "Terminals & Tank Farms", link: "/services#terminals" },
           { label: "Utility & Offsite Systems", link: "/services#utility" },
-        ]
+        ],
       },
       {
         title: "Specialized Services",
@@ -57,10 +57,10 @@ const Header = () => {
           { label: "Pre-bid Eng Services" },
           { label: "Pharmaceutical" },
           { label: "Laser Scanning" },
-          { label: "PSV Adequecy check" }
-        ]
-      }
-    ]
+          { label: "PSV Adequecy check" },
+        ],
+      },
+    ],
   };
 
   const projectsDropdown = {
@@ -72,49 +72,45 @@ const Header = () => {
           { label: "Petrochemicals" },
           { label: "Refineries" },
           { label: "Energy Transition" },
-        ]
-      }
-    ]
+        ],
+      },
+    ],
   };
 
   const aboutDropdown = {
     sections: [
       {
         title: "Company",
-        items: [
-          { label: "Who We Are" },
-          { label: "Our Vision" },
-        ]
+        items: [{ label: "Who We Are" }, { label: "Our Vision" }],
       },
       {
         title: "Leadership",
-        items: [
-          { label: "Leadership Team" },
-          { label: "Certifications & Achievements" },
-        ]
-      }
-    ]
+        items: [{ label: "Leadership Team" }, { label: "Certifications & Achievements" }],
+      },
+    ],
   };
 
   const careersDropdown = {
     sections: [
       {
         title: "Careers",
-        items: [
-          { label: "Life at SEIPL" },
-          { label: "Hiring" },
-        ]
-      }
-    ]
+        items: [{ label: "Life at Sayantrik" }, { label: "Hiring" }],
+      },
+    ],
   };
 
   const getDropdownContent = (label: string) => {
-    switch(label) {
-      case "Services": return servicesDropdown;
-      case "Projects": return projectsDropdown;
-      case "About Us": return aboutDropdown;
-      case "Careers": return careersDropdown;
-      default: return null;
+    switch (label) {
+      case "Services":
+        return servicesDropdown;
+      case "Projects":
+        return projectsDropdown;
+      case "About Us":
+        return aboutDropdown;
+      case "Careers":
+        return careersDropdown;
+      default:
+        return null;
     }
   };
 
@@ -127,9 +123,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <img src={logoUrl} alt="Sayantrik Engineer India Logo" className="h-14 w-14 object-contain" />
-            <span className="text-xl md:text-2xl font-bold text-black">
-              Sayantrik Engineer India Pvt Ltd
-            </span>
+            <span className="text-xl md:text-2xl font-bold text-black">Sayantrik Engineer India Pvt Ltd</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -158,11 +152,9 @@ const Header = () => {
                 >
                   {item.label}
                   {/* Animated underline */}
-                  <span 
+                  <span
                     className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                      isActive(item.path) || hoveredMenu === item.label
-                        ? 'w-full'
-                        : 'w-0'
+                      isActive(item.path) || hoveredMenu === item.label ? "w-full" : "w-0"
                     }`}
                   />
                 </Link>
@@ -185,7 +177,7 @@ const Header = () => {
                                   </p>
                                 );
 
-                                if ('link' in subItem && subItem.link) {
+                                if ("link" in subItem && subItem.link) {
                                   return (
                                     <Link
                                       key={subIdx}
@@ -219,12 +211,7 @@ const Header = () => {
           </nav>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
