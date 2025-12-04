@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroEarth from "@/assets/hero-earth.jpg";
 
@@ -35,7 +34,6 @@ const Hero = () => {
             <Link to="/services">
               <Button size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
                 Explore Our Services
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link to="/contact">
