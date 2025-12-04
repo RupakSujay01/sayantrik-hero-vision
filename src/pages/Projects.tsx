@@ -1,6 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { FolderKanban, FileText, Hammer, Container } from "lucide-react";
 import oilPlantImage from "@/assets/oil-plant-hq.jpg";
 
 const Projects = () => {
@@ -184,10 +183,7 @@ const Projects = () => {
   return (
     <main className="min-h-screen bg-background py-20">
       <div className="container mx-auto px-6">
-        <div className="flex items-center gap-4 mb-8 animate-fade-in">
-          <div className="p-3 bg-primary/10 rounded-lg">
-            <FolderKanban className="w-8 h-8 text-primary" />
-          </div>
+        <div className="mb-8 animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground">
             Our Projects
           </h1>
