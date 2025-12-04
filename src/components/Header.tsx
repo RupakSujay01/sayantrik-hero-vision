@@ -2,18 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
-import { 
-  Building2, 
-  Gauge, 
-  Flame, 
-  Lightbulb, 
-  Factory, 
-  Wrench,
-  Database,
-  Shield,
-  Users,
-  Award
-} from "lucide-react";
 import logo from "@/assets/logo.png";
 import { removeBackground, loadImageFromUrl } from "@/utils/removeBackground";
 
@@ -55,24 +43,21 @@ const Header = () => {
       {
         title: "Engineering Services",
         items: [
-          { icon: Flame, label: "Oil & Gas", link: "/services#oil-gas" },
-          { icon: Factory, label: "Refineries", link: "/services#refineries" },
-          { icon: Building2, label: "Petrochemical & Chemical Plants", link: "/services#petrochemical" },
-          { icon: Gauge, label: "Fertilizer & Methanol Units", link: "/services#fertilizer" },
-          { icon: Database, label: "Terminals & Tank Farms", link: "/services#terminals" },
-          { icon: Wrench, label: "Utility & Offsite Systems", link: "/services#utility" },
+          { label: "Oil & Gas", link: "/services#oil-gas" },
+          { label: "Refineries", link: "/services#refineries" },
+          { label: "Petrochemical & Chemical Plants", link: "/services#petrochemical" },
+          { label: "Fertilizer & Methanol Units", link: "/services#fertilizer" },
+          { label: "Terminals & Tank Farms", link: "/services#terminals" },
+          { label: "Utility & Offsite Systems", link: "/services#utility" },
         ]
       },
       {
         title: "Specialized Services",
         items: [
-          { icon: Wrench, label: "Pre-bid Eng Services" },
-          { icon: Factory, label: "Pharmaceutical" },
-          { icon: Wrench, label: "Laser Scanning" },
-          { 
-            icon: Shield, 
-            label: "PSV Adequecy check"
-          }
+          { label: "Pre-bid Eng Services" },
+          { label: "Pharmaceutical" },
+          { label: "Laser Scanning" },
+          { label: "PSV Adequecy check" }
         ]
       }
     ]
@@ -83,10 +68,10 @@ const Header = () => {
       {
         title: "Project Categories",
         items: [
-          { icon: Building2, label: "Oil & Gas", description: "Upstream & downstream" },
-          { icon: Factory, label: "Petrochemicals", description: "Process engineering" },
-          { icon: Flame, label: "Refineries", description: "Refining solutions" },
-          { icon: Lightbulb, label: "Energy Transition", description: "Sustainable projects" },
+          { label: "Oil & Gas" },
+          { label: "Petrochemicals" },
+          { label: "Refineries" },
+          { label: "Energy Transition" },
         ]
       }
     ]
@@ -97,15 +82,15 @@ const Header = () => {
       {
         title: "Company",
         items: [
-          { icon: Building2, label: "Who We Are", description: "Our story and values" },
-          { icon: Lightbulb, label: "Our Vision", description: "Future aspirations" },
+          { label: "Who We Are" },
+          { label: "Our Vision" },
         ]
       },
       {
         title: "Leadership",
         items: [
-          { icon: Users, label: "Leadership Team", description: "Meet our leadership team" },
-          { icon: Award, label: "Certifications & Achievements", description: "Our credentials and awards" },
+          { label: "Leadership Team" },
+          { label: "Certifications & Achievements" },
         ]
       }
     ]
@@ -116,8 +101,8 @@ const Header = () => {
       {
         title: "Careers",
         items: [
-          { icon: Users, label: "Life at SEIPL", description: "Our work culture" },
-          { icon: Building2, label: "Hiring", description: "Current job openings" },
+          { label: "Life at SEIPL" },
+          { label: "Hiring" },
         ]
       }
     ]
@@ -195,21 +180,9 @@ const Header = () => {
                             <div className="space-y-2">
                               {section.items.map((subItem, subIdx) => {
                                 const content = (
-                                  <>
-                                    <subItem.icon className="h-5 w-5 text-primary mt-0.5 transition-transform duration-500 ease-out group-hover:scale-110" />
-                                    <div className="flex-1">
-                                      <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-500 ease-out">
-                                        {subItem.label}
-                                      </p>
-                                      {'subItems' in subItem && subItem.subItems && Array.isArray(subItem.subItems) && (
-                                        <ul className="mt-2 ml-4 list-disc text-xs text-muted-foreground space-y-1 cursor-default select-none">
-                                          {(subItem.subItems as string[]).map((s: string, i: number) => (
-                                            <li key={i} className="cursor-default select-none">{s}</li>
-                                          ))}
-                                        </ul>
-                                      )}
-                                    </div>
-                                  </>
+                                  <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-500 ease-out">
+                                    {subItem.label}
+                                  </p>
                                 );
 
                                 if ('link' in subItem && subItem.link) {
@@ -218,7 +191,7 @@ const Header = () => {
                                       key={subIdx}
                                       to={subItem.link}
                                       onClick={() => setHoveredMenu(null)}
-                                      className="group flex items-start gap-3 p-3 rounded-md transition-all duration-500 ease-out hover:bg-secondary/50 cursor-pointer select-none no-underline"
+                                      className="group block p-3 rounded-md transition-all duration-500 ease-out hover:bg-secondary/50 cursor-pointer select-none no-underline"
                                     >
                                       {content}
                                     </Link>
@@ -228,7 +201,7 @@ const Header = () => {
                                 return (
                                   <div
                                     key={subIdx}
-                                    className="group flex items-start gap-3 p-3 rounded-md transition-all duration-500 ease-out hover:bg-secondary/50 cursor-default select-none"
+                                    className="group block p-3 rounded-md transition-all duration-500 ease-out hover:bg-secondary/50 cursor-default select-none"
                                   >
                                     {content}
                                   </div>
