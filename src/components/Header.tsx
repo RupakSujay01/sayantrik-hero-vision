@@ -166,7 +166,7 @@ const Header = () => {
                       <div className="grid grid-cols-2 gap-6">
                         {getDropdownContent(item.label)?.sections.map((section, idx) => (
                           <div key={idx}>
-                            <h3 className="text-sm font-bold uppercase tracking-wide text-foreground mb-3 pb-2 border-b border-border">
+                            <h3 className="text-sm font-bold uppercase tracking-wide text-foreground mb-3 pb-2 border-b-2 border-primary/40">
                               {section.title}
                             </h3>
                             <div className="space-y-1">
