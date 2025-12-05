@@ -122,8 +122,8 @@ const Header = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <div className="bg-white rounded-md p-1">
-              <img src={logoUrl} alt="Sayantrik Engineer India Logo" className="h-10 w-10 object-contain" />
+            <div className="bg-white rounded-md p-2 flex items-center justify-center">
+              <img src={logoUrl} alt="Sayantrik Engineer India Logo" className="h-12 w-14 object-contain" />
             </div>
             <span className="text-xl md:text-2xl font-bold text-white">Sayantrik Engineer India Pvt Ltd</span>
           </Link>
