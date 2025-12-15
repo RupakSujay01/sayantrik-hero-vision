@@ -26,7 +26,7 @@ const Hero = () => {
 
           {/* Sub-headline */}
           <p className="text-xl md:text-2xl text-tech-silver max-w-3xl mx-auto leading-relaxed font-medium">
-            Your Trusted Partner for Multi-discipline Engineering Excellence in Oil & Gas, Refinery, Petrochemicals, Chemicals and Pharmaceutical industries
+            Your Trusted Partner for Multi-discipline Engineering Excellence in Oil & Gas, Refinery, Petrochemicals and Chemical industries.
           </p>
 
           {/* CTAs */}
