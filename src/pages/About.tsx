@@ -123,32 +123,6 @@ const About = () => {
           </div>
         </section>
 
-        {/* Leadership */}
-        <section className="animate-fade-in">
-          <h2 className="font-heading text-foreground mb-6">
-            Leadership Team
-          </h2>
-          <div className="bg-card border border-border rounded-lg p-8">
-            <h3 className="font-heading text-foreground mb-4">Organization Chart</h3>
-            <p className="text-muted-foreground mb-6">
-              Our leadership team brings decades of combined experience in engineering excellence and project delivery. They guide our strategic vision and ensure we maintain the highest standards of quality and innovation.
-            </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="text-center p-6 bg-secondary/50 rounded-lg">
-                <h4 className="text-lg font-bold text-foreground mb-2">Executive Leadership</h4>
-                <p className="text-sm text-muted-foreground">Strategic direction and company vision</p>
-              </div>
-              <div className="text-center p-6 bg-secondary/50 rounded-lg">
-                <h4 className="text-lg font-bold text-foreground mb-2">Technical Directors</h4>
-                <p className="text-sm text-muted-foreground">Engineering excellence and innovation</p>
-              </div>
-              <div className="text-center p-6 bg-secondary/50 rounded-lg">
-                <h4 className="text-lg font-bold text-foreground mb-2">Project Leaders</h4>
-                <p className="text-sm text-muted-foreground">Project delivery and client success</p>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
     </main>
   );
