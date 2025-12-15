@@ -35,9 +35,9 @@ const CompanyOverview = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Downstream Refining */}
+          {/* Upstream Production */}
           <Link to="/services#comprehensive-engineering" className="group bg-card border-2 border-border rounded-lg p-6 hover:shadow-xl hover:border-primary transition-all duration-300 cursor-pointer">
-            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">Downstream Refining</h3>
+            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">Upstream Production</h3>
           </Link>
 
           {/* Midstream Processing */}
@@ -45,9 +45,9 @@ const CompanyOverview = () => {
             <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">Midstream Processing</h3>
           </Link>
 
-          {/* Upstream Production */}
+          {/* Downstream Refining */}
           <Link to="/services#comprehensive-engineering" className="group bg-card border-2 border-border rounded-lg p-6 hover:shadow-xl hover:border-primary transition-all duration-300 cursor-pointer">
-            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">Upstream Production</h3>
+            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">Downstream Refining</h3>
           </Link>
 
           {/* Gas to Liquids */}

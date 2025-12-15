@@ -348,16 +348,16 @@ const Services = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {/* Downstream Refining */}
+            {/* Upstream Production */}
             <div className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-              <h3 className="text-xl font-bold text-foreground mb-3">Downstream Refining</h3>
+              <h3 className="text-xl font-bold text-foreground mb-3">Upstream Production</h3>
               <p className="text-muted-foreground mb-4">
-                Complete process engineering for refinery operations, catalytic processes, and petrochemical manufacturing.
+                Innovative solutions for oil & gas production optimization, EOR systems, and offshore platforms.
               </p>
               <ul className="space-y-2">
-                <li className="text-sm text-muted-foreground">• Crude Oil Processing</li>
-                <li className="text-sm text-muted-foreground">• Catalytic Cracking</li>
-                <li className="text-sm text-muted-foreground">• Product Upgrading</li>
+                <li className="text-sm text-muted-foreground">• Production Systems</li>
+                <li className="text-sm text-muted-foreground">• Enhanced Oil Recovery</li>
+                <li className="text-sm text-muted-foreground">• Platform Engineering</li>
               </ul>
             </div>
 
@@ -374,16 +374,16 @@ const Services = () => {
               </ul>
             </div>
 
-            {/* Upstream Production */}
+            {/* Downstream Refining */}
             <div className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-              <h3 className="text-xl font-bold text-foreground mb-3">Upstream Production</h3>
+              <h3 className="text-xl font-bold text-foreground mb-3">Downstream Refining</h3>
               <p className="text-muted-foreground mb-4">
-                Innovative solutions for oil & gas production optimization, EOR systems, and offshore platforms.
+                Complete process engineering for refinery operations, catalytic processes, and petrochemical manufacturing.
               </p>
               <ul className="space-y-2">
-                <li className="text-sm text-muted-foreground">• Production Systems</li>
-                <li className="text-sm text-muted-foreground">• Enhanced Oil Recovery</li>
-                <li className="text-sm text-muted-foreground">• Platform Engineering</li>
+                <li className="text-sm text-muted-foreground">• Crude Oil Processing</li>
+                <li className="text-sm text-muted-foreground">• Catalytic Cracking</li>
+                <li className="text-sm text-muted-foreground">• Product Upgrading</li>
               </ul>
             </div>
 
