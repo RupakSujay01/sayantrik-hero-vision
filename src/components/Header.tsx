@@ -83,10 +83,6 @@ const Header = () => {
         title: "Company",
         items: [{ label: "Who We Are" }, { label: "Our Vision" }],
       },
-      {
-        title: "Leadership",
-        items: [{ label: "Leadership Team" }, { label: "Certifications & Achievements" }],
-      },
     ],
   };
 
