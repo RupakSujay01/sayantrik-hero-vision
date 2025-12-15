@@ -402,10 +402,10 @@ const Services = () => {
           </div>
         </section>
 
-        {/* Business Verticals */}
+        {/* Business Services */}
         <section className="mb-16 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-            Business Verticals
+            Business Services
           </h2>
           <p className="text-lg text-muted-foreground mb-6">
             Our suite of services is extensive and includes, but is not limited to:
