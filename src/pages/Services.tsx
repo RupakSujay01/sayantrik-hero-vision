@@ -387,16 +387,16 @@ const Services = () => {
               </ul>
             </div>
 
-            {/* Energy & Sustainability */}
+            {/* Gas to Liquids */}
             <div className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-              <h3 className="text-xl font-bold text-foreground mb-3">Energy & Sustainability</h3>
+              <h3 className="text-xl font-bold text-foreground mb-3">Gas to Liquids</h3>
               <p className="text-muted-foreground mb-4">
-                Leading clean energy transition with green hydrogen, carbon capture, and sustainable aviation fuel.
+                Advanced GTL technology converting natural gas into high-quality liquid fuels and chemicals.
               </p>
               <ul className="space-y-2">
-                <li className="text-sm text-muted-foreground">• Green Hydrogen</li>
-                <li className="text-sm text-muted-foreground">• Carbon Capture</li>
-                <li className="text-sm text-muted-foreground">• Renewable Integration</li>
+                <li className="text-sm text-muted-foreground">• Fischer-Tropsch Synthesis</li>
+                <li className="text-sm text-muted-foreground">• Syngas Production</li>
+                <li className="text-sm text-muted-foreground">• Product Upgrading</li>
               </ul>
             </div>
           </div>
