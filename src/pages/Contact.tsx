@@ -24,7 +24,7 @@ const Contact = () => {
                 Head Office Address
               </h2>
               <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                Sayantrik Engineer India Pvt Ltd<br />
+                Sayantrik Engineers India Pvt Ltd<br />
                 Plot no. 56, Opp Srikara Hospitals Lane,<br />
                 Mythrinagar, Madinaguda, Hyderabad<br />
                 Telangana India 500049
@@ -35,11 +35,11 @@ const Contact = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-card border border-border rounded-lg p-6 hover:shadow-xl hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] group cursor-pointer">
                 <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">Mumbai Office</h3>
-                <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">Sayantrik Engineer India Pvt Ltd</p>
+                <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">Sayantrik Engineers India Pvt Ltd</p>
               </div>
               <div className="bg-card border border-border rounded-lg p-6 hover:shadow-xl hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] group cursor-pointer">
                 <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">Chennai Office</h3>
-                <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">Sayantrik Engineer India Pvt Ltd</p>
+                <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">Sayantrik Engineers India Pvt Ltd</p>
               </div>
             </div>
 
@@ -174,7 +174,7 @@ const Contact = () => {
             </form>
 
             <p className="text-center text-muted-foreground mt-8">
-              Thank you for considering Sayantrik Engineer India Pvt Ltd as your engineering partner.
+              Thank you for considering Sayantrik Engineers India Pvt Ltd as your engineering partner.
             </p>
             <p className="text-center text-primary font-semibold mt-2">
               Engineering Excellence, Your Vision, Our Commitment.

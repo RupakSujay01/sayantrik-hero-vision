@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <h3 className="text-xl font-bold text-primary mb-4">
-              Sayantrik Engineer India Pvt Ltd
+              Sayantrik Engineers India Pvt Ltd
             </h3>
             <p className="text-muted-foreground text-sm mb-4">
               Engineering Excellence in Oil & Gas, Refinery, Petrochemicals, Chemicals, and Pharmaceutical industries.
@@ -86,7 +86,7 @@ const Footer = () => {
                 <span>+91 79955 79900</span>
               </li>
               <li className="text-sm text-muted-foreground">
-                Hyderabad, Mumbai, Chennai , Malaysia
+                Hyderabad, Mumbai, Chennai , Malaysia ,Kuala Lumpur, USA
               </li>
             </ul>
           </div>
@@ -94,7 +94,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Sayantrik Engineer India Pvt Ltd. All rights reserved.
+            © {new Date().getFullYear()} Sayantrik Engineers India Pvt Ltd. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground mt-2">
             Engineering Excellence, Your Vision, Our Commitment.

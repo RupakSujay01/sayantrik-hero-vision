@@ -14,7 +14,7 @@ const About = () => {
               A story behind our company's growth
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              <span className="font-semibold text-foreground">Sayantrik Engineer India Pvt Ltd</span> is a name synonymous with engineering excellence in the dynamic and demanding fields of Oil & Gas, Petrochemicals, and Chemicals. Our journey, now spanning over a decade, is marked by a relentless commitment to delivering top-tier engineering solutions. We have risen as an emerging engineering consultancy with a reputation for excellence and innovation.
+              <span className="font-semibold text-foreground">Sayantrik Engineers India Pvt Ltd</span> is a name synonymous with engineering excellence in the dynamic and demanding fields of Oil & Gas, Petrochemicals, and Chemicals. Our journey, now spanning over a decade, is marked by a relentless commitment to delivering top-tier engineering solutions. We have risen as an emerging engineering consultancy with a reputation for excellence and innovation.
             </p>
           </div>
         </section>
@@ -25,7 +25,7 @@ const About = () => {
             Our Legacy
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Founded in 2012, Sayantrik Engineer India Pvt Ltd has steadily evolved into a prominent player in the industry. With offices strategically located in Hyderabad, Mumbai, and Chennai, we have cultivated a team of over 150 dedicated permanent resources. Our experts bring a wealth of experience and technical prowess to the projects we undertake.
+            Founded in 2012, Sayantrik Engineers India Pvt Ltd has steadily evolved into a prominent player in the industry. With offices strategically located in Hyderabad, Mumbai, and Chennai, we have cultivated a team of over 150 dedicated permanent resources. Our experts bring a wealth of experience and technical prowess to the projects we undertake.
           </p>
 
           {/* Timeline */}
