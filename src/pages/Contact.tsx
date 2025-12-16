@@ -113,12 +113,6 @@ const Contact = () => {
                   href="#" 
                   className="p-3 bg-background hover:bg-primary hover:text-primary-foreground rounded-lg transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lg"
                 >
-                  <Instagram className="h-6 w-6" />
-                </a>
-                <a 
-                  href="#" 
-                  className="p-3 bg-background hover:bg-primary hover:text-primary-foreground rounded-lg transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lg"
-                >
                   <Facebook className="h-6 w-6" />
                 </a>
                 <a 

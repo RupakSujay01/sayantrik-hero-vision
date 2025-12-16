@@ -49,8 +49,9 @@ const Hero = () => {
           <div className="container mx-auto px-6 py-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
               <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">13+</div>
-                <div className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wide">Years of Excellence</div>
+                <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">Engineering Excellence 
+</div>
+                <div className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wide">Since 2012</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">250+</div>
@@ -58,11 +59,11 @@ const Hero = () => {
               </div>
               <div className="space-y-2">
                 <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">15+</div>
-                <div className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wide">Global Reach Countries</div>
+                <div className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wide">Global Presence</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">160+</div>
-                <div className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wide">Expert Team Engineers</div>
+                <div className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wide">Expert Engineers</div>
               </div>
             </div>
           </div>

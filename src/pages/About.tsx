@@ -25,7 +25,7 @@ const About = () => {
             Our Legacy
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Founded in 2012, Sayantrik Engineers India Pvt Ltd has steadily evolved into a prominent player in the industry. With offices strategically located in Hyderabad, Mumbai, and Chennai, we have cultivated a team of over 150 dedicated permanent resources. Our experts bring a wealth of experience and technical prowess to the projects we undertake.
+            Founded in 2012, Sayantrik Engineers India Pvt Ltd has steadily evolved into a prominent player in the industry. With offices strategically located in Hyderabad, Mumbai, Chennai, Kuala lumpur and USA we have cultivated a team of over 160+ dedicated permanent resources. Our experts bring a wealth of experience and technical prowess to the projects we undertake.
           </p>
 
           {/* Timeline */}
@@ -41,7 +41,7 @@ const About = () => {
               </div>
               <div className="text-center space-y-2">
                 <div className="text-2xl font-bold text-foreground">2018</div>
-                <p className="text-sm text-muted-foreground font-medium">First Global office in India</p>
+                <p className="text-sm text-muted-foreground font-medium">First Global Delivery Partnership </p>
               </div>
               <div className="text-center space-y-2">
                 <div className="text-2xl font-bold text-foreground">2020</div>

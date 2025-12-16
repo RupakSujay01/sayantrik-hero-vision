@@ -57,7 +57,7 @@ const Header = () => {
           { label: "Pre-bid Eng Services" },
           { label: "Pharmaceutical" },
           { label: "Laser Scanning" },
-          { label: "PSV Adequecy check" },
+          { label: "PSV Adequacy check" },
         ],
       },
     ],

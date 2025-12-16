@@ -40,7 +40,7 @@ const Services = () => {
             <div className="bg-card border border-border rounded-lg p-6">
               <h3 className="text-xl font-bold text-foreground mb-4">Onshore Units</h3>
               <ul className="space-y-2">
-                <li className="text-muted-foreground font-medium">• Gas–Oil Separation Plants (GOSP)</li>
+                <li className="text-muted-foreground">• Gas–Oil Separation Plants (GOSP)</li>
                 <li className="text-muted-foreground">• Early Production Facilities (EPF)</li>
                 <li className="text-muted-foreground">• Oil & Gas Gathering Stations</li>
                 <li className="text-muted-foreground">• Slug Catchers & Manifolds</li>
