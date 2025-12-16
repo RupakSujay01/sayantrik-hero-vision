@@ -121,7 +121,7 @@ const Header = () => {
             <div className="bg-white rounded-md p-1">
               <img src={logoUrl} alt="Sayantrik Engineer India Logo" className="h-9 object-contain" />
             </div>
-            <span className="text-xl md:text-2xl font-bold text-white">Sayantrik Engineer India Pvt Ltd</span>
+            <span className="text-xl md:text-2xl font-bold text-foreground">Sayantrik Engineer India Pvt Ltd</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -146,14 +146,13 @@ const Header = () => {
               >
                 <Link
                   to={item.path}
-                  className={`text-sm font-medium transition-all duration-300 hover:text-primary inline-flex items-center relative pb-1 text-white`}
+                  className={`text-sm font-medium transition-all duration-300 hover:text-primary inline-flex items-center relative pb-1 text-foreground`}
                 >
                   {item.label}
                   {/* Animated underline */}
                   <span
-                    className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                      isActive(item.path) || hoveredMenu === item.label ? "w-full" : "w-0"
-                    }`}
+                    className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${isActive(item.path) || hoveredMenu === item.label ? "w-full" : "w-0"
+                      }`}
                   />
                 </Link>
 
@@ -209,7 +208,7 @@ const Header = () => {
           </nav>
 
           {/* Mobile Menu Button */}
-          <Button variant="ghost" size="icon" className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <Button variant="ghost" size="icon" className="md:hidden text-foreground" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
@@ -222,7 +221,7 @@ const Header = () => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block py-2 text-sm font-medium transition-colors hover:text-primary text-white`}
+                className={`block py-2 text-sm font-medium transition-colors hover:text-primary text-foreground`}
               >
                 {item.label}
               </Link>

@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import heroEarth from "@/assets/hero-earth.jpg";
+import heroEarth from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-24 md:pt-36">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroEarth})` }}
       >
@@ -18,7 +18,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-6 pt-6 md:pt-8 pb-40">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
           {/* Main Headline */}
-          <h1 className="font-heading leading-tight text-white glow-text">
+          <h1 className="font-heading leading-tight text-foreground glow-text">
             Engineering Excellence.<br />
             Global Delivery.<br />
             Innovation Leadership.
@@ -37,7 +37,7 @@ const Hero = () => {
               </Button>
             </Link>
             <Link to="/contact">
-              <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-background font-semibold">
+              <Button size="lg" variant="outline" className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold">
                 Get Quote
               </Button>
             </Link>
@@ -45,12 +45,12 @@ const Hero = () => {
         </div>
 
         {/* Stats Banner (no glow) */}
-        <div className="absolute bottom-0 left-0 right-0 bg-secondary/90 border-t border-border">
+        <div className="absolute bottom-0 left-0 right-0">
           <div className="container mx-auto px-6 py-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
               <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">Engineering Excellence 
-</div>
+                <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">Engineering Excellence
+                </div>
                 <div className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wide">Since 2012</div>
               </div>
               <div className="space-y-2">

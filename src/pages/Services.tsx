@@ -1,15 +1,19 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { lifecyclePhases, industryServices } from "../data/services-data";
+import ServicesLifecycle from "../components/ServicesLifecycle";
+import { Clock, Users, Laptop, FileText, CheckCircle } from "lucide-react";
 
 const Services = () => {
   const location = useLocation();
+  const [viewMode, setViewMode] = useState<'lifecycle' | 'industry'>('lifecycle');
+  const [activeLifecycleId, setActiveLifecycleId] = useState<string>(lifecyclePhases[0].id);
 
   useEffect(() => {
-    // Handle hash navigation (e.g., /services#comprehensive-engineering)
+    // Handle hash navigation
     if (location.hash) {
       const element = document.getElementById(location.hash.substring(1));
       if (element) {
-        // Add a small delay to ensure the page has rendered
         setTimeout(() => {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }, 100);
@@ -17,438 +21,194 @@ const Services = () => {
     }
   }, [location]);
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handlePhaseSelect = (id: string) => {
+    setActiveLifecycleId(id);
+    scrollToSection(`lifecycle-${id}`);
+  };
+
   return (
     <main className="min-h-screen bg-background py-20">
       <div className="container mx-auto px-6">
-        <div className="mb-8 animate-fade-in">
-          <h1 className="font-heading text-foreground">
+        <div className="mb-8 animate-fade-in text-center">
+          <h1 className="font-heading text-4xl md:text-5xl text-foreground mb-6">
             Our Services
           </h1>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
+            World-class engineering solutions tailored to your project lifecycle and industry needs.
+          </p>
+
+          {/* Toggle Navigation */}
+          <div className="inline-flex bg-muted/50 p-1.5 rounded-full mb-12 border border-border">
+            <button
+              onClick={() => setViewMode('lifecycle')}
+              className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 ${viewMode === 'lifecycle'
+                  ? 'bg-primary text-primary-foreground shadow-lg'
+                  : 'text-muted-foreground hover:text-foreground'
+                }`}
+            >
+              By Project Phase
+            </button>
+            <button
+              onClick={() => setViewMode('industry')}
+              className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 ${viewMode === 'industry'
+                  ? 'bg-primary text-primary-foreground shadow-lg'
+                  : 'text-muted-foreground hover:text-foreground'
+                }`}
+            >
+              By Industry Sector
+            </button>
+          </div>
         </div>
 
-        {/* Oil & Gas - Onshore & Offshore */}
-        <section id="oil-gas" className="mb-16 animate-fade-in scroll-mt-20">
-          <h2 className="font-heading text-foreground mb-6">
-            Oil & Gas – Onshore & Offshore
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 font-medium">
-            Sayantrik delivers full-scope engineering, digitalization, and revamp support for upstream and midstream Oil & Gas assets.
-          </p>
+        {/* View Content */}
+        {viewMode === 'lifecycle' ? (
+          <div className="animate-fade-in">
+            {/* Infographic Navigation */}
+            <ServicesLifecycle
+              onPhaseSelect={handlePhaseSelect}
+              activePhaseId={activeLifecycleId}
+            />
 
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            {/* Onshore Units */}
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-bold text-foreground mb-4">Onshore Units</h3>
-              <ul className="space-y-2">
-                <li className="text-muted-foreground">• Gas–Oil Separation Plants (GOSP)</li>
-                <li className="text-muted-foreground">• Early Production Facilities (EPF)</li>
-                <li className="text-muted-foreground">• Oil & Gas Gathering Stations</li>
-                <li className="text-muted-foreground">• Slug Catchers & Manifolds</li>
-                <li className="text-muted-foreground">• Dehydration & Desalting Units</li>
-                <li className="text-muted-foreground">• Gas Sweetening (Amine) Units</li>
-                <li className="text-muted-foreground">• Gas Compression Stations</li>
-                <li className="text-muted-foreground">• Produced Water Treatment Units</li>
-                <li className="text-muted-foreground">• Fiscal Metering & Custody Transfer</li>
-                <li className="text-muted-foreground">• Cross-country & Field Pipeline Networks</li>
-              </ul>
-            </div>
+            <div className="space-y-24 mt-16">
+              {lifecyclePhases.map((phase) => (
+                <section
+                  key={phase.id}
+                  id={`lifecycle-${phase.id}`}
+                  className="scroll-mt-32"
+                >
+                  <div className="bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div className="bg-primary/5 p-8 border-b border-border">
+                      <h2 className="text-3xl font-heading text-foreground mb-4">
+                        {phase.title}
+                      </h2>
+                      <p className="text-xl text-muted-foreground font-medium leading-relaxed">
+                        {phase.fullDescription}
+                      </p>
+                    </div>
 
-            {/* Offshore Units */}
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-bold text-foreground mb-4">Offshore Units</h3>
-              <ul className="space-y-2">
-                <li className="text-muted-foreground">• Wellhead Platforms (WHP)</li>
-                <li className="text-muted-foreground">• Central Processing Platforms (CPP)</li>
-                <li className="text-muted-foreground">• Riser & Manifold Platforms</li>
-                <li className="text-muted-foreground">• Flare Systems</li>
-                <li className="text-muted-foreground">• Living Quarters (LQ)</li>
-                <li className="text-muted-foreground">• Subsea Tie-backs</li>
-                <li className="text-muted-foreground">• Satellite Platforms</li>
-                <li className="text-muted-foreground">• Brownfield Deck Modifications</li>
-              </ul>
-            </div>
-          </div>
+                    <div className="p-8 grid gap-8 md:grid-cols-2">
+                      {/* Left Column: Deliverables & Standards */}
+                      <div className="space-y-8">
+                        <div>
+                          <div className="flex items-center gap-2 mb-4">
+                            <FileText className="text-primary" size={20} />
+                            <h3 className="text-xl font-bold text-foreground">Key Deliverables</h3>
+                          </div>
+                          <ul className="grid gap-2">
+                            {phase.deliverables.map((item, idx) => (
+                              <li key={idx} className="flex items-start gap-2 text-muted-foreground text-sm">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0" />
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
 
-          {/* Our Capability */}
-          <div className="bg-card border border-border rounded-lg p-6">
-            <h3 className="text-xl font-bold text-foreground mb-3">Our Capability</h3>
-            <p className="text-muted-foreground">
-              We support process, piping, mechanical, civil/structural, electrical, instrumentation, stress analysis, laser scanning, 3D modelling, and revamp tie-ins for all Oil & Gas units.
-            </p>
-          </div>
-        </section>
+                        <div>
+                          <div className="flex items-center gap-2 mb-4">
+                            <CheckCircle className="text-primary" size={20} />
+                            <h3 className="text-xl font-bold text-foreground">Standards Followed</h3>
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {phase.standards.map((std, idx) => (
+                              <span key={idx} className="px-3 py-1 bg-muted rounded-full text-xs font-medium text-foreground border border-border">
+                                {std}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
 
-        {/* Refineries */}
-        <section id="refineries" className="mb-16 animate-fade-in scroll-mt-20">
-          <h2 className="font-heading text-foreground mb-6">
-            Refineries
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 font-medium">
-            We engineer all primary processing, conversion, treating, and utility units of modern refineries.
-          </p>
+                      {/* Right Column: Key Stats & Tools */}
+                      <div className="space-y-8 md:border-l md:border-border md:pl-8">
+                        <div>
+                          <div className="flex items-center gap-2 mb-4">
+                            <Clock className="text-primary" size={20} />
+                            <h3 className="text-xl font-bold text-foreground">Typical Duration</h3>
+                          </div>
+                          <p className="text-muted-foreground font-medium bg-muted/30 p-3 rounded-lg border border-border/50 inline-block">
+                            {phase.duration}
+                          </p>
+                        </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            {/* Primary Processing & Conversion */}
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-bold text-foreground mb-4">Primary Processing</h3>
-              <ul className="space-y-2 mb-6">
-                <li className="text-muted-foreground">• Crude Distillation Unit (CDU)</li>
-                <li className="text-muted-foreground">• Vacuum Distillation Unit (VDU)</li>
-              </ul>
-              <h3 className="text-xl font-bold text-foreground mb-4">Conversion Units</h3>
-              <ul className="space-y-2">
-                <li className="text-muted-foreground">• Fluid Catalytic Cracking Unit (FCCU)</li>
-                <li className="text-muted-foreground">• Hydrocracker Unit (HCU)</li>
-                <li className="text-muted-foreground">• Delayed Coker Unit (DCU)</li>
-                <li className="text-muted-foreground">• Visbreaker Unit</li>
-                <li className="text-muted-foreground">• Residue Upgrading Blocks</li>
-              </ul>
-            </div>
+                        <div>
+                          <div className="flex items-center gap-2 mb-4">
+                            <Users className="text-primary" size={20} />
+                            <h3 className="text-xl font-bold text-foreground">Team Composition</h3>
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {phase.teamComposition.map((role, idx) => (
+                              <span key={idx} className="bg-primary/10 text-primary-foreground/90 px-3 py-1 rounded-md text-xs font-semibold">
+                                {role}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
 
-            {/* Reforming & Hydrogen Management */}
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-bold text-foreground mb-4">Reforming & Treating</h3>
-              <ul className="space-y-2 mb-6">
-                <li className="text-muted-foreground">• Naphtha / Kerosene / Diesel Hydrotreaters</li>
-                <li className="text-muted-foreground">• Catalytic Reforming Units (CCR/SRR)</li>
-                <li className="text-muted-foreground">• Merox Treaters</li>
-              </ul>
-              <h3 className="text-xl font-bold text-foreground mb-4">Hydrogen & Sulfur Management</h3>
-              <ul className="space-y-2">
-                <li className="text-muted-foreground">• Hydrogen Generation Unit (SMR)</li>
-                <li className="text-muted-foreground">• Amine Treatment Units</li>
-                <li className="text-muted-foreground">• Sour Water Stripper (SWS)</li>
-                <li className="text-muted-foreground">• Sulfur Recovery Unit (SRU – Claus)</li>
-                <li className="text-muted-foreground">• Tail Gas Treatment Unit (TGTU)</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="bg-card border border-border rounded-lg p-6 mb-8">
-            <h3 className="text-xl font-bold text-foreground mb-4">Refinery Offsites</h3>
-            <ul className="space-y-2">
-              <li className="text-muted-foreground">• Tank Farms</li>
-              <li className="text-muted-foreground">• Blending Systems</li>
-              <li className="text-muted-foreground">• Loading/Unloading Areas</li>
-              <li className="text-muted-foreground">• Utility Networks</li>
-              <li className="text-muted-foreground">• Flare Systems</li>
-            </ul>
-          </div>
-
-          <div className="bg-card border border-border rounded-lg p-6">
-            <h3 className="text-xl font-bold text-foreground mb-3">Our Capability</h3>
-            <p className="text-muted-foreground">
-              We provide complete multi-discipline engineering, shutdown engineering, brownfield tie-ins, 3D digital twins, laser scanning, and detailed engineering across every refinery unit.
-            </p>
-          </div>
-        </section>
-
-        {/* Petrochemical & Chemical Plants */}
-        <section id="petrochemical" className="mb-16 animate-fade-in scroll-mt-20">
-          <h2 className="font-heading text-foreground mb-6">
-            Petrochemical & Chemical Plants
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 font-medium">
-            We support complex petrochemical, polymer, aromatics, and specialty chemical facilities.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            {/* Olefins & Polymers */}
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-bold text-foreground mb-4">Olefins & Polymers</h3>
-              <ul className="space-y-2 mb-6">
-                <li className="text-muted-foreground">• Steam Crackers</li>
-                <li className="text-muted-foreground">• Ethylene/Propylene Recovery Units</li>
-                <li className="text-muted-foreground">• Butadiene Extraction</li>
-                <li className="text-muted-foreground">• HDPE / LDPE / PP</li>
-                <li className="text-muted-foreground">• PVC / PET / ABS / Nylon / Polycarbonates</li>
-              </ul>
-              <h3 className="text-xl font-bold text-foreground mb-4">Aromatics (BTX)</h3>
-              <ul className="space-y-2">
-                <li className="text-muted-foreground">• Benzene</li>
-                <li className="text-muted-foreground">• Toluene</li>
-                <li className="text-muted-foreground">• Mixed Xylene</li>
-                <li className="text-muted-foreground">• Paraxylene (PX)</li>
-                <li className="text-muted-foreground">• PTA Units</li>
-              </ul>
-            </div>
-
-            {/* Basic & Specialty Chemicals */}
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-bold text-foreground mb-4">Basic & Specialty Chemicals</h3>
-              <ul className="space-y-2">
-                <li className="text-muted-foreground">• Chlor-Alkali Plants</li>
-                <li className="text-muted-foreground">• Sulfuric, Nitric & Phosphoric Acid Plants</li>
-                <li className="text-muted-foreground">• Solvent Recovery Plants</li>
-                <li className="text-muted-foreground">• Resins & Specialty Chemical Blocks</li>
-              </ul>
+                        <div>
+                          <div className="flex items-center gap-2 mb-4">
+                            <Laptop className="text-primary" size={20} />
+                            <h3 className="text-xl font-bold text-foreground">Software Tools</h3>
+                          </div>
+                          <ul className="space-y-1">
+                            {phase.softwareTools.map((tool, idx) => (
+                              <li key={idx} className="text-sm text-muted-foreground border-b border-border/50 last:border-0 py-1">
+                                {tool}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              ))}
             </div>
           </div>
+        ) : (
+          <div className="animate-fade-in space-y-16">
+            {industryServices.map((service) => (
+              <section key={service.id} id={service.id} className="scroll-mt-32">
+                <h2 className="font-heading text-3xl text-foreground mb-6 border-b border-border pb-4">
+                  {service.title}
+                </h2>
+                <p className="text-lg text-muted-foreground mb-8 font-medium">
+                  {service.description}
+                </p>
 
-          <div className="bg-card border border-border rounded-lg p-6">
-            <h3 className="text-xl font-bold text-foreground mb-3">Our Capability</h3>
-            <p className="text-muted-foreground">
-              We deliver simulation, sizing, equipment layouts, stress analysis, safety studies, 3D modelling, MTO/BOQ, and complete engineering packages.
-            </p>
-          </div>
-        </section>
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  {service.categories.map((category, idx) => (
+                    <div key={idx} className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 transition-colors">
+                      <h3 className="text-xl font-bold text-foreground mb-4">{category.title}</h3>
+                      <ul className="space-y-2">
+                        {category.items.map((item, i) => (
+                          <li key={i} className="text-muted-foreground text-sm flex items-start gap-2">
+                            <span className="text-primary mt-1">•</span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
 
-        {/* Fertilizer & Methanol Units */}
-        <section id="fertilizer" className="mb-16 animate-fade-in scroll-mt-20">
-          <h2 className="font-heading text-foreground mb-6">
-            Fertilizer & Methanol Units
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 font-medium">
-            Complete engineering services for ammonia, urea, syngas and methanol complexes.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            {/* Fertilizer Units */}
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-bold text-foreground mb-4">Fertilizer Units</h3>
-              <ul className="space-y-2">
-                <li className="text-muted-foreground">• Ammonia Plants</li>
-                <li className="text-muted-foreground">• Urea (Prilling/Granulation)</li>
-                <li className="text-muted-foreground">• Ammonium Nitrate / Ammonium Sulfate</li>
-                <li className="text-muted-foreground">• Phosphatic Fertilizers (DAP, NPK)</li>
-              </ul>
-            </div>
-
-            {/* Methanol & Derivatives */}
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-bold text-foreground mb-4">Methanol & Derivatives</h3>
-              <ul className="space-y-2 mb-6">
-                <li className="text-muted-foreground">• Syngas Generation Units</li>
-                <li className="text-muted-foreground">• Methanol Synthesis Units</li>
-                <li className="text-muted-foreground">• Methanol-to-Olefins (MTO) Units</li>
-              </ul>
-              <h3 className="text-xl font-bold text-foreground mb-4">Associated Utilities</h3>
-              <ul className="space-y-2">
-                <li className="text-muted-foreground">• CO₂ Recovery</li>
-                <li className="text-muted-foreground">• Steam & Power Systems</li>
-                <li className="text-muted-foreground">• Cooling Water Networks</li>
-                <li className="text-muted-foreground">• Inert Gas Systems</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="bg-card border border-border rounded-lg p-6">
-            <h3 className="text-xl font-bold text-foreground mb-3">Our Capability</h3>
-            <p className="text-muted-foreground">
-              We support process, piping, mechanical, civil, electrical, instrumentation, 3D modelling, revamp engineering, brownfield tie-ins, and shutdown planning.
-            </p>
-          </div>
-        </section>
-
-        {/* Terminals & Tank Farms */}
-        <section id="terminals" className="mb-16 animate-fade-in scroll-mt-20">
-          <h2 className="font-heading text-foreground mb-6">
-            Terminals & Tank Farms
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 font-medium">
-            Engineering support for petroleum product storage, distribution, and loading facilities.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            {/* Storage & Terminal Systems */}
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-bold text-foreground mb-4">Storage</h3>
-              <ul className="space-y-2 mb-6">
-                <li className="text-muted-foreground">• Crude Oil Tanks</li>
-                <li className="text-muted-foreground">• Product Tanks (FO, Diesel, Gasoline)</li>
-                <li className="text-muted-foreground">• LPG Spheres</li>
-                <li className="text-muted-foreground">• LNG/Ammonia Refrigerated Tanks</li>
-              </ul>
-              <h3 className="text-xl font-bold text-foreground mb-4">Terminal Systems</h3>
-              <ul className="space-y-2">
-                <li className="text-muted-foreground">• Pump Houses</li>
-                <li className="text-muted-foreground">• Truck Loading/Unloading Gantries</li>
-                <li className="text-muted-foreground">• Marine Terminals / Jetties</li>
-                <li className="text-muted-foreground">• Pipeline Routing (AG/UG)</li>
-                <li className="text-muted-foreground">• Blending & Metering Systems</li>
-                <li className="text-muted-foreground">• SCADA/Automation Integration</li>
-              </ul>
-            </div>
-
-            {/* Safety Systems */}
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-bold text-foreground mb-4">Safety Systems</h3>
-              <ul className="space-y-2">
-                <li className="text-muted-foreground">• Fire Water Networks</li>
-                <li className="text-muted-foreground">• Foam Systems</li>
-                <li className="text-muted-foreground">• Gas Detection & Safety Control</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="bg-card border border-border rounded-lg p-6">
-            <h3 className="text-xl font-bold text-foreground mb-3">Our Capability</h3>
-            <p className="text-muted-foreground">
-              We deliver tank design support, layout engineering, fire protection systems, pipeline routing, and 3D digitalization.
-            </p>
-          </div>
-        </section>
-
-        {/* Utility & Offsite Systems */}
-        <section id="utility" className="mb-16 animate-fade-in scroll-mt-20">
-          <h2 className="font-heading text-foreground mb-6">
-            Utility & Offsite Systems
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 font-medium">
-            Utilities are the backbone of every process plant — we engineer all utility and offsite facilities.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            {/* Utility Units */}
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-bold text-foreground mb-4">Utility Units</h3>
-              <ul className="space-y-2">
-                <li className="text-muted-foreground">• Boiler Feed Water Systems</li>
-                <li className="text-muted-foreground">• Steam Generation / Condensate Recovery</li>
-                <li className="text-muted-foreground">• Cooling Water Systems</li>
-                <li className="text-muted-foreground">• Chilled Water Networks</li>
-                <li className="text-muted-foreground">• Air Separation Units</li>
-                <li className="text-muted-foreground">• Instrument Air & Nitrogen</li>
-                <li className="text-muted-foreground">• Raw Water / DM Water / RO Plants</li>
-                <li className="text-muted-foreground">• Power Distribution, Substations & MCC Rooms</li>
-              </ul>
-            </div>
-
-            {/* Offsite Facilities */}
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-xl font-bold text-foreground mb-4">Offsite Facilities</h3>
-              <ul className="space-y-2">
-                <li className="text-muted-foreground">• Flare Systems</li>
-                <li className="text-muted-foreground">• ETP / STP Plants</li>
-                <li className="text-muted-foreground">• Oily Water Systems</li>
-                <li className="text-muted-foreground">• Roads, Drains & Infrastructure</li>
-                <li className="text-muted-foreground">• Pipe Racks & Pipe Bridges</li>
-                <li className="text-muted-foreground">• Loading/Unloading Areas</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="bg-card border border-border rounded-lg p-6">
-            <h3 className="text-xl font-bold text-foreground mb-3">Our Capability</h3>
-            <p className="text-muted-foreground">
-              Multi-discipline utility engineering, equipment sizing, 3D modelling, MTO/BOQ, layouts, stress analysis and complete offsite design.
-            </p>
-          </div>
-        </section>
-
-        {/* Comprehensive Engineering Solutions */}
-        <section id="comprehensive-engineering" className="mb-16 animate-fade-in scroll-mt-20">
-          <div className="text-center mb-12 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              Comprehensive Engineering Solutions
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto">
-              From upstream exploration to downstream refining, we deliver excellence across the entire energy value chain with cutting-edge technologies and proven expertise.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {/* Upstream Production */}
-            <div className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-              <h3 className="text-xl font-bold text-foreground mb-3">Upstream Production</h3>
-              <p className="text-muted-foreground mb-4">
-                Innovative solutions for oil & gas production optimization, EOR systems, and offshore platforms.
-              </p>
-              <ul className="space-y-2">
-                <li className="text-sm text-muted-foreground">• Production Systems</li>
-                <li className="text-sm text-muted-foreground">• Enhanced Oil Recovery</li>
-                <li className="text-sm text-muted-foreground">• Platform Engineering</li>
-              </ul>
-            </div>
-
-            {/* Midstream Processing */}
-            <div className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-              <h3 className="text-xl font-bold text-foreground mb-3">Midstream Processing</h3>
-              <p className="text-muted-foreground mb-4">
-                Comprehensive natural gas processing, transportation, and LNG/LPG systems engineering.
-              </p>
-              <ul className="space-y-2">
-                <li className="text-sm text-muted-foreground">• Gas Treatment</li>
-                <li className="text-sm text-muted-foreground">• NGL Recovery</li>
-                <li className="text-sm text-muted-foreground">• Pipeline Systems</li>
-              </ul>
-            </div>
-
-            {/* Downstream Refining */}
-            <div className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-              <h3 className="text-xl font-bold text-foreground mb-3">Downstream Refining</h3>
-              <p className="text-muted-foreground mb-4">
-                Complete process engineering for refinery operations, catalytic processes, and petrochemical manufacturing.
-              </p>
-              <ul className="space-y-2">
-                <li className="text-sm text-muted-foreground">• Crude Oil Processing</li>
-                <li className="text-sm text-muted-foreground">• Catalytic Cracking</li>
-                <li className="text-sm text-muted-foreground">• Product Upgrading</li>
-              </ul>
-            </div>
-
-            {/* Gas to Liquids */}
-            <div className="group bg-card border border-border rounded-lg p-6 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-              <h3 className="text-xl font-bold text-foreground mb-3">Gas to Liquids</h3>
-              <p className="text-muted-foreground mb-4">
-                Advanced GTL technology converting natural gas into high-quality liquid fuels and chemicals.
-              </p>
-              <ul className="space-y-2">
-                <li className="text-sm text-muted-foreground">• Fischer-Tropsch Synthesis</li>
-                <li className="text-sm text-muted-foreground">• Syngas Production</li>
-                <li className="text-sm text-muted-foreground">• Product Upgrading</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* Business Services */}
-        <section className="mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-            Business Services
-          </h2>
-          <p className="text-lg text-muted-foreground mb-6">
-            Our suite of services is extensive and includes, but is not limited to:
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              { title: "Feasibility Studies", desc: "Assessing the viability of your projects is our first step in ensuring their success." },
-              { title: "FEED Engineering", desc: "Our experts meticulously plan the front-end engineering design to provide a strong foundation for your projects." },
-              { title: "Basic Engineering", desc: "We create detailed plans that form the basis for the successful execution of your projects." },
-              { title: "Detailed Engineering", desc: "Our attention to detail ensures the seamless implementation of your projects." },
-              { title: "As-Built 3D Modelling", desc: "We document every project as it was constructed, providing a clear picture of the final product." },
-              { title: "Project Management and Execution", desc: "We offer full-spectrum project management services to ensure your vision becomes a reality." }
-            ].map((service, index) => (
-              <div key={index} className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-bold text-foreground mb-2">{service.title}</h3>
-                <p className="text-muted-foreground">{service.desc}</p>
-              </div>
+                <div className="bg-muted/30 border border-border rounded-lg p-6">
+                  <h3 className="text-xl font-bold text-foreground mb-3">Our Capability</h3>
+                  <p className="text-muted-foreground">
+                    {service.capability}
+                  </p>
+                </div>
+              </section>
             ))}
           </div>
-        </section>
-
-        {/* Multi-discipline Engineering Services */}
-        <section className="mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-            Multi-discipline Engineering Services
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {[
-              "Process Engineering",
-              "Piping Engineering",
-              "Mechanical Engineering",
-              "Electrical Engineering",
-              "Instrumentation Engineering",
-              "Civil and Structural Engineering",
-              "HSE"
-            ].map((discipline, index) => (
-              <div key={index} className="bg-card border border-border rounded-lg p-4 text-center hover:bg-primary hover:text-primary-foreground transition-colors">
-                <p className="font-medium">{discipline}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
+        )}
       </div>
     </main>
   );
