@@ -1,4 +1,5 @@
 import hseBg from "@/assets/hse-minimal-nature.png";
+import Footer from "@/components/Footer";
 
 const HSE = () => {
     const sections = [
@@ -65,6 +66,7 @@ const HSE = () => {
     ];
 
     return (
+        <>
         <div className="pt-24 pb-16 min-h-screen relative overflow-hidden">
             {/* Animated Wallpaper Background */}
             <style>
@@ -132,6 +134,8 @@ const HSE = () => {
                 </div>
             </div>
         </div>
+        <Footer />
+        </>
     );
 };
 
