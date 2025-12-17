@@ -66,9 +66,9 @@ const HSE = () => {
 
     return (
         <>
-        <div className="pt-24 pb-16 min-h-screen relative overflow-hidden">
+        <div className="pt-24 pb-16 relative overflow-hidden">
             {/* Green Gradient Background */}
-            <div className="fixed inset-0 w-full h-full z-0 overflow-hidden">
+            <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-green-50 via-emerald-50 to-green-100" />
                 <div className="absolute inset-0 bg-white/30 backdrop-blur-sm z-10" />
             </div>
