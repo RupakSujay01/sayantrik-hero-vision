@@ -32,7 +32,7 @@ const Header = () => {
   const navItems = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About Us", hasDropdown: true },
-    { path: "/business", label: "Business" },
+    { path: "/business", label: "Business", hasDropdown: true },
     { path: "/services", label: "Services", hasDropdown: true },
     { path: "/disciplines", label: "Disciplines" },
     { path: "/projects", label: "Projects", hasDropdown: true },
@@ -99,6 +99,30 @@ const Header = () => {
     ],
   };
 
+  const businessDropdown = {
+    sections: [
+      {
+        title: "Industries",
+        items: [
+          { label: "Refinery", link: "/business#refinery" },
+          { label: "Oil & Gas - Onshore", link: "/business#oil-gas-onshore" },
+          { label: "Oil & Gas - Offshore", link: "/business#oil-gas-offshore" },
+          { label: "Cross Counter Pipelines", link: "/business#pipelines" },
+          { label: "Storage Terminals", link: "/business#storage-terminals" },
+        ],
+      },
+      {
+        title: "Sectors",
+        items: [
+          { label: "Gas Compressor Station", link: "/business#gas-compressor" },
+          { label: "Chemicals", link: "/business#chemicals" },
+          { label: "Speciality Chemicals", link: "/business#speciality-chemicals" },
+          { label: "Green Hydrogen", link: "/business#green-hydrogen" },
+        ],
+      },
+    ],
+  };
+
   const getDropdownContent = (label: string) => {
     switch (label) {
       case "Services":
@@ -109,6 +133,8 @@ const Header = () => {
         return aboutDropdown;
       case "Careers":
         return careersDropdown;
+      case "Business":
+        return businessDropdown;
       default:
         return null;
     }
