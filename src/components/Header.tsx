@@ -34,7 +34,7 @@ const Header = () => {
     { path: "/about", label: "About Us", hasDropdown: true },
     { path: "/business", label: "Business", hasDropdown: true },
     { path: "/services", label: "Services", hasDropdown: true },
-    { path: "/disciplines", label: "Disciplines" },
+    { path: "/disciplines", label: "Disciplines", hasDropdown: true },
     { path: "/projects", label: "Projects", hasDropdown: true },
     { path: "/careers", label: "Careers", hasDropdown: true },
     { path: "/hse", label: "HSE" },
@@ -56,6 +56,26 @@ const Header = () => {
           { label: "Process Technology Integration", link: "/services#process-technology" },
           { label: "Brownfield Modifications", link: "/services#brownfield" },
           { label: "Laser Scan & Digital Twins", link: "/services#laser-scan" },
+        ],
+      },
+    ],
+  };
+
+  const disciplinesDropdown = {
+    sections: [
+      {
+        title: "",
+        items: [
+          { label: "Process", link: "/disciplines#process" },
+          { label: "Mechanical - Static", link: "/disciplines#mechanical-static" },
+          { label: "Mechanical - Rotary", link: "/disciplines#mechanical-rotary" },
+          { label: "Mechanical - HVAC", link: "/disciplines#mechanical-hvac" },
+          { label: "Piping", link: "/disciplines#piping" },
+          { label: "Civil / Structural / Architectural", link: "/disciplines#civil-structural" },
+          { label: "Electrical", link: "/disciplines#electrical" },
+          { label: "Instrumentation", link: "/disciplines#instrumentation" },
+          { label: "Fire & Gas", link: "/disciplines#fire-gas" },
+          { label: "Telecom", link: "/disciplines#telecom" },
         ],
       },
     ],
@@ -119,6 +139,8 @@ const Header = () => {
         return servicesDropdown;
       case "Projects":
         return projectsDropdown;
+      case "Disciplines":
+        return disciplinesDropdown;
       case "About Us":
         return aboutDropdown;
       case "Careers":
