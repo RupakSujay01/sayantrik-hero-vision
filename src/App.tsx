@@ -14,6 +14,7 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import HSE from "./pages/HSE";
+import CSR from "./pages/CSR";
 import NotFound from "./pages/NotFound";
 import { FloatingActionButtons } from "./components/FloatingActionButtons";
 
@@ -49,6 +50,7 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/hse" element={<HSE />} />
+              <Route path="/csr" element={<CSR />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

@@ -38,6 +38,7 @@ const Header = () => {
     { path: "/projects", label: "Projects", hasDropdown: true },
     { path: "/careers", label: "Careers", hasDropdown: true },
     { path: "/hse", label: "HSE" },
+    { path: "/csr", label: "CSR" },
     { path: "/contact", label: "Contact" },
   ];
 
