@@ -117,7 +117,9 @@ const HSE = () => {
                 </div>
             </div>
         </div>
-        <Footer />
+        <div className="relative z-20">
+            <Footer />
+        </div>
         </>
     );
 };
