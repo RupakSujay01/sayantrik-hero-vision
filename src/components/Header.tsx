@@ -45,17 +45,12 @@ const Header = () => {
   const servicesDropdown = {
     sections: [
       {
-        title: "Engineering Services",
+        title: "",
         items: [
           { label: "FEED", link: "/services#feed" },
           { label: "Detail Engineering", link: "/services#detail-engineering" },
           { label: "PMC Support", link: "/services#pmc-support" },
           { label: "EPC Support", link: "/services#epc-support" },
-        ],
-      },
-      {
-        title: "Specialized Services",
-        items: [
           { label: "EPCM Support", link: "/services#epcm-support" },
           { label: "Process Technology Integration", link: "/services#process-technology" },
           { label: "Brownfield Modifications", link: "/services#brownfield" },
@@ -100,18 +95,13 @@ const Header = () => {
   const businessDropdown = {
     sections: [
       {
-        title: "Industries",
+        title: "",
         items: [
           { label: "Refinery", link: "/business#refinery" },
           { label: "Oil & Gas - Onshore", link: "/business#oil-gas-onshore" },
           { label: "Oil & Gas - Offshore", link: "/business#oil-gas-offshore" },
           { label: "Cross Counter Pipelines", link: "/business#pipelines" },
           { label: "Storage Terminals", link: "/business#storage-terminals" },
-        ],
-      },
-      {
-        title: "Sectors",
-        items: [
           { label: "Gas Compressor Station", link: "/business#gas-compressor" },
           { label: "Chemicals", link: "/business#chemicals" },
           { label: "Speciality Chemicals", link: "/business#speciality-chemicals" },
@@ -188,13 +178,15 @@ const Header = () => {
                 {/* Mega Menu Dropdown */}
                 {item.hasDropdown && hoveredMenu === item.label && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 animate-in fade-in-0 slide-in-from-top-2 duration-700 ease-in-out">
-                    <div className="bg-card border border-border rounded-lg shadow-2xl p-6 min-w-[600px]">
-                      <div className="grid grid-cols-2 gap-6">
+                    <div className="bg-card border border-border rounded-lg shadow-2xl p-6 min-w-[300px]">
+                      <div className="space-y-1">
                         {getDropdownContent(item.label)?.sections.map((section, idx) => (
                           <div key={idx}>
-                            <h3 className="text-sm font-bold uppercase tracking-wide text-foreground mb-3 pb-2 border-b border-foreground/30">
-                              {section.title}
-                            </h3>
+                            {section.title && (
+                              <h3 className="text-sm font-bold uppercase tracking-wide text-foreground mb-3 pb-2 border-b border-foreground/30">
+                                {section.title}
+                              </h3>
+                            )}
                             <div className="space-y-1">
                               {section.items.map((subItem, subIdx) => {
                                 const content = (
