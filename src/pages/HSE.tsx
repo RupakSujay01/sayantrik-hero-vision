@@ -1,4 +1,3 @@
-import hseBg from "@/assets/hse-minimal-nature.png";
 import Footer from "@/components/Footer";
 
 const HSE = () => {
@@ -68,25 +67,9 @@ const HSE = () => {
     return (
         <>
         <div className="pt-24 pb-16 min-h-screen relative overflow-hidden">
-            {/* Animated Wallpaper Background */}
-            <style>
-                {`
-          @keyframes subtleZoomPan {
-            0% { transform: scale(1.05) translate(0%, 0%); }
-            50% { transform: scale(1.1) translate(-2%, 2%); }
-            100% { transform: scale(1.05) translate(0%, 0%); }
-          }
-          .animate-wallpaper {
-            animation: subtleZoomPan 60s ease-in-out infinite alternate;
-          }
-        `}
-            </style>
+            {/* Green Gradient Background */}
             <div className="fixed inset-0 w-full h-full z-0 overflow-hidden">
-                <div
-                    className="absolute inset-0 w-full h-full bg-cover bg-center animate-wallpaper"
-                    style={{ backgroundImage: `url(${hseBg})` }}
-                />
-                {/* Lighter overlay for "fresh" look */}
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-green-50 via-emerald-50 to-green-100" />
                 <div className="absolute inset-0 bg-white/30 backdrop-blur-sm z-10" />
             </div>
 
