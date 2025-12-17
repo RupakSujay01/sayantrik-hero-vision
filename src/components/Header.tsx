@@ -116,6 +116,7 @@ const Header = () => {
           { label: "Chemicals", link: "/business#chemicals" },
           { label: "Speciality Chemicals", link: "/business#speciality-chemicals" },
           { label: "Green Hydrogen", link: "/business#green-hydrogen" },
+          { label: "Powerplants", link: "/business#powerplants" },
         ],
       },
     ],
