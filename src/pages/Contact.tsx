@@ -46,7 +46,7 @@ const Contact = () => {
             {/* Contact Details */}
             <div className="bg-card border border-border rounded-lg p-6 space-y-6 hover:shadow-xl hover:border-primary/50 transition-all duration-300">
               <h2 className="text-2xl font-bold text-primary mb-4">Contact Information</h2>
-              
+
               <div className="space-y-4">
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">Business Inquiries:</h3>
@@ -101,25 +101,13 @@ const Contact = () => {
             <div className="bg-card border border-border rounded-lg p-6 hover:shadow-xl hover:border-primary/50 transition-all duration-300">
               <h2 className="text-2xl font-bold text-primary mb-4">Connect with Us</h2>
               <div className="flex gap-4">
-                <a 
-                  href="https://www.linkedin.com/company/sayantrikengineers" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/company/sayantrikengineers"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-background hover:bg-primary hover:text-primary-foreground rounded-lg transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lg"
                 >
                   <Linkedin className="h-6 w-6" />
-                </a>
-                <a 
-                  href="#" 
-                  className="p-3 bg-background hover:bg-primary hover:text-primary-foreground rounded-lg transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lg"
-                >
-                  <Facebook className="h-6 w-6" />
-                </a>
-                <a 
-                  href="#" 
-                  className="p-3 bg-background hover:bg-primary hover:text-primary-foreground rounded-lg transition-all duration-300 hover:scale-110 hover:-translate-y-1 hover:shadow-lg"
-                >
-                  <Twitter className="h-6 w-6" />
                 </a>
               </div>
             </div>
@@ -154,9 +142,9 @@ const Contact = () => {
                 <label htmlFor="remarks" className="block text-sm font-medium text-foreground mb-2 group-focus-within:text-primary transition-colors duration-300">
                   Remarks
                 </label>
-                <Textarea 
-                  id="remarks" 
-                  placeholder="Your message..." 
+                <Textarea
+                  id="remarks"
+                  placeholder="Your message..."
                   rows={6}
                   className="transition-all duration-300 focus:scale-[1.02]"
                 />

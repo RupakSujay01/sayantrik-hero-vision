@@ -5,15 +5,13 @@ const Footer = () => {
   return (
     <footer className="bg-card border-t border-border mt-auto">
       <div className="container mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 items-start">
           {/* Company Info */}
           <div>
             <h3 className="text-xl font-bold text-primary mb-4">
               Sayantrik Engineers India Pvt Ltd
             </h3>
-            <p className="text-muted-foreground text-sm mb-4">
-              Engineering Excellence in Oil & Gas, Refinery, Petrochemicals, Chemicals, and Pharmaceutical industries.
-            </p>
+
             <div className="flex gap-4">
               <a
                 href="mailto:info@sayantrik.com"
@@ -32,57 +30,36 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">
-              Quick Links
+
+
+
+          {/* C&C Plant Process Info - Center */}
+          <div className="text-left flex flex-col items-start justify-start">
+            <h3 className="text-xl font-bold text-primary mb-3">
+              C&C Plant Process Inc (USA)
             </h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/projects" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link to="/careers" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                  Contact
-                </Link>
-              </li>
-            </ul>
+            <p className="text-black font-bold text-xs mb-4 tracking-wide uppercase">
+              100% Subsidiary of Sayantrik India
+            </p>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              5900 Balcones Drive,<br />
+              Austin, TX 78731,<br />
+              United States
+            </p>
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">
+          <div className="md:text-right md:flex md:flex-col md:items-end">
+            <h3 className="text-xl font-bold text-primary mb-4">
               Contact Us
             </h3>
             <ul className="space-y-3">
-              <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
+              <li className="flex items-center gap-2 text-sm text-muted-foreground md:flex-row-reverse">
+                <Mail className="h-4 w-4 flex-shrink-0" />
                 <span>info@sayantrik.com</span>
               </li>
-              <li className="flex items-start gap-2 text-sm text-muted-foreground">
-                <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
+              <li className="flex items-center gap-2 text-sm text-muted-foreground md:flex-row-reverse">
+                <Phone className="h-4 w-4 flex-shrink-0" />
                 <span>+91 79955 79900</span>
               </li>
               <li className="text-sm text-muted-foreground">

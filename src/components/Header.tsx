@@ -32,9 +32,12 @@ const Header = () => {
   const navItems = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About Us", hasDropdown: true },
+    { path: "/business", label: "Business" },
     { path: "/services", label: "Services", hasDropdown: true },
+    { path: "/disciplines", label: "Disciplines" },
     { path: "/projects", label: "Projects", hasDropdown: true },
     { path: "/careers", label: "Careers", hasDropdown: true },
+    { path: "/hse", label: "HSE" },
     { path: "/contact", label: "Contact" },
   ];
 
@@ -68,10 +71,10 @@ const Header = () => {
       {
         title: "Project Categories",
         items: [
-          { label: "Oil & Gas" },
-          { label: "Petrochemicals" },
-          { label: "Refineries" },
-          { label: "Energy Transition" },
+          { label: "Feed Engineering", link: "/projects#feed-engineering" },
+          { label: "Detail Engineering", link: "/projects#detail-engineering" },
+          { label: "As-built Engineering", link: "/projects#as-built-engineering" },
+          { label: "Pre-bid Engineering", link: "/projects#pre-bid-engineering" },
         ],
       },
     ],
@@ -121,7 +124,7 @@ const Header = () => {
             <div className="bg-white rounded-md p-1">
               <img src={logoUrl} alt="Sayantrik Engineer India Logo" className="h-9 object-contain" />
             </div>
-            <span className="text-xl md:text-2xl font-bold text-foreground">Sayantrik Engineer India Pvt Ltd</span>
+            <span className="text-xl md:text-2xl font-bold text-foreground">Sayantrik Engineers</span>
           </Link>
 
           {/* Desktop Navigation */}

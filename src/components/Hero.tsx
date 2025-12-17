@@ -1,69 +1,122 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import heroEarth from "@/assets/hero-bg.jpg";
+
+import { useEffect, useState } from "react";
+
+import heroEarth from "@/assets/hero-bg-new.jpg";
 
 const Hero = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Calculate animation progress based on viewport height
+  // animate over the first 100vh of scrolling
+  // We use 400 as a rough approximation of vh for smoother math, or window.innerHeight if dynamic
+  const scrollRange = 400;
+  const progress = Math.min(1, Math.max(0, scrollY / scrollRange));
+
+  // Content slides in from top (-50px) to center (0px)
+  // We want it to be fully hidden initially if requested "no content"
+  // User said "slide in from top" and "content visible once user scrolls".
+  // Let's translate from -100px and opacity 0.
+
+  const contentTranslateY = (1 - progress) * -50; // starts at -50px, ends at 0
+  const contentOpacity = Math.pow(progress, 1.5); // Ease in opacity
+
+  // Image opacity fade
+  const imageOpacity = 1 - (progress * 0.6); // Fades to 0.4
+
   return (
-    <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-24 md:pt-36">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroEarth})` }}
-      >
-        {/* Dark Overlay for better text readability */}
-        <div className="absolute inset-0 hero-overlay" />
-      </div>
+    // Outer container provides the scroll track (200vh height)
+    <section className="relative h-[200vh]">
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 pt-6 md:pt-8 pb-40">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
-          {/* Main Headline */}
-          <h1 className="font-heading leading-tight text-foreground glow-text">
-            Engineering Excellence.<br />
-            Global Delivery.<br />
-            Innovation Leadership.
-          </h1>
+      {/* Sticky Inner Container */}
+      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
 
-          {/* Sub-headline */}
-          <p className="text-xl md:text-2xl text-tech-silver max-w-3xl mx-auto leading-relaxed font-medium">
-            Your Trusted Partner for Multi-discipline Engineering Excellence in Oil & Gas, Refinery, Petrochemicals and Chemical industries.
-          </p>
+        {/* Background Image Layer */}
+        <div
+          className="absolute inset-0 bg-cover bg-no-repeat transition-opacity duration-100 ease-out"
+          style={{
+            backgroundImage: `url(${heroEarth})`,
+            backgroundPosition: "center 25%",
+            backgroundSize: "100% 100%",
+            opacity: imageOpacity
+          }}
+        />
+        {/* Dark Overlay for Text Contrast */}
+        <div
+          className="absolute inset-0 bg-black/40 pointer-events-none"
+          style={{ opacity: imageOpacity }}
+        />
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Link to="/services">
-              <Button size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
-                Explore Our Services
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold">
-                Get Quote
-              </Button>
-            </Link>
+        {/* Content Layer */}
+        <div
+          className="relative z-10 container mx-auto px-6 pb-12"
+          style={{
+            transform: `translateY(${contentTranslateY}px)`,
+            opacity: contentOpacity,
+            willChange: "transform, opacity"
+          }}
+        >
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            {/* Main Headline */}
+            <h1 className="font-heading leading-tight text-foreground glow-text">
+              Engineering Excellence<br />
+              Global Delivery<br />
+              Innovation Leadership
+            </h1>
+
+            {/* Sub-headline */}
+            <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed font-semibold [text-shadow:0_0_10px_rgba(255,255,255,0.4)]">
+              Your Trusted Partner for Engineering Excellence in <br /> Energy & Chemicals.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+              <Link to="/services">
+                <Button size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+                  Explore Our Services
+                </Button>
+              </Link>
+
+            </div>
           </div>
         </div>
 
-        {/* Stats Banner (no glow) */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <div className="container mx-auto px-6 py-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
+        {/* Stats Banner - Moved to bottom of viewport and animated */}
+        <div
+          className="absolute bottom-0 left-0 right-0 z-10"
+          style={{
+            transform: `translateY(${contentTranslateY}px)`,
+            opacity: contentOpacity,
+            willChange: "transform, opacity"
+          }}
+        >
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center bg-white/50 backdrop-blur-md rounded-xl p-6 shadow-xl border border-white/20">
               <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">Engineering Excellence
-                </div>
-                <div className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wide">Since 2012</div>
+                <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">2012</div>
+                <div className="text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Established</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">250+</div>
-                <div className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wide">Projects Completed</div>
+                <div className="text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Projects Completed</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">15+</div>
-                <div className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wide">Global Presence</div>
+                <div className="text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Global Presence</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">160+</div>
-                <div className="text-xs md:text-sm text-muted-foreground font-semibold uppercase tracking-wide">Expert Engineers</div>
+                <div className="text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Expert Engineers</div>
               </div>
             </div>
           </div>

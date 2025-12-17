@@ -8,10 +8,14 @@ import Footer from "./components/Footer";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import About from "./pages/About";
+import Business from "./pages/Business";
+import Disciplines from "./pages/Disciplines";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
+import HSE from "./pages/HSE";
 import NotFound from "./pages/NotFound";
+import { FloatingActionButtons } from "./components/FloatingActionButtons";
 
 const queryClient = new QueryClient();
 
@@ -21,7 +25,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen relative"> {/* Added relative for good measure */}
 
           {/* Skip Navigation Link for Accessibility */}
           <a
@@ -38,14 +42,19 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/services" element={<Services />} />
               <Route path="/about" element={<About />} />
+              <Route path="/business" element={<Business />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/disciplines" element={<Disciplines />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/careers" element={<Careers />} />
+              <Route path="/hse" element={<HSE />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
 
+          <FloatingActionButtons />
           <Footer />
         </div>
       </BrowserRouter>

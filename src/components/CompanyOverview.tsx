@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 const CompanyOverview = () => {
   return (
@@ -24,37 +23,6 @@ const CompanyOverview = () => {
           </div>
         </div>
 
-        {/* Comprehensive Engineering Solutions */}
-        <div className="text-center mb-12 space-y-4 animate-fade-in-up">
-          <h2 className="font-heading text-foreground">
-            Comprehensive Engineering Solutions
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto font-medium">
-            From upstream exploration to downstream refining, we deliver excellence across the entire energy value chain with cutting-edge technologies and proven expertise.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Upstream Production */}
-          <Link to="/services#comprehensive-engineering" className="group bg-card border-2 border-border rounded-lg p-6 hover:shadow-xl hover:border-primary transition-all duration-300 cursor-pointer">
-            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">Upstream Production</h3>
-          </Link>
-
-          {/* Midstream Processing */}
-          <Link to="/services#comprehensive-engineering" className="group bg-card border-2 border-border rounded-lg p-6 hover:shadow-xl hover:border-primary transition-all duration-300 cursor-pointer">
-            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">Midstream Processing</h3>
-          </Link>
-
-          {/* Downstream Refining */}
-          <Link to="/services#comprehensive-engineering" className="group bg-card border-2 border-border rounded-lg p-6 hover:shadow-xl hover:border-primary transition-all duration-300 cursor-pointer">
-            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">Downstream Refining</h3>
-          </Link>
-
-          {/* Gas to Liquids */}
-          <Link to="/services#comprehensive-engineering" className="group bg-card border-2 border-border rounded-lg p-6 hover:shadow-xl hover:border-primary transition-all duration-300 cursor-pointer">
-            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">Gas to Liquids</h3>
-          </Link>
-        </div>
       </div>
     </section>
   );

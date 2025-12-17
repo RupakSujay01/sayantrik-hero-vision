@@ -1,13 +1,14 @@
 import Hero from "@/components/Hero";
 import WelcomeSection from "@/components/WelcomeSection";
-import CompanyOverview from "@/components/CompanyOverview";
+import CoreValues from "@/components/CoreValues";
+
 
 const Index = () => {
   return (
     <main>
       <Hero />
       <WelcomeSection />
-      <CompanyOverview />
+      <CoreValues />
     </main>
   );
 };
