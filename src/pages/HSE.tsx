@@ -1,4 +1,4 @@
-import Footer from "@/components/Footer";
+
 
 const HSE = () => {
     const sections = [
@@ -65,7 +65,6 @@ const HSE = () => {
     ];
 
     return (
-        <>
         <div className="pt-24 pb-16 relative overflow-hidden">
             {/* Green Gradient Background */}
             <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
@@ -117,10 +116,6 @@ const HSE = () => {
                 </div>
             </div>
         </div>
-        <div className="relative z-20">
-            <Footer />
-        </div>
-        </>
     );
 };
 
