@@ -45,7 +45,7 @@ const Header = () => {
   const servicesDropdown = {
     sections: [
       {
-        title: "",
+        title: "Services",
         items: [
           { label: "FEED", link: "/services#feed" },
           { label: "Detailed Engineering", link: "/services#detailed-engineering" },
@@ -64,7 +64,7 @@ const Header = () => {
   const disciplinesDropdown = {
     sections: [
       {
-        title: "",
+        title: "Disciplines",
         items: [
           { label: "Process", link: "/disciplines#process" },
           { label: "Mechanical - Static", link: "/disciplines#mechanical-static" },
@@ -116,7 +116,7 @@ const Header = () => {
   const businessDropdown = {
     sections: [
       {
-        title: "",
+        title: "Business",
         items: [
           { label: "Refinery", link: "/business#refinery" },
           { label: "Oil & Gas - Onshore", link: "/business#oil-gas-onshore" },
