@@ -15,6 +15,8 @@ import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import HSE from "./pages/HSE";
 import CSR from "./pages/CSR";
+import TechnologyProviders from "./pages/TechnologyProviders";
+import LctsPartnership from "./pages/LctsPartnership";
 import NotFound from "./pages/NotFound";
 import { FloatingActionButtons } from "./components/FloatingActionButtons";
 
@@ -48,6 +50,8 @@ const App = () => (
               <Route path="/disciplines" element={<Disciplines />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/technology-providers" element={<TechnologyProviders />} />
+              <Route path="/lcts-partnership" element={<LctsPartnership />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/hse" element={<HSE />} />
               <Route path="/csr" element={<CSR />} />

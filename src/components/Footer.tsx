@@ -35,11 +35,11 @@ const Footer = () => {
 
           {/* C&C Plant Process Info - Center */}
           <div className="text-left flex flex-col items-start justify-start">
-            <h3 className="text-xl font-bold text-primary mb-3">
-              C&C Plant Process Inc (USA)
+            <h3 className="text-xl font-bold text-primary mb-0 leading-tight">
+              C&C Process Plants Inc (USA)
             </h3>
-            <p className="text-black font-bold text-xs mb-4 tracking-wide uppercase">
-              100% Subsidiary of Sayantrik India
+            <p className="text-muted-foreground text-xs mb-4 leading-normal mt-1">
+              (100% Subsidiary of Sayantrik India)
             </p>
             <p className="text-muted-foreground text-sm leading-relaxed">
               5900 Balcones Drive,<br />

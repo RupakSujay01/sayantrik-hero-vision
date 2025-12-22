@@ -12,16 +12,25 @@ interface VerticalTabsSectionProps {
     data: TabData[];
     defaultActiveId?: string;
     containerClassName?: string;
+    accentColor?: 'red' | 'green';
 }
 
 export const VerticalTabsSection = ({
     data,
     defaultActiveId,
-    containerClassName
+    containerClassName,
+    accentColor = 'red'
 }: VerticalTabsSectionProps) => {
     const [activeId, setActiveId] = useState(defaultActiveId || data[0]?.id);
-
     const activeItem = data.find(item => item.id === activeId) || data[0];
+
+    // Determine color classes
+    const activeBg = accentColor === 'green' ? "bg-[#40a829]" : "bg-[#ED2939]";
+    const activeText = accentColor === 'green' ? "text-white" : "text-white";
+    const activeBorder = accentColor === 'green' ? "border-[#40a829]" : "border-[#ED2939]";
+    const ringColor = accentColor === 'green' ? "ring-[#40a829]/20" : "ring-[#ED2939]/20";
+    const hoverBorder = accentColor === 'green' ? "hover:border-[#40a829]/20" : "hover:border-[#ED2939]/20";
+    const headingText = accentColor === 'green' ? "text-[#40a829]" : "text-[#ED2939]";
 
     if (!data || data.length === 0) {
         return null;
@@ -29,47 +38,89 @@ export const VerticalTabsSection = ({
 
     return (
         <div className={cn("w-full", containerClassName)}>
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
-                {/* Left Column - Navigation */}
-                <div className="md:col-span-3 lg:col-span-2 flex flex-col space-y-3">
-                    {data.map((item) => (
-                        <button
-                            key={item.id}
-                            onClick={() => setActiveId(item.id)}
-                            className={cn(
-                                "px-5 py-2.5 rounded-full text-left transition-all duration-300 ease-in-out font-medium text-sm w-full truncate",
-                                "border shadow-sm hover:shadow-md",
-                                activeId === item.id
-                                    ? "bg-[#ED2939] text-white border-[#ED2939] shadow-lg scale-105 ring-2 ring-[#ED2939]/20"
-                                    : "bg-white text-gray-700 border-gray-100 hover:border-[#ED2939]/20 hover:bg-gray-50 hover:scale-105"
-                            )}
-                        >
-                            {item.title}
-                        </button>
-                    ))}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pl-6 md:pl-12">
+                {/* Left Column - Navigation (Fixed) */}
+                <div className="md:col-span-3 lg:col-span-2 pt-6 md:pt-10">
+                    <div className="flex flex-col space-y-2 h-[calc(100vh-160px)] overflow-y-auto pr-2 custom-scrollbar">
+                        {data.map((item) => (
+                            <button
+                                key={item.id}
+                                onClick={() => setActiveId(item.id)}
+                                className={cn(
+                                    "px-5 py-3 rounded-xl text-left transition-all duration-300 ease-in-out font-medium text-sm w-full",
+                                    "border shadow-sm hover:shadow-md flex items-center justify-between group",
+                                    activeId === item.id
+                                        ? `${activeBg} ${activeText} ${activeBorder} shadow-lg scale-[1.02] ring-2 ${ringColor}`
+                                        : `bg-white text-gray-700 border-gray-100 ${hoverBorder} hover:bg-gray-50 hover:translate-x-1`
+                                )}
+                            >
+                                <span className="truncate mr-2">{item.title}</span>
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
-                {/* Right Column - Content */}
-                <div className="md:col-span-9 lg:col-span-10 bg-white rounded-2xl p-6 md:p-10 border border-gray-100 shadow-sm min-h-[300px]">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={activeItem.id}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.3 }}
-                            className="space-y-6"
-                        >
-                            <h2 className="text-3xl md:text-4xl font-bold text-[#ED2939]">
-                                {activeItem.title}
-                            </h2>
-                            <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
-                                {activeItem.description.map((paragraph, idx) => (
-                                    <p key={idx}>{paragraph}</p>
-                                ))}
-                            </div>
-                        </motion.div>
-                    </AnimatePresence>
+                {/* Right Column - Content (Independent Scroll) */}
+                <div className="md:col-span-9 lg:col-span-10 pr-6 md:pr-12">
+                    <div className="bg-white rounded-2xl p-6 md:p-10 border border-gray-100 shadow-sm h-[calc(100vh-160px)] overflow-y-auto custom-scrollbar">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeItem.id}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                                transition={{ duration: 0.3 }}
+                                className="space-y-6"
+                            >
+                                <h2 className={cn("text-4xl md:text-5xl font-bold", headingText)}>
+                                    {activeItem.title}
+                                </h2>
+                                <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
+                                    {activeItem.description.map((line, idx) => {
+                                        // Header: **Text**
+                                        if (line.startsWith('**') && line.endsWith('**')) {
+                                            return (
+                                                <h3 key={idx} className={cn("text-xl font-bold mt-6 mb-2", accentColor === 'green' ? "text-[#40a829]" : "text-gray-800")}>
+                                                    {line.replace(/\*\*/g, '')}
+                                                </h3>
+                                            );
+                                        }
+                                        // List Item: • **Bold**: Text or • Text
+                                        if (line.includes('•')) {
+                                            const content = line.replace('•', '').trim();
+                                            const hasBoldStart = content.startsWith('**');
+
+                                            if (hasBoldStart) {
+                                                const parts = content.split('**');
+                                                // parts[0] is empty, parts[1] is bold text, parts[2] is rest
+                                                return (
+                                                    <div key={idx} className="flex items-start ml-4 mb-2">
+                                                        <span className={cn("mr-2 mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0", accentColor === 'green' ? "bg-[#40a829]" : "bg-[#ED2939]")} />
+                                                        <span>
+                                                            <strong className="text-gray-900">{parts[1]}</strong>
+                                                            {parts[2]}
+                                                        </span>
+                                                    </div>
+                                                );
+                                            }
+                                            return (
+                                                <div key={idx} className="flex items-start ml-4 mb-2">
+                                                    <span className={cn("mr-2 mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0", accentColor === 'green' ? "bg-[#40a829]" : "bg-[#ED2939]")} />
+                                                    <span>{content}</span>
+                                                </div>
+                                            );
+                                        }
+                                        // Empty line for spacing
+                                        if (line.trim() === '') {
+                                            return <br key={idx} />;
+                                        }
+                                        // Default Paragraph
+                                        return <p key={idx}>{line}</p>;
+                                    })}
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
                 </div>
             </div>
         </div>

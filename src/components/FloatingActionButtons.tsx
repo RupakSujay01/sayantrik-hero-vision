@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import { Link } from "react-router-dom";
-import { MessageSquare, ShieldCheck } from "lucide-react";
+import { MessageSquare, ShieldCheck, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Chatbot } from "@/components/Chatbot";
 
 export const FloatingActionButtons = () => {
+    const [isChatOpen, setIsChatOpen] = useState(false);
+
     return (
         <>
             {/* Safety Button - Top Right */}
@@ -20,16 +24,18 @@ export const FloatingActionButtons = () => {
                 </Link>
             </div>
 
-            {/* Contact Button - Bottom Right */}
+            {/* Chatbot Component */}
+            <Chatbot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+
+            {/* Chat/Contact Button - Bottom Right */}
             <div className="fixed bottom-6 right-6 z-50">
-                <Link to="/contact">
-                    <Button
-                        size="lg"
-                        className="h-14 w-14 rounded-full shadow-lg bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-110 flex items-center justify-center"
-                    >
-                        <MessageSquare className="h-6 w-6" />
-                    </Button>
-                </Link>
+                <Button
+                    size="lg"
+                    onClick={() => setIsChatOpen(!isChatOpen)}
+                    className="h-14 w-14 rounded-full shadow-lg bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-110 flex items-center justify-center"
+                >
+                    {isChatOpen ? <X className="h-6 w-6" /> : <MessageSquare className="h-6 w-6" />}
+                </Button>
             </div>
         </>
     );

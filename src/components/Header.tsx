@@ -34,12 +34,12 @@ const Header = () => {
     { path: "/about", label: "About Us", hasDropdown: true },
     { path: "/portfolio", label: "Portfolio", hasDropdown: true },
     { path: "/services", label: "Services", hasDropdown: true },
-    { path: "/disciplines", label: "Disciplines", hasDropdown: true },
+    { path: "/technology-providers", label: "Technology Providers" },
+    { path: "/lcts-partnership", label: "LCTS Strategic Partnership" },
     { path: "/projects", label: "Projects", hasDropdown: true },
-    { path: "/careers", label: "Careers", hasDropdown: true },
     { path: "/hse", label: "HSE" },
     { path: "/csr", label: "CSR" },
-    { path: "/contact", label: "Contact" },
+    { path: "/contact", label: "Contact", hasDropdown: true },
   ];
 
   const servicesDropdown = {
@@ -58,11 +58,6 @@ const Header = () => {
           { label: "Laser Scan & Digital Twins", link: "/services#laser-scan" },
         ],
       },
-    ],
-  };
-
-  const disciplinesDropdown = {
-    sections: [
       {
         title: "Disciplines",
         items: [
@@ -104,13 +99,16 @@ const Header = () => {
     ],
   };
 
-  const careersDropdown = {
+  const contactDropdown = {
     sections: [
       {
-        title: "Careers",
-        items: [{ label: "Life at Sayantrik" }, { label: "Hiring" }],
-      },
-    ],
+        title: "Get in Touch",
+        items: [
+          { label: "Contact Us", link: "/contact" },
+          { label: "Careers", link: "/careers" }
+        ]
+      }
+    ]
   };
 
   const portfolioDropdown = {
@@ -118,16 +116,10 @@ const Header = () => {
       {
         title: "Portfolio",
         items: [
-          { label: "Refinery", link: "/portfolio#refinery" },
-          { label: "Oil & Gas - Onshore", link: "/portfolio#oil-gas-onshore" },
-          { label: "Oil & Gas - Offshore", link: "/portfolio#oil-gas-offshore" },
-          { label: "Cross Counter Pipelines", link: "/portfolio#pipelines" },
-          { label: "Storage Terminals", link: "/portfolio#storage-terminals" },
-          { label: "Gas Compressor Station", link: "/portfolio#gas-compressor" },
-          { label: "Chemicals", link: "/portfolio#chemicals" },
-          { label: "Speciality Chemicals", link: "/portfolio#speciality-chemicals" },
-          { label: "Green Hydrogen", link: "/portfolio#green-hydrogen" },
-          { label: "Powerplants", link: "/portfolio#powerplants" },
+          { label: "Energy", link: "/portfolio?category=Energy" },
+          { label: "Chemicals", link: "/portfolio?category=Chemicals" },
+          { label: "Power", link: "/portfolio?category=Power" },
+          { label: "Sustainability", link: "/portfolio?category=Sustainability" },
         ],
       },
     ],
@@ -139,12 +131,10 @@ const Header = () => {
         return servicesDropdown;
       case "Projects":
         return projectsDropdown;
-      case "Disciplines":
-        return disciplinesDropdown;
       case "About Us":
         return aboutDropdown;
-      case "Careers":
-        return careersDropdown;
+      case "Contact":
+        return contactDropdown;
       case "Portfolio":
         return portfolioDropdown;
       default:
@@ -156,7 +146,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-transparent backdrop-blur-sm">
-      <div className="w-full px-6 md:px-12">
+      <div className="w-full px-4 md:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
@@ -202,9 +192,9 @@ const Header = () => {
                 {item.hasDropdown && hoveredMenu === item.label && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 animate-in fade-in-0 slide-in-from-top-2 duration-700 ease-in-out">
                     <div className="bg-card border border-border rounded-lg shadow-2xl p-6 min-w-[300px]">
-                      <div className="space-y-1">
+                      <div className={`gap-8 ${getDropdownContent(item.label)?.sections.length! > 1 ? 'flex' : 'space-y-1'}`}>
                         {getDropdownContent(item.label)?.sections.map((section, idx) => (
-                          <div key={idx}>
+                          <div key={idx} className={getDropdownContent(item.label)?.sections.length! > 1 ? 'min-w-[200px]' : ''}>
                             {section.title && (
                               <h3 className="text-sm font-bold uppercase tracking-wide text-foreground mb-3 pb-2 border-b border-foreground/30">
                                 {section.title}
@@ -212,8 +202,13 @@ const Header = () => {
                             )}
                             <div className="space-y-1">
                               {section.items.map((subItem, subIdx) => {
+                                const isSustainability = subItem.label === "Sustainability";
+                                const textColorClass = isSustainability
+                                  ? "text-[#40a829] font-semibold group-hover:text-[#40a829]"
+                                  : "text-muted-foreground group-hover:text-primary";
+
                                 const content = (
-                                  <p className="text-sm font-normal text-muted-foreground group-hover:text-primary transition-colors duration-500 ease-out">
+                                  <p className={`text-sm font-normal transition-colors duration-500 ease-out ${textColorClass}`}>
                                     {subItem.label}
                                   </p>
                                 );
