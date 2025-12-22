@@ -92,7 +92,7 @@ const services: ServiceData[] = [
 
 export const BusinessServices = () => {
     return (
-        <section className="bg-white py-12 w-full">
+        <section className="bg-white py-4 w-full">
             <VerticalTabsSection data={services} />
         </section>
     );

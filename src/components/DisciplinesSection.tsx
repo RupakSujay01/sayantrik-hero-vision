@@ -85,7 +85,7 @@ const disciplinesData = [
 
 export const DisciplinesSection = () => {
     return (
-        <section className="bg-white py-12 w-full">
+        <section className="bg-white py-4 w-full">
             <VerticalTabsSection data={disciplinesData} />
         </section>
     );

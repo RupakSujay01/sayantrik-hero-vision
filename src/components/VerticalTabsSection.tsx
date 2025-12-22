@@ -31,13 +31,13 @@ export const VerticalTabsSection = ({
         <div className={cn("w-full", containerClassName)}>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
                 {/* Left Column - Navigation */}
-                <div className="md:col-span-4 lg:col-span-3 flex flex-col space-y-3">
+                <div className="md:col-span-3 lg:col-span-2 flex flex-col space-y-3">
                     {data.map((item) => (
                         <button
                             key={item.id}
                             onClick={() => setActiveId(item.id)}
                             className={cn(
-                                "px-5 py-2.5 rounded-full text-left transition-all duration-300 ease-in-out font-medium text-sm",
+                                "px-5 py-2.5 rounded-full text-left transition-all duration-300 ease-in-out font-medium text-sm w-full truncate",
                                 "border shadow-sm hover:shadow-md",
                                 activeId === item.id
                                     ? "bg-[#ED2939] text-white border-[#ED2939] shadow-lg scale-105 ring-2 ring-[#ED2939]/20"
@@ -50,7 +50,7 @@ export const VerticalTabsSection = ({
                 </div>
 
                 {/* Right Column - Content */}
-                <div className="md:col-span-8 lg:col-span-9 bg-white rounded-2xl p-6 md:p-10 border border-gray-100 shadow-sm min-h-[300px]">
+                <div className="md:col-span-9 lg:col-span-10 bg-white rounded-2xl p-6 md:p-10 border border-gray-100 shadow-sm min-h-[300px]">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeItem.id}

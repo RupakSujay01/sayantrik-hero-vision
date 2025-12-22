@@ -32,7 +32,7 @@ const Header = () => {
   const navItems = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About Us", hasDropdown: true },
-    { path: "/business", label: "Business", hasDropdown: true },
+    { path: "/portfolio", label: "Portfolio", hasDropdown: true },
     { path: "/services", label: "Services", hasDropdown: true },
     { path: "/disciplines", label: "Disciplines", hasDropdown: true },
     { path: "/projects", label: "Projects", hasDropdown: true },
@@ -113,21 +113,21 @@ const Header = () => {
     ],
   };
 
-  const businessDropdown = {
+  const portfolioDropdown = {
     sections: [
       {
-        title: "Business",
+        title: "Portfolio",
         items: [
-          { label: "Refinery", link: "/business#refinery" },
-          { label: "Oil & Gas - Onshore", link: "/business#oil-gas-onshore" },
-          { label: "Oil & Gas - Offshore", link: "/business#oil-gas-offshore" },
-          { label: "Cross Counter Pipelines", link: "/business#pipelines" },
-          { label: "Storage Terminals", link: "/business#storage-terminals" },
-          { label: "Gas Compressor Station", link: "/business#gas-compressor" },
-          { label: "Chemicals", link: "/business#chemicals" },
-          { label: "Speciality Chemicals", link: "/business#speciality-chemicals" },
-          { label: "Green Hydrogen", link: "/business#green-hydrogen" },
-          { label: "Powerplants", link: "/business#powerplants" },
+          { label: "Refinery", link: "/portfolio#refinery" },
+          { label: "Oil & Gas - Onshore", link: "/portfolio#oil-gas-onshore" },
+          { label: "Oil & Gas - Offshore", link: "/portfolio#oil-gas-offshore" },
+          { label: "Cross Counter Pipelines", link: "/portfolio#pipelines" },
+          { label: "Storage Terminals", link: "/portfolio#storage-terminals" },
+          { label: "Gas Compressor Station", link: "/portfolio#gas-compressor" },
+          { label: "Chemicals", link: "/portfolio#chemicals" },
+          { label: "Speciality Chemicals", link: "/portfolio#speciality-chemicals" },
+          { label: "Green Hydrogen", link: "/portfolio#green-hydrogen" },
+          { label: "Powerplants", link: "/portfolio#powerplants" },
         ],
       },
     ],
@@ -145,8 +145,8 @@ const Header = () => {
         return aboutDropdown;
       case "Careers":
         return careersDropdown;
-      case "Business":
-        return businessDropdown;
+      case "Portfolio":
+        return portfolioDropdown;
       default:
         return null;
     }
@@ -156,7 +156,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-transparent backdrop-blur-sm">
-      <div className="container mx-auto px-6">
+      <div className="w-full px-6 md:px-12">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
