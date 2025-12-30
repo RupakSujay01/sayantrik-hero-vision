@@ -6,7 +6,7 @@ import {
   ClipboardList, Hammer, Gauge, Monitor, Link, Calendar, Briefcase, UserPlus, CheckCheck,
   PenTool, Truck, HardHat, Coins, Clock, LayoutDashboard, Eye, Network, BarChart4,
   LineChart, PieChart, Gavel, Scale, AlertTriangle, Landmark, FileSearch, Handshake,
-  Factory, CircuitBoard, Search, Rocket, Scan, Box, Cpu, FileCode, Award
+  Factory, CircuitBoard, Search, Rocket, Scan, Box, Cpu, FileCode, Award, ArrowRight
 } from "lucide-react";
 
 const Services = () => {
@@ -17,7 +17,7 @@ const Services = () => {
       phase: "Feasibility",
       bg: "bg-[#0a0a0a]",
       delay: 0,
-      targetId: "fel3" // Note: Currently mapped to FEL-3 as starting entry
+      targetId: "feed" // Note: Currently mapped to FEL-3 as starting entry
     },
     {
       fel: "FEL-2",
@@ -41,7 +41,7 @@ const Services = () => {
       phase: "EPC / Detail",
       bg: "bg-[#ED2939]",
       delay: 0.3,
-      targetId: "fel4"
+      targetId: "detailed-engineering"
     },
     {
       fel: "OPERATE",
@@ -149,18 +149,18 @@ const Services = () => {
 
   // Navigation Labels
   const serviceSections = [
-    { id: "fel3", label: "FEL-3 | DEFINE" },
-    { id: "fel4", label: "FEL-4 | EXECUTE" },
+    { id: "feed", label: "FEL-3 | DEFINE" },
+    { id: "detailed-engineering", label: "FEL-4 | EXECUTE" },
     { id: "epc", label: "EPC | EXECUTE" },
     { id: "epcm", label: "EPCM | MANAGE" },
     { id: "pmc", label: "PMC | OVERSIGHT" },
-    { id: "owners-eng", label: "OWNER'S ENG" },
-    { id: "tech", label: "TECH | INTEGRATION" },
+    { id: "owners-engineer", label: "OWNER'S ENG" },
+    { id: "process-technology", label: "TECH | INTEGRATION" },
     { id: "brownfield", label: "BROWNFIELD" },
-    { id: "laser", label: "LASER SCAN" }
+    { id: "laser-scan", label: "LASER SCAN" }
   ];
 
-  const [activeSection, setActiveSection] = useState("fel3");
+  const [activeSection, setActiveSection] = useState("feed");
 
   // Scroll Spy to update active section
   useEffect(() => {
@@ -514,60 +514,41 @@ const Services = () => {
     {
       title: "160+ Engineers",
       desc: "Scalable capacity for any project size.",
-      icon: <Users className="w-6 h-6 text-[#ED2939]" />
+      icon: <Users className="w-6 h-6 text-white" />
     },
     {
       title: "Multi-Sector Expertise",
       desc: "Energy, Chemicals, Power, & Sustainability.",
-      icon: <Layers className="w-6 h-6 text-[#ED2939]" />
+      icon: <Layers className="w-6 h-6 text-white" />
     },
     {
       title: "Cost Advantage",
       desc: "Significant savings with India-based delivery.",
-      icon: <Coins className="w-6 h-6 text-[#ED2939]" />
+      icon: <Coins className="w-6 h-6 text-white" />
     },
     {
       title: "Global Delivery",
       desc: "Seamless execution via India, Malaysia, & USA.",
-      icon: <Globe2 className="w-6 h-6 text-[#ED2939]" />
+      icon: <Globe2 className="w-6 h-6 text-white" />
     },
     {
       title: "ISO 9001:2015",
       desc: "TUV:SUD certified quality systems.",
-      icon: <Award className="w-6 h-6 text-[#ED2939]" />
+      icon: <Award className="w-6 h-6 text-white" />
     },
     {
       title: "250+ Projects",
       desc: "Proven track record since 2012.",
-      icon: <Briefcase className="w-6 h-6 text-[#ED2939]" />
+      icon: <Briefcase className="w-6 h-6 text-white" />
     }
   ];
 
 
   return (
     <div className="min-h-screen bg-white">
-      {/* 1. Global Portfolio Info Bar - Premium Hybrid Design */}
-      <div className="w-full bg-[#0a0a0a] border-b border-white/10 py-3 top-[64px] z-30 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(237,41,57,0.05)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%,100%_100%] animate-shimmer pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-8 text-center">
-            <div className="px-5 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-lg">
-              <span className="text-white text-xs md:text-sm font-bold uppercase tracking-[0.2em] drop-shadow-md">Services Applicable Across All Portfolios</span>
-            </div>
-            <div className="hidden md:block h-4 w-px bg-gradient-to-b from-transparent via-[#ED2939] to-transparent" />
-            <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-sm md:text-base font-bold text-white uppercase tracking-wider">
-              {['Energy', 'Chemicals', 'Power', 'Sustainability'].map((item, i) => (
-                <span key={i} className="flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939] group-hover:shadow-[0_0_8px_#ED2939] transition-shadow duration-300" />
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div className="pt-32 pb-0">
+
+      <div className="pt-10 pb-0">
         {/* 2. Section Title - Premium Centered Hybrid */}
         <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 mb-12">
           <motion.div
@@ -575,13 +556,13 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col items-center text-center"
+            className="flex flex-col items-start text-left"
           >
             <div className="pl-6 border-l-8 border-[#ED2939] inline-block text-left">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-gray-900 uppercase tracking-tighter mb-2">
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-2">
                 Project Lifecycle
               </h1>
-              <p className="text-xl md:text-2xl text-gray-500 font-medium uppercase tracking-widest">
+              <p className="text-lg md:text-xl text-gray-500 font-medium tracking-wide">
                 Where We Add Value
               </p>
             </div>
@@ -594,7 +575,7 @@ const Services = () => {
 
       {/* 3. Interactive Project Lifecycle Table/Flow - Reduced Width Chevron Design */}
       <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="flex flex-col lg:flex-row h-auto lg:h-[160px] items-center lg:items-stretch justify-center max-w-[1380px] mx-auto">
+        <div className="flex flex-col lg:flex-row h-auto lg:h-[110px] items-center lg:items-stretch justify-center max-w-[1380px] mx-auto">
           {lifecycleSteps.map((step, idx) => (
             <motion.div
               key={idx}
@@ -602,46 +583,56 @@ const Services = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: step.delay }}
-              onClick={() => step.targetId && scrollToSection(step.targetId)}
+              onClick={() => {
+                const el = document.getElementById(step.targetId);
+                if (el) {
+                  const offset = 100;
+                  const elementPosition = el.getBoundingClientRect().top;
+                  const elementPositionInDocument = elementPosition + window.pageYOffset;
+                  const offsetPosition = elementPositionInDocument - offset;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                  });
+                }
+              }}
               className={`
                     relative w-full lg:w-1/5 h-[140px] lg:h-auto
                     flex flex-col
                     transition-all duration-300 ease-in-out
                     group cursor-pointer active:scale-95
                     lg:-ml-8 first:lg:ml-0
+                    z-10
                 `}
               style={{
                 zIndex: 50 - idx,
+                filter: "drop-shadow(1px 0 0 #ED2939) drop-shadow(0 1px 0 #ED2939) drop-shadow(0 -1px 0 #ED2939)"
               }}
             >
               <div
                 className={cn(
-                  "h-full w-full p-2 flex flex-col items-center justify-center text-center text-white transition-all duration-300",
-                  step.bg,
-                  step.bg === "bg-[#0a0a0a]" ? "group-hover:bg-[#ED2939]" : "group-hover:bg-[#0a0a0a]",
-                  "group-hover:scale-105 group-hover:z-[60] group-hover:shadow-2xl"
+                  "h-full w-full p-2 flex flex-col items-center justify-center text-center transition-all duration-500 bg-white text-black",
+                  "group-hover:text-[#ED2939] group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:to-red-100",
+                  "group-hover:shadow-[0_20px_60px_rgba(237,41,57,0.15)] group-hover:scale-[1.08] group-hover:-translate-y-2 group-hover:z-[60]"
                 )}
                 style={{
                   clipPath:
                     window.innerWidth >= 1024
-                      ? idx === 0
-                        ? 'polygon(0% 0%, calc(100% - 30px) 0%, 100% 50%, calc(100% - 30px) 100%, 0% 100%)'
-                        : idx === lifecycleSteps.length - 1
-                          ? 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 30px 50%)'
-                          : 'polygon(0% 0%, calc(100% - 30px) 0%, 100% 50%, calc(100% - 30px) 100%, 0% 100%, 30px 50%)'
+                      ? 'polygon(0% 0%, calc(100% - 30px) 0%, 100% 50%, calc(100% - 30px) 100%, 0% 100%, 30px 50%)' // Standard chevron
                       : 'none'
                 }}
               >
-                <div className={`w-full ${idx !== 0 ? 'lg:pl-8' : ''} ${idx !== lifecycleSteps.length - 1 ? 'lg:pr-4' : ''}`}>
-                  <h3 className="text-3xl lg:text-4xl font-black uppercase mb-1 tracking-tighter opacity-100">
+                <div className="w-full lg:pl-10 lg:pr-4">
+                  <h3 className="text-2xl lg:text-3xl font-black uppercase mb-1 tracking-tighter opacity-100">
                     {step.fel}
                   </h3>
-                  <p className="text-lg font-bold uppercase tracking-wider mb-2 border-b-2 border-white/20 pb-2 inline-block group-hover:border-white">
+                  <p className="text-sm font-bold uppercase tracking-wider mb-1 inline-block">
                     {step.action}
                   </p>
-                  <div className="space-y-0.5">
+                  <div className="space-y-0">
                     <p className="text-[10px] uppercase tracking-widest opacity-75">Phase</p>
-                    <p className="text-base font-bold">{step.phase}</p>
+                    <p className="text-xs font-bold">{step.phase}</p>
                   </div>
                 </div>
               </div>
@@ -651,7 +642,7 @@ const Services = () => {
       </div>
 
       {/* Main Content with Sidebar */}
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-col lg:flex-row gap-12 lg:gap-24 relative">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-col lg:flex-row gap-12 lg:gap-16 relative">
         {/* Sidebar Navigation */}
         <div className="hidden lg:block w-64 shrink-0">
           <div className="sticky top-32 space-y-1">
@@ -675,20 +666,16 @@ const Services = () => {
 
         {/* Main Content Area */}
         <div className="flex-1 min-w-0">
-          <div className="flex justify-between items-center mb-12 opacity-30">
-            <span className="text-[10px] font-black tracking-[0.4em] uppercase">SEC-GS / GLOBAL-SERVICES</span>
-            <div className="flex-1 mx-8 h-px bg-gray-200" />
-            <span className="text-[10px] font-black tracking-[0.4em] uppercase text-[#ED2939]">REF-ID: 2025-SYK</span>
-          </div>
+          {/* Metadata Header Removed */}
 
           {/* 4. Service Detail: FEED | FEL-3 */}
-          <div id="fel3" className="max-w-7xl mx-auto border-t border-gray-200 pt-16 mb-20 group">
+          <div id="feed" className="max-w-7xl mx-auto pt-10 mb-12 group">
             {/* Header */}
-            <div className="mb-12">
-              <h2 className="text-5xl lg:text-7xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+            <div className="mb-8">
+              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
                 FEED | FEL-3
               </h2>
-              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-6">
+              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
                 Front-End Engineering Design
               </p>
               <div className="max-w-3xl">
@@ -698,102 +685,123 @@ const Services = () => {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 mb-16">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mb-10">
               {/* Left: What You Get (Feature Grid) */}
               <div className="lg:w-3/4">
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8">
+                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
                   Core Deliverables
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
                   {featuresFel3.map((feature, idx) => (
-                    <div key={idx} className="relative pl-6 border-l border-gray-100">
-                      <div className="absolute left-0 top-0 w-1 h-6 bg-[#ED2939]" />
+                    <div key={idx} className="bg-white border border-gray-100 p-6 rounded-2xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-[#ED2939]/20 transition-all duration-300 group">
+                      <div className="mb-4">
+                        <div className="p-3 bg-gray-50 rounded-xl w-fit group-hover:bg-[#ED2939]/5 transition-colors">
+                          {feature.icon}
+                        </div>
+                      </div>
                       <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm">
+                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
                         {feature.desc}
                       </p>
                     </div>
                   ))}
                 </div>
+
+                {/* Strategic Partnership Box - Moved Horizontal */}
+                <div className="mt-8 bg-slate-900 text-white p-8 rounded-2xl relative overflow-hidden group flex flex-col md:flex-row items-center gap-8">
+                  <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <ShieldCheck className="w-32 h-32" />
+                  </div>
+
+                  <div className="relative z-10 flex-1 text-center md:text-left">
+                    <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
+                      <h4 className="text-[#ED2939] font-black uppercase tracking-widest text-sm">Strategic Partnership</h4>
+                      <span className="w-1 h-1 rounded-full bg-white/20"></span>
+                      <span className="text-gray-400 text-xs font-bold uppercase tracking-wider">Energy Sector Focus</span>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3">LCTS Partnership</h3>
+                    <p className="text-gray-300 text-sm leading-relaxed max-w-2xl">
+                      For refinery, petrochemical, and LNG projects, leveraging our partnership providing Houston-based process engineering leadership with 80+ years of combined experience.
+                    </p>
+                  </div>
+
+                  <div className="relative z-10 shrink-0">
+                    <button className="px-6 py-3 bg-[#ED2939] hover:bg-[#c41e2b] text-white font-bold uppercase tracking-widest text-xs rounded-lg transition-colors shadow-lg shadow-red-900/20">
+                      Learn More
+                    </button>
+                  </div>
+                </div>
               </div>
 
               {/* Right: Sayantrik Advantage */}
               <div className="lg:w-1/4">
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8">
-                  Strategic Focus
-                </h3>
-                <div className="space-y-8">
-                  {advantagesFel3.map((adv, idx) => (
-                    <div key={idx} className="border-b border-gray-50 pb-4 last:border-0">
-                      <div>
-                        <h4 className="text-sm font-black text-gray-900 uppercase tracking-tight mb-2">{adv.title}</h4>
-                        <p className="text-gray-500 text-xs leading-relaxed italic">
+                <div className="bg-gray-50/50 border border-gray-100 rounded-2xl p-6 lg:p-8 h-fit">
+                  <h3 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                    Strategic Focus
+                  </h3>
+                  <div className="space-y-6">
+                    {advantagesFel3.map((adv, idx) => (
+                      <div key={idx} className="group">
+                        <h4 className="text-sm font-bold text-gray-900 uppercase tracking-tight mb-1 group-hover:text-[#ED2939] transition-colors">{adv.title}</h4>
+                        <p className="text-gray-500 text-xs leading-relaxed font-medium">
                           {adv.desc}
                         </p>
                       </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Partnership Callout Box (Embedded in sidebar for visibility) */}
-                <div className="mt-12 bg-slate-900 text-white p-8 rounded-2xl relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <ShieldCheck className="w-24 h-24" />
+                    ))}
                   </div>
-                  <h4 className="text-[#ED2939] font-black uppercase tracking-widest text-sm mb-2">Strategic Partnership</h4>
-                  <h3 className="text-2xl font-bold mb-4">Energy Sector Focus</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed mb-6">
-                    For refinery, petrochemical, and LNG projects, leveraging our <span className="text-white font-bold">LCTS partnership</span> providing Houston-based process engineering leadership with 80+ years of combined experience.
-                  </p>
-                  <button className="text-sm font-bold uppercase tracking-widest border-b border-[#ED2939] pb-1 hover:text-[#ED2939] transition-colors">
-                    Learn More
-                  </button>
+                </div>
+
+
+              </div>
+            </div>
+
+            {/* Metrics Bar - Unified Single Box */}
+            <div className="mt-8 bg-white border border-gray-100 rounded-2xl p-0 shadow-sm hover:shadow-md hover:border-[#ED2939]/30 transition-all duration-300 group grid grid-cols-1 md:grid-cols-3">
+
+              <div className="relative p-5 flex flex-row items-center justify-center gap-4 group-hover/item:bg-gray-50 transition-colors rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none md:after:content-[''] md:after:absolute md:after:right-0 md:after:top-1/2 md:after:-translate-y-1/2 md:after:h-12 md:after:w-px md:after:bg-gray-200">
+                <div className="p-3 bg-gray-50 rounded-full shrink-0 group-hover:bg-[#ED2939]/10 transition-colors">
+                  <TrendingUp className="w-8 h-8 text-[#ED2939]" />
+                </div>
+                <div className="text-left">
+                  <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-0.5">Duration</p>
+                  <p className="text-xl font-bold text-gray-900 whitespace-nowrap">4-8 Months</p>
+                </div>
+              </div>
+
+              <div className="relative p-5 flex flex-row items-center justify-center gap-4 group-hover/item:bg-gray-50 transition-colors md:after:content-[''] md:after:absolute md:after:right-0 md:after:top-1/2 md:after:-translate-y-1/2 md:after:h-12 md:after:w-px md:after:bg-gray-200">
+                <div className="p-3 bg-gray-50 rounded-full shrink-0 group-hover:bg-[#ED2939]/10 transition-colors">
+                  <Users className="w-8 h-8 text-[#ED2939]" />
+                </div>
+                <div className="text-left">
+                  <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-0.5">Team</p>
+                  <p className="text-xl font-bold text-gray-900 whitespace-nowrap">PM + Leads</p>
+                </div>
+              </div>
+
+              <div className="p-5 flex flex-row items-center justify-center gap-4 group-hover/item:bg-gray-50 transition-colors rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none">
+                <div className="p-3 bg-gray-50 rounded-full shrink-0 group-hover:bg-[#ED2939]/10 transition-colors">
+                  <FileCheck className="w-8 h-8 text-[#ED2939]" />
+                </div>
+                <div className="text-left">
+                  <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-0.5">Output</p>
+                  <p className="text-xl font-bold text-gray-900 whitespace-nowrap">FEED Package</p>
                 </div>
               </div>
             </div>
 
-            {/* 5. Metrics Footer Bar */}
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-4 text-center md:text-left">
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-white rounded-full shadow-sm">
-                  <TrendingUp className="w-6 h-6 text-[#ED2939]" />
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Typical Duration</p>
-                  <p className="text-lg font-bold text-gray-900">4-8 Months</p>
-                </div>
-              </div>
-              <div className="w-px h-12 bg-gray-300 hidden md:block" />
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-white rounded-full shadow-sm">
-                  <Users className="w-6 h-6 text-[#ED2939]" />
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Team Structure</p>
-                  <p className="text-lg font-bold text-gray-900">PM + Lead Engineers</p>
-                </div>
-              </div>
-              <div className="w-px h-12 bg-gray-300 hidden md:block" />
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-white rounded-full shadow-sm">
-                  <FileCheck className="w-6 h-6 text-[#ED2939]" />
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-1">Primary Output</p>
-                  <p className="text-lg font-bold text-gray-900">Complete FEED Package</p>
-                </div>
-              </div>
-            </div>
+
+
           </div>
 
           {/* 6. Service Detail: DETAILED ENGINEERING | FEL-4 */}
-          <div id="fel4" className="max-w-7xl mx-auto border-t border-gray-200 pt-16 mb-20 group">
+          <div id="detailed-engineering" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12 group">
             {/* Header */}
-            <div className="mb-12">
-              <h2 className="text-5xl lg:text-7xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+            <div className="mb-8">
+              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
                 DETAILED ENGINEERING
               </h2>
-              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-6">
+              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
                 Precision Execution | FEL-4
               </p>
               <div className="max-w-3xl">
@@ -806,15 +814,19 @@ const Services = () => {
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 mb-16">
               {/* Left: What You Get (Deliverables Grid) */}
               <div className="lg:w-3/4">
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8">
+                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
                   Construction-Ready Deliverables
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
                   {featuresFel4.map((feature, idx) => (
-                    <div key={idx} className="relative pl-6 border-l border-gray-100">
-                      <div className="absolute left-0 top-0 w-1 h-6 bg-[#ED2939]" />
+                    <div key={idx} className="bg-white border border-gray-100 p-6 rounded-2xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-[#ED2939]/20 transition-all duration-300 group">
+                      <div className="mb-4">
+                        <div className="p-3 bg-gray-50 rounded-xl w-fit group-hover:bg-[#ED2939]/5 transition-colors">
+                          {feature.icon}
+                        </div>
+                      </div>
                       <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm">
+                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
                         {feature.desc}
                       </p>
                     </div>
@@ -824,20 +836,21 @@ const Services = () => {
 
               {/* Right: The Sayantrik Advantage (Core Strengths) */}
               <div className="lg:w-1/4">
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8">
-                  Strategic Focus
-                </h3>
-                <div className="space-y-8">
-                  {advantagesFel4.map((adv, idx) => (
-                    <div key={idx} className="border-b border-gray-50 pb-4 last:border-0">
-                      <div>
-                        <h4 className="text-sm font-black text-gray-900 uppercase tracking-tight mb-2">{adv.title}</h4>
-                        <p className="text-gray-500 text-xs leading-relaxed italic">
+                <div className="bg-gray-50/50 border border-gray-100 rounded-2xl p-6 lg:p-8 h-fit">
+                  <h3 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                    Strategic Focus
+                  </h3>
+                  <div className="space-y-6">
+                    {advantagesFel4.map((adv, idx) => (
+                      <div key={idx} className="group">
+                        <h4 className="text-sm font-bold text-gray-900 uppercase tracking-tight mb-1 group-hover:text-[#ED2939] transition-colors">{adv.title}</h4>
+                        <p className="text-gray-500 text-xs leading-relaxed font-medium">
                           {adv.desc}
                         </p>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -864,13 +877,13 @@ const Services = () => {
           </div>
 
           {/* 8. Service Detail: EPC | Execute */}
-          <div id="epc" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-16 mb-20">
+          <div id="epc" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12">
             {/* Header */}
-            <div className="mb-12">
-              <h2 className="text-5xl lg:text-7xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+            <div className="mb-8">
+              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
                 EPC: Execute
               </h2>
-              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-6">
+              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
                 Engineering, Procurement & Construction
               </p>
               <div className="max-w-3xl">
@@ -881,7 +894,7 @@ const Services = () => {
             </div>
 
             {/* EPC Lifecycle - 3-Column Pillar Flow */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 relative">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 relative">
               {epcPillars.map((pillar, idx) => (
                 <div key={idx} className={`rounded-xl border border-gray-200 overflow-hidden ${pillar.bg} hover:shadow-xl transition-shadow duration-300`}>
                   <div className="bg-gray-900 p-6 flex items-center justify-between">
@@ -933,13 +946,13 @@ const Services = () => {
           </div>
 
           {/* 9. Service Detail: EPCM | Full Lifecycle */}
-          <div id="epcm" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-16 mb-20 group">
+          <div id="epcm" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12 group">
             {/* Header */}
-            <div className="mb-12">
-              <h2 className="text-5xl lg:text-7xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+            <div className="mb-8">
+              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
                 EPCM | Full Lifecycle
               </h2>
-              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-6">
+              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
                 Engineering, Procurement & Construction Management
               </p>
               <div className="max-w-3xl">
@@ -949,18 +962,22 @@ const Services = () => {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 mb-16">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mb-10">
               {/* Left: What You Get (Management Benefits Grid) */}
               <div className="lg:w-3/4">
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8">
+                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
                   Management Benefits
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
                   {featuresEpcm.map((feature, idx) => (
-                    <div key={idx} className="relative pl-6 border-l border-gray-100">
-                      <div className="absolute left-0 top-0 w-1 h-6 bg-[#ED2939]" />
+                    <div key={idx} className="bg-white border border-gray-100 p-6 rounded-2xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-[#ED2939]/20 transition-all duration-300 group">
+                      <div className="mb-4">
+                        <div className="p-3 bg-gray-50 rounded-xl w-fit group-hover:bg-[#ED2939]/5 transition-colors">
+                          {feature.icon}
+                        </div>
+                      </div>
                       <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm">
+                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
                         {feature.desc}
                       </p>
                     </div>
@@ -970,33 +987,34 @@ const Services = () => {
 
               {/* Right: The Sayantrik Advantage (Management Depth) */}
               <div className="lg:w-1/4">
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8">
-                  Strategic Focus
-                </h3>
-                <div className="space-y-8">
-                  {advantagesEpcm.map((adv, idx) => (
-                    <div key={idx} className="border-b border-gray-50 pb-4 last:border-0">
-                      <div>
-                        <h4 className="text-sm font-black text-gray-900 uppercase tracking-tight mb-2">{adv.title}</h4>
-                        <p className="text-gray-500 text-xs leading-relaxed italic">
+                <div className="bg-gray-50/50 border border-gray-100 rounded-2xl p-6 lg:p-8 h-fit">
+                  <h3 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                    Strategic Focus
+                  </h3>
+                  <div className="space-y-6">
+                    {advantagesEpcm.map((adv, idx) => (
+                      <div key={idx} className="group">
+                        <h4 className="text-sm font-bold text-gray-900 uppercase tracking-tight mb-1 group-hover:text-[#ED2939] transition-colors">{adv.title}</h4>
+                        <p className="text-gray-500 text-xs leading-relaxed font-medium">
                           {adv.desc}
                         </p>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* 10. Service Detail: PMC | Full Lifecycle */}
-          <div id="pmc" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-16 mb-20">
+          <div id="pmc" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12">
             {/* Header */}
-            <div className="mb-12">
-              <h2 className="text-5xl lg:text-7xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+            <div className="mb-8">
+              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
                 PMC | Full Lifecycle
               </h2>
-              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-6">
+              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
                 Project Management Consultancy
               </p>
               <div className="max-w-3xl">
@@ -1006,18 +1024,22 @@ const Services = () => {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 mb-16">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mb-10">
               {/* Control & Oversight Grid (2x2) */}
               <div className="lg:w-3/4">
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8">
+                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
                   Control & Oversight
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
                   {featuresPmc.map((feature, idx) => (
-                    <div key={idx} className="relative pl-6 border-l border-gray-100">
-                      <div className="absolute left-0 top-0 w-1 h-6 bg-[#ED2939]" />
+                    <div key={idx} className="bg-white border border-gray-100 p-6 rounded-2xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-[#ED2939]/20 transition-all duration-300 group">
+                      <div className="mb-4">
+                        <div className="p-3 bg-gray-50 rounded-xl w-fit group-hover:bg-[#ED2939]/5 transition-colors">
+                          {feature.icon}
+                        </div>
+                      </div>
                       <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm">
+                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
                         {feature.desc}
                       </p>
                     </div>
@@ -1027,33 +1049,36 @@ const Services = () => {
 
               {/* The Sayantrik Advantage - Boardroom Style Sidebar */}
               <div className="lg:w-1/4">
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8">
-                  Strategic Focus
-                </h3>
-                <div className="space-y-8">
-                  {advantagesPmc.map((adv, idx) => (
-                    <div key={idx} className="border-b border-gray-50 pb-4 last:border-0">
-                      <div>
-                        <h4 className="text-sm font-black text-gray-900 uppercase tracking-tight mb-2">{adv.title}</h4>
-                        <p className="text-gray-500 text-xs leading-relaxed italic">
+                <div className="bg-gray-50/50 border border-gray-100 rounded-2xl p-6 lg:p-8 h-fit">
+                  <h3 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                    Strategic Focus
+                  </h3>
+                  <div className="space-y-6">
+                    {advantagesPmc.map((adv, idx) => (
+                      <div key={idx} className="group">
+                        <div className="flex items-start gap-3">
+                          <h4 className="text-sm font-bold text-gray-900 uppercase tracking-tight mb-1 group-hover:text-[#ED2939] transition-colors">{adv.title}</h4>
+                        </div>
+                        <p className="text-gray-500 text-xs leading-relaxed font-medium">
                           {adv.desc}
                         </p>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* 11. Service Detail: OWNER'S ENGINEER | Full Lifecycle */}
-          <div id="owners-eng" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-16 mb-20 group">
+          <div id="owners-engineer" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12 group">
             {/* Header */}
-            <div className="mb-12">
-              <h2 className="text-5xl lg:text-7xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+            <div className="mb-8">
+              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
                 OWNER'S ENGINEER
               </h2>
-              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-6">
+              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
                 Technical Advisory & Independent Review
               </p>
               <div className="max-w-3xl">
@@ -1063,18 +1088,22 @@ const Services = () => {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 mb-16">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mb-10">
               {/* Left: What You Get (Quality Assurance Grid) */}
               <div className="lg:w-3/4">
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8">
+                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
                   Quality Assurance
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
                   {featuresOe.map((feature, idx) => (
-                    <div key={idx} className="relative pl-6 border-l border-gray-100">
-                      <div className="absolute left-0 top-0 w-1 h-6 bg-[#ED2939]" />
+                    <div key={idx} className="bg-white border border-gray-100 p-6 rounded-2xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-[#ED2939]/20 transition-all duration-300 group">
+                      <div className="mb-4">
+                        <div className="p-3 bg-gray-50 rounded-xl w-fit group-hover:bg-[#ED2939]/5 transition-colors">
+                          {feature.icon}
+                        </div>
+                      </div>
                       <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm">
+                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
                         {feature.desc}
                       </p>
                     </div>
@@ -1084,33 +1113,34 @@ const Services = () => {
 
               {/* Right: The Sayantrik Advantage (Strategic Value) */}
               <div className="lg:w-1/4">
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8">
-                  Strategic Focus
-                </h3>
-                <div className="space-y-8">
-                  {advantagesOe.map((adv, idx) => (
-                    <div key={idx} className="border-b border-gray-50 pb-4 last:border-0">
-                      <div>
-                        <h4 className="text-sm font-black text-gray-900 uppercase tracking-tight mb-2">{adv.title}</h4>
-                        <p className="text-gray-500 text-xs leading-relaxed italic">
+                <div className="bg-gray-50/50 border border-gray-100 rounded-2xl p-6 lg:p-8 h-fit">
+                  <h3 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                    Strategic Focus
+                  </h3>
+                  <div className="space-y-6">
+                    {advantagesOe.map((adv, idx) => (
+                      <div key={idx} className="group">
+                        <h4 className="text-sm font-bold text-gray-900 uppercase tracking-tight mb-1 group-hover:text-[#ED2939] transition-colors">{adv.title}</h4>
+                        <p className="text-gray-500 text-xs leading-relaxed font-medium">
                           {adv.desc}
                         </p>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* 12. Service Detail: PROCESS TECHNOLOGY INTEGRATION */}
-          <div id="tech" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-16 mb-20 group">
+          <div id="process-technology" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12 group">
             {/* Header */}
-            <div className="mb-12">
-              <h2 className="text-5xl lg:text-7xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+            <div className="mb-8">
+              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
                 PROCESS TECHNOLOGY INTEGRATION
               </h2>
-              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-6">
+              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
                 Licensor Partnership & BOP Engineering
               </p>
               <div className="max-w-3xl">
@@ -1121,7 +1151,7 @@ const Services = () => {
             </div>
 
             {/* Target Audience Block */}
-            <div className="bg-slate-900 text-white p-10 rounded-3xl mb-16 flex flex-col md:flex-row items-center gap-10 relative overflow-hidden">
+            <div className="bg-slate-900 text-white p-8 rounded-3xl mb-10 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 p-8 opacity-10">
                 <Handshake className="w-64 h-64" />
               </div>
@@ -1136,18 +1166,22 @@ const Services = () => {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 mb-20">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mb-12">
               {/* Left: What You Get (Integration Grid) */}
               <div className="lg:w-3/4">
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8">
+                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
                   Integration Expertise
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
                   {featuresTech.map((feature, idx) => (
-                    <div key={idx} className="relative pl-6 border-l border-gray-100">
-                      <div className="absolute left-0 top-0 w-1 h-6 bg-[#ED2939]" />
+                    <div key={idx} className="bg-white border border-gray-100 p-6 rounded-2xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-[#ED2939]/20 transition-all duration-300 group">
+                      <div className="mb-4">
+                        <div className="p-3 bg-gray-50 rounded-xl w-fit group-hover:bg-[#ED2939]/5 transition-colors">
+                          {feature.icon}
+                        </div>
+                      </div>
                       <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm">
+                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
                         {feature.desc}
                       </p>
                     </div>
@@ -1157,12 +1191,12 @@ const Services = () => {
 
               {/* Right: Partnership Models */}
               <div className="lg:w-1/4">
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8">
+                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
                   Partnership Models
                 </h3>
-                <div className="grid grid-cols-1 gap-6">
+                <div className="grid grid-cols-1 gap-3">
                   {partnershipModels.map((model, idx) => (
-                    <div key={idx} className="p-6 rounded-xl border border-gray-100 hover:border-[#ED2939] hover:bg-gray-50 transition-all duration-300 cursor-pointer group">
+                    <div key={idx} className="p-4 rounded-xl border border-gray-100 hover:border-[#ED2939] hover:bg-gray-50 transition-all duration-300 cursor-pointer group">
                       <div className="flex items-center gap-3 mb-3">
                         {model.icon}
                         <h4 className="text-lg font-bold text-gray-900 group-hover:text-[#ED2939] transition-colors">{model.title}</h4>
@@ -1178,12 +1212,12 @@ const Services = () => {
           </div>
 
           {/* 13. Service Detail: BROWNFIELD MODIFICATIONS */}
-          <div id="brownfield" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-16 mb-20 group">
-            <div className="mb-12">
-              <h2 className="text-5xl lg:text-7xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+          <div id="brownfield" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12 group">
+            <div className="mb-8">
+              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
                 BROWNFIELD MODIFICATIONS
               </h2>
-              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-6">
+              <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
                 Plant Revamp & Tie-in Engineering
               </p>
               <div className="max-w-3xl">
@@ -1193,17 +1227,21 @@ const Services = () => {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
               <div className="lg:w-3/4">
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8">
+                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
                   Operational Excellence
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
                   {featuresBrownfield.map((feature, idx) => (
-                    <div key={idx} className="relative pl-6 border-l border-gray-100">
-                      <div className="absolute left-0 top-0 w-1 h-6 bg-[#ED2939]" />
+                    <div key={idx} className="bg-white border border-gray-100 p-6 rounded-2xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-[#ED2939]/20 transition-all duration-300 group">
+                      <div className="mb-4">
+                        <div className="p-3 bg-gray-50 rounded-xl w-fit group-hover:bg-[#ED2939]/5 transition-colors">
+                          {feature.icon}
+                        </div>
+                      </div>
                       <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm">
+                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
                         {feature.desc}
                       </p>
                     </div>
@@ -1212,7 +1250,7 @@ const Services = () => {
               </div>
 
               <div className="lg:w-1/4">
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8">
+                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
                   Project Capabilities
                 </h3>
                 <div className="space-y-6">
@@ -1228,14 +1266,14 @@ const Services = () => {
           </div>
 
           {/* 14. Service Detail: LASER SCAN & DIGITAL TWINS */}
-          <div id="laser" className="max-w-7xl mx-auto border-t border-gray-200 pt-16 mb-20 group">
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
+          <div id="laser-scan" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12 group">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
               <div className="lg:w-3/4">
-                <div className="mb-12">
-                  <h2 className="text-5xl lg:text-7xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+                <div className="mb-8">
+                  <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
                     LASER SCAN & DIGITAL TWINS
                   </h2>
-                  <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-6">
+                  <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
                     Reality Capture & As-Built Modeling
                   </p>
                   <div className="max-w-xl">
@@ -1245,12 +1283,16 @@ const Services = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
                   {featuresLaser.map((feature, idx) => (
-                    <div key={idx} className="relative pl-6 border-l border-gray-100">
-                      <div className="absolute left-0 top-0 w-1 h-6 bg-[#ED2939]" />
+                    <div key={idx} className="bg-white border border-gray-100 p-6 rounded-2xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-[#ED2939]/20 transition-all duration-300 group">
+                      <div className="mb-4">
+                        <div className="p-3 bg-gray-50 rounded-xl w-fit group-hover:bg-[#ED2939]/5 transition-colors">
+                          {feature.icon}
+                        </div>
+                      </div>
                       <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm">
+                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
                         {feature.desc}
                       </p>
                     </div>
@@ -1282,25 +1324,45 @@ const Services = () => {
           </div>
 
           {/* 15. Closing Trust Section: Why Clients Choose Us */}
-          <div className="border-t-2 border-gray-200 py-20 mt-20">
-            <div className="max-w-7xl mx-auto">
-              <div className="mb-12">
-                <h2 className="text-4xl md:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+          {/* 15. Closing Trust Section: Why Clients Choose Us - Premium Dark Redesign */}
+          {/* 15. Closing Trust Section: Why Clients Choose Us - Premium Dark Redesign */}
+          <div className="w-full bg-[#ED2939] py-16 mt-16 relative overflow-hidden rounded-2xl">
+            {/* Ambient Background Glow */}
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+              <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-white/10 blur-[120px]" />
+              <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-black/10 blur-[120px]" />
+            </div>
+
+            <div className="max-w-[1200px] mx-auto relative z-10 px-4">
+              <div className="mb-10 text-center">
+                <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mb-3">
                   Why Clients Choose Us
                 </h2>
-                <p className="text-lg text-[#ED2939] font-black uppercase tracking-widest">
-                  The Sayantrik Standard
-                </p>
+                <div className="flex items-center justify-center gap-3">
+                  <div className="h-px w-8 bg-white" />
+                  <p className="text-sm text-white font-black uppercase tracking-widest">
+                    The Sayantrik Standard
+                  </p>
+                  <div className="h-px w-8 bg-white" />
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {trustPillars.map((pillar, idx) => (
-                  <div key={idx} className="relative pl-6 border-l border-gray-100">
-                    <div className="absolute left-0 top-0 w-1 h-6 bg-[#ED2939]" />
-                    <h3 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3 capitalize">{pillar.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {pillar.desc}
-                    </p>
+                  <div key={idx} className="group relative bg-white/10 border border-white/20 p-6 rounded-xl hover:bg-white/20 transition-all duration-500 hover:-translate-y-1">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-lg bg-white/10 border border-white/20 group-hover:border-white/40 transition-all duration-300 shrink-0">
+                        <div className="text-white transition-colors duration-300">
+                          {pillar.icon}
+                        </div>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-white uppercase tracking-tight mb-1">{pillar.title}</h3>
+                        <p className="text-white/80 text-xs leading-relaxed font-medium group-hover:text-white transition-colors">
+                          {pillar.desc}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>

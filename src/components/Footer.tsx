@@ -5,28 +5,49 @@ const Footer = () => {
   return (
     <footer className="bg-card border-t border-border mt-auto">
       <div className="container mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-3 gap-8 items-start">
-          {/* Company Info */}
-          <div>
-            <h3 className="text-xl font-bold text-primary mb-4">
-              Sayantrik Engineers India Pvt Ltd
-            </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+          {/* Company Info & Corporate Responsibility */}
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-xl font-bold text-primary mb-4">
+                Sayantrik Engineers India Pvt Ltd
+              </h3>
 
-            <div className="flex gap-4">
-              <a
-                href="mailto:info@sayantrik.com"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/sayantrikengineers"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
+              <div className="flex gap-4">
+                <a
+                  href="mailto:info@sayantrik.com"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Mail className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/sayantrikengineers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Corporate Responsibility - Moved Here */}
+            <div>
+              <h3 className="text-xl font-bold text-black mb-4">
+                Corporate Responsibility
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/hse" className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium">
+                    HSE Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/csr" className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium">
+                    CSR Initiatives
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -34,7 +55,7 @@ const Footer = () => {
 
 
           {/* C&C Plant Process Info - Center */}
-          <div className="text-left flex flex-col items-start justify-start">
+          <div className="text-center flex flex-col items-center justify-start">
             <h3 className="text-xl font-bold text-primary mb-0 leading-tight">
               C&C Process Plants Inc (USA)
             </h3>
@@ -49,21 +70,21 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="md:text-right md:flex md:flex-col md:items-end">
+          <div className="text-right flex flex-col items-end justify-start">
             <h3 className="text-xl font-bold text-primary mb-4">
               Contact Us
             </h3>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-sm text-muted-foreground md:flex-row-reverse">
-                <Mail className="h-4 w-4 flex-shrink-0" />
+              <li className="flex items-center gap-2 text-sm text-muted-foreground justify-end">
                 <span>info@sayantrik.com</span>
+                <Mail className="h-4 w-4 flex-shrink-0" />
               </li>
-              <li className="flex items-center gap-2 text-sm text-muted-foreground md:flex-row-reverse">
-                <Phone className="h-4 w-4 flex-shrink-0" />
+              <li className="flex items-center gap-2 text-sm text-muted-foreground justify-end">
                 <span>+91 79955 79900</span>
+                <Phone className="h-4 w-4 flex-shrink-0" />
               </li>
               <li className="text-sm text-muted-foreground">
-                Hyderabad, Mumbai, Chennai , Kuala Lumpur, USA
+                India, USA and Malaysia
               </li>
             </ul>
           </div>
@@ -71,7 +92,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Sayantrik Engineers India Pvt Ltd. All rights reserved.
+            © 2026 Sayantrik Engineers India Pvt Ltd. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground mt-2">
             Engineering Excellence, Your Vision, Our Commitment.

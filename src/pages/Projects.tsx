@@ -1,8 +1,49 @@
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import oilPlantImage from "@/assets/oil-plant-hq.jpg";
 
 const Projects = () => {
+  const location = useLocation();
+  const [activeTab, setActiveTab] = useState("feed");
+
+  useEffect(() => {
+    if (location.hash) {
+      const hash = location.hash.replace("#", "");
+      switch (hash) {
+        case "feed-engineering":
+          setActiveTab("feed");
+          break;
+        case "detail-engineering":
+          setActiveTab("detail");
+          break;
+        case "as-built-engineering":
+          setActiveTab("asbuilt");
+          break;
+        case "pre-bid-engineering":
+          setActiveTab("prebid");
+          break;
+        default:
+          break;
+      }
+
+      // Allow time for tab switch before scrolling (handled by ScrollToTop or native behavior, but specific handling helps)
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location.hash]);
+
+  const onTabChange = (value: string) => {
+    setActiveTab(value);
+    // Optional: update URL hash when tab changes manually? 
+    // window.history.pushState(null, "", `#${getHashFromValue(value)}`);
+  };
+
   const feedProjects = [
     {
       name: "60MW / 90MW LNG / LPG Storage and Regasification",
@@ -189,7 +230,7 @@ const Projects = () => {
           </h1>
         </div>
 
-        <Tabs defaultValue="feed" className="space-y-8">
+        <Tabs value={activeTab} onValueChange={onTabChange} className="space-y-8">
           <TabsList className="grid w-full md:w-auto grid-cols-2 md:grid-cols-4">
             <TabsTrigger value="feed">FEED Engineering</TabsTrigger>
             <TabsTrigger value="detail">Detail Engineering</TabsTrigger>
@@ -197,149 +238,157 @@ const Projects = () => {
             <TabsTrigger value="prebid">Pre-Bid Engineering</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="feed" className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Oil Plant Image Card */}
-              <Card className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden relative border-primary/10 min-h-[280px]">
-                <CardContent className="p-0 relative h-full">
-                  <img 
-                    src={oilPlantImage} 
-                    alt="Oil Plant" 
-                    className="w-full h-full object-cover absolute inset-0"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/10 flex flex-col justify-end p-6">
-                    <h3 
-                      className="text-2xl font-bold text-white mb-2 inline-block w-fit"
-                      style={{
-                        textShadow: '0 0 8px hsl(var(--glow-blue) / 0.4), 0 0 16px hsl(var(--glow-blue) / 0.2)'
-                      }}
-                    >
-                      Oil Plant
-                    </h3>
-                    <p className="text-white/90 text-sm leading-relaxed">
-                      Detailed engineering and EPC support for a 600 MTPD Sulphuric Acid Plant, covering high-temperature and low-pressure piping, static equipment design, GA drawings, datasheets, P&IDs, plot plans, MTOs, vendor document review.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {feedProjects.map((project, index) => (
-                <Card key={index} className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden relative border-primary/10 min-h-[280px] group">
+          <div id="feed-engineering" className="scroll-mt-32">
+            <TabsContent value="feed" className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Oil Plant Image Card */}
+                <Card className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden relative border-primary/10 min-h-[280px]">
                   <CardContent className="p-0 relative h-full">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300" />
-                    <div className="relative h-full flex flex-col justify-end p-6">
-                      <div className="mb-3">
-                        <span className="text-xs font-medium text-primary/80 bg-primary/10 px-3 py-1 rounded-full">
-                          {project.location}
-                        </span>
-                      </div>
-                      <h3 
-                        className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300"
+                    <img
+                      src={oilPlantImage}
+                      alt="Oil Plant"
+                      className="w-full h-full object-cover absolute inset-0"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/10 flex flex-col justify-end p-6">
+                      <h3
+                        className="text-2xl font-bold text-white mb-2 inline-block w-fit"
                         style={{
-                          textShadow: '0 0 10px hsl(var(--primary) / 0.1)'
+                          textShadow: '0 0 8px hsl(var(--glow-blue) / 0.4), 0 0 16px hsl(var(--glow-blue) / 0.2)'
                         }}
                       >
-                        {project.name}
+                        Oil Plant
                       </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {project.description}
+                      <p className="text-white/90 text-sm leading-relaxed">
+                        Detailed engineering and EPC support for a 600 MTPD Sulphuric Acid Plant, covering high-temperature and low-pressure piping, static equipment design, GA drawings, datasheets, P&IDs, plot plans, MTOs, vendor document review.
                       </p>
                     </div>
                   </CardContent>
                 </Card>
-              ))}
-            </div>
-          </TabsContent>
 
-          <TabsContent value="detail" className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              {detailProjects.map((project, index) => (
-                <Card key={index} className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden relative border-primary/10 min-h-[280px] group">
-                  <CardContent className="p-0 relative h-full">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300" />
-                    <div className="relative h-full flex flex-col justify-end p-6">
-                      <div className="mb-3">
-                        <span className="text-xs font-medium text-primary/80 bg-primary/10 px-3 py-1 rounded-full">
-                          {project.location}
-                        </span>
+                {feedProjects.map((project, index) => (
+                  <Card key={index} className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden relative border-primary/10 min-h-[280px] group">
+                    <CardContent className="p-0 relative h-full">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300" />
+                      <div className="relative h-full flex flex-col justify-end p-6">
+                        <div className="mb-3">
+                          <span className="text-xs font-medium text-primary/80 bg-primary/10 px-3 py-1 rounded-full">
+                            {project.location}
+                          </span>
+                        </div>
+                        <h3
+                          className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300"
+                          style={{
+                            textShadow: '0 0 10px hsl(var(--primary) / 0.1)'
+                          }}
+                        >
+                          {project.name}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed text-justify">
+                          {project.description}
+                        </p>
                       </div>
-                      <h3 
-                        className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300"
-                        style={{
-                          textShadow: '0 0 10px hsl(var(--primary) / 0.1)'
-                        }}
-                      >
-                        {project.name}
-                      </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {project.description}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+          </div>
 
-          <TabsContent value="asbuilt" className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              {asBuiltProjects.map((project, index) => (
-                <Card key={index} className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden relative border-primary/10 min-h-[280px] group">
-                  <CardContent className="p-0 relative h-full">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300" />
-                    <div className="relative h-full flex flex-col justify-end p-6">
-                      <div className="mb-3">
-                        <span className="text-xs font-medium text-primary/80 bg-primary/10 px-3 py-1 rounded-full">
-                          {project.location}
-                        </span>
+          <div id="detail-engineering" className="scroll-mt-32">
+            <TabsContent value="detail" className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                {detailProjects.map((project, index) => (
+                  <Card key={index} className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden relative border-primary/10 min-h-[280px] group">
+                    <CardContent className="p-0 relative h-full">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300" />
+                      <div className="relative h-full flex flex-col justify-end p-6">
+                        <div className="mb-3">
+                          <span className="text-xs font-medium text-primary/80 bg-primary/10 px-3 py-1 rounded-full">
+                            {project.location}
+                          </span>
+                        </div>
+                        <h3
+                          className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300"
+                          style={{
+                            textShadow: '0 0 10px hsl(var(--primary) / 0.1)'
+                          }}
+                        >
+                          {project.name}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed text-justify">
+                          {project.description}
+                        </p>
                       </div>
-                      <h3 
-                        className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300"
-                        style={{
-                          textShadow: '0 0 10px hsl(var(--primary) / 0.1)'
-                        }}
-                      >
-                        {project.name}
-                      </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {project.description}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+          </div>
 
-          <TabsContent value="prebid" className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              {preBidProjects.map((project, index) => (
-                <Card key={index} className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden relative border-primary/10 min-h-[280px] group">
-                  <CardContent className="p-0 relative h-full">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300" />
-                    <div className="relative h-full flex flex-col justify-end p-6">
-                      <div className="mb-3">
-                        <span className="text-xs font-medium text-primary/80 bg-primary/10 px-3 py-1 rounded-full">
-                          {project.location}
-                        </span>
+          <div id="as-built-engineering" className="scroll-mt-32">
+            <TabsContent value="asbuilt" className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                {asBuiltProjects.map((project, index) => (
+                  <Card key={index} className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden relative border-primary/10 min-h-[280px] group">
+                    <CardContent className="p-0 relative h-full">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300" />
+                      <div className="relative h-full flex flex-col justify-end p-6">
+                        <div className="mb-3">
+                          <span className="text-xs font-medium text-primary/80 bg-primary/10 px-3 py-1 rounded-full">
+                            {project.location}
+                          </span>
+                        </div>
+                        <h3
+                          className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300"
+                          style={{
+                            textShadow: '0 0 10px hsl(var(--primary) / 0.1)'
+                          }}
+                        >
+                          {project.name}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed text-justify">
+                          {project.description}
+                        </p>
                       </div>
-                      <h3 
-                        className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300"
-                        style={{
-                          textShadow: '0 0 10px hsl(var(--primary) / 0.1)'
-                        }}
-                      >
-                        {project.name}
-                      </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {project.description}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </TabsContent>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+          </div>
+
+          <div id="pre-bid-engineering" className="scroll-mt-32">
+            <TabsContent value="prebid" className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                {preBidProjects.map((project, index) => (
+                  <Card key={index} className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden relative border-primary/10 min-h-[280px] group">
+                    <CardContent className="p-0 relative h-full">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300" />
+                      <div className="relative h-full flex flex-col justify-end p-6">
+                        <div className="mb-3">
+                          <span className="text-xs font-medium text-primary/80 bg-primary/10 px-3 py-1 rounded-full">
+                            {project.location}
+                          </span>
+                        </div>
+                        <h3
+                          className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300"
+                          style={{
+                            textShadow: '0 0 10px hsl(var(--primary) / 0.1)'
+                          }}
+                        >
+                          {project.name}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed text-justify">
+                          {project.description}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+          </div>
         </Tabs>
       </div>
     </main>

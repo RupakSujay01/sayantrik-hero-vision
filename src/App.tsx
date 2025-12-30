@@ -20,6 +20,8 @@ import LctsPartnership from "./pages/LctsPartnership";
 import NotFound from "./pages/NotFound";
 import { FloatingActionButtons } from "./components/FloatingActionButtons";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -28,6 +30,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <div className="flex flex-col min-h-screen relative"> {/* Added relative for good measure */}
 
           {/* Skip Navigation Link for Accessibility */}

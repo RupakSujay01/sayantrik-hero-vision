@@ -5,7 +5,7 @@ const About = () => {
     <main className="min-h-screen bg-background">
       <div className="container mx-auto px-6 py-20">
         {/* Who We Are */}
-        <section className="mb-16 animate-fade-in">
+        <section id="who-we-are" className="mb-16 animate-fade-in">
           <h1 className="font-heading text-foreground mb-8">
             Who We Are
           </h1>
@@ -13,7 +13,7 @@ const About = () => {
             <h2 className="font-heading text-foreground">
               A story behind our company's growth
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed text-justify">
               <span className="font-semibold text-foreground">Sayantrik Engineers India Pvt Ltd</span> is a name synonymous with engineering excellence in the dynamic and demanding fields of Oil & Gas, Petrochemicals, and Chemicals. Our journey, now spanning over a decade, is marked by a relentless commitment to delivering top-tier engineering solutions. We have risen as an emerging engineering consultancy with a reputation for excellence and innovation.
             </p>
           </div>
@@ -24,7 +24,7 @@ const About = () => {
           <h2 className="font-heading text-foreground mb-6">
             Our Legacy
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+          <p className="text-lg text-muted-foreground leading-relaxed mb-8 text-justify">
             Founded in 2012, Sayantrik Engineers India Pvt Ltd has steadily evolved into a prominent player in the industry. With offices strategically located in Hyderabad, Mumbai, Chennai, Kuala lumpur and USA we have cultivated a team of over 160+ dedicated permanent resources. Our experts bring a wealth of experience and technical prowess to the projects we undertake.
           </p>
 
@@ -60,11 +60,11 @@ const About = () => {
         </section>
 
         {/* What We Offer */}
-        <section className="mb-16 animate-fade-in">
+        <section id="vision" className="mb-16 animate-fade-in">
           <h2 className="font-heading text-foreground mb-6">
             What We Offer
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+          <p className="text-lg text-muted-foreground leading-relaxed mb-8 text-justify">
             At Sayantrik Engineers, our mission is straightforward but profound - to provide comprehensive engineering solutions that are meticulously tailored to meet the specific needs of our clients. The Oil & Gas, Petrochemicals, and Chemicals sectors are known for their unique challenges, and our team is not just well-versed in these challenges, but we thrive on surpassing industry standards.
           </p>
         </section>
@@ -79,7 +79,7 @@ const About = () => {
               Strategic offices and delivery centers across multiple regions
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-6">
             {/* Head Office - Hyderabad */}
             <div className="bg-card border-2 border-border rounded-lg p-8 hover:shadow-lg hover:border-border transition-all">

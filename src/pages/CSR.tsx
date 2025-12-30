@@ -133,7 +133,7 @@ const CSR = () => {
               Building Tomorrow's Future, Today
             </h2>
 
-            <div className="prose prose-lg prose-invert text-slate-300 leading-relaxed mb-12 max-w-3xl">
+            <div className="prose prose-lg prose-invert text-slate-300 leading-relaxed mb-12 max-w-3xl text-justify">
               <p className="mb-4">
                 At Sayantrik Engineers, we believe that true success extends beyond business metrics. As an organization that has grown from a small startup in 2012 to a multinational engineering consultancy, we recognize our responsibility to give back to the communities that have supported our journey.
               </p>
@@ -167,7 +167,7 @@ const CSR = () => {
               <h3 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight mb-6">
                 The Problem Kadam Addresses
               </h3>
-              <p className="text-lg text-slate-600 leading-relaxed mb-8">
+              <p className="text-lg text-slate-600 leading-relaxed mb-8 text-justify">
                 While more children in India are being enrolled in schools today, a significant number—particularly girls—drop out within a few years. They become invisible, lost in the cracks of our society.
               </p>
               <div className="w-full h-64 bg-slate-200 rounded-2xl flex items-center justify-center border-2 border-dashed border-slate-300">
@@ -306,7 +306,7 @@ const CSR = () => {
                 Lakshmi’s Journey: <br />
                 From Orphan to School Topper
               </h2>
-              <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
+              <div className="space-y-6 text-lg text-slate-600 leading-relaxed text-justify">
                 <p>
                   Found as a fragile orphan battling severe tuberculosis, Lakshmi's future seemed bleak. KADAM intervened with one year of isolation housing, dedicated medical treatment, and unwavering care.
                 </p>
@@ -407,7 +407,6 @@ const CSR = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };

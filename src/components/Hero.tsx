@@ -66,7 +66,7 @@ const Hero = () => {
             willChange: "transform, opacity"
           }}
         >
-          <div className="max-w-4xl mx-auto text-center space-y-8">
+          <div className="max-w-7xl mx-auto text-center space-y-8">
             {/* Main Headline */}
             <h1 className="font-heading leading-tight text-foreground glow-text">
               Engineering Excellence<br />
@@ -80,28 +80,8 @@ const Hero = () => {
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-              <Link to="/services">
-                <Button size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
-                  Explore Our Services
-                </Button>
-              </Link>
-
-            </div>
-          </div>
-        </div>
-
-        {/* Stats Banner - Moved to bottom of viewport and animated */}
-        <div
-          className="absolute bottom-0 left-0 right-0 z-10"
-          style={{
-            transform: `translateY(${contentTranslateY}px)`,
-            opacity: contentOpacity,
-            willChange: "transform, opacity"
-          }}
-        >
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center bg-white/50 backdrop-blur-md rounded-xl p-6 shadow-xl border border-white/20">
+            {/* Stats Grid - Moved here */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center bg-white/50 backdrop-blur-md rounded-xl p-6 shadow-xl border border-white/20 mt-8">
               <div className="space-y-2">
                 <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">2012</div>
                 <div className="text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Established</div>
@@ -119,6 +99,24 @@ const Hero = () => {
                 <div className="text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Expert Engineers</div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Stats Banner - Moved to bottom of viewport and animated */}
+        <div
+          className="absolute bottom-0 left-0 right-0 z-10"
+          style={{
+            transform: `translateY(${contentTranslateY}px)`,
+            opacity: contentOpacity,
+            willChange: "transform, opacity"
+          }}
+        >
+          <div className="container mx-auto px-6 flex justify-center py-6 pb-20">
+            <Link to="/services">
+              <Button size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-6 rounded-full shadow-[0_0_20px_rgba(237,41,57,0.5)] hover:shadow-[0_0_30px_rgba(237,41,57,0.7)] transition-all duration-300">
+                Explore Our Services
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

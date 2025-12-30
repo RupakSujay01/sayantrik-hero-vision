@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
@@ -21,7 +22,41 @@ export const VerticalTabsSection = ({
     containerClassName,
     accentColor = 'red'
 }: VerticalTabsSectionProps) => {
-    const [activeId, setActiveId] = useState(defaultActiveId || data[0]?.id);
+    const location = useLocation();
+
+    // Initialize state properly based on URL hash if present
+    const getInitialId = () => {
+        if (location.hash) {
+            const hashId = location.hash.replace('#', '');
+            if (data.some(item => item.id === hashId)) {
+                return hashId;
+            }
+        }
+        return defaultActiveId || data[0]?.id;
+    };
+
+    const [activeId, setActiveId] = useState(getInitialId());
+
+    // Listen for hash changes
+    useEffect(() => {
+        if (location.hash) {
+            const hashId = location.hash.replace('#', '');
+            if (data.some(item => item.id === hashId)) {
+                setActiveId(hashId);
+
+                // Allow time for tab switch before scrolling context
+                setTimeout(() => {
+                    const element = document.getElementById(hashId); // Note: We need to ensure elements have IDs if we want direct scroll, 
+                    // OR just rely on this component rendering the right content.
+                    // Since layout is fixed side-by-side, switching content is usually enough.
+                    // If we want to scroll the WINDOW to the component:
+                    const wrapper = document.getElementById('vertical-tabs-container');
+                    if (wrapper) wrapper.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        }
+    }, [location.hash, data]);
+
     const activeItem = data.find(item => item.id === activeId) || data[0];
 
     // Determine color classes
@@ -37,7 +72,7 @@ export const VerticalTabsSection = ({
     }
 
     return (
-        <div className={cn("w-full", containerClassName)}>
+        <div id="vertical-tabs-container" className={cn("w-full", containerClassName)}>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pl-6 md:pl-12">
                 {/* Left Column - Navigation (Fixed) */}
                 <div className="md:col-span-3 lg:col-span-2 pt-6 md:pt-10">
