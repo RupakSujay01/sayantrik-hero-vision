@@ -646,16 +646,18 @@ const Services = () => {
         {/* Sidebar Navigation */}
         <div className="hidden lg:block w-64 shrink-0">
           <div className="sticky top-32 space-y-1">
-            <h3 className="text-sm font-black text-gray-900 uppercase tracking-[0.2em] mb-8 px-4 border-b-2 border-[#ED2939] pb-2 inline-block">Services</h3>
+            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-4">
+              Navigation
+            </h3>
             {serviceSections.map((section) => (
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
                 className={cn(
-                  "w-full text-left px-4 py-4 text-[11px] font-black uppercase tracking-[0.15em] transition-all duration-300 border-l-4",
+                  "w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 border-l-2",
                   activeSection === section.id
-                    ? "text-[#ED2939] border-[#ED2939] translate-x-1"
-                    : "text-gray-400 border-transparent hover:text-gray-900 hover:border-gray-200"
+                    ? "bg-red-50 text-[#ED2939] border-[#ED2939]"
+                    : "text-gray-600 border-transparent hover:bg-gray-50 hover:text-gray-900"
                 )}
               >
                 {section.label}

@@ -82,14 +82,15 @@ export const VerticalTabsSection = ({
                                 key={item.id}
                                 onClick={() => setActiveId(item.id)}
                                 className={cn(
-                                    "px-5 py-3 rounded-xl text-left transition-all duration-300 ease-in-out font-medium text-sm w-full",
-                                    "border shadow-sm hover:shadow-md flex items-center justify-between group",
+                                    "w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 border-l-2",
                                     activeId === item.id
-                                        ? `${activeBg} ${activeText} ${activeBorder} shadow-lg scale-[1.02] ring-2 ${ringColor}`
-                                        : `bg-white text-gray-700 border-gray-100 ${hoverBorder} hover:bg-gray-50 hover:translate-x-1`
+                                        ? accentColor === 'green'
+                                            ? "bg-green-50 text-[#40a829] border-[#40a829]"
+                                            : "bg-red-50 text-[#ED2939] border-[#ED2939]"
+                                        : "text-gray-600 border-transparent hover:bg-gray-50 hover:text-gray-900"
                                 )}
                             >
-                                <span className="truncate mr-2">{item.title}</span>
+                                <span className="truncate">{item.title}</span>
                             </button>
                         ))}
                     </div>
