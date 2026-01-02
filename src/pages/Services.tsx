@@ -675,7 +675,7 @@ const Services = () => {
           <div id="feed" className="max-w-7xl mx-auto pt-10 mb-12 group">
             {/* Header */}
             <div className="mb-8">
-              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 uppercase tracking-tighter mb-4">
                 FEED | FEL-3
               </h2>
               <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
@@ -803,7 +803,7 @@ const Services = () => {
           <div id="detailed-engineering" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12 group">
             {/* Header */}
             <div className="mb-8">
-              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 uppercase tracking-tighter mb-4">
                 DETAILED ENGINEERING
               </h2>
               <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
@@ -885,7 +885,7 @@ const Services = () => {
           <div id="epc" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12">
             {/* Header */}
             <div className="mb-8">
-              <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 uppercase tracking-tighter mb-4">
                 EPC: Execute
               </h2>
               <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">

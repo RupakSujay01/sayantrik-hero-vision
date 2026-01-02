@@ -18,7 +18,7 @@ const Quality = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+                        <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
                             Quality Policy
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-300 font-light max-w-2xl mx-auto">

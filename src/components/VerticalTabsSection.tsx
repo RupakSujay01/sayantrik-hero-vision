@@ -77,6 +77,9 @@ export const VerticalTabsSection = ({
             <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-col md:flex-row gap-8 lg:gap-16">
                 {/* Left Column - Navigation (Fixed) */}
                 <div className="w-full md:w-64 flex-shrink-0 pt-6 md:pt-10">
+                    <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-4">
+                        Navigation
+                    </h3>
                     <div className="flex flex-col space-y-2 h-[calc(100vh-160px)] overflow-y-auto pr-2 custom-scrollbar">
                         {data.map((item) => (
                             <button
