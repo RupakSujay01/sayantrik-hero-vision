@@ -6,6 +6,9 @@ const LctsPartnership = () => {
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
             <section className="relative text-white py-20 overflow-hidden">
+                <h1 className="absolute top-4 left-4 md:top-10 md:left-10 text-2xl md:text-4xl font-black text-white uppercase tracking-wider z-20">
+                    LCTS Strategic Partnership
+                </h1>
                 <div className="absolute inset-0 z-0">
                     <img src="/images/lcts-bg.png" alt="LCTS Background" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/80" />
@@ -21,7 +24,7 @@ const LctsPartnership = () => {
                         <div className="inline-block px-4 py-1.5 mb-6 border border-[#ED2939] rounded-full bg-[#ED2939]/10 backdrop-blur-sm">
                             <span className="text-[#ED2939] font-bold tracking-widest text-xs uppercase">Strategic Alliance</span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-black mb-4 tracking-tight uppercase">
+                        <h1 className="text-3xl md:text-5xl font-black mb-4 tracking-tight uppercase">
                             Sayantrik Engineers <span className="text-[#ED2939]">&</span> LCTS
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-300 font-light mb-8">

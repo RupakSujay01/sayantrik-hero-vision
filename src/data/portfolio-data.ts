@@ -1,6 +1,7 @@
 export interface PortfolioItem {
     id: string;
     title: string;
+    navTitle?: string;
     category: 'Energy' | 'Chemicals' | 'Power' | 'Sustainability';
     description: string[];
 }
@@ -36,6 +37,7 @@ export const portfolioData: PortfolioItem[] = [
     {
         id: 'midstream',
         title: 'Midstream – Gas Treatment & Processing',
+        navTitle: 'Midstream',
         category: 'Energy',
         description: [
             '**Bridging Production to Market – Treating, Processing, and Transporting Natural Gas**',

@@ -17,6 +17,7 @@ import HSE from "./pages/HSE";
 import CSR from "./pages/CSR";
 import TechnologyProviders from "./pages/TechnologyProviders";
 import LctsPartnership from "./pages/LctsPartnership";
+import Quality from "./pages/Quality";
 import NotFound from "./pages/NotFound";
 import { FloatingActionButtons } from "./components/FloatingActionButtons";
 
@@ -58,6 +59,7 @@ const App = () => (
               <Route path="/careers" element={<Careers />} />
               <Route path="/hse" element={<HSE />} />
               <Route path="/csr" element={<CSR />} />
+              <Route path="/quality" element={<Quality />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

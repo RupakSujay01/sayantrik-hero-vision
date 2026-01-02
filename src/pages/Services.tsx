@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
   CheckCircle2, TrendingUp, ShieldCheck, FileCheck, Layers, Globe2, Zap, Users,
-  ClipboardList, Hammer, Gauge, Monitor, Link, Calendar, Briefcase, UserPlus, CheckCheck,
+  ClipboardList, Hammer, Gauge, Monitor, Link as LinkIcon, Calendar, Briefcase, UserPlus, CheckCheck,
   PenTool, Truck, HardHat, Coins, Clock, LayoutDashboard, Eye, Network, BarChart4,
   LineChart, PieChart, Gavel, Scale, AlertTriangle, Landmark, FileSearch, Handshake,
   Factory, CircuitBoard, Search, Rocket, Scan, Box, Cpu, FileCode, Award, ArrowRight
@@ -138,7 +139,7 @@ const Services = () => {
     {
       title: "Vendor Integration",
       desc: "Seamless incorporation of vendor data with rigorous technical review.",
-      icon: <Link className="w-5 h-5" />
+      icon: <LinkIcon className="w-5 h-5" />
     },
     {
       title: "Schedule Adherence",
@@ -728,9 +729,11 @@ const Services = () => {
                   </div>
 
                   <div className="relative z-10 shrink-0">
-                    <button className="px-6 py-3 bg-[#ED2939] hover:bg-[#c41e2b] text-white font-bold uppercase tracking-widest text-xs rounded-lg transition-colors shadow-lg shadow-red-900/20">
-                      Learn More
-                    </button>
+                    <Link to="/lcts-partnership">
+                      <button className="px-6 py-3 bg-[#ED2939] hover:bg-[#c41e2b] text-white font-bold uppercase tracking-widest text-xs rounded-lg transition-colors shadow-lg shadow-red-900/20">
+                        Learn More
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>

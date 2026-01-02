@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 export interface TabData {
     id: string;
     title: string;
+    navTitle?: string;
     description: string[];
 }
 
@@ -73,9 +74,9 @@ export const VerticalTabsSection = ({
 
     return (
         <div id="vertical-tabs-container" className={cn("w-full", containerClassName)}>
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pl-6 md:pl-12">
+            <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-col md:flex-row gap-8 lg:gap-16">
                 {/* Left Column - Navigation (Fixed) */}
-                <div className="md:col-span-3 lg:col-span-2 pt-6 md:pt-10">
+                <div className="w-full md:w-64 flex-shrink-0 pt-6 md:pt-10">
                     <div className="flex flex-col space-y-2 h-[calc(100vh-160px)] overflow-y-auto pr-2 custom-scrollbar">
                         {data.map((item) => (
                             <button
@@ -90,14 +91,14 @@ export const VerticalTabsSection = ({
                                         : "text-gray-600 border-transparent hover:bg-gray-50 hover:text-gray-900"
                                 )}
                             >
-                                <span className="truncate">{item.title}</span>
+                                <span className="whitespace-normal text-left block">{item.navTitle || item.title}</span>
                             </button>
                         ))}
                     </div>
                 </div>
 
                 {/* Right Column - Content (Independent Scroll) */}
-                <div className="md:col-span-9 lg:col-span-10 pr-6 md:pr-12">
+                <div className="flex-1 pr-6 md:pr-12">
                     <div className="bg-white rounded-2xl p-6 md:p-10 border border-gray-100 shadow-sm h-[calc(100vh-160px)] overflow-y-auto custom-scrollbar">
                         <AnimatePresence mode="wait">
                             <motion.div
