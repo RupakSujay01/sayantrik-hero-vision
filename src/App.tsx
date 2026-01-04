@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Index from "./pages/Index";
@@ -20,6 +20,11 @@ import LctsPartnership from "./pages/LctsPartnership";
 import Quality from "./pages/Quality";
 import NotFound from "./pages/NotFound";
 import { FloatingActionButtons } from "./components/FloatingActionButtons";
+
+import FeedProjects from "./pages/projects/FeedProjects";
+import DetailProjects from "./pages/projects/DetailProjects";
+import AsBuiltProjects from "./pages/projects/AsBuiltProjects";
+import PreBidProjects from "./pages/projects/PreBidProjects";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -52,7 +57,15 @@ const App = () => (
               <Route path="/portfolio" element={<Business />} />
               <Route path="/services" element={<Services />} />
               <Route path="/disciplines" element={<Disciplines />} />
-              <Route path="/projects" element={<Projects />} />
+
+              <Route path="/projects" element={<Projects />}>
+                <Route index element={<Navigate to="feed" replace />} />
+                <Route path="feed" element={<FeedProjects />} />
+                <Route path="detail" element={<DetailProjects />} />
+                <Route path="as-built" element={<AsBuiltProjects />} />
+                <Route path="pre-bid" element={<PreBidProjects />} />
+              </Route>
+
               <Route path="/contact" element={<Contact />} />
               <Route path="/technology-providers" element={<TechnologyProviders />} />
               <Route path="/lcts-partnership" element={<LctsPartnership />} />
