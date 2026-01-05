@@ -1,38 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-
-import { useEffect, useState } from "react";
-
+import { motion, useScroll, useTransform } from "framer-motion";
 import heroEarth from "@/assets/hero-bg-new.jpg";
 
 const Hero = () => {
-  const [scrollY, setScrollY] = useState(0);
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
+  // Animation Physics - "Butter Smooth"
+  // Range: 0 to 300px scroll
+  const scrollRange = [0, 300];
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // 1. Content fades in cleanly
+  const contentOpacity = useTransform(scrollY, scrollRange, [0, 1]);
 
-  // Calculate animation progress based on viewport height
-  // animate over the first 100vh of scrolling
-  // We use 400 as a rough approximation of vh for smoother math, or window.innerHeight if dynamic
-  const scrollRange = 400;
-  const progress = Math.min(1, Math.max(0, scrollY / scrollRange));
+  // 2. Content slides UP from 60px to 0px (Grounded feel)
+  const contentY = useTransform(scrollY, scrollRange, [60, 0]);
 
-  // Content slides in from top (-50px) to center (0px)
-  // We want it to be fully hidden initially if requested "no content"
-  // User said "slide in from top" and "content visible once user scrolls".
-  // Let's translate from -100px and opacity 0.
+  // 3. Subtle scale up effectively "lands" the content (Premium feel)
+  const contentScale = useTransform(scrollY, scrollRange, [0.95, 1]);
 
-  const contentTranslateY = (1 - progress) * -50; // starts at -50px, ends at 0
-  const contentOpacity = Math.pow(progress, 1.5); // Ease in opacity
-
-  // Image opacity fade
-  const imageOpacity = 1 - (progress * 0.6); // Fades to 0.4
+  // 4. Background fades out slightly to focus attention on content
+  const imageOpacity = useTransform(scrollY, scrollRange, [1, 0.4]);
 
   return (
     // Outer container provides the scroll track (200vh height)
@@ -42,8 +30,8 @@ const Hero = () => {
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
 
         {/* Background Image Layer */}
-        <div
-          className="absolute inset-0 bg-cover bg-no-repeat transition-opacity duration-100 ease-out"
+        <motion.div
+          className="absolute inset-0 bg-cover bg-no-repeat"
           style={{
             backgroundImage: `url(${heroEarth})`,
             backgroundPosition: "center 25%",
@@ -52,18 +40,18 @@ const Hero = () => {
           }}
         />
         {/* Dark Overlay for Text Contrast */}
-        <div
+        <motion.div
           className="absolute inset-0 bg-black/40 pointer-events-none"
           style={{ opacity: imageOpacity }}
         />
 
         {/* Content Layer */}
-        <div
+        <motion.div
           className="relative z-10 container mx-auto px-6 pb-12"
           style={{
-            transform: `translateY(${contentTranslateY}px)`,
+            y: contentY,
             opacity: contentOpacity,
-            willChange: "transform, opacity"
+            scale: contentScale
           }}
         >
           <div className="max-w-7xl mx-auto text-center space-y-8">
@@ -80,7 +68,7 @@ const Hero = () => {
             </p>
 
             {/* CTAs */}
-            {/* Stats Grid - Moved here */}
+            {/* Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center bg-white/50 backdrop-blur-md rounded-xl p-6 shadow-xl border border-white/20 mt-8">
               <div className="space-y-2">
                 <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">2012</div>
@@ -100,15 +88,15 @@ const Hero = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Stats Banner - Moved to bottom of viewport and animated */}
-        <div
+        {/* Stats Banner CTA - Synchronized with content */}
+        <motion.div
           className="absolute bottom-0 left-0 right-0 z-10"
           style={{
-            transform: `translateY(${contentTranslateY}px)`,
+            y: contentY,
             opacity: contentOpacity,
-            willChange: "transform, opacity"
+            scale: contentScale
           }}
         >
           <div className="container mx-auto px-6 flex justify-center py-6 pb-20">
@@ -118,7 +106,7 @@ const Hero = () => {
               </Button>
             </Link>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
