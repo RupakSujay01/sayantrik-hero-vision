@@ -112,9 +112,12 @@ export const VerticalTabsSection = ({
                                 transition={{ duration: 0.3 }}
                                 className="space-y-6"
                             >
-                                <h2 className={cn("text-4xl md:text-5xl font-bold", headingText)}>
-                                    {activeItem.title}
-                                </h2>
+                                <div className={cn("mb-8 pl-6 border-l-4", accentColor === 'green' ? "border-[#40a829]" : "border-[#ED2939]")}>
+                                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                                        {activeItem.title}
+                                    </h2>
+                                    {/* Optional Subtitle if we had one, for now just the standardized title */}
+                                </div>
                                 <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
                                     {activeItem.description.map((line, idx) => {
                                         // Header: **Text**

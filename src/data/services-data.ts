@@ -259,7 +259,7 @@ export const lifecyclePhases: LifecyclePhase[] = [
     id: "consulting",
     title: "Consulting & Feasibility",
     shortDescription: "Strategic assessment, technology selection, and economic modelling to validate project viability.",
-    fullDescription: "Our consulting services provide the strategic foundation for successful capital projects. We partner with clients to navigate the complex earliest stages of project development, moving from an initial idea to a validated business case. This phase involves rigorous techno-economic analysis, site selection studies, and technology screening to identify the optimal configuration for the facility. We help owners minimize investment risk by providing +/- 30% CAPEX/OPEX estimates, developing initial execution strategies, and mapping out regulatory requirements. Our approach combines deep technical expertise with market intelligence to ensure that the proposed solution is not only technically feasible but financially robust and aligned with long-term business goals.",
+    fullDescription: "Our consulting services provide the strategic foundation for successful capital projects. We partner with clients to navigate the complex earliest stages of project development, moving from an initial idea to a validated business case. This phase involves rigorous techno-economic analysis, site selection studies, and technology screening to identify the optimal configuration for the facility. We help owners minimise investment risk by providing +/- 30% CAPEX/OPEX estimates, developing initial execution strategies, and mapping out regulatory requirements. Our approach combines deep technical expertise with market intelligence to ensure that the proposed solution is not only technically feasible but financially robust and aligned with long-term business goals.",
     deliverables: [
       "Feasibility Study Report",
       "Technology Selection Report",
@@ -287,7 +287,7 @@ export const lifecyclePhases: LifecyclePhase[] = [
     ],
     softwareTools: [
       "Aspen Plus / HYSYS (Simulation)",
-      "Aspen Process Economic Analyzer (APEA)",
+      "Aspen Process Economic Analyser (APEA)",
       "Primavera P6 / MS Project",
       "In-house Techno-Economic Models"
     ]
@@ -296,7 +296,7 @@ export const lifecyclePhases: LifecyclePhase[] = [
     id: "feed",
     title: "Front-End Engineering Design (FEED)",
     shortDescription: "Defining the technical project scope, cost, and schedule to FID-ready maturity.",
-    fullDescription: "The FEED phase is critical for freezing the design concept and establishing a reliable cost estimate (typically +/- 10-15%) to support the Final Investment Decision (FID). During this phase, we translate the conceptual design into comprehensive engineering packages that define the project's technical scope. This involves developing Process Flow Diagrams (PFDs), Piping and Instrumentation Diagrams (P&IDs), detailed equipment data sheets, and preliminary plot plans. Our team conducts safety reviews (HAZOP/SIL) to ensure inherent safety in the design. We also engage with long-lead item vendors and construction contractors to refine the execution strategy. The output of our FEED is a robust technical package that can be seamlessly transitioned into detailed engineering, minimizing changes and cost overruns during execution.",
+    fullDescription: "The FEED phase is critical for freezing the design concept and establishing a reliable cost estimate (typically +/- 10-15%) to support the Final Investment Decision (FID). During this phase, we translate the conceptual design into comprehensive engineering packages that define the project's technical scope. This involves developing Process Flow Diagrams (PFDs), Piping and Instrumentation Diagrams (P&IDs), detailed equipment data sheets, and preliminary plot plans. Our team conducts safety reviews (HAZOP/SIL) to ensure inherent safety in the design. We also engage with long-lead item vendors and construction contractors to refine the execution strategy. The output of our FEED is a robust technical package that can be seamlessly transitioned into detailed engineering, minimising changes and cost overruns during execution.",
     deliverables: [
       "Process Flow Diagrams (PFD) & P&IDs",
       "Process Simulation Report",
@@ -337,7 +337,7 @@ export const lifecyclePhases: LifecyclePhase[] = [
     id: "detail-engineering",
     title: "Detailed Engineering",
     shortDescription: "Development of \"Construction-Ready\" drawings, 3D models, and procurement specifications.",
-    fullDescription: "Detailed Engineering is where the project comes to life digitally before physical construction begins. We advance the FEED package into a fully defined, construction-ready design. Central to this phase is the development of an intelligent 3D model (Digital Twin) that integrates all disciplines—piping, civil, structural, electrical, and instrumentation. We produce Issued for Construction (IFC) drawings, including isometrics, loop diagrams, single line diagrams, and structural fabrication drawings. Clash detection and model reviews (30%, 60%, 90%) are conducted rigorously to ensure zero-interference construction. Our detailed engineering also includes comprehensive stress analysis, surge analysis, and vendor drawing review to ensure every component integrates perfectly. The result is a precise blueprint for construction that minimizes field rework.",
+    fullDescription: "Detailed Engineering is where the project comes to life digitally before physical construction begins. We advance the FEED package into a fully defined, construction-ready design. Central to this phase is the development of an intelligent 3D model (Digital Twin) that integrates all disciplines—piping, civil, structural, electrical, and instrumentation. We produce Issued for Construction (IFC) drawings, including isometrics, loop diagrams, single line diagrams, and structural fabrication drawings. Clash detection and model reviews (30%, 60%, 90%) are conducted rigorously to ensure zero-interference construction. Our detailed engineering also includes comprehensive stress analysis, surge analysis, and vendor drawing review to ensure every component integrates perfectly. The result is a precise blueprint for construction that minimises field rework.",
     deliverables: [
       "Issued for Construction (IFC) Drawings",
       "3D Model (PDS/PDMS/SP3D)",
@@ -411,7 +411,7 @@ export const lifecyclePhases: LifecyclePhase[] = [
     id: "construction-mgmt",
     title: "Construction Management Support",
     shortDescription: "Field engineering, supervision, and constructability reviews to ensure safe and quality execution.",
-    fullDescription: "We provide technical support and supervision during the construction phase to ensure the engineering design is executed safely and accurately. Our involvement starts early with Constructability Reviews during the engineering phase to optimize installation sequences. On-site, our field engineering team resolves technical queries (RFIs) and manages site modifications. We monitor construction quality, oversee heavy lifts, and ensure compliance with HSE standards. We also assist in tracking progress against the Level 3/4 schedules and managing sub-contractor interfaces. Our presence on-site bridges the gap between the design office and the construction workforce, ensuring design intent is preserved and field issues are resolved rapidly.",
+    fullDescription: "We provide technical support and supervision during the construction phase to ensure the engineering design is executed safely and accurately. Our involvement starts early with Constructability Reviews during the engineering phase to optimise installation sequences. On-site, our field engineering team resolves technical queries (RFIs) and manages site modifications. We monitor construction quality, oversee heavy lifts, and ensure compliance with HSE standards. We also assist in tracking progress against the Level 3/4 schedules and managing sub-contractor interfaces. Our presence on-site bridges the gap between the design office and the construction workforce, ensuring design intent is preserved and field issues are resolved rapidly.",
     deliverables: [
       "Constructability Review Reports",
       "Field Change Requests (FCR) / Engineering Change Notes",
@@ -445,9 +445,9 @@ export const lifecyclePhases: LifecyclePhase[] = [
     id: "commissioning",
     title: "Commissioning & Start-up",
     shortDescription: "Systematic checking, functional testing, and ramp-up of the facility to stable operation.",
-    fullDescription: "The transition from construction to operation is a critical phase where systems are energized and process fluids are introduced. Our commissioning methodology follows a structured Systemization approach. We prepare detailed Pre-Commissioning and Commissioning procedures, checksheets, and schedules. Activities include line walk-downs, punch-listing, mechanical completion verification, leak testing, steam blowing, and loop checks. During start-up, our process experts support the operations team in stabilizing the plant, tuning control loops, and performance testing to prove guaranteed parameters. We ensure a safe, smooth, and documented handover to the operations team.",
+    fullDescription: "The transition from construction to operation is a critical phase where systems are energised and process fluids are introduced. Our commissioning methodology follows a structured Systemisation approach. We prepare detailed Pre-Commissioning and Commissioning procedures, checksheets, and schedules. Activities include line walk-downs, punch-listing, mechanical completion verification, leak testing, steam blowing, and loop checks. During start-up, our process experts support the operations team in stabilizing the plant, tuning control loops, and performance testing to prove guaranteed parameters. We ensure a safe, smooth, and documented handover to the operations team.",
     deliverables: [
-      "Systemization & Turnover Plan",
+      "Systemisation & Turnover Plan",
       "Pre-Commissioning & Commissioning Procedures",
       "Punch Lists (A/B/C categories)",
       "Mechanical Completion Certificates",
@@ -478,8 +478,8 @@ export const lifecyclePhases: LifecyclePhase[] = [
   {
     id: "om-support",
     title: "O&M Support",
-    shortDescription: "Asset integrity management, troubleshooting, and optimization for sustained performance.",
-    fullDescription: "After the plant is operational, our support continues with Operations & Maintenance services designed to maximize asset life and efficiency. We provide brownfield engineering for small projects, debottlenecking studies, and management of change (MOC) engineering. Our asset integrity management services include Risk Based Inspection (RBI) planning, corrosion monitoring, and fitness-for-service assessments. We also support digitalization initiatives, maintaining the plant's Digital Twin and As-Built drawings to reflect current site conditions. Whether it's troubleshooting a process upset or planning a major turnaround/shutdown, we provide the engineering backing to keep the facility running safely and profitably.",
+    shortDescription: "Asset integrity management, troubleshooting, and optimisation for sustained performance.",
+    fullDescription: "After the plant is operational, our support continues with Operations & Maintenance services designed to maximise asset life and efficiency. We provide brownfield engineering for small projects, debottlenecking studies, and management of change (MOC) engineering. Our asset integrity management services include Risk Based Inspection (RBI) planning, corrosion monitoring, and fitness-for-service assessments. We also support digitalization initiatives, maintaining the plant's Digital Twin and As-Built drawings to reflect current site conditions. Whether it's troubleshooting a process upset or planning a major turnaround/shutdown, we provide the engineering backing to keep the facility running safely and profitably.",
     deliverables: [
       "As-Built Drawings & Models",
       "Asset Integrity Management Plans",

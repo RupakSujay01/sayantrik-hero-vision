@@ -20,7 +20,7 @@ const WelcomeSection = () => {
               </div>
               <h3 className="font-heading text-slate-900 mb-6 text-3xl font-bold group-hover:text-primary transition-colors">Our Vision</h3>
               <p className="text-slate-600 leading-relaxed font-medium text-lg text-justify">
-                By 2030, to be recognized globally as the premier engineering and integration partner in the energy and chemicals sector—trusted by Owner-operators, Engineering Consultants, EPC Contractors and Technology Licensors for our technical depth, digital capabilities and uncompromising commitment to quality and safety.
+                By 2030, to be recognised globally as the premier engineering and integration partner in the energy and chemicals sector—trusted by Owner-operators, Engineering Consultants, EPC Contractors and Technology Licensors for our technical depth, digital capabilities and uncompromising commitment to quality and safety.
               </p>
             </div>
 

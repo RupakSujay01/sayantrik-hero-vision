@@ -16,7 +16,7 @@ export const FloatingActionButtons = () => {
                         size="sm"
                         className="h-10 w-auto rounded-full shadow-lg bg-[#40a829] hover:bg-[#40a829]/90 text-white transition-all duration-500 ease-in-out flex items-center justify-center overflow-hidden px-3"
                     >
-                        <CheckCircle2 className="h-5 w-5 flex-shrink-0 mr-2" />
+                        <CheckCircle2 className="h-5 w-5 flex-shrink-0 mr-0.5" />
                         <span className="whitespace-nowrap font-semibold text-xs">
                             Quality Deliverables is our Core value
                         </span>

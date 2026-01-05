@@ -6,7 +6,7 @@ const disciplinesData = [
         title: 'Process',
         description: [
             'Our Process Engineering discipline is the core of our designs, ensuring optimal functionality and safety. We develop heat and material balances, PFDs, and P&IDs to define the plant\'s operating conditions.',
-            'We focus on energy efficiency and waste minimization. Our process engineers work closely with other disciplines to ensure the seamless integration of all plant systems.'
+            'We focus on energy efficiency and waste minimisation. Our process engineers work closely with other disciplines to ensure the seamless integration of all plant systems.'
         ]
     },
     {
@@ -21,8 +21,8 @@ const disciplinesData = [
         id: 'mechanical-rotary',
         title: 'Mechanical - Rotary',
         description: [
-            'Our Rotary Equipment team specializes in the selection and specification of pumps, compressors, turbines, and fans. We ensure that rotating machinery meets process requirements and reliability standards.',
-            'We conduct vibration analysis and support installation and commissioning activities. Our goal is to maximize equipment availability and minimize maintenance costs.'
+            'Our Rotary Equipment team specialises in the selection and specification of pumps, compressors, turbines, and fans. We ensure that rotating machinery meets process requirements and reliability standards.',
+            'We conduct vibration analysis and support installation and commissioning activities. Our goal is to maximise equipment availability and minimise maintenance costs.'
         ]
     },
     {
@@ -37,8 +37,8 @@ const disciplinesData = [
         id: 'piping',
         title: 'Piping',
         description: [
-            'Piping Engineering is a critical component of our projects, involving layout design, stress analysis, and material selection. We create detailed 3D models to optimize routing and ensure constructability.',
-            'We handle complex piping networks for various fluids and pressures. Our designs focus on safety, accessibility for maintenance, and minimizing pressure drops.'
+            'Piping Engineering is a critical component of our projects, involving layout design, stress analysis, and material selection. We create detailed 3D models to optimise routing and ensure constructability.',
+            'We handle complex piping networks for various fluids and pressures. Our designs focus on safety, accessibility for maintenance, and minimising pressure drops.'
         ]
     },
     {
@@ -46,7 +46,7 @@ const disciplinesData = [
         title: 'Civil / Structural',
         description: [
             'Our Civil and Structural Engineering team designs foundations, steel structures, and buildings for industrial facilities. We ensure that all structures can withstand operating loads and environmental forces.',
-            'We use advanced analysis software to optimize structural designs for economy and safety. Our scope includes site grading, drainage systems, and architectural design of plant buildings.'
+            'We use advanced analysis software to optimise structural designs for economy and safety. Our scope includes site grading, drainage systems, and architectural design of plant buildings.'
         ]
     },
     {

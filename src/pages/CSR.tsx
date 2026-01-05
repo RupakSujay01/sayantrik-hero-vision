@@ -49,7 +49,7 @@ const CSR = () => {
   const problems = [
     {
       icon: <AlertTriangle className="w-8 h-8 text-amber-500" />,
-      title: "Child Labor",
+      title: "Child Labour",
       desc: "Rag picking and petty jobs to feed families, stealing their childhood."
     },
     {
@@ -135,7 +135,7 @@ const CSR = () => {
 
             <div className="prose prose-lg prose-invert text-slate-300 leading-relaxed mb-12 max-w-3xl text-justify">
               <p className="mb-4">
-                At Sayantrik Engineers, we believe that true success extends beyond business metrics. As an organization that has grown from a small startup in 2012 to a multinational engineering consultancy, we recognize our responsibility to give back to the communities that have supported our journey.
+                At Sayantrik Engineers, we believe that true success extends beyond business metrics. As an organisation that has grown from a small startup in 2012 to a multinational engineering consultancy, we recognise our responsibility to give back to the communities that have supported our journey.
               </p>
               <p className="border-l-4 border-[#ED2939] pl-4 italic text-white font-medium">
                 Our CSR philosophy is simple: invest in children, and you invest in the future of the nation.

@@ -5,7 +5,7 @@ const LctsPartnership = () => {
     return (
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
-            <section className="relative text-white py-20 overflow-hidden">
+            <section className="relative text-white pt-32 pb-20 overflow-hidden">
                 <h1 className="absolute top-4 left-4 md:top-10 md:left-10 text-4xl md:text-5xl font-bold text-white uppercase tracking-wider z-20">
                     LCTS Strategic Partnership
                 </h1>
@@ -53,7 +53,7 @@ const LctsPartnership = () => {
                         </div>
                     </div>
                     <p className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto text-justify">
-                        "The partnership between L&T Construction & Strategic (LCTS) and Sayantrik Engineers India Pvt Ltd represents a powerful synergy in the global engineering landscape. This collaboration combines LCTS’s vast infrastructure and project execution scale with Sayantrik’s specialized multi-disciplinary engineering expertise."
+                        "The partnership between L&T Construction & Strategic (LCTS) and Sayantrik Engineers India Pvt Ltd represents a powerful synergy in the global engineering landscape. This collaboration combines LCTS’s vast infrastructure and project execution scale with Sayantrik’s specialised multi-disciplinary engineering expertise."
                     </p>
                 </div>
             </section>
@@ -61,9 +61,10 @@ const LctsPartnership = () => {
             {/* The Partnership Model */}
             <section className="py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">The Partnership Model</h2>
-                        <div className="h-1 w-20 bg-[#ED2939]" />
+                    <div className="mb-12 pl-6 border-l-4 border-[#ED2939]">
+                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                            The Partnership Model
+                        </h2>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -124,9 +125,10 @@ const LctsPartnership = () => {
             {/* Responsibility Matrix (Styled Table) */}
             <section className="py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Integrated Project Delivery Matrix</h2>
-                        <div className="h-1 w-20 bg-[#ED2939]" />
+                    <div className="mb-12 pl-6 border-l-4 border-[#ED2939]">
+                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                            Integrated Project Delivery Matrix
+                        </h2>
                     </div>
 
                     <div className="overflow-x-auto">
@@ -161,7 +163,7 @@ const LctsPartnership = () => {
                                 </tr>
                                 <tr className="border border-black hover:bg-gray-50">
                                     <td className="border border-black px-6 py-4 font-bold text-gray-900">Commissioning</td>
-                                    <td className="border border-black px-6 py-4 text-gray-700">Start-up support, troubleshooting, performance optimization.</td>
+                                    <td className="border border-black px-6 py-4 text-gray-700">Start-up support, troubleshooting, performance optimisation.</td>
                                     <td className="border border-black px-6 py-4 text-gray-700">As-built documentation, red-line updates, final model.</td>
                                 </tr>
                             </tbody>
@@ -173,9 +175,10 @@ const LctsPartnership = () => {
             {/* Engineering Matrix (Styled Table) */}
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Comprehensive Engineering Deliverables</h2>
-                        <div className="h-1 w-20 bg-[#ED2939]" />
+                    <div className="mb-12 pl-6 border-l-4 border-[#ED2939]">
+                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                            Comprehensive Engineering Deliverables
+                        </h2>
                     </div>
 
                     <div className="overflow-x-auto">
@@ -183,7 +186,7 @@ const LctsPartnership = () => {
                             <thead>
                                 <tr className="bg-[#ED2939] text-white">
                                     <th className="border border-black px-6 py-4 text-left font-bold w-1/4 uppercase tracking-wide">Discipline</th>
-                                    <th className="border border-black px-6 py-4 text-left font-bold w-3/4 uppercase tracking-wide">Core Deliverables & Specializations</th>
+                                    <th className="border border-black px-6 py-4 text-left font-bold w-3/4 uppercase tracking-wide">Core Deliverables & Specialisations</th>
                                 </tr>
                             </thead>
                             <tbody>

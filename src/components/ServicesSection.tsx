@@ -14,7 +14,7 @@ const servicesData = [
         title: 'Detailed Engineering',
         description: [
             'Our Detailed Engineering services transform conceptual designs into construction-ready drawings and specifications. We cover all disciplines including civil, structural, mechanical, piping, electrical, and instrumentation.',
-            'Using advanced 3D modeling software, we ensure clash detection and seamless integration of all systems. Our focus is on accuracy and constructability to minimize field rework and delays.'
+            'Using advanced 3D modeling software, we ensure clash detection and seamless integration of all systems. Our focus is on accuracy and constructability to minimise field rework and delays.'
         ]
     },
     {
@@ -38,7 +38,7 @@ const servicesData = [
         title: 'PMC',
         description: [
             'Our Project Management Consultancy (PMC) services provide expert guidance and oversight for large-scale industrial projects. We help clients navigate complex challenges and ensure project objectives are met.',
-            'We implement robust project controls, risk management strategies, and quality assurance processes. Our goal is to protect the client\'s interests and maximize the return on investment.'
+            'We implement robust project controls, risk management strategies, and quality assurance processes. Our goal is to protect the client\'s interests and maximise the return on investment.'
         ]
     },
     {
@@ -53,7 +53,7 @@ const servicesData = [
         id: 'process-technology',
         title: 'Process Technology Integration',
         description: [
-            'We specialize in the integration of advanced process technologies to optimize plant performance. Our team evaluates and selects the best available technologies to meet specific production goals.',
+            'We specialise in the integration of advanced process technologies to optimise plant performance. Our team evaluates and selects the best available technologies to meet specific production goals.',
             'From licensing support to detailed process design, we ensure seamless implementation. We focus on energy efficiency, yield improvement, and sustainability in every technology integration project.'
         ]
     },
@@ -69,7 +69,7 @@ const servicesData = [
         id: 'laser-scan',
         title: 'Laser Scan & Digital Twins',
         description: [
-            'We utilize state-of-the-art Laser Scanning technology to create accurate 3D as-built models of existing facilities. This data is the foundation for creating Digital Twins for asset management.',
+            'We utilise state-of-the-art Laser Scanning technology to create accurate 3D as-built models of existing facilities. This data is the foundation for creating Digital Twins for asset management.',
             'Digital Twins allow for real-time monitoring and predictive maintenance. Our digital solutions enhance operational visibility and enable data-driven decision-making for plant lifecycle management.'
         ]
     }

@@ -43,7 +43,7 @@ export const feedProjects: Project[] = [
   {
     name: "RO Plant Pre-Design Study",
     location: "Saudi Arabia",
-    description: "Feasibility 3D model generation for plot optimization and preliminary MTO for the large-scale RO Plant."
+    description: "Feasibility 3D model generation for plot optimisation and preliminary MTO for the large-scale RO Plant."
   }
 ];
 
@@ -172,7 +172,7 @@ export const preBidProjects: Project[] = [
   {
     name: "EPC Bid Support for Oil & Gas Sector",
     location: "Middle East",
-    description: "Pre-Bid 3D model for Material Take-Off (MTO) and Preliminary Layout optimization to support the commercial proposal for an EPC Bid."
+    description: "Pre-Bid 3D model for Material Take-Off (MTO) and Preliminary Layout optimisation to support the commercial proposal for an EPC Bid."
   },
   {
     name: "Skid-Mounted Water Treatment Unit",

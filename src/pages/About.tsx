@@ -93,7 +93,7 @@ const About = () => {
 
             {/* Delivery Center - Mumbai */}
             <div className="bg-card border-2 border-border rounded-lg p-8 hover:shadow-lg hover:border-border transition-all">
-              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-4 block">Delivery Center</span>
+              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-4 block">Delivery Centre</span>
               <h3 className="font-heading text-foreground mb-4">Mumbai, India</h3>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 Engineering support and project coordination
@@ -103,7 +103,7 @@ const About = () => {
 
             {/* Delivery Center - Chennai */}
             <div className="bg-card border-2 border-border rounded-lg p-8 hover:shadow-lg hover:border-border transition-all">
-              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-4 block">Delivery Center</span>
+              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-4 block">Delivery Centre</span>
               <h3 className="font-heading text-foreground mb-4">Chennai, India</h3>
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 Multi-discipline engineering services

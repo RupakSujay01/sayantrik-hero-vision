@@ -14,7 +14,7 @@ const Careers = () => {
               Life at SEIPL
             </h1>
           </div>
-          
+
           <div className="space-y-8">
             <p className="text-lg text-muted-foreground leading-relaxed">
               At Sayantrik Engineers, we believe that our people are our greatest asset. We foster a culture of innovation, collaboration, and continuous learning that empowers our team members to grow both personally and professionally.
@@ -90,14 +90,14 @@ const Careers = () => {
                   location: "Hyderabad, Mumbai, Chennai",
                   type: "Full-time",
                   experience: "5-8 years",
-                  description: "Lead process design and optimization for oil & gas projects"
+                  description: "Lead process design and optimisation for oil & gas projects"
                 },
                 {
                   title: "Piping Design Engineer",
                   location: "Hyderabad, Chennai",
                   type: "Full-time",
                   experience: "3-6 years",
-                  description: "Design and analyze piping systems for petrochemical facilities"
+                  description: "Design and analyse piping systems for petrochemical facilities"
                 },
                 {
                   title: "Project Manager",

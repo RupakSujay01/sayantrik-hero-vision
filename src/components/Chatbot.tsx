@@ -1,10 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
-import { X, Send, Bot, User } from 'lucide-react';
+import { X, Send, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { CHATBOT_CONFIG } from '@/data/chatbot-config';
+import { KNOWLEDGE_BASE } from '@/data/knowledge-base';
 import { cn } from '@/lib/utils';
+import { ChikooAvatar } from './ChikooAvatar';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface Message {
     id: string;
@@ -67,13 +70,14 @@ export const Chatbot = ({ isOpen, onClose }: ChatbotProps) => {
             };
             setMessages(prev => [...prev, botMsg]);
             setIsTyping(false);
-        }, 1000);
+        }, 1500);
     };
 
-    // Simple keyword matching for demo purposes
-    const getMockResponse = (text: string): string => {
+    // Intelligent response matching
+    const findBestMatch = (text: string): string => {
         const lowerText = text.toLowerCase();
 
+        // 1. Check strict hardcoded guardrails first
         if (lowerText.includes('joke') || lowerText.includes('movie') || lowerText.includes('weather') || lowerText.includes('sport')) {
             return CHATBOT_CONFIG.cannedResponses.offTopic;
         }
@@ -83,11 +87,50 @@ export const Chatbot = ({ isOpen, onClose }: ChatbotProps) => {
         if (lowerText.includes('bribe') || lowerText.includes('money') || lowerText.includes('kickback')) {
             return CHATBOT_CONFIG.cannedResponses.bribery;
         }
-        if (lowerText.includes('confidential') || lowerText.includes('client name') || lowerText.includes('budget')) {
-            return CHATBOT_CONFIG.cannedResponses.confidential;
+
+        // 2. Search Knowledge Base
+        // Simple token matching: Score = number of matching keywords
+        let bestMatch = null;
+        let highestScore = 0;
+
+        // Tokenize user input, removing common stop words
+        const userTokens = lowerText.split(/[\s,?.!]+/).filter(t => t.length > 2);
+
+        for (const entry of KNOWLEDGE_BASE) {
+            let score = 0;
+            // Check against entry keywords
+            for (const keyword of entry.keywords) {
+                // Check if the user's text contains this specific keyword phrase
+                if (lowerText.includes(keyword)) {
+                    // Give higher weight to multi-word matches
+                    score += keyword.split(' ').length * 2;
+                }
+            }
+
+            // Also check standard token overlap
+            for (const token of userTokens) {
+                if (entry.keywords.some(k => k.includes(token))) {
+                    score += 1;
+                }
+            }
+
+            if (score > highestScore) {
+                highestScore = score;
+                bestMatch = entry;
+            }
+        }
+
+        // 3. Return best match or fallback
+        // Threshold: needs at least some relevance
+        if (bestMatch && highestScore >= 2) {
+            return bestMatch.answer;
         }
 
         return CHATBOT_CONFIG.cannedResponses.default;
+    };
+
+    const getMockResponse = (text: string): string => {
+        return findBestMatch(text);
     };
 
     if (!isOpen) return null;
@@ -97,12 +140,18 @@ export const Chatbot = ({ isOpen, onClose }: ChatbotProps) => {
             {/* Header */}
             <div className="bg-primary p-4 flex items-center justify-between shrink-0">
                 <div className="flex items-center gap-3">
-                    <div className="bg-white/20 p-2 rounded-full">
-                        <Bot className="h-6 w-6 text-white" />
+                    <div className="bg-white/20 p-2 rounded-full relative overflow-visible flex items-center justify-center w-12 h-12">
+                        {/* Animated Avatar in Header */}
+                        <div className="w-8 h-8 relative">
+                            <ChikooAvatar className="w-full h-full" state={isTyping ? 'thinking' : 'idle'} />
+                        </div>
                     </div>
                     <div>
                         <h3 className="font-bold text-white text-lg leading-none">{CHATBOT_CONFIG.name}</h3>
-                        <p className="text-white/80 text-xs mt-1">Virtual Assistant</p>
+                        <p className="text-white/80 text-xs mt-1 flex items-center gap-1">
+                            <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+                            Online
+                        </p>
                     </div>
                 </div>
                 <button
@@ -116,44 +165,54 @@ export const Chatbot = ({ isOpen, onClose }: ChatbotProps) => {
             {/* Messages Area */}
             <ScrollArea className="flex-1 p-4 bg-gray-50" ref={scrollRef}>
                 <div className="space-y-4">
-                    {messages.map((msg) => (
-                        <div
-                            key={msg.id}
-                            className={cn(
-                                "flex gap-3 max-w-[85%]",
-                                msg.sender === 'user' ? "ml-auto flex-row-reverse" : ""
-                            )}
-                        >
-                            <div className={cn(
-                                "w-8 h-8 rounded-full flex items-center justify-center shrink-0",
-                                msg.sender === 'user' ? "bg-gray-200" : "bg-primary/10"
-                            )}>
-                                {msg.sender === 'user' ?
-                                    <User className="h-4 w-4 text-gray-600" /> :
-                                    <Bot className="h-4 w-4 text-primary" />
-                                }
-                            </div>
-                            <div className={cn(
-                                "p-3 rounded-2xl text-sm shadow-sm",
-                                msg.sender === 'user'
-                                    ? "bg-primary text-white rounded-tr-none"
-                                    : "bg-white text-gray-700 rounded-tl-none border border-gray-100"
-                            )}>
-                                {msg.text}
-                            </div>
-                        </div>
-                    ))}
+                    <AnimatePresence initial={false}>
+                        {messages.map((msg) => (
+                            <motion.div
+                                key={msg.id}
+                                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                transition={{ duration: 0.3 }}
+                                className={cn(
+                                    "flex gap-3 max-w-[85%]",
+                                    msg.sender === 'user' ? "ml-auto flex-row-reverse" : ""
+                                )}
+                            >
+                                <div className={cn(
+                                    "w-8 h-8 rounded-full flex items-center justify-center shrink-0 overflow-hidden",
+                                    msg.sender === 'user' ? "bg-gray-200" : "bg-transparent"
+                                )}>
+                                    {msg.sender === 'user' ?
+                                        <User className="h-4 w-4 text-gray-600" /> :
+                                        <ChikooAvatar className="w-full h-full" state="idle" />
+                                    }
+                                </div>
+                                <div className={cn(
+                                    "p-3 rounded-2xl text-sm shadow-sm",
+                                    msg.sender === 'user'
+                                        ? "bg-primary text-white rounded-tr-none"
+                                        : "bg-white text-gray-700 rounded-tl-none border border-gray-100"
+                                )}>
+                                    {msg.text}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+
                     {isTyping && (
-                        <div className="flex gap-3 max-w-[85%]">
-                            <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 bg-primary/10">
-                                <Bot className="h-4 w-4 text-primary" />
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="flex gap-3 max-w-[85%]"
+                        >
+                            <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0">
+                                <ChikooAvatar className="w-full h-full" state="thinking" />
                             </div>
                             <div className="bg-white p-4 rounded-2xl rounded-tl-none border border-gray-100 shadow-sm flex items-center gap-1">
                                 <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
                                 <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
                                 <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></span>
                             </div>
-                        </div>
+                        </motion.div>
                     )}
                 </div>
             </ScrollArea>

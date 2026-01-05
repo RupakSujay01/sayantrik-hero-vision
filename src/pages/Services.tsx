@@ -63,7 +63,7 @@ const Services = () => {
     },
     {
       title: "De-Risked Project Definition",
-      desc: "Complete safety studies, risk registers, and mitigation plans to minimize surprises during execution.",
+      desc: "Complete safety studies, risk registers, and mitigation plans to minimise surprises during execution.",
 
     },
     {
@@ -219,7 +219,7 @@ const Services = () => {
   const epcPillars = [
     {
       title: "ENGINEERING",
-      items: ["Complete detail design", "3D model & drawings", "Fast-track delivery", "Design optimization"],
+      items: ["Complete detail design", "3D model & drawings", "Fast-track delivery", "Design optimisation"],
 
       bg: "bg-slate-50"
     },
@@ -245,7 +245,7 @@ const Services = () => {
     },
     {
       title: "Owner's EPC Team",
-      desc: "Supplementing your in-house team with specialized technical disciplines.",
+      desc: "Supplementing your in-house team with specialised technical disciplines.",
 
     },
     {
@@ -442,8 +442,8 @@ const Services = () => {
   // Brownfield Data
   const featuresBrownfield = [
     {
-      title: "Optimized Shutdown Scope",
-      desc: "Hot work vs. cold work classification, pre-fabrication maximization, and tie-in optimization to minimize downtime.",
+      title: "Optimised Shutdown Scope",
+      desc: "Hot work vs. cold work classification, pre-fabrication maximisation, and tie-in optimisation to minimise downtime.",
 
     },
     {
@@ -486,7 +486,7 @@ const Services = () => {
   const featuresLaser = [
     {
       title: "High-Definition 3D Point Cloud",
-      desc: "Millimeter-accurate scan data of your existing facility – applicable for both onshore and offshore assets.",
+      desc: "Millimetre-accurate scan data of your existing facility – applicable for both onshore and offshore assets.",
 
     },
     {
@@ -678,16 +678,16 @@ const Services = () => {
               {/* Left: What You Get (Feature Grid) */}
               <div className="lg:w-3/4">
                 {/* Header */}
-                <div className="mb-8">
-                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 uppercase tracking-tighter mb-4">
+                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                     FEED | FEL-3
                   </h2>
-                  <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
+                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                     Front-End Engineering Design
                   </p>
                   <div className="max-w-3xl">
                     <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                      The most critical phase for capital cost optimization. We define the project baseline, identify technical risks, and establish the 30% cost estimate accuracy required for Final Investment Decision (FID).
+                      The most critical phase for capital cost optimisation. We define the project baseline, identify technical risks, and establish the 30% cost estimate accuracy required for Final Investment Decision (FID).
                     </p>
                   </div>
                 </div>
@@ -762,37 +762,43 @@ const Services = () => {
               </div>
             </div>
 
-            {/* Metrics Bar - Unified Single Box */}
-            <div className="mt-8 bg-white border border-gray-100 rounded-2xl p-0 shadow-sm hover:shadow-md hover:border-[#ED2939]/30 transition-all duration-300 group grid grid-cols-1 md:grid-cols-3">
+            {/* Metrics Bar - Enhanced Premium Design */}
+            <div className="mt-12">
+              <div className="bg-white rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] p-6 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-100 hover:-translate-y-1 transition-transform duration-500">
 
-              <div className="relative p-5 flex flex-row items-center justify-center gap-4 group-hover/item:bg-gray-50 transition-colors rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none md:after:content-[''] md:after:absolute md:after:right-0 md:after:top-1/2 md:after:-translate-y-1/2 md:after:h-12 md:after:w-px md:after:bg-gray-200">
-                <div className="p-3 bg-gray-50 rounded-full shrink-0 group-hover:bg-[#ED2939]/10 transition-colors">
-                  <TrendingUp className="w-8 h-8 text-[#ED2939]" />
+                {/* Metric 1 */}
+                <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
+                  <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <TrendingUp className="w-7 h-7" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Duration</p>
+                    <p className="text-2xl font-bold text-gray-900 tracking-tight">4-8 Months</p>
+                  </div>
                 </div>
-                <div className="text-left">
-                  <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-0.5">Duration</p>
-                  <p className="text-xl font-bold text-gray-900 whitespace-nowrap">4-8 Months</p>
-                </div>
-              </div>
 
-              <div className="relative p-5 flex flex-row items-center justify-center gap-4 group-hover/item:bg-gray-50 transition-colors md:after:content-[''] md:after:absolute md:after:right-0 md:after:top-1/2 md:after:-translate-y-1/2 md:after:h-12 md:after:w-px md:after:bg-gray-200">
-                <div className="p-3 bg-gray-50 rounded-full shrink-0 group-hover:bg-[#ED2939]/10 transition-colors">
-                  <Users className="w-8 h-8 text-[#ED2939]" />
+                {/* Metric 2 */}
+                <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
+                  <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <Users className="w-7 h-7" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Team</p>
+                    <p className="text-2xl font-bold text-gray-900 tracking-tight">PM + Leads</p>
+                  </div>
                 </div>
-                <div className="text-left">
-                  <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-0.5">Team</p>
-                  <p className="text-xl font-bold text-gray-900 whitespace-nowrap">PM + Leads</p>
-                </div>
-              </div>
 
-              <div className="p-5 flex flex-row items-center justify-center gap-4 group-hover/item:bg-gray-50 transition-colors rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none">
-                <div className="p-3 bg-gray-50 rounded-full shrink-0 group-hover:bg-[#ED2939]/10 transition-colors">
-                  <FileCheck className="w-8 h-8 text-[#ED2939]" />
+                {/* Metric 3 */}
+                <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
+                  <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <FileCheck className="w-7 h-7" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Output</p>
+                    <p className="text-2xl font-bold text-gray-900 tracking-tight">FEED Package</p>
+                  </div>
                 </div>
-                <div className="text-left">
-                  <p className="text-xs uppercase tracking-widest text-gray-500 font-bold mb-0.5">Output</p>
-                  <p className="text-xl font-bold text-gray-900 whitespace-nowrap">FEED Package</p>
-                </div>
+
               </div>
             </div>
 
@@ -801,17 +807,17 @@ const Services = () => {
           </div>
 
           {/* 6. Service Detail: DETAILED ENGINEERING | FEL-4 */}
-          <div id="detailed-engineering" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12 group">
+          <div id="detailed-engineering" className="max-w-7xl mx-auto pt-10 mb-12 group">
             {/* Header */}
             <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20 mb-6">
               {/* Left: What You Get (Deliverables Grid) */}
               <div className="lg:w-3/4">
                 {/* Header */}
-                <div className="mb-8">
-                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 uppercase tracking-tighter mb-4">
+                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                     DETAILED ENGINEERING
                   </h2>
-                  <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
+                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                     Precision Execution | FEL-4
                   </p>
                   <div className="max-w-3xl">
@@ -863,37 +869,55 @@ const Services = () => {
             </div>
           </div>
 
-          {/* 7. Flexible Engagement Models */}
-          <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
-            <h3 className="text-2xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center md:text-left">
-              Flexible Engagement Models
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {engagementModels.map((model, idx) => (
-                <div key={idx} className="p-6 rounded-r-xl bg-gray-50 border-l-4 border-gray-200 hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 cursor-pointer group">
-                  <div className="flex items-center gap-3 mb-3">
+          {/* 7. Flexible Engagement Models - Refined Metrics Style */}
+          <div className="bg-white rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] p-6 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-100 hover:-translate-y-1 transition-transform duration-500">
 
-                    <h4 className="text-lg font-bold text-gray-900 group-hover:text-[#ED2939] transition-colors">{model.title}</h4>
-                  </div>
-                  <p className="text-gray-600 text-sm">
-                    {model.desc}
-                  </p>
-                </div>
-              ))}
+            {/* Model 1: Full Detail Engineering */}
+            <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
+              <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <Layers className="w-7 h-7" />
+              </div>
+              <div className="text-left">
+                <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Full Detail Engineering</p>
+                <p className="text-sm font-medium text-gray-600 leading-tight">End-to-end ownership from FEED handover to IFC.</p>
+              </div>
             </div>
+
+            {/* Model 2: Team Augmentation */}
+            <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
+              <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <UserPlus className="w-7 h-7" />
+              </div>
+              <div className="text-left">
+                <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Team Augmentation</p>
+                <p className="text-sm font-medium text-gray-600 leading-tight">Dedicated resources embedded directly into your project team.</p>
+              </div>
+            </div>
+
+            {/* Model 3: Discipline Packages */}
+            <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
+              <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <Briefcase className="w-7 h-7" />
+              </div>
+              <div className="text-left">
+                <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Discipline Packages</p>
+                <p className="text-sm font-medium text-gray-600 leading-tight">Specific scope like piping design, structural analysis, or electrical.</p>
+              </div>
+            </div>
+
           </div>
 
           {/* 8. Service Detail: EPC | Execute */}
-          <div id="epc" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12">
+          <div id="epc" className="max-w-7xl mx-auto pt-10 mb-12 group">
             <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
               {/* Left: Content */}
               <div className="lg:w-3/4">
                 {/* Header */}
-                <div className="mb-8">
-                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 uppercase tracking-tighter mb-4">
+                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                     EPC: Execute
                   </h2>
-                  <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
+                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                     Engineering, Procurement & Construction
                   </p>
                   <div className="max-w-3xl">
@@ -955,17 +979,17 @@ const Services = () => {
           </div>
 
           {/* 9. Service Detail: EPCM | Full Lifecycle */}
-          <div id="epcm" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12 group">
+          <div id="epcm" className="max-w-7xl mx-auto pt-10 mb-12 group">
             {/* Header */}
             <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
               {/* Left: What You Get (Management Benefits Grid) */}
               <div className="lg:w-3/4">
                 {/* Header */}
-                <div className="mb-8">
-                  <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                     EPCM | Full Lifecycle
                   </h2>
-                  <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
+                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                     Engineering, Procurement & Construction Management
                   </p>
                   <div className="max-w-3xl">
@@ -1018,17 +1042,17 @@ const Services = () => {
           </div>
 
           {/* 10. Service Detail: PMC | Full Lifecycle */}
-          <div id="pmc" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12">
+          <div id="pmc" className="max-w-7xl mx-auto pt-10 mb-12 group">
             {/* Header */}
             <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
               {/* Control & Oversight Grid (2x2) */}
               <div className="lg:w-3/4">
                 {/* Header */}
-                <div className="mb-8">
-                  <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                     PMC | Full Lifecycle
                   </h2>
-                  <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
+                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                     Project Management Consultancy
                   </p>
                   <div className="max-w-3xl">
@@ -1081,17 +1105,17 @@ const Services = () => {
           </div>
 
           {/* 11. Service Detail: OWNER'S ENGINEER | Full Lifecycle */}
-          <div id="owners-engineer" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12 group">
+          <div id="owners-engineer" className="max-w-7xl mx-auto pt-10 mb-12 group">
             {/* Header */}
             <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
               {/* Left: What You Get (Quality Assurance Grid) */}
               <div className="lg:w-3/4">
                 {/* Header */}
-                <div className="mb-8">
-                  <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                     OWNER'S ENGINEER
                   </h2>
-                  <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
+                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                     Technical Advisory & Independent Review
                   </p>
                   <div className="max-w-3xl">
@@ -1144,17 +1168,17 @@ const Services = () => {
           </div>
 
           {/* 12. Service Detail: PROCESS TECHNOLOGY INTEGRATION */}
-          <div id="process-technology" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12 group">
+          <div id="process-technology" className="max-w-7xl mx-auto pt-10 mb-12 group">
             {/* Header */}
             <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-12">
               {/* Left: What You Get (Integration Grid) */}
               <div className="lg:w-3/4">
                 {/* Header */}
-                <div className="mb-8">
-                  <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                     PROCESS TECHNOLOGY INTEGRATION
                   </h2>
-                  <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
+                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                     Licensor Partnership & BOP Engineering
                   </p>
                   <div className="max-w-3xl">
@@ -1164,21 +1188,7 @@ const Services = () => {
                   </div>
                 </div>
 
-                {/* Target Audience Block */}
-                <div className="bg-slate-900 text-white p-8 rounded-3xl mb-10 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 p-8 opacity-10">
-                    <Handshake className="w-64 h-64" />
-                  </div>
-                  <div className="md:w-1/3 relative z-10">
-                    <h3 className="text-2xl font-black uppercase tracking-tight mb-2 text-[#ED2939]">For Technology Licensors</h3>
-                    <p className="text-sm font-bold uppercase tracking-widest opacity-70">& Equipment Suppliers</p>
-                  </div>
-                  <div className="md:w-2/3 relative z-10 border-l border-white/20 pl-0 md:pl-10">
-                    <p className="text-lg leading-relaxed text-gray-300">
-                      Sayantrik serves as your engineering arm in India and emerging markets. We translate Process Design Packages into fully integrated, constructible facilities, bridging the gap between <span className="text-white font-bold">proprietary technology</span> and <span className="text-white font-bold">local execution</span>.
-                    </p>
-                  </div>
-                </div>
+
 
                 <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
                   Integration Expertise
@@ -1193,6 +1203,22 @@ const Services = () => {
                       </p>
                     </div>
                   ))}
+                </div>
+
+                {/* Target Audience Block */}
+                <div className="bg-slate-900 text-white p-8 rounded-3xl mt-12 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 p-8 opacity-10">
+                    <Handshake className="w-64 h-64" />
+                  </div>
+                  <div className="md:w-1/3 relative z-10">
+                    <h3 className="text-2xl font-black uppercase tracking-tight mb-2 text-[#ED2939]">For Technology Licensors</h3>
+                    <p className="text-sm font-bold uppercase tracking-widest opacity-70">& Equipment Suppliers</p>
+                  </div>
+                  <div className="md:w-2/3 relative z-10 border-l border-white/20 pl-0 md:pl-10">
+                    <p className="text-lg leading-relaxed text-gray-300">
+                      Sayantrik serves as your engineering arm in India and emerging markets. We translate Process Design Packages into fully integrated, constructible facilities, bridging the gap between <span className="text-white font-bold">proprietary technology</span> and <span className="text-white font-bold">local execution</span>.
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -1223,19 +1249,19 @@ const Services = () => {
           </div>
 
           {/* 13. Service Detail: BROWNFIELD MODIFICATIONS */}
-          <div id="brownfield" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12 group">
+          <div id="brownfield" className="max-w-7xl mx-auto pt-10 mb-12 group">
             <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
               <div className="lg:w-3/4">
-                <div className="mb-8">
-                  <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                     BROWNFIELD MODIFICATIONS
                   </h2>
-                  <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
+                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                     Plant Revamp & Tie-in Engineering
                   </p>
                   <div className="max-w-3xl">
                     <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                      We specialize in modifications to live operating assets, where safety, minimal downtime, and exact as-built accuracy are non-negotiable.
+                      We specialise in modifications to live operating assets, where safety, minimal downtime, and exact as-built accuracy are non-negotiable.
                     </p>
                   </div>
                 </div>
@@ -1279,14 +1305,14 @@ const Services = () => {
           </div>
 
           {/* 14. Service Detail: LASER SCAN & DIGITAL TWINS */}
-          <div id="laser-scan" className="max-w-7xl mx-auto border-t-2 border-[#ED2939] pt-10 mb-12 group">
+          <div id="laser-scan" className="max-w-7xl mx-auto pt-10 mb-12 group">
             <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
               <div className="lg:w-3/4">
-                <div className="mb-8">
-                  <h2 className="text-4xl lg:text-5xl font-black text-gray-900 uppercase tracking-tighter mb-4">
+                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                     LASER SCAN & DIGITAL TWINS
                   </h2>
-                  <p className="text-xl text-[#ED2939] font-bold uppercase tracking-widest mb-4">
+                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                     Reality Capture & As-Built Modeling
                   </p>
                   <div className="max-w-xl">
@@ -1316,7 +1342,7 @@ const Services = () => {
                       The Digital Advantage
                     </h3>
                     <p className="text-gray-600 mb-8 max-w-sm">
-                      Reduce site visits by 80% and construction rework by 100% with millimeter-accurate data.
+                      Reduce site visits by 80% and construction rework by 100% with millimetre-accurate data.
                     </p>
                     <div className="w-full space-y-4">
                       {['Clash Detection', 'Remote Virtual Walkthroughs', 'Tank Calibration', 'BIM Integration'].map((item, idx) => (

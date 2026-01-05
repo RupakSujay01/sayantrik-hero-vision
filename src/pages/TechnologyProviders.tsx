@@ -63,7 +63,7 @@ const TechnologyProviders = () => {
             title: 'Chemicals',
             color: 'text-[#ED2939]',
             bg: 'bg-red-50',
-            items: ['Basic: Acids, Chlor-Alkali', 'Fertilizers: Ammonia, Urea, DAP', 'Methanol: Synthesis, MTO', 'Petrochemicals: Olefins, Aromatics', 'Polymers: PE, PP, PVC']
+            items: ['Basic: Acids, Chlor-Alkali', 'Fertilisers: Ammonia, Urea, DAP', 'Methanol: Synthesis, MTO', 'Petrochemicals: Olefins, Aromatics', 'Polymers: PE, PP, PVC']
         },
         {
             id: 'power',
@@ -129,7 +129,7 @@ const TechnologyProviders = () => {
                         <div className="space-y-6">
                             <div className="space-y-4">
                                 <span className="inline-block px-3 py-1 text-xs font-semibold text-[#ED2939] bg-red-50 rounded-full border border-red-100">
-                                    PARTNERSHIP PROGRAM
+                                    PARTNERSHIP PROGRAMME
                                 </span>
                                 <motion.h1
                                     className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight"

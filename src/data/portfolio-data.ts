@@ -13,12 +13,12 @@ export const portfolioData: PortfolioItem[] = [
         title: 'Upstream Oil & Gas',
         category: 'Energy',
         description: [
-            '**From Reservoir to Surface – Maximizing Recovery, Minimizing Risk**',
+            '**From Reservoir to Surface – Maximising Recovery, Minimising Risk**',
             'Sayantrik provides end-to-end engineering support for upstream oil and gas facilities, covering both onshore production facilities and complex offshore platforms. Our expertise spans the complete production chain from wellhead to export, ensuring optimal hydrocarbon recovery while maintaining the highest safety and environmental standards.',
             '',
             '**Onshore Production Facilities**',
             '• **Gas-Oil Separation Plants (GOSP):** Multi-stage separation systems for efficient oil-gas-water segregation, designed for varying API gravities and GOR ratios.',
-            '• **Early Production Facilities (EPF):** Fast-track modular solutions for accelerating first oil/gas, optimizing field development economics.',
+            '• **Early Production Facilities (EPF):** Fast-track modular solutions for accelerating first oil/gas, optimising field development economics.',
             '• **Oil & Gas Gathering Stations:** Centralized collection systems with slug handling, metering, and routing capabilities.',
             '• **Slug Catchers & Manifolds:** Liquid surge management for pipeline networks, finger-type and vessel-type configurations.',
             '• **Dehydration & Desalting Units:** Electrostatic desalters, glycol dehydration, and molecular sieve systems for export-quality crude.',
@@ -45,7 +45,7 @@ export const portfolioData: PortfolioItem[] = [
             '',
             '**Gas Treatment Systems**',
             '• **Acid Gas Removal (AGR):** Amine-based systems (MDEA, DEA, Sulfinol) for H₂S and CO₂ removal to meet pipeline specifications.',
-            '• **Gas Sweetening Units:** Selective and bulk removal processes for sour gas treating with optimized solvent selection.',
+            '• **Gas Sweetening Units:** Selective and bulk removal processes for sour gas treating with optimised solvent selection.',
             '• **Dehydration Systems:** TEG contactors and molecular sieve units achieving water dewpoint specifications.',
             '• **Mercury Removal Units:** Activated carbon and sulfur-impregnated adsorbents protecting downstream cryogenic equipment.',
             '• **Sulfur Recovery Units (SRU):** Modified Claus process with tail gas treatment achieving >99.9% sulfur recovery.',
@@ -54,7 +54,7 @@ export const portfolioData: PortfolioItem[] = [
             '**Gas Processing & NGL Recovery**',
             '• **Cryogenic Gas Processing:** Turbo-expander plants achieving high ethane and propane recovery (>95%) from lean and rich gas feeds.',
             '• **NGL Fractionation:** De-ethanizers, de-propanizers, de-butanizers, and splitters producing on-spec purity products.',
-            '• **Condensate Stabilization:** Patent-approved technology solving inconsistent product quality, optimizing energy consumption, and right-sizing equipment.',
+            '• **Condensate Stabilization:** Patent-approved technology solving inconsistent product quality, optimising energy consumption, and right-sizing equipment.',
             '• **Gas Gathering & Compression:** Field compression systems, pipeline boosting, and transmission station design.',
             '• **Plant Modularization:** Skid-mounted and modular gas processing units for remote locations and accelerated deployment.'
         ]
@@ -72,7 +72,7 @@ export const portfolioData: PortfolioItem[] = [
             '• **Vacuum Distillation Unit (VDU):** Deep-cut vacuum columns producing LVGO, HVGO, and vacuum residue for downstream conversion.',
             '',
             '**Conversion & Upgrading Units**',
-            '• **Fluid Catalytic Cracking (FCC):** High-conversion units with regenerator optimization, catalyst management, and product flexibility.',
+            '• **Fluid Catalytic Cracking (FCC):** High-conversion units with regenerator optimisation, catalyst management, and product flexibility.',
             '• **Hydrocracker Unit (HCU):** Single and two-stage configurations for middle distillate and lube base stock production.',
             '• **Delayed Coking Unit (DCU):** Bottom-of-barrel upgrading converting vacuum residue to lighter products and petroleum coke.',
             '• **Visbreaker Unit:** Thermal cracking for fuel oil viscosity reduction and vacuum residue upgrading.',
@@ -82,11 +82,11 @@ export const portfolioData: PortfolioItem[] = [
             '• **Hydrotreating Units:** Naphtha, kerosene, diesel, and VGO hydrotreaters for sulfur, nitrogen, and metals removal.',
             '• **Hydrodesulfurization (HDS):** Ultra-low sulfur diesel (ULSD) production meeting Euro VI/BS-VI specifications (<10 ppm S).',
             '• **Merox Treating:** Mercaptan oxidation for LPG and light naphtha sweetening.',
-            '• **Isomerization:** Light naphtha octane improvement for gasoline pool optimization.',
+            '• **Isomerization:** Light naphtha octane improvement for gasoline pool optimisation.',
             '',
-            '**Heavy Oil Processing (Specialized Expertise)**',
-            'Our heavy oil processing capabilities include industry-recognized expertise in delayed coking, with specialists having 30+ years of experience in design, operation, troubleshooting, and optimization of bottom-of-barrel conversion units.',
-            '• **Delayed Coking:** Coke drum cycling, heater design, hydraulic decoking systems, and coke quality optimization.',
+            '**Heavy Oil Processing (Specialised Expertise)**',
+            'Our heavy oil processing capabilities include industry-recognised expertise in delayed coking, with specialists having 30+ years of experience in design, operation, troubleshooting, and optimisation of bottom-of-barrel conversion units.',
+            '• **Delayed Coking:** Coke drum cycling, heater design, hydraulic decoking systems, and coke quality optimisation.',
             '• **Fluid Coking / Flexicoking:** Continuous coking processes with integrated gasification.',
             '• **Solvent Deasphalting (SDA):** Propane and butane-based deasphalting for DAO production.',
             '• **Residue Hydrocracking:** H-Oil and LC-Fining ebullated bed processes for residue upgrading.'
@@ -155,7 +155,7 @@ export const portfolioData: PortfolioItem[] = [
             '• **Atmospheric Tanks:** Fixed and floating roof tanks for crude oil and petroleum products per API 650.',
             '• **Pressurized Storage:** Spheres and bullets for LPG, propane, and butane per ASME Section VIII.',
             '• **Refrigerated Tanks:** Full containment and single containment tanks for LNG, ammonia, and ethylene.',
-            '• **Chemical Storage:** Specialized materials and safety systems for corrosive and hazardous chemicals.',
+            '• **Chemical Storage:** Specialised materials and safety systems for corrosive and hazardous chemicals.',
             '',
             '**Terminal Systems**',
             '• **Marine Terminals:** Jetty loading/unloading with marine loading arms, vapor recovery, and ship/shore interface systems.',
@@ -174,8 +174,8 @@ export const portfolioData: PortfolioItem[] = [
             '**Connecting Resources to Markets – Safe, Efficient Hydrocarbon Transport**',
             'Pipeline systems are the arteries of the energy industry, safely transporting crude oil, refined products, and natural gas over vast distances. Our pipeline engineering covers route selection through commissioning, with expertise in all terrain types and operating conditions.',
             '',
-            '• **Route Selection & Survey:** GIS-based corridor analysis, environmental constraints mapping, and ROW optimization.',
-            '• **Hydraulic Analysis:** Steady-state and transient flow modeling, surge analysis, and operational optimization.',
+            '• **Route Selection & Survey:** GIS-based corridor analysis, environmental constraints mapping, and ROW optimisation.',
+            '• **Hydraulic Analysis:** Steady-state and transient flow modeling, surge analysis, and operational optimisation.',
             '• **Pipeline Sizing & Stress Analysis:** Wall thickness calculations per ASME B31.4/B31.8, flexibility analysis, and support design.',
             '• **Special Crossings:** HDD, river crossings, road/rail crossings, and thrust boring designs.',
             '• **Pump & Compressor Stations:** Mainline and booster stations with control systems and emergency shutdown.',
@@ -191,7 +191,7 @@ export const portfolioData: PortfolioItem[] = [
         category: 'Chemicals',
         description: [
             '**Foundation of the Chemical Industry – High-Volume Essential Products**',
-            'Basic chemicals form the foundation of countless industrial processes. Our expertise covers design, operation support, and optimization of facilities producing acids, alkalis, and other essential industrial chemicals.',
+            'Basic chemicals form the foundation of countless industrial processes. Our expertise covers design, operation support, and optimisation of facilities producing acids, alkalis, and other essential industrial chemicals.',
             '',
             '**Inorganic Acids**',
             '• **Sulfuric Acid Plants:** Contact process plants from 100-3000 MTPD, including heat recovery systems and oleum production.',
@@ -201,7 +201,7 @@ export const portfolioData: PortfolioItem[] = [
             '',
             '**Chlor-Alkali & Industrial Gases**',
             '• **Chlor-Alkali Plants:** Membrane cell electrolysis producing chlorine, caustic soda, and hydrogen.',
-            '• **Calcium Chloride:** Specialized expertise in calcium chloride production and processing.',
+            '• **Calcium Chloride:** Specialised expertise in calcium chloride production and processing.',
             '• **Industrial Gas Plants:** Air separation units (ASU) for oxygen, nitrogen, and argon production.'
         ]
     },
@@ -216,7 +216,7 @@ export const portfolioData: PortfolioItem[] = [
             '• **Pharmaceutical Intermediates:** cGMP-compliant facilities with clean room design and batch processing.',
             '• **Agrochemicals:** Pesticide, herbicide, and fertilizer manufacturing with safety systems.',
             '• **Resins & Adhesives:** Polymer synthesis reactors and finishing systems.',
-            '• **Solvent Recovery:** Distillation and purification systems for solvent recycling and waste minimization.',
+            '• **Solvent Recovery:** Distillation and purification systems for solvent recycling and waste minimisation.',
             '• **Catalyst Manufacturing:** Precious metal and base metal catalyst production facilities.'
         ]
     },
@@ -252,10 +252,10 @@ export const portfolioData: PortfolioItem[] = [
         title: 'Thermal Power',
         category: 'Power',
         description: [
-            '**Efficient Combustion – Maximizing Heat Rate, Minimizing Emissions**',
-            'Thermal power plants remain essential for reliable baseload generation. We provide engineering for new plants and efficiency upgrades, focusing on heat rate optimization and emissions reduction to meet evolving environmental standards.',
+            '**Efficient Combustion – Maximising Heat Rate, Minimising Emissions**',
+            'Thermal power plants remain essential for reliable baseload generation. We provide engineering for new plants and efficiency upgrades, focusing on heat rate optimisation and emissions reduction to meet evolving environmental standards.',
             '',
-            '• **Combined Cycle Gas Turbines (CCGT):** High-efficiency plants achieving 60%+ thermal efficiency with HRSG optimization.',
+            '• **Combined Cycle Gas Turbines (CCGT):** High-efficiency plants achieving 60%+ thermal efficiency with HRSG optimisation.',
             '• **Simple Cycle Gas Turbines:** Peaking and emergency power with fast-start capabilities.',
             '• **Coal-Fired Power Plants:** Supercritical and ultra-supercritical boiler designs with FGD and SCR systems.',
             '• **Heat Recovery Steam Generators:** Multi-pressure HRSG design for maximum steam cycle efficiency.',
@@ -268,10 +268,10 @@ export const portfolioData: PortfolioItem[] = [
         category: 'Power',
         description: [
             '**Dual-Purpose Efficiency – Simultaneous Power and Process Steam**',
-            'Cogeneration systems maximize fuel utilization by producing both electricity and useful thermal energy. We design integrated CHP systems for refineries, petrochemical plants, and industrial facilities achieving 80%+ overall efficiency.',
+            'Cogeneration systems maximise fuel utilisation by producing both electricity and useful thermal energy. We design integrated CHP systems for refineries, petrochemical plants, and industrial facilities achieving 80%+ overall efficiency.',
             '',
             '• **Industrial Cogeneration:** Process steam and power integration for manufacturing facilities.',
-            '• **Refinery Power Plants:** Self-generation utilizing refinery fuel gas and off-gases.',
+            '• **Refinery Power Plants:** Self-generation utilising refinery fuel gas and off-gases.',
             '• **Trigeneration Systems:** Combined cooling, heating, and power (CCHP) for commercial and industrial applications.',
             '• **Waste Heat Recovery:** ORC systems and steam generation from process waste heat.'
         ]
@@ -282,7 +282,7 @@ export const portfolioData: PortfolioItem[] = [
         category: 'Power',
         description: [
             '**Reliable On-Site Generation – Ensuring Uninterrupted Operations**',
-            'Captive power systems provide energy security for critical industrial operations. We design standalone and grid-parallel systems ensuring reliability while optimizing fuel costs and maintaining compliance with grid codes.',
+            'Captive power systems provide energy security for critical industrial operations. We design standalone and grid-parallel systems ensuring reliability while optimising fuel costs and maintaining compliance with grid codes.',
             '',
             '• **Captive Power Plants:** Dedicated generation for industrial complexes with fuel flexibility.',
             '• **Emergency Power Systems:** Diesel generators and UPS systems for critical loads.',
@@ -325,7 +325,7 @@ export const portfolioData: PortfolioItem[] = [
     },
     {
         id: 'ccus',
-        title: 'Carbon Capture, Utilization & Storage (CCUS)',
+        title: 'Carbon Capture, Utilisation & Storage (CCUS)',
         category: 'Sustainability',
         description: [
             '**Capturing Carbon – Enabling Net-Zero Industrial Operations**',
@@ -343,10 +343,10 @@ export const portfolioData: PortfolioItem[] = [
             '• **CO₂ Purification:** Distillation and dehydration to pipeline or injection specifications.',
             '• **CO₂ Compression:** Multi-stage compression for supercritical transport and injection.',
             '',
-            '**Utilization & Storage**',
+            '**Utilisation & Storage**',
             '• **Enhanced Oil Recovery (EOR):** CO₂ flooding for increased oil production and permanent storage.',
             '• **Geological Sequestration:** Saline aquifer and depleted reservoir storage site evaluation.',
-            '• **Industrial Utilization:** CO₂ as feedstock for chemicals, building materials, and synthetic fuels.'
+            '• **Industrial Utilisation:** CO₂ as feedstock for chemicals, building materials, and synthetic fuels.'
         ]
     },
     {
@@ -355,7 +355,7 @@ export const portfolioData: PortfolioItem[] = [
         category: 'Sustainability',
         description: [
             '**Decarbonizing the Skies – Drop-In Fuels for Cleaner Aviation**',
-            'Sustainable aviation fuel is critical for reducing aviation\'s carbon footprint while utilizing existing aircraft and infrastructure. SAF can reduce lifecycle GHG emissions by up to 80% compared to conventional jet fuel, with additional benefits in reduced particulate and sulfur emissions.',
+            'Sustainable aviation fuel is critical for reducing aviation\'s carbon footprint while utilising existing aircraft and infrastructure. SAF can reduce lifecycle GHG emissions by up to 80% compared to conventional jet fuel, with additional benefits in reduced particulate and sulfur emissions.',
             '',
             '**SAF Pathways**',
             '• **HEFA (Hydroprocessed Esters & Fatty Acids):** Used cooking oil, waste fats, and agricultural oils converted via hydrotreatment.',
@@ -435,7 +435,7 @@ export const portfolioData: PortfolioItem[] = [
             'The circular economy replaces the traditional \'take-make-waste\' model with systems that eliminate waste, keep products and materials in use, and regenerate natural systems. We help clients identify and implement circular economy opportunities across their operations.',
             '',
             '**Circular Economy Framework**',
-            '• **Eliminate Waste & Pollution:** Process optimization and waste stream minimization at source.',
+            '• **Eliminate Waste & Pollution:** Process optimisation and waste stream minimisation at source.',
             '• **Keep Materials in Use:** Recovery, recycling, and reprocessing systems.',
             '• **Regenerate Natural Systems:** Bio-based feedstocks and ecosystem restoration.',
             '',
