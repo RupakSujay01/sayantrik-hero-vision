@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-xl font-bold text-primary mb-4">
-                Sayantrik Engineers India Pvt Ltd
+                Sayantrik Engineer India Pvt Ltd
               </h3>
 
               <div className="flex gap-4">

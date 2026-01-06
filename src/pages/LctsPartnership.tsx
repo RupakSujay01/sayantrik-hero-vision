@@ -53,7 +53,7 @@ const LctsPartnership = () => {
                         </div>
                     </div>
                     <p className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto text-justify">
-                        "The partnership between L&T Construction & Strategic (LCTS) and Sayantrik Engineers India Pvt Ltd represents a powerful synergy in the global engineering landscape. This collaboration combines LCTS’s vast infrastructure and project execution scale with Sayantrik’s specialised multi-disciplinary engineering expertise."
+                        This agreement marks a significant milestone for Sayantrik Engineer India Pvt Ltd, positioning us as a key player in the global technology transfer landscape. It underscores our commitment to bringing world-class technology to our clients and driving industrial growth through innovation.trik’s specialised multi-disciplinary engineering expertise."
                     </p>
                 </div>
             </section>

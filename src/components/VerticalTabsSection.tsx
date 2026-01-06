@@ -3,19 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-export interface TabData {
-    id: string;
-    title: string;
-    navTitle?: string;
-    description: string[];
-}
-
-interface VerticalTabsSectionProps {
-    data: TabData[];
-    defaultActiveId?: string;
-    containerClassName?: string;
-    accentColor?: 'red' | 'green';
-}
+import { BubbleNavLink } from './ui/BubbleNavLink';
 
 export const VerticalTabsSection = ({
     data,
@@ -24,6 +12,8 @@ export const VerticalTabsSection = ({
     accentColor = 'red'
 }: VerticalTabsSectionProps) => {
     const location = useLocation();
+
+    // ... (rest of the component)
 
     // Initialize state properly based on URL hash if present
     const getInitialId = () => {
@@ -47,10 +37,7 @@ export const VerticalTabsSection = ({
 
                 // Allow time for tab switch before scrolling context
                 setTimeout(() => {
-                    const element = document.getElementById(hashId); // Note: We need to ensure elements have IDs if we want direct scroll, 
-                    // OR just rely on this component rendering the right content.
-                    // Since layout is fixed side-by-side, switching content is usually enough.
-                    // If we want to scroll the WINDOW to the component:
+                    const element = document.getElementById(hashId);
                     const wrapper = document.getElementById('vertical-tabs-container');
                     if (wrapper) wrapper.scrollIntoView({ behavior: 'smooth' });
                 }, 100);
@@ -80,22 +67,18 @@ export const VerticalTabsSection = ({
                     <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-4">
                         Navigation
                     </h3>
-                    <div className="flex flex-col space-y-2 h-[calc(100vh-160px)] overflow-y-auto pr-2 custom-scrollbar">
-                        {data.map((item) => (
-                            <button
+                    <div className="flex flex-col gap-4 h-[calc(100vh-160px)] overflow-y-auto pr-2 pb-4 custom-scrollbar">
+                        {data.map((item, index) => (
+                            <BubbleNavLink
                                 key={item.id}
+                                id={item.id}
+                                label={item.navTitle || item.title}
+                                isActive={activeId === item.id}
+                                index={index}
+                                totalItems={data.length}
                                 onClick={() => setActiveId(item.id)}
-                                className={cn(
-                                    "w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 border-l-2",
-                                    activeId === item.id
-                                        ? accentColor === 'green'
-                                            ? "bg-green-50 text-[#40a829] border-[#40a829]"
-                                            : "bg-red-50 text-[#ED2939] border-[#ED2939]"
-                                        : "text-gray-600 border-transparent hover:bg-gray-50 hover:text-gray-900"
-                                )}
-                            >
-                                <span className="whitespace-normal text-left block">{item.navTitle || item.title}</span>
-                            </button>
+                                accentColor={accentColor}
+                            />
                         ))}
                     </div>
                 </div>
@@ -106,10 +89,14 @@ export const VerticalTabsSection = ({
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeItem.id}
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -10 }}
-                                transition={{ duration: 0.3 }}
+                                initial={{ opacity: 0, y: -20, filter: "blur(8px)" }}
+                                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                                exit={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+                                transition={{
+                                    type: "spring",
+                                    bounce: 0,
+                                    duration: 0.5
+                                }}
                                 className="space-y-6"
                             >
                                 <div className={cn("mb-8 pl-6 border-l-4", accentColor === 'green' ? "border-[#40a829]" : "border-[#ED2939]")}>

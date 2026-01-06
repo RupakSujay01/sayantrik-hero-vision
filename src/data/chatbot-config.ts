@@ -1,7 +1,7 @@
 export const CHATBOT_CONFIG = {
     name: "Chikoo",
     role: "Professional B2B Engineering Consultant",
-    initialMessage: "Welcome! I am Chikoo. How can I assist you today?",
+    initialMessage: "Welcome to Sayantrik Engineer India Pvt Ltd! How can I assist you with your project today?",
 
     // These are fallback responses for a frontend-only demo. 
     // In a real implementation, these would be part of the LLM system prompt.

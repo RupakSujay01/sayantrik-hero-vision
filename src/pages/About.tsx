@@ -25,7 +25,7 @@ const About = () => {
             Our Legacy
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8 text-justify">
-            Founded in 2012, Sayantrik Engineers India Pvt Ltd has steadily evolved into a prominent player in the industry. With offices strategically located in Hyderabad, Mumbai, Chennai, Kuala lumpur and USA we have cultivated a team of over 160+ dedicated permanent resources. Our experts bring a wealth of experience and technical prowess to the projects we undertake.
+            At Sayantrik Engineer India Pvt Ltd, we are more than just an engineering firm—we are architects of efficiency and innovation. Founded with a vision to bridge the gap between complex industrial challenges and seamless execution, we have established ourselves as a premier provider of Engineering, Procurement, and Construction Management (EPCM) services. Our experts bring a wealth of experience and technical prowess to the projects we undertake.
           </p>
 
           {/* Timeline */}

@@ -1,8 +1,8 @@
-
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, ChevronRight, Plus, Building2, Factory, Zap, Leaf } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { BubbleNavLink } from '@/components/ui/BubbleNavLink';
 
 const TechnologyProviders = () => {
     const [activeSection, setActiveSection] = useState('opportunity');
@@ -15,7 +15,7 @@ const TechnologyProviders = () => {
             const offsetPosition = elementPosition + window.pageYOffset - offset;
             window.scrollTo({
                 top: offsetPosition,
-                behavior: "smooth"
+                behavior: "auto"
             });
             setActiveSection(id);
         }
@@ -89,24 +89,23 @@ const TechnologyProviders = () => {
 
                 {/* Sticky Sidebar */}
                 <div className="hidden lg:block w-64 flex-shrink-0">
-                    <div className="sticky top-32 space-y-1">
+                    <div className="sticky top-32">
                         <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-4">
                             Navigation
                         </h3>
-                        {sidebarLinks.map((link) => (
-                            <button
-                                key={link.id}
-                                onClick={() => scrollToSection(link.id)}
-                                className={cn(
-                                    "w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 border-l-2",
-                                    activeSection === link.id
-                                        ? "bg-red-50 text-[#ED2939] border-[#ED2939]"
-                                        : "text-gray-600 border-transparent hover:bg-gray-50 hover:text-gray-900"
-                                )}
-                            >
-                                {link.label}
-                            </button>
-                        ))}
+                        <div className="flex flex-col gap-4">
+                            {sidebarLinks.map((link, index) => (
+                                <BubbleNavLink
+                                    key={link.id}
+                                    id={link.id}
+                                    label={link.label}
+                                    isActive={activeSection === link.id}
+                                    index={index}
+                                    totalItems={sidebarLinks.length}
+                                    onClick={() => scrollToSection(link.id)}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
 

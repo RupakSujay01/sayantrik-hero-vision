@@ -2,7 +2,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import PageTransition from "./components/PageTransition";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Index from "./pages/Index";
@@ -36,54 +38,67 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToTop />
-        <div className="flex flex-col min-h-screen relative"> {/* Added relative for good measure */}
-
-          {/* Skip Navigation Link for Accessibility */}
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 bg-background text-foreground px-4 py-2 rounded shadow"
-          >
-            Skip to main content
-          </a>
-
-          <Header />
-
-          <main id="main-content" className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/portfolio" element={<Business />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/disciplines" element={<Disciplines />} />
-
-              <Route path="/projects" element={<Projects />}>
-                <Route index element={<Navigate to="feed" replace />} />
-                <Route path="feed" element={<FeedProjects />} />
-                <Route path="detail" element={<DetailProjects />} />
-                <Route path="as-built" element={<AsBuiltProjects />} />
-                <Route path="pre-bid" element={<PreBidProjects />} />
-              </Route>
-
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/technology-providers" element={<TechnologyProviders />} />
-              <Route path="/lcts-partnership" element={<LctsPartnership />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/hse" element={<HSE />} />
-              <Route path="/csr" element={<CSR />} />
-              <Route path="/quality" element={<Quality />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
-
-          <FloatingActionButtons />
-          <Footer />
-        </div>
+        <AppContent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
+
+const AppContent = () => {
+  const location = useLocation();
+
+  return (
+    <div className="flex flex-col min-h-screen relative"> {/* Added relative for good measure */}
+      <ScrollToTop />
+
+      {/* Skip Navigation Link for Accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 bg-background text-foreground px-4 py-2 rounded shadow"
+      >
+        Skip to main content
+      </a>
+
+      <Header />
+
+      <main id="main-content" className="flex-grow">
+        <AnimatePresence mode="wait">
+          <Routes
+            location={location}
+            key={location.pathname.startsWith('/projects') ? '/projects' : location.pathname}
+          >
+            <Route path="/" element={<PageTransition><Index /></PageTransition>} />
+            <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
+            <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+            <Route path="/portfolio" element={<PageTransition><Business /></PageTransition>} />
+            <Route path="/disciplines" element={<PageTransition><Disciplines /></PageTransition>} />
+
+            <Route path="/projects" element={<PageTransition><Projects /></PageTransition>}>
+              <Route index element={<Navigate to="feed" replace />} />
+              <Route path="feed" element={<FeedProjects />} />
+              <Route path="detail" element={<DetailProjects />} />
+              <Route path="as-built" element={<AsBuiltProjects />} />
+              <Route path="pre-bid" element={<PreBidProjects />} />
+            </Route>
+
+            <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+            <Route path="/technology-providers" element={<PageTransition><TechnologyProviders /></PageTransition>} />
+            <Route path="/lcts-partnership" element={<PageTransition><LctsPartnership /></PageTransition>} />
+            <Route path="/careers" element={<PageTransition><Careers /></PageTransition>} />
+            <Route path="/hse" element={<PageTransition><HSE /></PageTransition>} />
+            <Route path="/csr" element={<PageTransition><CSR /></PageTransition>} />
+            <Route path="/quality" element={<PageTransition><Quality /></PageTransition>} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+          </Routes>
+        </AnimatePresence>
+      </main>
+
+      <FloatingActionButtons />
+      <Footer />
+    </div>
+  );
+};
+
 
 export default App;

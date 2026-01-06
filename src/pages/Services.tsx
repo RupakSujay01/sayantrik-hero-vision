@@ -10,6 +10,8 @@ import {
   Factory, CircuitBoard, Search, Rocket, Scan, Box, Cpu, FileCode, Award, ArrowRight
 } from "lucide-react";
 
+import { BubbleNavLink } from "@/components/ui/BubbleNavLink";
+
 const Services = () => {
   const lifecycleSteps = [
     {
@@ -18,7 +20,7 @@ const Services = () => {
       phase: "Feasibility",
       bg: "bg-[#0a0a0a]",
       delay: 0,
-      targetId: "feed" // Note: Currently mapped to FEL-3 as starting entry
+      targetId: "fel-1"
     },
     {
       fel: "FEL-2",
@@ -26,7 +28,7 @@ const Services = () => {
       phase: "Pre-FEED",
       bg: "bg-[#ED2939]",
       delay: 0.1,
-      targetId: "fel3"
+      targetId: "fel-2"
     },
     {
       fel: "FEL-3",
@@ -34,7 +36,7 @@ const Services = () => {
       phase: "FEED",
       bg: "bg-[#0a0a0a]",
       delay: 0.2,
-      targetId: "fel3"
+      targetId: "feed"
     },
     {
       fel: "FEL-4",
@@ -150,6 +152,8 @@ const Services = () => {
 
   // Navigation Labels
   const serviceSections = [
+    { id: "fel-1", label: "FEL-1 | IDENTIFY" },
+    { id: "fel-2", label: "FEL-2 | SELECT" },
     { id: "feed", label: "FEL-3 | DEFINE" },
     { id: "detailed-engineering", label: "FEL-4 | EXECUTE" },
     { id: "epc", label: "EPC | EXECUTE" },
@@ -594,7 +598,7 @@ const Services = () => {
 
                   window.scrollTo({
                     top: offsetPosition,
-                    behavior: "smooth"
+                    behavior: "auto"
                   });
                 }
               }}
@@ -645,31 +649,121 @@ const Services = () => {
       {/* Main Content with Sidebar */}
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-col lg:flex-row gap-12 lg:gap-16 relative">
         {/* Sidebar Navigation */}
+        {/* Sidebar Navigation */}
         <div className="hidden lg:block w-64 shrink-0">
-          <div className="sticky top-32 space-y-1">
+          <div className="sticky top-32">
             <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-4">
               Navigation
             </h3>
-            {serviceSections.map((section) => (
-              <button
-                key={section.id}
-                onClick={() => scrollToSection(section.id)}
-                className={cn(
-                  "w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 border-l-2",
-                  activeSection === section.id
-                    ? "bg-red-50 text-[#ED2939] border-[#ED2939]"
-                    : "text-gray-600 border-transparent hover:bg-gray-50 hover:text-gray-900"
-                )}
-              >
-                {section.label}
-              </button>
-            ))}
+            <div className="flex flex-col gap-4">
+              {serviceSections.map((section, index) => (
+                <BubbleNavLink
+                  key={section.id}
+                  id={section.id}
+                  label={section.label}
+                  isActive={activeSection === section.id}
+                  index={index}
+                  totalItems={serviceSections.length}
+                  onClick={() => scrollToSection(section.id)}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Main Content Area */}
         <div className="flex-1 min-w-0">
           {/* Metadata Header Removed */}
+
+          {/* 4a. Service Detail: FEL-1 */}
+          <div id="fel-1" className="max-w-7xl mx-auto pt-10 mb-20 group">
+            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+              <div className="lg:w-3/4">
+                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                    FEL-1 | IDENTIFY
+                  </h2>
+                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                    Feasibility Study (Concept Development)
+                  </p>
+                  <div className="max-w-3xl mt-4">
+                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                      In FEL-1, we evaluate project options at a conceptual level, review technologies and layouts, estimate costs and schedules at a high level, and identify key risks. The outcome is a recommended concept and business case to justify moving forward.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="max-w-3xl mb-10 pl-6 flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4">
+                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight shrink-0">
+                    PURPOSE:
+                  </h3>
+                  <p className="text-lg font-bold text-gray-900 leading-relaxed">
+                    Assess whether the project is technically and economically viable.
+                  </p>
+                </div>
+
+                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
+                  Key Value Delivered
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {[
+                    "Confident early investment decisions",
+                    "Selection of the right technical concept",
+                    "High-level cost and schedule visibility"
+                  ].map((val, idx) => (
+                    <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-4 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300">
+                      <p className="text-gray-700 font-bold">{val}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 4b. Service Detail: FEL-2 */}
+          <div id="fel-2" className="max-w-7xl mx-auto pt-10 mb-20 group">
+            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+              <div className="lg:w-3/4">
+                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                    FEL-2 | SELECT
+                  </h2>
+                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                    Pre-FEED (Basis of Design)
+                  </p>
+                  <div className="max-w-3xl mt-4">
+                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                      During FEL-2, engineering definition is matured. We develop the Basis of Design, perform preliminary simulations and equipment sizing, prepare early layouts and PFDs, assess constructability and regulatory needs, and refine cost and schedule accuracy.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="max-w-3xl mb-10 pl-6 flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4">
+                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight shrink-0">
+                    PURPOSE:
+                  </h3>
+                  <p className="text-lg font-bold text-gray-900 leading-relaxed">
+                    Convert the selected concept into a clearly defined project scope.
+                  </p>
+                </div>
+
+                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
+                  Key Value Delivered
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {[
+                    "Clear technical scope definition",
+                    "Reduced uncertainty and project risk",
+                    "Strong foundation for FEED and execution"
+                  ].map((val, idx) => (
+                    <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-4 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300">
+                      <p className="text-gray-700 font-bold">{val}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* 4. Service Detail: FEED | FEL-3 */}
           <div id="feed" className="max-w-7xl mx-auto pt-10 mb-12 group">

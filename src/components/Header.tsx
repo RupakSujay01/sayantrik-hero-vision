@@ -21,7 +21,7 @@ const Header = () => {
     { path: "/about", label: "About Us", hasDropdown: true },
     { path: "/portfolio", label: "Portfolio", hasDropdown: true },
     { path: "/services", label: "Services", hasDropdown: true },
-    { path: "/projects", label: "Projects", hasDropdown: true },
+    { path: "/projects/feed", label: "Projects", hasDropdown: true },
     { path: "/technology-providers", label: "Technology Providers" },
     { path: "/lcts-partnership", label: "Our Partners" },
     { path: "/contact", label: "Contact", hasDropdown: true },
@@ -67,10 +67,10 @@ const Header = () => {
       {
         title: "Project Categories",
         items: [
-          { label: "Feed Engineering", link: "/projects#feed-engineering" },
-          { label: "Detail Engineering", link: "/projects#detail-engineering" },
-          { label: "As-built Engineering", link: "/projects#as-built-engineering" },
-          { label: "Pre-bid Engineering", link: "/projects#pre-bid-engineering" },
+          { label: "Feed Engineering", link: "/projects/feed" },
+          { label: "Detail Engineering", link: "/projects/detail" },
+          { label: "As-built Engineering", link: "/projects/as-built" },
+          { label: "Pre-bid Engineering", link: "/projects/pre-bid" },
         ],
       },
     ],
