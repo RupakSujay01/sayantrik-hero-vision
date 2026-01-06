@@ -5,6 +5,13 @@ import { cn } from '@/lib/utils';
 
 import { BubbleNavLink } from './ui/BubbleNavLink';
 
+interface VerticalTabsSectionProps {
+    data: any[];
+    defaultActiveId?: string;
+    containerClassName?: string;
+    accentColor?: 'red' | 'green';
+}
+
 export const VerticalTabsSection = ({
     data,
     defaultActiveId,
@@ -45,6 +52,14 @@ export const VerticalTabsSection = ({
         }
     }, [location.hash, data]);
 
+    // Scroll content to top when tab changes
+    useEffect(() => {
+        const contentArea = document.getElementById('portfolio-content-area');
+        if (contentArea) {
+            contentArea.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }, [activeId]);
+
     const activeItem = data.find(item => item.id === activeId) || data[0];
 
     // Determine color classes
@@ -67,7 +82,7 @@ export const VerticalTabsSection = ({
                     <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-4">
                         Navigation
                     </h3>
-                    <div className="flex flex-col gap-4 h-[calc(100vh-160px)] overflow-y-auto pr-2 pb-4 custom-scrollbar">
+                    <div className="flex flex-col gap-4 h-[calc(100vh-160px)] overflow-y-auto pr-2 pb-4 custom-scrollbar overscroll-contain">
                         {data.map((item, index) => (
                             <BubbleNavLink
                                 key={item.id}
@@ -85,7 +100,7 @@ export const VerticalTabsSection = ({
 
                 {/* Right Column - Content (Independent Scroll) */}
                 <div className="flex-1 pr-6 md:pr-12">
-                    <div className="bg-white rounded-2xl p-6 md:p-10 border border-gray-100 shadow-sm h-[calc(100vh-160px)] overflow-y-auto custom-scrollbar">
+                    <div id="portfolio-content-area" className="bg-white rounded-2xl p-6 md:p-10 border border-gray-100 shadow-sm h-[calc(100vh-160px)] overflow-y-auto custom-scrollbar overscroll-contain">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeItem.id}

@@ -92,7 +92,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2026 Sayantrik Engineers India Pvt Ltd. All rights reserved.
+            © 2026 Sayantrik Engineer India Pvt Ltd. All rights reserved.
           </p>
           <p className="text-xs text-muted-foreground mt-2">
             Engineering Excellence, Your Vision, Our Commitment.

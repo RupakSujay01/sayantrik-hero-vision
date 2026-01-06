@@ -22,6 +22,11 @@ export const BusinessServices = () => {
         }
     }, [categoryParam]);
 
+    // Scroll to top when category changes
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [activeCategory]);
+
     const filteredServices = portfolioData.filter(service => service.category === activeCategory);
 
     // Dynamic colors based on category

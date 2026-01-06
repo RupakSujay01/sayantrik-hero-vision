@@ -80,7 +80,7 @@ const Hero = () => {
               </div>
               <div className="space-y-2">
                 <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">15+</div>
-                <div className="text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Global Presence</div>
+                <div className="text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Global Projects</div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">160+</div>

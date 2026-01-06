@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 
 import { BubbleNavLink } from "@/components/ui/BubbleNavLink";
+import Footer from "@/components/Footer";
 
 const Services = () => {
   const lifecycleSteps = [
@@ -168,18 +169,32 @@ const Services = () => {
   const [activeSection, setActiveSection] = useState("feed");
 
   // Scroll Spy to update active section
+  // Scroll Spy to update active section
   useEffect(() => {
+    const contentArea = document.getElementById('services-content-area');
+    if (!contentArea) return;
+
     const handleScroll = () => {
-      const scrollPosition = window.pageYOffset + 150; // Offset for header
+      // Use scrollTop of the container + offset
+      const scrollPosition = contentArea.scrollTop + 150;
 
       for (const section of serviceSections) {
         const element = document.getElementById(section.id);
         if (element) {
-          const { top, bottom } = element.getBoundingClientRect();
-          const elementTop = top + window.pageYOffset;
-          const elementBottom = bottom + window.pageYOffset;
+          // Get position relative to the container? 
+          // element.offsetTop works if element is direct child, but it's nested.
+          // Use getBoundingClientRect logic relative to container top.
 
-          if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+          // Easier: element.offsetTop is generally safe if strict relative/absolute positioning isn't messing it up.
+          // But simpler:
+          const areaRect = contentArea.getBoundingClientRect();
+          const elemRect = element.getBoundingClientRect();
+
+          // Calculate element's top position relative to container's visible top
+          const relativeTop = elemRect.top - areaRect.top + contentArea.scrollTop;
+          const relativeBottom = elemRect.bottom - areaRect.top + contentArea.scrollTop;
+
+          if (scrollPosition >= relativeTop && scrollPosition < relativeBottom) {
             setActiveSection(section.id);
             break;
           }
@@ -187,16 +202,23 @@ const Services = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    contentArea.addEventListener("scroll", handleScroll);
+    return () => contentArea.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    if (element) {
-      const yOffset = -100; // Adjusted for sticky header
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+    const contentArea = document.getElementById('services-content-area');
+
+    if (element && contentArea) {
+      const areaRect = contentArea.getBoundingClientRect();
+      const elemRect = element.getBoundingClientRect();
+
+      // Target scroll position = current scrollTop + (element top relative to viewport - content top relative to viewport) - offset
+      const offset = 40; // Small top padding
+      const targetScroll = contentArea.scrollTop + (elemRect.top - areaRect.top) - offset;
+
+      contentArea.scrollTo({ top: targetScroll, behavior: 'smooth' });
       setActiveSection(id);
     }
   };
@@ -553,944 +575,941 @@ const Services = () => {
     <div className="min-h-screen bg-white">
 
 
-      <div className="pt-10 pb-0">
-        {/* 2. Section Title - Premium Centered Hybrid */}
-        <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col items-start text-left"
-          >
-            <div className="pl-6 border-l-8 border-[#ED2939] inline-block text-left">
-              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-2">
-                Project Lifecycle
-              </h1>
-              <p className="text-lg md:text-xl text-gray-500 font-medium tracking-wide">
-                Where We Add Value
-              </p>
+      {/* Header and Lifecycle moved inside content area */}
+
+      {/* Main Content with Sidebar */}
+      {/* Split Layout: Fixed Height for Independent Scrolling */}
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 h-[calc(100vh-80px)] overflow-hidden">
+        <div className="flex flex-col lg:flex-row gap-12 h-full">
+
+          {/* Left Navigation - Independently Scrollable */}
+          <div className="hidden lg:block w-72 flex-shrink-0 h-full overflow-y-auto overscroll-contain custom-scrollbar pb-20">
+            <div className="space-y-2 pr-4 pt-10">
+              <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6 px-4">
+                Services
+              </h3>
+              <div className="flex flex-col gap-4">
+                {serviceSections.map((section, index) => (
+                  <BubbleNavLink
+                    key={section.id}
+                    id={section.id}
+                    label={section.label}
+                    isActive={activeSection === section.id}
+                    index={index}
+                    totalItems={serviceSections.length}
+                    onClick={() => scrollToSection(section.id)}
+                  />
+                ))}
+              </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
 
-      </div>
+          {/* Right Content - Independently Scrollable */}
+          <div id="services-content-area" className="flex-1 h-full overflow-y-auto overscroll-contain custom-scrollbar pb-32 pr-4 pt-10">
 
+            <div className="pt-0 pb-0">
+              {/* 2. Section Title - Premium Centered Hybrid */}
+              <div className="max-w-7xl mx-auto mb-12">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="flex flex-col items-start text-left"
+                >
+                  <div className="pl-6 border-l-8 border-[#ED2939] inline-block text-left">
+                    <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-2">
+                      Project Lifecycle
+                    </h1>
+                    <p className="text-lg md:text-xl text-gray-500 font-medium tracking-wide">
+                      Where We Add Value
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
 
+            </div>
 
-      {/* 3. Interactive Project Lifecycle Table/Flow - Reduced Width Chevron Design */}
-      <div className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="flex flex-col lg:flex-row h-auto lg:h-[110px] items-center lg:items-stretch justify-center max-w-[1380px] mx-auto">
-          {lifecycleSteps.map((step, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: step.delay }}
-              onClick={() => {
-                const el = document.getElementById(step.targetId);
-                if (el) {
-                  const offset = 100;
-                  const elementPosition = el.getBoundingClientRect().top;
-                  const elementPositionInDocument = elementPosition + window.pageYOffset;
-                  const offsetPosition = elementPositionInDocument - offset;
-
-                  window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "auto"
-                  });
-                }
-              }}
-              className={`
-                    relative w-full lg:w-1/5 h-[140px] lg:h-auto
+            {/* 3. Interactive Project Lifecycle Table/Flow - Reduced Width Chevron Design */}
+            <div className="max-w-[1900px] mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+              <div className="flex flex-col lg:flex-row h-auto lg:h-[125px] items-center lg:items-stretch justify-center max-w-[1800px] mx-auto">
+                {lifecycleSteps.map((step, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 100, scale: 0.5 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", bounce: 0.7, duration: 1.0, delay: step.delay }}
+                    onClick={() => scrollToSection(step.targetId)}
+                    className={`
+                    relative w-full lg:w-1/5 h-[155px] lg:h-auto
                     flex flex-col
                     transition-all duration-300 ease-in-out
                     group cursor-pointer active:scale-95
                     lg:-ml-8 first:lg:ml-0
                     z-10
                 `}
-              style={{
-                zIndex: 50 - idx,
-                filter: "drop-shadow(1px 0 0 #ED2939) drop-shadow(0 1px 0 #ED2939) drop-shadow(0 -1px 0 #ED2939)"
-              }}
-            >
-              <div
-                className={cn(
-                  "h-full w-full p-2 flex flex-col items-center justify-center text-center transition-all duration-500 bg-white text-black",
-                  "group-hover:text-[#ED2939] group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:to-red-100",
-                  "group-hover:shadow-[0_20px_60px_rgba(237,41,57,0.15)] group-hover:scale-[1.08] group-hover:-translate-y-2 group-hover:z-[60]"
-                )}
-                style={{
-                  clipPath:
-                    window.innerWidth >= 1024
-                      ? 'polygon(0% 0%, calc(100% - 30px) 0%, 100% 50%, calc(100% - 30px) 100%, 0% 100%, 30px 50%)' // Standard chevron
-                      : 'none'
-                }}
-              >
-                <div className="w-full lg:pl-10 lg:pr-4">
-                  <h3 className="text-2xl lg:text-3xl font-black uppercase mb-1 tracking-tighter opacity-100">
-                    {step.fel}
-                  </h3>
-                  <p className="text-sm font-bold uppercase tracking-wider mb-1 inline-block">
-                    {step.action}
-                  </p>
-                  <div className="space-y-0">
-                    <p className="text-[10px] uppercase tracking-widest opacity-75">Phase</p>
-                    <p className="text-xs font-bold">{step.phase}</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* Main Content with Sidebar */}
-      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-col lg:flex-row gap-12 lg:gap-16 relative">
-        {/* Sidebar Navigation */}
-        {/* Sidebar Navigation */}
-        <div className="hidden lg:block w-64 shrink-0">
-          <div className="sticky top-32">
-            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-4">
-              Navigation
-            </h3>
-            <div className="flex flex-col gap-4">
-              {serviceSections.map((section, index) => (
-                <BubbleNavLink
-                  key={section.id}
-                  id={section.id}
-                  label={section.label}
-                  isActive={activeSection === section.id}
-                  index={index}
-                  totalItems={serviceSections.length}
-                  onClick={() => scrollToSection(section.id)}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Main Content Area */}
-        <div className="flex-1 min-w-0">
-          {/* Metadata Header Removed */}
-
-          {/* 4a. Service Detail: FEL-1 */}
-          <div id="fel-1" className="max-w-7xl mx-auto pt-10 mb-20 group">
-            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
-              <div className="lg:w-3/4">
-                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
-                    FEL-1 | IDENTIFY
-                  </h2>
-                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
-                    Feasibility Study (Concept Development)
-                  </p>
-                  <div className="max-w-3xl mt-4">
-                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                      In FEL-1, we evaluate project options at a conceptual level, review technologies and layouts, estimate costs and schedules at a high level, and identify key risks. The outcome is a recommended concept and business case to justify moving forward.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="max-w-3xl mb-10 pl-6 flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4">
-                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight shrink-0">
-                    PURPOSE:
-                  </h3>
-                  <p className="text-lg font-bold text-gray-900 leading-relaxed">
-                    Assess whether the project is technically and economically viable.
-                  </p>
-                </div>
-
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
-                  Key Value Delivered
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {[
-                    "Confident early investment decisions",
-                    "Selection of the right technical concept",
-                    "High-level cost and schedule visibility"
-                  ].map((val, idx) => (
-                    <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-4 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300">
-                      <p className="text-gray-700 font-bold">{val}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 4b. Service Detail: FEL-2 */}
-          <div id="fel-2" className="max-w-7xl mx-auto pt-10 mb-20 group">
-            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
-              <div className="lg:w-3/4">
-                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
-                    FEL-2 | SELECT
-                  </h2>
-                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
-                    Pre-FEED (Basis of Design)
-                  </p>
-                  <div className="max-w-3xl mt-4">
-                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                      During FEL-2, engineering definition is matured. We develop the Basis of Design, perform preliminary simulations and equipment sizing, prepare early layouts and PFDs, assess constructability and regulatory needs, and refine cost and schedule accuracy.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="max-w-3xl mb-10 pl-6 flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4">
-                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight shrink-0">
-                    PURPOSE:
-                  </h3>
-                  <p className="text-lg font-bold text-gray-900 leading-relaxed">
-                    Convert the selected concept into a clearly defined project scope.
-                  </p>
-                </div>
-
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
-                  Key Value Delivered
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {[
-                    "Clear technical scope definition",
-                    "Reduced uncertainty and project risk",
-                    "Strong foundation for FEED and execution"
-                  ].map((val, idx) => (
-                    <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-4 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300">
-                      <p className="text-gray-700 font-bold">{val}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 4. Service Detail: FEED | FEL-3 */}
-          <div id="feed" className="max-w-7xl mx-auto pt-10 mb-12 group">
-            {/* Header */}
-            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
-              {/* Left: What You Get (Feature Grid) */}
-              <div className="lg:w-3/4">
-                {/* Header */}
-                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
-                    FEED | FEL-3
-                  </h2>
-                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
-                    Front-End Engineering Design
-                  </p>
-                  <div className="max-w-3xl">
-                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                      The most critical phase for capital cost optimisation. We define the project baseline, identify technical risks, and establish the 30% cost estimate accuracy required for Final Investment Decision (FID).
-                    </p>
-                  </div>
-                </div>
-
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
-                  Core Deliverables
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
-                  {featuresFel3.map((feature, idx) => (
-                    <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
-
-                      <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
-                        {feature.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Strategic Partnership Box - Moved Horizontal */}
-                <div className="mt-8 bg-slate-900 text-white p-8 rounded-2xl relative overflow-hidden group flex flex-col md:flex-row items-center gap-8">
-                  <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <ShieldCheck className="w-32 h-32" />
-                  </div>
-
-                  <div className="relative z-10 flex-1 text-center md:text-left">
-                    <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
-                      <h4 className="text-[#ED2939] font-black uppercase tracking-widest text-sm">Strategic Partnership</h4>
-                      <span className="w-1 h-1 rounded-full bg-white/20"></span>
-                      <span className="text-gray-400 text-xs font-bold uppercase tracking-wider">Energy Sector Focus</span>
-                    </div>
-                    <h3 className="text-2xl font-bold mb-3">LCTS Partnership</h3>
-                    <p className="text-gray-300 text-sm leading-relaxed max-w-2xl">
-                      For refinery, petrochemical, and LNG projects, leveraging our partnership providing Houston-based process engineering leadership with 80+ years of combined experience.
-                    </p>
-                  </div>
-
-                  <div className="relative z-10 shrink-0">
-                    <Link to="/lcts-partnership">
-                      <button className="px-6 py-3 bg-[#ED2939] hover:bg-[#c41e2b] text-white font-bold uppercase tracking-widest text-xs rounded-lg transition-colors shadow-lg shadow-red-900/20">
-                        Learn More
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right: Sayantrik Advantage */}
-              <div className="lg:w-1/4">
-                <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                  <div className="flex flex-col items-center text-center">
-                    <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                      Strategic Focus
-                    </h3>
-                    <div className="w-full space-y-4">
-                      {advantagesFel3.map((adv, idx) => (
-                        <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
-                          <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
-                            {adv.title}
-                          </h4>
-                          <p className="text-gray-500 text-xs leading-relaxed font-medium">
-                            {adv.desc}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-            </div>
-
-            {/* Metrics Bar - Enhanced Premium Design */}
-            <div className="mt-12">
-              <div className="bg-white rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] p-6 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-100 hover:-translate-y-1 transition-transform duration-500">
-
-                {/* Metric 1 */}
-                <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
-                  <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <TrendingUp className="w-7 h-7" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Duration</p>
-                    <p className="text-2xl font-bold text-gray-900 tracking-tight">4-8 Months</p>
-                  </div>
-                </div>
-
-                {/* Metric 2 */}
-                <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
-                  <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <Users className="w-7 h-7" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Team</p>
-                    <p className="text-2xl font-bold text-gray-900 tracking-tight">PM + Leads</p>
-                  </div>
-                </div>
-
-                {/* Metric 3 */}
-                <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
-                  <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <FileCheck className="w-7 h-7" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Output</p>
-                    <p className="text-2xl font-bold text-gray-900 tracking-tight">FEED Package</p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-
-
-          </div>
-
-          {/* 6. Service Detail: DETAILED ENGINEERING | FEL-4 */}
-          <div id="detailed-engineering" className="max-w-7xl mx-auto pt-10 mb-12 group">
-            {/* Header */}
-            <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20 mb-6">
-              {/* Left: What You Get (Deliverables Grid) */}
-              <div className="lg:w-3/4">
-                {/* Header */}
-                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
-                    DETAILED ENGINEERING
-                  </h2>
-                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
-                    Precision Execution | FEL-4
-                  </p>
-                  <div className="max-w-3xl">
-                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                      We transform the process package into a construction-ready blueprints, encompassing all disciplines from process and mechanical to instrumentation and civil.
-                    </p>
-                  </div>
-                </div>
-
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
-                  Construction-Ready Deliverables
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
-                  {featuresFel4.map((feature, idx) => (
-                    <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
-
-                      <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
-                        {feature.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right: The Sayantrik Advantage (Core Strengths) */}
-              <div className="lg:w-1/4">
-                <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                  <div className="flex flex-col items-center text-center">
-                    <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                      Strategic Focus
-                    </h3>
-                    <div className="w-full space-y-4">
-                      {advantagesFel4.map((adv, idx) => (
-                        <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
-                          <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
-                            {adv.title}
-                          </h4>
-                          <p className="text-gray-500 text-xs leading-relaxed font-medium">
-                            {adv.desc}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 7. Flexible Engagement Models - Refined Metrics Style */}
-          <div className="bg-white rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] p-6 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-100 hover:-translate-y-1 transition-transform duration-500">
-
-            {/* Model 1: Full Detail Engineering */}
-            <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
-              <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                <Layers className="w-7 h-7" />
-              </div>
-              <div className="text-left">
-                <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Full Detail Engineering</p>
-                <p className="text-sm font-medium text-gray-600 leading-tight">End-to-end ownership from FEED handover to IFC.</p>
-              </div>
-            </div>
-
-            {/* Model 2: Team Augmentation */}
-            <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
-              <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                <UserPlus className="w-7 h-7" />
-              </div>
-              <div className="text-left">
-                <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Team Augmentation</p>
-                <p className="text-sm font-medium text-gray-600 leading-tight">Dedicated resources embedded directly into your project team.</p>
-              </div>
-            </div>
-
-            {/* Model 3: Discipline Packages */}
-            <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
-              <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                <Briefcase className="w-7 h-7" />
-              </div>
-              <div className="text-left">
-                <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Discipline Packages</p>
-                <p className="text-sm font-medium text-gray-600 leading-tight">Specific scope like piping design, structural analysis, or electrical.</p>
-              </div>
-            </div>
-
-          </div>
-
-          {/* 8. Service Detail: EPC | Execute */}
-          <div id="epc" className="max-w-7xl mx-auto pt-10 mb-12 group">
-            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
-              {/* Left: Content */}
-              <div className="lg:w-3/4">
-                {/* Header */}
-                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
-                    EPC: Execute
-                  </h2>
-                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
-                    Engineering, Procurement & Construction
-                  </p>
-                  <div className="max-w-3xl">
-                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                      Complete engineering backbone for your turnkey projects – from design to commissioning support.
-                    </p>
-                  </div>
-                </div>
-
-                {/* EPC Lifecycle - Standardized Grid */}
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
-                  Core Pillars
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 relative">
-                  {epcPillars.map((pillar, idx) => (
-                    <div key={idx} className={`rounded-xl border border-gray-200 overflow-hidden bg-slate-50 hover:shadow-xl transition-shadow duration-300`}>
-                      <div className="bg-gray-900 p-6 flex items-center justify-between">
-                        <h3 className="text-xl font-bold text-white tracking-wider">{pillar.title}</h3>
-                      </div>
-                      <div className="p-8">
-                        <ul className="space-y-4">
-                          {pillar.items.map((item, i) => (
-                            <li key={i} className="flex items-center gap-3 text-gray-700 font-medium pb-2 border-b border-gray-100 last:border-0 last:pb-0">
-                              <div className="w-1.5 h-1.5 bg-[#ED2939] rounded-full shrink-0" />
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right: Sidebar */}
-              <div className="lg:w-1/4">
-                <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                  <div className="flex flex-col items-center text-center">
-                    <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                      Strategic Focus
-                    </h3>
-                    <div className="w-full space-y-4">
-                      {advantagesEpc.map((adv, idx) => (
-                        <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
-                          <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
-                            {adv.title}
-                          </h4>
-                          <p className="text-gray-500 text-xs leading-relaxed font-medium">
-                            {adv.desc}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 9. Service Detail: EPCM | Full Lifecycle */}
-          <div id="epcm" className="max-w-7xl mx-auto pt-10 mb-12 group">
-            {/* Header */}
-            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
-              {/* Left: What You Get (Management Benefits Grid) */}
-              <div className="lg:w-3/4">
-                {/* Header */}
-                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
-                    EPCM | Full Lifecycle
-                  </h2>
-                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
-                    Engineering, Procurement & Construction Management
-                  </p>
-                  <div className="max-w-3xl">
-                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                      Full transparency and control over your project – we manage, you decide.
-                    </p>
-                  </div>
-                </div>
-
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
-                  Management Benefits
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
-                  {featuresEpcm.map((feature, idx) => (
-                    <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
-
-                      <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
-                        {feature.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right: The Sayantrik Advantage (Management Depth) */}
-              <div className="lg:w-1/4">
-                <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                  <div className="flex flex-col items-center text-center">
-                    <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                      Strategic Focus
-                    </h3>
-                    <div className="w-full space-y-4">
-                      {advantagesEpcm.map((adv, idx) => (
-                        <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
-                          <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
-                            {adv.title}
-                          </h4>
-                          <p className="text-gray-500 text-xs leading-relaxed font-medium">
-                            {adv.desc}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 10. Service Detail: PMC | Full Lifecycle */}
-          <div id="pmc" className="max-w-7xl mx-auto pt-10 mb-12 group">
-            {/* Header */}
-            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
-              {/* Control & Oversight Grid (2x2) */}
-              <div className="lg:w-3/4">
-                {/* Header */}
-                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
-                    PMC | Full Lifecycle
-                  </h2>
-                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
-                    Project Management Consultancy
-                  </p>
-                  <div className="max-w-3xl">
-                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                      Expert oversight that keeps your project on track – schedule, cost, and quality.
-                    </p>
-                  </div>
-                </div>
-
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
-                  Control & Oversight
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
-                  {featuresPmc.map((feature, idx) => (
-                    <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
-
-                      <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
-                        {feature.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* The Sayantrik Advantage - Boardroom Style Sidebar */}
-              <div className="lg:w-1/4">
-                <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                  <div className="flex flex-col items-center text-center">
-                    <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                      Strategic Focus
-                    </h3>
-                    <div className="w-full space-y-4">
-                      {advantagesPmc.map((adv, idx) => (
-                        <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
-                          <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
-                            {adv.title}
-                          </h4>
-                          <p className="text-gray-500 text-xs leading-relaxed font-medium">
-                            {adv.desc}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 11. Service Detail: OWNER'S ENGINEER | Full Lifecycle */}
-          <div id="owners-engineer" className="max-w-7xl mx-auto pt-10 mb-12 group">
-            {/* Header */}
-            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
-              {/* Left: What You Get (Quality Assurance Grid) */}
-              <div className="lg:w-3/4">
-                {/* Header */}
-                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
-                    OWNER'S ENGINEER
-                  </h2>
-                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
-                    Technical Advisory & Independent Review
-                  </p>
-                  <div className="max-w-3xl">
-                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                      Your technical guardian – independent expertise protecting your investment through full lifecycle oversight.
-                    </p>
-                  </div>
-                </div>
-
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
-                  Quality Assurance
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
-                  {featuresOe.map((feature, idx) => (
-                    <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
-
-                      <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
-                        {feature.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right: The Sayantrik Advantage (Strategic Value) */}
-              <div className="lg:w-1/4">
-                <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                  <div className="flex flex-col items-center text-center">
-                    <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                      Strategic Focus
-                    </h3>
-                    <div className="w-full space-y-4">
-                      {advantagesOe.map((adv, idx) => (
-                        <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
-                          <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
-                            {adv.title}
-                          </h4>
-                          <p className="text-gray-500 text-xs leading-relaxed font-medium">
-                            {adv.desc}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 12. Service Detail: PROCESS TECHNOLOGY INTEGRATION */}
-          <div id="process-technology" className="max-w-7xl mx-auto pt-10 mb-12 group">
-            {/* Header */}
-            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-12">
-              {/* Left: What You Get (Integration Grid) */}
-              <div className="lg:w-3/4">
-                {/* Header */}
-                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
-                    PROCESS TECHNOLOGY INTEGRATION
-                  </h2>
-                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
-                    Licensor Partnership & BOP Engineering
-                  </p>
-                  <div className="max-w-3xl">
-                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                      We bridge the gap between process technology and physical reality, delivering seamless facility integration and Indian regulatory compliance.
-                    </p>
-                  </div>
-                </div>
-
-
-
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
-                  Integration Expertise
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
-                  {featuresTech.map((feature, idx) => (
-                    <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
-
-                      <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
-                        {feature.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Target Audience Block */}
-                <div className="bg-slate-900 text-white p-8 rounded-3xl mt-12 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 p-8 opacity-10">
-                    <Handshake className="w-64 h-64" />
-                  </div>
-                  <div className="md:w-1/3 relative z-10">
-                    <h3 className="text-2xl font-black uppercase tracking-tight mb-2 text-[#ED2939]">For Technology Licensors</h3>
-                    <p className="text-sm font-bold uppercase tracking-widest opacity-70">& Equipment Suppliers</p>
-                  </div>
-                  <div className="md:w-2/3 relative z-10 border-l border-white/20 pl-0 md:pl-10">
-                    <p className="text-lg leading-relaxed text-gray-300">
-                      Sayantrik serves as your engineering arm in India and emerging markets. We translate Process Design Packages into fully integrated, constructible facilities, bridging the gap between <span className="text-white font-bold">proprietary technology</span> and <span className="text-white font-bold">local execution</span>.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right: Partnership Models */}
-              <div className="lg:w-1/4">
-                <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                  <div className="flex flex-col items-center text-center">
-                    <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                      Models
-                    </h3>
-                    <div className="w-full space-y-4">
-                      {partnershipModels.map((model, idx) => (
-                        <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
-                          <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
-                            {model.title}
-                          </h4>
-                          <p className="text-gray-500 text-xs leading-relaxed font-medium">
-                            {model.desc}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 13. Service Detail: BROWNFIELD MODIFICATIONS */}
-          <div id="brownfield" className="max-w-7xl mx-auto pt-10 mb-12 group">
-            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
-              <div className="lg:w-3/4">
-                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
-                    BROWNFIELD MODIFICATIONS
-                  </h2>
-                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
-                    Plant Revamp & Tie-in Engineering
-                  </p>
-                  <div className="max-w-3xl">
-                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                      We specialise in modifications to live operating assets, where safety, minimal downtime, and exact as-built accuracy are non-negotiable.
-                    </p>
-                  </div>
-                </div>
-
-                <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
-                  Operational Excellence
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
-                  {featuresBrownfield.map((feature, idx) => (
-                    <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
-
-                      <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
-                        {feature.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="lg:w-1/4">
-                <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                  <div className="flex flex-col items-center text-center">
-                    <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                      Capabilities
-                    </h3>
-                    <div className="w-full space-y-4">
-                      {projectTypes.map((type, idx) => (
-                        <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
-                          <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
-                            {type.title}
-                          </h4>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 14. Service Detail: LASER SCAN & DIGITAL TWINS */}
-          <div id="laser-scan" className="max-w-7xl mx-auto pt-10 mb-12 group">
-            <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
-              <div className="lg:w-3/4">
-                <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
-                    LASER SCAN & DIGITAL TWINS
-                  </h2>
-                  <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
-                    Reality Capture & As-Built Modeling
-                  </p>
-                  <div className="max-w-xl">
-                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                      Eliminate fit-up issues and manual measurement errors. We convert high-definition point clouds into intelligent 3D CAD models.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
-                  {featuresLaser.map((feature, idx) => (
-                    <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
-
-                      <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
-                      <p className="text-gray-600 leading-relaxed text-sm font-medium">
-                        {feature.desc}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="lg:w-1/4">
-                <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                  <div className="flex flex-col items-center text-center">
-                    <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4 text-center whitespace-nowrap">
-                      The Digital Advantage
-                    </h3>
-                    <p className="text-gray-600 mb-8 max-w-sm">
-                      Reduce site visits by 80% and construction rework by 100% with millimetre-accurate data.
-                    </p>
-                    <div className="w-full space-y-4">
-                      {['Clash Detection', 'Remote Virtual Walkthroughs', 'Tank Calibration', 'BIM Integration'].map((item, idx) => (
-                        <div key={idx} className="flex items-center gap-3 justify-center text-sm font-bold uppercase tracking-widest text-gray-900 bg-white py-3 px-6 rounded-xl shadow-sm">
-                          {item}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 15. Closing Trust Section: Why Clients Choose Us */}
-          {/* 15. Closing Trust Section: Why Clients Choose Us - Premium Dark Redesign */}
-          {/* 15. Closing Trust Section: Why Clients Choose Us - Premium Dark Redesign */}
-          <div className="w-full bg-[#ED2939] py-16 mt-16 relative overflow-hidden rounded-2xl">
-            {/* Ambient Background Glow */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-              <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-white/10 blur-[120px]" />
-              <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-black/10 blur-[120px]" />
-            </div>
-
-            <div className="max-w-[1200px] mx-auto relative z-10 px-4">
-              <div className="mb-10 text-center">
-                <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mb-3">
-                  Why Clients Choose Us
-                </h2>
-                <div className="flex items-center justify-center gap-3">
-                  <div className="h-px w-8 bg-white" />
-                  <p className="text-sm text-white font-black uppercase tracking-widest">
-                    The Sayantrik Standard
-                  </p>
-                  <div className="h-px w-8 bg-white" />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {trustPillars.map((pillar, idx) => (
-                  <div key={idx} className="group relative bg-white/10 border border-white/20 p-6 rounded-xl hover:bg-white/20 transition-all duration-500 hover:-translate-y-1">
-                    <div className="flex items-start gap-4">
-
-                      <div>
-                        <h3 className="text-lg font-bold text-white uppercase tracking-tight mb-1">{pillar.title}</h3>
-                        <p className="text-white/80 text-xs leading-relaxed font-medium group-hover:text-white transition-colors">
-                          {pillar.desc}
+                    style={{
+                      zIndex: 50 - idx,
+                      filter: "drop-shadow(1px 0 0 #ED2939) drop-shadow(0 1px 0 #ED2939) drop-shadow(0 -1px 0 #ED2939)"
+                    }}
+                  >
+                    <motion.div
+                      transition={{ duration: 0.3 }}
+                      whileHover={{ scale: 1.15, y: -15 }}
+                      className={cn(
+                        "h-full w-full p-2 flex flex-col items-center justify-center text-center transition-colors duration-500 bg-white text-black",
+                        "group-hover:text-[#ED2939] group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:to-red-100",
+                        "group-hover:shadow-[0_20px_60px_rgba(237,41,57,0.15)] group-hover:z-[60]"
+                      )}
+                      style={{
+                        clipPath:
+                          window.innerWidth >= 1024
+                            ? 'polygon(0% 0%, calc(100% - 30px) 0%, 100% 50%, calc(100% - 30px) 100%, 0% 100%, 30px 50%)' // Standard chevron
+                            : 'none'
+                      }}
+                    >
+                      <div className="w-full lg:px-8">
+                        <h3 className="text-2xl lg:text-3xl font-black uppercase mb-1 tracking-tighter opacity-100">
+                          {step.fel}
+                        </h3>
+                        <p className="text-sm font-bold uppercase tracking-wider mb-1 inline-block">
+                          {step.action}
                         </p>
+                        <div className="space-y-0">
+                          <p className="text-[10px] uppercase tracking-widest opacity-75">Phase</p>
+                          <p className="text-xs font-bold">{step.phase}</p>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                    </motion.div>
+                  </motion.div>
                 ))}
               </div>
             </div>
+
+            {/* Metadata Header Removed */}
+
+            {/* 4a. Service Detail: FEL-1 */}
+            <div id="fel-1" className="max-w-7xl mx-auto pt-10 mb-20 group">
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+                <div className="lg:w-3/4">
+                  <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                      FEL-1 | IDENTIFY
+                    </h2>
+                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                      Feasibility Study (Concept Development)
+                    </p>
+                    <div className="max-w-3xl mt-4">
+                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        In FEL-1, we evaluate project options at a conceptual level, review technologies and layouts, estimate costs and schedules at a high level, and identify key risks. The outcome is a recommended concept and business case to justify moving forward.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="max-w-3xl mb-10 pl-6 flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4">
+                    <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight shrink-0">
+                      PURPOSE:
+                    </h3>
+                    <p className="text-lg font-bold text-gray-900 leading-relaxed">
+                      Assess whether the project is technically and economically viable.
+                    </p>
+                  </div>
+
+                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
+                    Key Value Delivered
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {[
+                      "Confident early investment decisions",
+                      "Selection of the right technical concept",
+                      "High-level cost and schedule visibility"
+                    ].map((val, idx) => (
+                      <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-4 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300">
+                        <p className="text-gray-700 font-bold">{val}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 4b. Service Detail: FEL-2 */}
+            <div id="fel-2" className="max-w-7xl mx-auto pt-10 mb-20 group">
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+                <div className="lg:w-3/4">
+                  <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                      FEL-2 | SELECT
+                    </h2>
+                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                      Pre-FEED (Basis of Design)
+                    </p>
+                    <div className="max-w-3xl mt-4">
+                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        During FEL-2, engineering definition is matured. We develop the Basis of Design, perform preliminary simulations and equipment sizing, prepare early layouts and PFDs, assess constructability and regulatory needs, and refine cost and schedule accuracy.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="max-w-3xl mb-10 pl-6 flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4">
+                    <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight shrink-0">
+                      PURPOSE:
+                    </h3>
+                    <p className="text-lg font-bold text-gray-900 leading-relaxed">
+                      Convert the selected concept into a clearly defined project scope.
+                    </p>
+                  </div>
+
+                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
+                    Key Value Delivered
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {[
+                      "Clear technical scope definition",
+                      "Reduced uncertainty and project risk",
+                      "Strong foundation for FEED and execution"
+                    ].map((val, idx) => (
+                      <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-4 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300">
+                        <p className="text-gray-700 font-bold">{val}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 4. Service Detail: FEED | FEL-3 */}
+            <div id="feed" className="max-w-7xl mx-auto pt-10 mb-12 group">
+              {/* Header */}
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
+                {/* Left: What You Get (Feature Grid) */}
+                <div className="lg:w-3/4">
+                  {/* Header */}
+                  <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                      FEED | FEL-3
+                    </h2>
+                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                      Front-End Engineering Design
+                    </p>
+                    <div className="max-w-3xl">
+                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        The most critical phase for capital cost optimisation. We define the project baseline, identify technical risks, and establish the 30% cost estimate accuracy required for Final Investment Decision (FID).
+                      </p>
+                    </div>
+                  </div>
+
+                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
+                    Core Deliverables
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+                    {featuresFel3.map((feature, idx) => (
+                      <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
+
+                        <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
+                        <p className="text-gray-600 leading-relaxed text-sm font-medium">
+                          {feature.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Strategic Partnership Box - Moved Horizontal */}
+                  <div className="mt-8 bg-slate-900 text-white p-8 rounded-2xl relative overflow-hidden group flex flex-col md:flex-row items-center gap-8">
+                    <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                      <ShieldCheck className="w-32 h-32" />
+                    </div>
+
+                    <div className="relative z-10 flex-1 text-center md:text-left">
+                      <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
+                        <h4 className="text-[#ED2939] font-black uppercase tracking-widest text-sm">Strategic Partnership</h4>
+                        <span className="w-1 h-1 rounded-full bg-white/20"></span>
+                        <span className="text-gray-400 text-xs font-bold uppercase tracking-wider">Energy Sector Focus</span>
+                      </div>
+                      <h3 className="text-2xl font-bold mb-3">LCTS Partnership</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed max-w-2xl">
+                        For refinery, petrochemical, and LNG projects, leveraging our partnership providing Houston-based process engineering leadership with 80+ years of combined experience.
+                      </p>
+                    </div>
+
+                    <div className="relative z-10 shrink-0">
+                      <Link to="/lcts-partnership">
+                        <button className="px-6 py-3 bg-[#ED2939] hover:bg-[#c41e2b] text-white font-bold uppercase tracking-widest text-xs rounded-lg transition-colors shadow-lg shadow-red-900/20">
+                          Learn More
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right: Sayantrik Advantage */}
+                <div className="lg:w-1/4">
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
+                    <div className="flex flex-col items-center text-center">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                        Strategic Focus
+                      </h3>
+                      <div className="w-full space-y-4">
+                        {advantagesFel3.map((adv, idx) => (
+                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                            <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
+                              {adv.title}
+                            </h4>
+                            <p className="text-gray-500 text-xs leading-relaxed font-medium">
+                              {adv.desc}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+
+              {/* Metrics Bar - Enhanced Premium Design */}
+              <div className="mt-12">
+                <div className="bg-white rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] p-6 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-100 hover:-translate-y-1 transition-transform duration-500">
+
+                  {/* Metric 1 */}
+                  <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
+                    <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <TrendingUp className="w-7 h-7" />
+                    </div>
+                    <div className="text-left">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Duration</p>
+                      <p className="text-2xl font-bold text-gray-900 tracking-tight">4-8 Months</p>
+                    </div>
+                  </div>
+
+                  {/* Metric 2 */}
+                  <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
+                    <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <Users className="w-7 h-7" />
+                    </div>
+                    <div className="text-left">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Team</p>
+                      <p className="text-2xl font-bold text-gray-900 tracking-tight">PM + Leads</p>
+                    </div>
+                  </div>
+
+                  {/* Metric 3 */}
+                  <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
+                    <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <FileCheck className="w-7 h-7" />
+                    </div>
+                    <div className="text-left">
+                      <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Output</p>
+                      <p className="text-2xl font-bold text-gray-900 tracking-tight">FEED Package</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+
+            </div>
+
+            {/* 6. Service Detail: DETAILED ENGINEERING | FEL-4 */}
+            <div id="detailed-engineering" className="max-w-7xl mx-auto pt-10 mb-12 group">
+              {/* Header */}
+              <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20 mb-6">
+                {/* Left: What You Get (Deliverables Grid) */}
+                <div className="lg:w-3/4">
+                  {/* Header */}
+                  <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                      DETAILED ENGINEERING
+                    </h2>
+                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                      Precision Execution | FEL-4
+                    </p>
+                    <div className="max-w-3xl">
+                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        We transform the process package into a construction-ready blueprints, encompassing all disciplines from process and mechanical to instrumentation and civil.
+                      </p>
+                    </div>
+                  </div>
+
+                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
+                    Construction-Ready Deliverables
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+                    {featuresFel4.map((feature, idx) => (
+                      <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
+
+                        <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
+                        <p className="text-gray-600 leading-relaxed text-sm font-medium">
+                          {feature.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right: The Sayantrik Advantage (Core Strengths) */}
+                <div className="lg:w-1/4">
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
+                    <div className="flex flex-col items-center text-center">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                        Strategic Focus
+                      </h3>
+                      <div className="w-full space-y-4">
+                        {advantagesFel4.map((adv, idx) => (
+                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                            <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
+                              {adv.title}
+                            </h4>
+                            <p className="text-gray-500 text-xs leading-relaxed font-medium">
+                              {adv.desc}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 7. Flexible Engagement Models - Refined Metrics Style */}
+            <div className="bg-white rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] p-6 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-100 hover:-translate-y-1 transition-transform duration-500">
+
+              {/* Model 1: Full Detail Engineering */}
+              <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
+                <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <Layers className="w-7 h-7" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Full Detail Engineering</p>
+                  <p className="text-sm font-medium text-gray-600 leading-tight">End-to-end ownership from FEED handover to IFC.</p>
+                </div>
+              </div>
+
+              {/* Model 2: Team Augmentation */}
+              <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
+                <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <UserPlus className="w-7 h-7" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Team Augmentation</p>
+                  <p className="text-sm font-medium text-gray-600 leading-tight">Dedicated resources embedded directly into your project team.</p>
+                </div>
+              </div>
+
+              {/* Model 3: Discipline Packages */}
+              <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
+                <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <Briefcase className="w-7 h-7" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Discipline Packages</p>
+                  <p className="text-sm font-medium text-gray-600 leading-tight">Specific scope like piping design, structural analysis, or electrical.</p>
+                </div>
+              </div>
+
+            </div>
+
+            {/* 8. Service Detail: EPC | Execute */}
+            <div id="epc" className="max-w-7xl mx-auto pt-10 mb-12 group">
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
+                {/* Left: Content */}
+                <div className="lg:w-3/4">
+                  {/* Header */}
+                  <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                      EPC: Execute
+                    </h2>
+                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                      Engineering, Procurement & Construction
+                    </p>
+                    <div className="max-w-3xl">
+                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        Complete engineering backbone for your turnkey projects – from design to commissioning support.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* EPC Lifecycle - Standardized Grid */}
+                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
+                    Core Pillars
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 relative">
+                    {epcPillars.map((pillar, idx) => (
+                      <div key={idx} className={`rounded-xl border border-gray-200 overflow-hidden bg-slate-50 hover:shadow-xl transition-shadow duration-300`}>
+                        <div className="bg-gray-900 p-6 flex items-center justify-between">
+                          <h3 className="text-xl font-bold text-white tracking-wider">{pillar.title}</h3>
+                        </div>
+                        <div className="p-8">
+                          <ul className="space-y-4">
+                            {pillar.items.map((item, i) => (
+                              <li key={i} className="flex items-center gap-3 text-gray-700 font-medium pb-2 border-b border-gray-100 last:border-0 last:pb-0">
+                                <div className="w-1.5 h-1.5 bg-[#ED2939] rounded-full shrink-0" />
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right: Sidebar */}
+                <div className="lg:w-1/4">
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
+                    <div className="flex flex-col items-center text-center">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                        Strategic Focus
+                      </h3>
+                      <div className="w-full space-y-4">
+                        {advantagesEpc.map((adv, idx) => (
+                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                            <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
+                              {adv.title}
+                            </h4>
+                            <p className="text-gray-500 text-xs leading-relaxed font-medium">
+                              {adv.desc}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 9. Service Detail: EPCM | Full Lifecycle */}
+            <div id="epcm" className="max-w-7xl mx-auto pt-10 mb-12 group">
+              {/* Header */}
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
+                {/* Left: What You Get (Management Benefits Grid) */}
+                <div className="lg:w-3/4">
+                  {/* Header */}
+                  <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                      EPCM | Full Lifecycle
+                    </h2>
+                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                      Engineering, Procurement & Construction Management
+                    </p>
+                    <div className="max-w-3xl">
+                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        Full transparency and control over your project – we manage, you decide.
+                      </p>
+                    </div>
+                  </div>
+
+                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
+                    Management Benefits
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+                    {featuresEpcm.map((feature, idx) => (
+                      <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
+
+                        <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
+                        <p className="text-gray-600 leading-relaxed text-sm font-medium">
+                          {feature.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right: The Sayantrik Advantage (Management Depth) */}
+                <div className="lg:w-1/4">
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
+                    <div className="flex flex-col items-center text-center">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                        Strategic Focus
+                      </h3>
+                      <div className="w-full space-y-4">
+                        {advantagesEpcm.map((adv, idx) => (
+                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                            <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
+                              {adv.title}
+                            </h4>
+                            <p className="text-gray-500 text-xs leading-relaxed font-medium">
+                              {adv.desc}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 10. Service Detail: PMC | Full Lifecycle */}
+            <div id="pmc" className="max-w-7xl mx-auto pt-10 mb-12 group">
+              {/* Header */}
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
+                {/* Control & Oversight Grid (2x2) */}
+                <div className="lg:w-3/4">
+                  {/* Header */}
+                  <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                      PMC | Full Lifecycle
+                    </h2>
+                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                      Project Management Consultancy
+                    </p>
+                    <div className="max-w-3xl">
+                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        Expert oversight that keeps your project on track – schedule, cost, and quality.
+                      </p>
+                    </div>
+                  </div>
+
+                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
+                    Control & Oversight
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+                    {featuresPmc.map((feature, idx) => (
+                      <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
+
+                        <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
+                        <p className="text-gray-600 leading-relaxed text-sm font-medium">
+                          {feature.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* The Sayantrik Advantage - Boardroom Style Sidebar */}
+                <div className="lg:w-1/4">
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
+                    <div className="flex flex-col items-center text-center">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                        Strategic Focus
+                      </h3>
+                      <div className="w-full space-y-4">
+                        {advantagesPmc.map((adv, idx) => (
+                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                            <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
+                              {adv.title}
+                            </h4>
+                            <p className="text-gray-500 text-xs leading-relaxed font-medium">
+                              {adv.desc}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 11. Service Detail: OWNER'S ENGINEER | Full Lifecycle */}
+            <div id="owners-engineer" className="max-w-7xl mx-auto pt-10 mb-12 group">
+              {/* Header */}
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
+                {/* Left: What You Get (Quality Assurance Grid) */}
+                <div className="lg:w-3/4">
+                  {/* Header */}
+                  <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                      OWNER'S ENGINEER
+                    </h2>
+                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                      Technical Advisory & Independent Review
+                    </p>
+                    <div className="max-w-3xl">
+                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        Your technical guardian – independent expertise protecting your investment through full lifecycle oversight.
+                      </p>
+                    </div>
+                  </div>
+
+                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
+                    Quality Assurance
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+                    {featuresOe.map((feature, idx) => (
+                      <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
+
+                        <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
+                        <p className="text-gray-600 leading-relaxed text-sm font-medium">
+                          {feature.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right: The Sayantrik Advantage (Strategic Value) */}
+                <div className="lg:w-1/4">
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
+                    <div className="flex flex-col items-center text-center">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                        Strategic Focus
+                      </h3>
+                      <div className="w-full space-y-4">
+                        {advantagesOe.map((adv, idx) => (
+                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                            <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
+                              {adv.title}
+                            </h4>
+                            <p className="text-gray-500 text-xs leading-relaxed font-medium">
+                              {adv.desc}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 12. Service Detail: PROCESS TECHNOLOGY INTEGRATION */}
+            <div id="process-technology" className="max-w-7xl mx-auto pt-10 mb-12 group">
+              {/* Header */}
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-12">
+                {/* Left: What You Get (Integration Grid) */}
+                <div className="lg:w-3/4">
+                  {/* Header */}
+                  <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                      PROCESS TECHNOLOGY INTEGRATION
+                    </h2>
+                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                      Licensor Partnership & BOP Engineering
+                    </p>
+                    <div className="max-w-3xl">
+                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        We bridge the gap between process technology and physical reality, delivering seamless facility integration and Indian regulatory compliance.
+                      </p>
+                    </div>
+                  </div>
+
+
+
+                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
+                    Integration Expertise
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+                    {featuresTech.map((feature, idx) => (
+                      <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
+
+                        <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
+                        <p className="text-gray-600 leading-relaxed text-sm font-medium">
+                          {feature.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Target Audience Block */}
+                  <div className="bg-slate-900 text-white p-8 rounded-3xl mt-12 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-8 opacity-10">
+                      <Handshake className="w-64 h-64" />
+                    </div>
+                    <div className="md:w-1/3 relative z-10">
+                      <h3 className="text-2xl font-black uppercase tracking-tight mb-2 text-[#ED2939]">For Technology Licensors</h3>
+                      <p className="text-sm font-bold uppercase tracking-widest opacity-70">& Equipment Suppliers</p>
+                    </div>
+                    <div className="md:w-2/3 relative z-10 border-l border-white/20 pl-0 md:pl-10">
+                      <p className="text-lg leading-relaxed text-gray-300">
+                        Sayantrik serves as your engineering arm in India and emerging markets. We translate Process Design Packages into fully integrated, constructible facilities, bridging the gap between <span className="text-white font-bold">proprietary technology</span> and <span className="text-white font-bold">local execution</span>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right: Partnership Models */}
+                <div className="lg:w-1/4">
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
+                    <div className="flex flex-col items-center text-center">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                        Models
+                      </h3>
+                      <div className="w-full space-y-4">
+                        {partnershipModels.map((model, idx) => (
+                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                            <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
+                              {model.title}
+                            </h4>
+                            <p className="text-gray-500 text-xs leading-relaxed font-medium">
+                              {model.desc}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 13. Service Detail: BROWNFIELD MODIFICATIONS */}
+            <div id="brownfield" className="max-w-7xl mx-auto pt-10 mb-12 group">
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+                <div className="lg:w-3/4">
+                  <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                      BROWNFIELD MODIFICATIONS
+                    </h2>
+                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                      Plant Revamp & Tie-in Engineering
+                    </p>
+                    <div className="max-w-3xl">
+                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        We specialise in modifications to live operating assets, where safety, minimal downtime, and exact as-built accuracy are non-negotiable.
+                      </p>
+                    </div>
+                  </div>
+
+                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
+                    Operational Excellence
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+                    {featuresBrownfield.map((feature, idx) => (
+                      <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
+
+                        <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
+                        <p className="text-gray-600 leading-relaxed text-sm font-medium">
+                          {feature.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="lg:w-1/4">
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
+                    <div className="flex flex-col items-center text-center">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                        Capabilities
+                      </h3>
+                      <div className="w-full space-y-4">
+                        {projectTypes.map((type, idx) => (
+                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                            <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
+                              {type.title}
+                            </h4>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 14. Service Detail: LASER SCAN & DIGITAL TWINS */}
+            <div id="laser-scan" className="max-w-7xl mx-auto pt-10 mb-12 group">
+              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+                <div className="lg:w-3/4">
+                  <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                      LASER SCAN & DIGITAL TWINS
+                    </h2>
+                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                      Reality Capture & As-Built Modeling
+                    </p>
+                    <div className="max-w-xl">
+                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                        Eliminate fit-up issues and manual measurement errors. We convert high-definition point clouds into intelligent 3D CAD models.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+                    {featuresLaser.map((feature, idx) => (
+                      <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
+
+                        <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
+                        <p className="text-gray-600 leading-relaxed text-sm font-medium">
+                          {feature.desc}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="lg:w-1/4">
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
+                    <div className="flex flex-col items-center text-center">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4 text-center whitespace-nowrap">
+                        The Digital Advantage
+                      </h3>
+                      <p className="text-gray-600 mb-8 max-w-sm">
+                        Reduce site visits by 80% and construction rework by 100% with millimetre-accurate data.
+                      </p>
+                      <div className="w-full space-y-4">
+                        {['Clash Detection', 'Remote Virtual Walkthroughs', 'Tank Calibration', 'BIM Integration'].map((item, idx) => (
+                          <div key={idx} className="flex items-center gap-3 justify-center text-sm font-bold uppercase tracking-widest text-gray-900 bg-white py-3 px-6 rounded-xl shadow-sm">
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 15. Closing Trust Section: Why Clients Choose Us */}
+            {/* 15. Closing Trust Section: Why Clients Choose Us - Premium Dark Redesign */}
+            {/* 15. Closing Trust Section: Why Clients Choose Us - Premium Dark Redesign */}
+            <div className="w-full bg-[#ED2939] py-16 mt-16 relative overflow-hidden rounded-2xl">
+              {/* Ambient Background Glow */}
+              <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-white/10 blur-[120px]" />
+                <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-black/10 blur-[120px]" />
+              </div>
+
+              <div className="max-w-[1200px] mx-auto relative z-10 px-4">
+                <div className="mb-10 text-center">
+                  <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mb-3">
+                    Why Clients Choose Us
+                  </h2>
+                  <div className="flex items-center justify-center gap-3">
+                    <div className="h-px w-8 bg-white" />
+                    <p className="text-sm text-white font-black uppercase tracking-widest">
+                      The Sayantrik Standard
+                    </p>
+                    <div className="h-px w-8 bg-white" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {trustPillars.map((pillar, idx) => (
+                    <div key={idx} className="group relative bg-white/10 border border-white/20 p-6 rounded-xl hover:bg-white/20 transition-all duration-500 hover:-translate-y-1">
+                      <div className="flex items-start gap-4">
+
+                        <div>
+                          <h3 className="text-lg font-bold text-white uppercase tracking-tight mb-1">{pillar.title}</h3>
+                          <p className="text-white/80 text-xs leading-relaxed font-medium group-hover:text-white transition-colors">
+                            {pillar.desc}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Global Footer */}
+            <Footer />
+
           </div>
         </div>
       </div>
