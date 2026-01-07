@@ -34,31 +34,17 @@ const Header = () => {
         title: "Services",
         items: [
           { label: "FEED", link: "/services#feed" },
-          { label: "Detailed Engineering", link: "/services#detailed-engineering" },
+          { label: "Detailed Engineering", link: "/services#feed" },
           { label: "EPC", link: "/services#epc" },
           { label: "EPCM", link: "/services#epcm" },
-          { label: "PMC", link: "/services#pmc" },
-          { label: "Owner's Engineer", link: "/services#owners-engineer" },
+          { label: "PMC", link: "/services#epcm" },
+          { label: "Owner's Engineer", link: "/services#epcm" },
           { label: "Process Technology Integration", link: "/services#process-technology" },
-          { label: "Brownfield Modifications", link: "/services#brownfield" },
+          { label: "Brownfield Modifications", link: "/services#epcm" },
           { label: "Laser Scan & Digital Twins", link: "/services#laser-scan" },
         ],
       },
-      {
-        title: "Disciplines",
-        items: [
-          { label: "Process", link: "/disciplines#process" },
-          { label: "Mechanical - Static", link: "/disciplines#mechanical-static" },
-          { label: "Mechanical - Rotary", link: "/disciplines#mechanical-rotary" },
-          { label: "Mechanical - HVAC", link: "/disciplines#mechanical-hvac" },
-          { label: "Piping", link: "/disciplines#piping" },
-          { label: "Civil / Structural / Architectural", link: "/disciplines#civil-structural" },
-          { label: "Electrical", link: "/disciplines#electrical" },
-          { label: "Instrumentation", link: "/disciplines#instrumentation" },
-          { label: "Fire & Gas", link: "/disciplines#fire-gas" },
-          { label: "Telecom", link: "/disciplines#telecom" },
-        ],
-      },
+
     ],
   };
 

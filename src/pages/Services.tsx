@@ -57,6 +57,44 @@ const Services = () => {
     }
   ];
 
+  // FEL-1 Data
+  const advantagesFel1 = [
+    {
+      title: "Concept Screening",
+      desc: "Rapid evaluation of multiple configuration options to identify the best business case.",
+
+    },
+    {
+      title: "Economic Viability",
+      desc: "High-level CAPEX/OPEX modelling to establish investment feasibility (+/- 40%).",
+
+    },
+    {
+      title: "Fatal Flaw Analysis",
+      desc: "Early identification of technical, regulatory, or safety showstoppers.",
+
+    }
+  ];
+
+  // FEL-2 Data
+  const advantagesFel2 = [
+    {
+      title: "Scope Freeze",
+      desc: "Defining boundaries to prevent scope creep during later engineering phases.",
+
+    },
+    {
+      title: "Technology Selection",
+      desc: "Finalising licensor technology and key equipment configurations.",
+
+    },
+    {
+      title: "Value Engineering",
+      desc: "Optimising layout and process scheme before freezing the design.",
+
+    }
+  ];
+
   // FEL-3 Data
   const featuresFel3 = [
     {
@@ -532,8 +570,23 @@ const Services = () => {
     }
   ];
 
-  const laserApplications = [
-    "Decommissioning planning and tank calibration"
+  const advantagesLaser = [
+    {
+      title: "Clash Detection",
+      desc: "Eliminate field fit-up issues and ensure seamless integration of new equipment."
+    },
+    {
+      title: "Remote Walkthroughs",
+      desc: "Reduce site visits by 80% with millimetre-accurate virtual reality environments."
+    },
+    {
+      title: "Tank Calibration",
+      desc: " precise volume analysis and deformation monitoring using 3D laser scanning."
+    },
+    {
+      title: "BIM Integration",
+      desc: "Intelligent 3D models compatible with all major engineering platforms."
+    }
   ];
 
   // Trust Footer Data
@@ -690,7 +743,7 @@ const Services = () => {
             {/* Metadata Header Removed */}
 
             {/* 4a. Service Detail: FEL-1 */}
-            <div id="fel-1" className="max-w-7xl mx-auto pt-10 mb-20 group">
+            <div id="fel-1" className="max-w-7xl mx-auto pt-6 mb-8 group">
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
                 <div className="lg:w-3/4">
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
@@ -731,11 +784,37 @@ const Services = () => {
                     ))}
                   </div>
                 </div>
+
+                {/* Right: Strategic Focus Sidebar */}
+                <div className="lg:w-1/4">
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
+                    <div className="flex flex-col items-center text-center">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                        Strategic Focus
+                      </h3>
+                      <div className="w-full space-y-4">
+                        {advantagesFel1.map((adv, idx) => (
+                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                            <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
+                              {adv.title}
+                            </h4>
+                            <p className="text-gray-500 text-xs leading-relaxed font-medium">
+                              {adv.desc}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
+            <div className="w-full border-t-2 border-[#ED2939] my-8" />
+
             {/* 4b. Service Detail: FEL-2 */}
-            <div id="fel-2" className="max-w-7xl mx-auto pt-10 mb-20 group">
+            <div id="fel-2" className="max-w-7xl mx-auto pt-6 mb-8 group">
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
                 <div className="lg:w-3/4">
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
@@ -776,11 +855,37 @@ const Services = () => {
                     ))}
                   </div>
                 </div>
+
+                {/* Right: Strategic Focus Sidebar */}
+                <div className="lg:w-1/4">
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
+                    <div className="flex flex-col items-center text-center">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                        Strategic Focus
+                      </h3>
+                      <div className="w-full space-y-4">
+                        {advantagesFel2.map((adv, idx) => (
+                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                            <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
+                              {adv.title}
+                            </h4>
+                            <p className="text-gray-500 text-xs leading-relaxed font-medium">
+                              {adv.desc}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
+            <div className="w-full border-t-2 border-[#ED2939] my-8" />
+
             {/* 4. Service Detail: FEED | FEL-3 */}
-            <div id="feed" className="max-w-7xl mx-auto pt-10 mb-12 group">
+            <div id="feed" className="max-w-7xl mx-auto pt-6 mb-8 group">
               {/* Header */}
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
                 {/* Left: What You Get (Feature Grid) */}
@@ -817,9 +922,6 @@ const Services = () => {
 
                   {/* Strategic Partnership Box - Moved Horizontal */}
                   <div className="mt-8 bg-slate-900 text-white p-8 rounded-2xl relative overflow-hidden group flex flex-col md:flex-row items-center gap-8">
-                    <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
-                      <ShieldCheck className="w-32 h-32" />
-                    </div>
 
                     <div className="relative z-10 flex-1 text-center md:text-left">
                       <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
@@ -914,8 +1016,10 @@ const Services = () => {
 
             </div>
 
+            <div className="w-full border-t-2 border-[#ED2939] my-8" />
+
             {/* 6. Service Detail: DETAILED ENGINEERING | FEL-4 */}
-            <div id="detailed-engineering" className="max-w-7xl mx-auto pt-10 mb-12 group">
+            <div id="detailed-engineering" className="max-w-7xl mx-auto pt-6 mb-8 group">
               {/* Header */}
               <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20 mb-6">
                 {/* Left: What You Get (Deliverables Grid) */}
@@ -959,9 +1063,9 @@ const Services = () => {
                         <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
                         Strategic Focus
                       </h3>
-                      <div className="w-full space-y-4">
+                      <div className="w-full space-y-1.5">
                         {advantagesFel4.map((adv, idx) => (
-                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                          <div key={idx} className="flex flex-col items-center gap-1 justify-center text-center text-gray-900 bg-white py-2 px-4 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
                             <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
                               {adv.title}
                             </h4>
@@ -1015,8 +1119,10 @@ const Services = () => {
 
             </div>
 
+            <div className="w-full border-t-2 border-[#ED2939] my-8" />
+
             {/* 8. Service Detail: EPC | Execute */}
-            <div id="epc" className="max-w-7xl mx-auto pt-10 mb-12 group">
+            <div id="epc" className="max-w-7xl mx-auto pt-6 mb-8 group">
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
                 {/* Left: Content */}
                 <div className="lg:w-3/4">
@@ -1068,9 +1174,9 @@ const Services = () => {
                         <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
                         Strategic Focus
                       </h3>
-                      <div className="w-full space-y-4">
+                      <div className="w-full space-y-2.5">
                         {advantagesEpc.map((adv, idx) => (
-                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-3 px-5 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
                             <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
                               {adv.title}
                             </h4>
@@ -1086,8 +1192,10 @@ const Services = () => {
               </div>
             </div>
 
+            <div className="w-full border-t-2 border-[#ED2939] my-8" />
+
             {/* 9. Service Detail: EPCM | Full Lifecycle */}
-            <div id="epcm" className="max-w-7xl mx-auto pt-10 mb-12 group">
+            <div id="epcm" className="max-w-7xl mx-auto pt-6 mb-8 group">
               {/* Header */}
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
                 {/* Left: What You Get (Management Benefits Grid) */}
@@ -1131,9 +1239,9 @@ const Services = () => {
                         <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
                         Strategic Focus
                       </h3>
-                      <div className="w-full space-y-4">
+                      <div className="w-full space-y-2.5">
                         {advantagesEpcm.map((adv, idx) => (
-                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-3 px-5 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
                             <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
                               {adv.title}
                             </h4>
@@ -1149,8 +1257,10 @@ const Services = () => {
               </div>
             </div>
 
+            <div className="w-full border-t-2 border-[#ED2939] my-8" />
+
             {/* 10. Service Detail: PMC | Full Lifecycle */}
-            <div id="pmc" className="max-w-7xl mx-auto pt-10 mb-12 group">
+            <div id="pmc" className="max-w-7xl mx-auto pt-6 mb-8 group">
               {/* Header */}
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
                 {/* Control & Oversight Grid (2x2) */}
@@ -1212,8 +1322,10 @@ const Services = () => {
               </div>
             </div>
 
+            <div className="w-full border-t-2 border-[#ED2939] my-8" />
+
             {/* 11. Service Detail: OWNER'S ENGINEER | Full Lifecycle */}
-            <div id="owners-engineer" className="max-w-7xl mx-auto pt-10 mb-12 group">
+            <div id="owners-engineer" className="max-w-7xl mx-auto pt-6 mb-8 group">
               {/* Header */}
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
                 {/* Left: What You Get (Quality Assurance Grid) */}
@@ -1275,8 +1387,10 @@ const Services = () => {
               </div>
             </div>
 
+            <div className="w-full border-t-2 border-[#ED2939] my-8" />
+
             {/* 12. Service Detail: PROCESS TECHNOLOGY INTEGRATION */}
-            <div id="process-technology" className="max-w-7xl mx-auto pt-10 mb-12 group">
+            <div id="process-technology" className="max-w-7xl mx-auto pt-6 mb-8 group">
               {/* Header */}
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-12">
                 {/* Left: What You Get (Integration Grid) */}
@@ -1314,16 +1428,13 @@ const Services = () => {
                   </div>
 
                   {/* Target Audience Block */}
-                  <div className="bg-slate-900 text-white p-8 rounded-3xl mt-12 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-8 opacity-10">
-                      <Handshake className="w-64 h-64" />
-                    </div>
+                  <div className="bg-slate-900 text-white p-6 rounded-3xl mt-12 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
                     <div className="md:w-1/3 relative z-10">
-                      <h3 className="text-2xl font-black uppercase tracking-tight mb-2 text-[#ED2939]">For Technology Licensors</h3>
-                      <p className="text-sm font-bold uppercase tracking-widest opacity-70">& Equipment Suppliers</p>
+                      <h3 className="text-xl font-black uppercase tracking-tight mb-2 text-[#ED2939]">For Technology Licensors</h3>
+                      <p className="text-xs font-bold uppercase tracking-widest opacity-70">& Equipment Suppliers</p>
                     </div>
                     <div className="md:w-2/3 relative z-10 border-l border-white/20 pl-0 md:pl-10">
-                      <p className="text-lg leading-relaxed text-gray-300">
+                      <p className="text-base leading-relaxed text-gray-300">
                         Sayantrik serves as your engineering arm in India and emerging markets. We translate Process Design Packages into fully integrated, constructible facilities, bridging the gap between <span className="text-white font-bold">proprietary technology</span> and <span className="text-white font-bold">local execution</span>.
                       </p>
                     </div>
@@ -1356,8 +1467,10 @@ const Services = () => {
               </div>
             </div>
 
+            <div className="w-full border-t-2 border-[#ED2939] my-8" />
+
             {/* 13. Service Detail: BROWNFIELD MODIFICATIONS */}
-            <div id="brownfield" className="max-w-7xl mx-auto pt-10 mb-12 group">
+            <div id="brownfield" className="max-w-7xl mx-auto pt-6 mb-8 group">
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
                 <div className="lg:w-3/4">
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
@@ -1412,8 +1525,10 @@ const Services = () => {
               </div>
             </div>
 
+            <div className="w-full border-t-2 border-[#ED2939] my-8" />
+
             {/* 14. Service Detail: LASER SCAN & DIGITAL TWINS */}
-            <div id="laser-scan" className="max-w-7xl mx-auto pt-10 mb-12 group">
+            <div id="laser-scan" className="max-w-7xl mx-auto pt-6 mb-8 group">
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
                 <div className="lg:w-3/4">
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
@@ -1446,16 +1561,19 @@ const Services = () => {
                 <div className="lg:w-1/4">
                   <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
                     <div className="flex flex-col items-center text-center">
-                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4 text-center whitespace-nowrap">
-                        The Digital Advantage
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
+                        Strategic Focus
                       </h3>
-                      <p className="text-gray-600 mb-8 max-w-sm">
-                        Reduce site visits by 80% and construction rework by 100% with millimetre-accurate data.
-                      </p>
-                      <div className="w-full space-y-4">
-                        {['Clash Detection', 'Remote Virtual Walkthroughs', 'Tank Calibration', 'BIM Integration'].map((item, idx) => (
-                          <div key={idx} className="flex items-center gap-3 justify-center text-sm font-bold uppercase tracking-widest text-gray-900 bg-white py-3 px-6 rounded-xl shadow-sm">
-                            {item}
+                      <div className="w-full space-y-1.5">
+                        {advantagesLaser.map((adv, idx) => (
+                          <div key={idx} className="flex flex-col items-center gap-1 justify-center text-center text-gray-900 bg-white py-2 px-4 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                            <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
+                              {adv.title}
+                            </h4>
+                            <p className="text-gray-500 text-xs leading-relaxed font-medium">
+                              {adv.desc}
+                            </p>
                           </div>
                         ))}
                       </div>
@@ -1464,6 +1582,77 @@ const Services = () => {
                 </div>
               </div>
             </div>
+
+            <div className="w-full border-t-2 border-[#ED2939] my-8" />
+
+            {/* Disciplines Section */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.6 }}
+              className="py-16 bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100 my-16 relative overflow-hidden"
+            >
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, scaleX: 0 },
+                  visible: { opacity: 1, scaleX: 1, transition: { duration: 1.5, delay: 1.0 } }
+                }}
+                className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-gray-100 via-[#ED2939] to-gray-100"
+              />
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, scaleX: 0 },
+                  visible: { opacity: 1, scaleX: 1, transition: { duration: 0.8, delay: 1.0 } }
+                }}
+                className="absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-gray-100 via-[#ED2939] to-gray-100"
+              />
+              <div className="text-center mb-12">
+                <h3 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">Disciplines We Work</h3>
+                <div className="w-16 h-1 bg-[#ED2939] mx-auto mt-4 rounded-full" />
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 px-6 md:px-10 max-w-7xl mx-auto">
+                {[
+                  "Process",
+                  "Mechanical - Static",
+                  "Mechanical - Rotary",
+                  "Mechanical - HVAC",
+                  "Piping",
+                  "Civil / Structural / Architectural",
+                  "Electrical",
+                  "Instrumentation",
+                  "Fire & Gas",
+                  "Telecom"
+                ].map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    variants={{
+                      hidden: {
+                        backgroundColor: "rgba(249, 250, 251, 0.8)",
+                        borderColor: "rgb(243, 244, 246)",
+                        boxShadow: "none"
+                      },
+                      visible: {
+                        backgroundColor: "#ffffff",
+                        borderColor: "rgba(237, 41, 57, 0.3)",
+                        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                        transition: { duration: 1.5, delay: 1.0 }
+                      }
+                    }}
+                    className="p-6 rounded-xl border h-full flex items-center justify-center min-h-[100px] cursor-default"
+                  >
+                    <motion.span
+                      variants={{
+                        hidden: { color: "#000000" },
+                        visible: { color: "#ED2939", transition: { duration: 1.5, delay: 1.0 } }
+                      }}
+                      className="text-sm font-bold leading-tight"
+                    >
+                      {item}
+                    </motion.span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
 
             {/* 15. Closing Trust Section: Why Clients Choose Us */}
             {/* 15. Closing Trust Section: Why Clients Choose Us - Premium Dark Redesign */}

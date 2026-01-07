@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { CheckCircle2, ShieldCheck, Zap, Factory, Globe2, Users, Layout, Settings } from "lucide-react";
 
 const LctsPartnership = () => {
@@ -210,8 +211,9 @@ const LctsPartnership = () => {
             </section>
 
             {/* Benefits / Synergy */}
-            <section className="py-20 bg-gray-50">
+            <section className="pt-4 pb-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="w-full border-t-2 border-[#ED2939] mb-20" />
                     <div className="grid md:grid-cols-2 gap-16">
                         <div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-6 uppercase">Strategic Synergy & Global Compliance</h3>
@@ -240,7 +242,7 @@ const LctsPartnership = () => {
                             </div>
                         </div>
 
-                        <div className="bg-white p-8 border border-gray-200 rounded-xl shadow-lg">
+                        <div className="bg-white p-8 border border-gray-200 rounded-xl shadow-lg md:-mt-8">
                             <h3 className="text-xl font-bold text-gray-900 mb-6 border-b pb-4">Client Benefits</h3>
                             <ul className="space-y-4">
                                 {[
@@ -292,13 +294,22 @@ const LctsPartnership = () => {
                             </div>
                         </div>
 
-                        <div className="flex flex-wrap justify-center gap-4">
-                            <div className="px-6 py-2 bg-white/10 rounded-full text-sm font-medium backdrop-blur-sm border border-white/20">
-                                LCTS Partnership: 80+ Years Exp.
+                        <div className="flex flex-col items-center gap-8">
+                            <div className="flex flex-wrap justify-center gap-4">
+                                <div className="px-6 py-2 bg-white/10 rounded-full text-sm font-medium backdrop-blur-sm border border-white/20">
+                                    LCTS Partnership: 80+ Years Exp.
+                                </div>
+                                <div className="px-6 py-2 bg-white/10 rounded-full text-sm font-medium backdrop-blur-sm border border-white/20">
+                                    Global Delivery: India, Malaysia, USA
+                                </div>
                             </div>
-                            <div className="px-6 py-2 bg-white/10 rounded-full text-sm font-medium backdrop-blur-sm border border-white/20">
-                                Global Delivery: India, Malaysia, USA
-                            </div>
+
+                            <Link
+                                to="/contact"
+                                className="inline-flex items-center px-8 py-3 bg-white text-[#ED2939] font-bold rounded-full hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 duration-200"
+                            >
+                                Contact Our Partnership Team
+                            </Link>
                         </div>
                     </div>
                 </div>

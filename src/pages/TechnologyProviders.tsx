@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { CheckCircle2, ChevronRight, Plus, Building2, Factory, Zap, Leaf } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { BubbleNavLink } from '@/components/ui/BubbleNavLink';
@@ -10,7 +11,7 @@ const TechnologyProviders = () => {
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
-            const offset = 80;
+            const offset = 130;
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - offset;
             window.scrollTo({
@@ -123,7 +124,7 @@ const TechnologyProviders = () => {
                         }}
                         viewport={{ once: false, margin: "-10%" }}
                         transition={{ duration: 0.5 }}
-                        className="scroll-mt-24 p-8 bg-white rounded-2xl border border-gray-200 shadow-sm transition-all duration-500"
+                        className="scroll-mt-32 p-8 bg-white rounded-2xl border border-gray-200 shadow-sm transition-all duration-500"
                     >
                         <div className="space-y-6">
                             <div className="space-y-4">
@@ -190,11 +191,11 @@ const TechnologyProviders = () => {
                             {/* ISBL - BOP Bridge */}
                             <div className="grid md:grid-cols-11 gap-4 items-stretch">
                                 {/* Left Pane */}
-                                <div className="md:col-span-1 md:col-span-5 bg-gray-50/50 border border-gray-200 rounded-xl p-5 shadow-sm hover:border-[#ED2939]/30 transition-colors">
-                                    <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
+                                <div className="md:col-span-4 md:col-start-2 bg-gray-50/50 border border-gray-200 rounded-xl p-4 shadow-sm hover:border-[#ED2939]/30 transition-colors">
+                                    <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
                                         ISBL - LICENSOR CORE
                                     </h3>
-                                    <ul className="space-y-2">
+                                    <ul className="space-y-1.5">
                                         {[
                                             'Core Process Design',
                                             'Proprietary Equipment',
@@ -221,11 +222,11 @@ const TechnologyProviders = () => {
                                 </div>
 
                                 {/* Right Pane */}
-                                <div className="md:col-span-5 bg-gray-50/50 border border-gray-200 rounded-xl p-5 shadow-sm hover:border-gray-300 transition-colors relative overflow-hidden">
-                                    <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center relative z-10">
+                                <div className="md:col-span-4 bg-gray-50/50 border border-gray-200 rounded-xl p-4 shadow-sm hover:border-gray-300 transition-colors relative overflow-hidden">
+                                    <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center relative z-10">
                                         BOP & OSBL INTEGRATION
                                     </h3>
-                                    <div className="grid grid-cols-2 gap-4 relative z-10">
+                                    <div className="grid grid-cols-2 gap-x-4 gap-y-2 relative z-10">
                                         <div>
                                             <h4 className="text-xs font-bold text-gray-500 uppercase mb-2">BOP Integration</h4>
                                             <ul className="space-y-1.5 text-sm text-gray-600">
@@ -250,7 +251,7 @@ const TechnologyProviders = () => {
 
                             {/* Services Grid (Inspection, Validation, Support) */}
                             <div className="grid md:grid-cols-3 gap-4">
-                                <div className="border border-gray-100 rounded-xl p-5 hover:border-[#ED2939]/30 hover:bg-red-50/30 transition-all cursor-default h-full">
+                                <div className="border border-gray-100 rounded-xl p-5 hover:border-[#ED2939]/30 hover:bg-red-50/30 transition-all cursor-default h-full text-center">
                                     <h3 className="text-sm font-bold text-gray-900 mb-3 border-b pb-2 uppercase tracking-wide">Inspection Services</h3>
                                     <ul className="space-y-1.5 text-xs text-gray-600">
                                         <li>• Vendor Progress Monitoring</li>
@@ -259,7 +260,7 @@ const TechnologyProviders = () => {
                                         <li>• Schedule Tracking & Expediting</li>
                                     </ul>
                                 </div>
-                                <div className="border border-gray-100 rounded-xl p-5 hover:border-[#ED2939]/30 hover:bg-red-50/30 transition-all cursor-default h-full">
+                                <div className="border border-gray-100 rounded-xl p-5 hover:border-[#ED2939]/30 hover:bg-red-50/30 transition-all cursor-default h-full text-center">
                                     <h3 className="text-sm font-bold text-gray-900 mb-3 border-b pb-2 uppercase tracking-wide">Validation & Compliance</h3>
                                     <ul className="space-y-1.5 text-xs text-gray-600">
                                         <li>• Design Validation vs Licensor Req</li>
@@ -268,7 +269,7 @@ const TechnologyProviders = () => {
                                         <li>• Environmental Clearance Support</li>
                                     </ul>
                                 </div>
-                                <div className="border border-gray-100 rounded-xl p-5 hover:border-[#ED2939]/30 hover:bg-red-50/30 transition-all cursor-default h-full">
+                                <div className="border border-gray-100 rounded-xl p-5 hover:border-[#ED2939]/30 hover:bg-red-50/30 transition-all cursor-default h-full text-center">
                                     <h3 className="text-sm font-bold text-gray-900 mb-3 border-b pb-2 uppercase tracking-wide">Your Local Arm Support</h3>
                                     <ul className="space-y-1.5 text-xs text-gray-600">
                                         <li>• Pre-Sales Technical Support</li>
@@ -307,12 +308,12 @@ const TechnologyProviders = () => {
                         <div className="grid md:grid-cols-2 gap-4">
                             {sectors.map((sector) => (
                                 <div key={sector.id} className="group rounded-xl border border-gray-200 hover:border-gray-300 hover:bg-gray-50/50 transition-all duration-300 hover:shadow-md bg-white">
-                                    <div className="p-6 h-full flex flex-col">
+                                    <div className="p-4 h-full flex flex-col">
                                         <div className="flex items-center justify-between mb-4">
                                             <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#ED2939] transition-colors">{sector.title}</h3>
                                         </div>
 
-                                        <div className="space-y-2">
+                                        <div className="space-y-1.5">
                                             {sector.items.map((item, idx) => (
                                                 <div key={idx} className="flex items-start text-sm text-gray-600">
                                                     <span className={cn("mr-2 mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0", sector.bg.replace('bg-', 'bg-').replace('50', '500'))} />
@@ -447,9 +448,12 @@ const TechnologyProviders = () => {
                                     <p className="text-white/90 mb-6 text-sm leading-relaxed text-justify">
                                         Establish your engineering arm in India with a partner that understands the nuances of local execution and world-class technology.
                                     </p>
-                                    <button className="w-full py-3 bg-white text-[#ED2939] font-bold rounded-lg hover:bg-gray-50 transition-colors shadow-lg text-sm">
+                                    <Link
+                                        to="/contact"
+                                        className="inline-block w-full py-3 bg-white text-[#ED2939] font-bold rounded-lg hover:bg-gray-50 transition-colors shadow-lg text-sm text-center"
+                                    >
                                         Contact Our Partnership Team
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
