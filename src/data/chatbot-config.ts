@@ -12,7 +12,7 @@ export const CHATBOT_CONFIG = {
         bribery: "Sayantrik Engineers operates with complete integrity and transparency. We maintain zero tolerance for bribery, corruption, or unethical business practices. All our business relationships are built on merit, quality, and fair dealing.",
         confidential: "I’m not able to share confidential business information including client names, project values, or internal details. I can help you understand our service offerings and general capabilities.",
         discriminatory: "Sayantrik Engineers is an equal opportunity organisation. We value diversity and do not discriminate. Our hiring and business decisions are based solely on merit, qualifications, and capability.",
-        default: "Thank you for your inquiry. As an AI assistant, I can provide information about our engineering services, industries served, and engagement models. For specific project requirements, I recommend contacting our business development team at info@sayantrik.com."
+        default: "I can assist with our engineering services and capabilities. For specific project requirements, please contact info@sayantrik.com."
     },
 
     systemPrompt: `1. IDENTITY & PERSONA
