@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
+import csrBg from "@/assets/csr-bg.png";
 
 const CountUp = ({ end, suffix = "", label, className }: { end: number, suffix?: string, label: string, className?: string }) => {
   const ref = useRef(null);
@@ -107,7 +108,17 @@ const CSR = () => {
 
       {/* SECTION 1: HERO & PHILOSOPHY */}
       <section className="relative pt-32 pb-20 px-6 bg-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={csrBg}
+            alt="Background"
+            className="w-full h-full object-cover opacity-50 object-[35%_center]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent opacity-80" />
+        </div>
+
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-[#ED2939] rounded-full blur-[120px]" />
           <div className="absolute left-0 bottom-0 w-[400px] h-[400px] bg-blue-600 rounded-full blur-[100px]" />
         </div>
@@ -289,40 +300,7 @@ const CSR = () => {
         </div>
       </section>
 
-      {/* SECTION 5: SUCCESS STORY */}
-      <section className="py-24 px-6 bg-gradient-to-br from-[#ED2939]/5 to-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-red-100 flex flex-col md:flex-row gap-12 items-center">
-            <div className="w-full md:w-1/3 aspect-[3/4] bg-slate-200 rounded-2xl flex items-center justify-center shrink-0">
-              <span className="text-slate-400 font-bold uppercase text-center px-4">
-                Image: <br />Lakshmi
-              </span>
-            </div>
-            <div className="flex-1">
-              <span className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold uppercase tracking-wide mb-4">
-                Success Story
-              </span>
-              <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6">
-                Lakshmi’s Journey: <br />
-                From Orphan to School Topper
-              </h2>
-              <div className="space-y-6 text-lg text-slate-600 leading-relaxed text-justify">
-                <p>
-                  Found as a fragile orphan battling severe tuberculosis, Lakshmi's future seemed bleak. KADAM intervened with one year of isolation housing, dedicated medical treatment, and unwavering care.
-                </p>
-                <div className="border-l-4 border-green-500 pl-6 py-2 bg-green-50 rounded-r-lg">
-                  <p className="font-bold text-green-900">
-                    The Result?
-                  </p>
-                  <p className="text-green-800">
-                    Lakshmi completed her 10th class with a perfect <strong>10/10 CGPA</strong>, topped her school, and is now pursuing higher education with dreams of becoming an engineer.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* SECTION 6: SAYANTRIK + KADAM */}
       <section className="py-20 px-6 bg-white">
@@ -364,11 +342,11 @@ const CSR = () => {
             </div>
           </div>
 
-          <div className="mt-16 bg-slate-50 rounded-2xl p-8 border border-slate-100">
-            <h3 className="text-center text-sm font-bold text-slate-400 uppercase tracking-widest mb-8">Our Contribution</h3>
-            <div className="flex flex-wrap justify-center gap-4 md:gap-12">
+          <div className="mt-10 bg-slate-50 rounded-xl p-5 border border-slate-100 max-w-4xl mx-auto">
+            <h3 className="text-center text-sm font-bold text-slate-800 uppercase tracking-widest mb-4">Our Contribution</h3>
+            <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
               {["Financial Support", "Employee Volunteering", "Mentorship", "Industry Exposure"].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 font-bold text-slate-700">
+                <div key={i} className="flex items-center gap-2 font-bold text-slate-700 text-base">
                   <CheckCircle2 className="w-5 h-5 text-[#ED2939]" />
                   {item}
                 </div>
@@ -401,7 +379,12 @@ const CSR = () => {
             </div>
           </div>
 
-          <p className="mt-12 text-sm text-white/60 uppercase tracking-widest">
+          <p
+            style={{
+              textShadow: "0 0 20px rgba(255,255,255,0.5)"
+            }}
+            className="mt-12 text-xl font-serif font-bold text-black uppercase tracking-widest inline-block"
+          >
             Building Tomorrow's Infrastructure, Supporting Tomorrow's Leaders.
           </p>
         </div>

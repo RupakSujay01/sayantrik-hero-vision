@@ -1,70 +1,23 @@
-import { Card, CardContent } from "@/components/ui/card";
-import oilPlantImage from "@/assets/oil-plant-hq.jpg";
 import { feedProjects } from "@/data/projectsData";
+import ProjectSection from "@/components/ProjectSection";
+import sulphuricAcid3d from "@/assets/sulphuric-acid-plant-3d.png";
 
 const FeedProjects = () => {
-    return (
-        <section>
-            <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
-                    FEED Engineering
-                </h2>
-                <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
-                    Front-End Engineering Design
-                </p>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
-                {/* Oil Plant Card */}
-                <Card className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden relative border-primary/10 min-h-[280px]">
-                    <CardContent className="p-0 relative h-full">
-                        <img
-                            src={oilPlantImage}
-                            alt="Oil Plant"
-                            className="w-full h-full object-cover absolute inset-0"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/10 flex flex-col justify-end p-6">
-                            <h3
-                                className="text-2xl font-bold text-white mb-2 inline-block w-fit"
-                                style={{
-                                    textShadow: '0 0 8px hsl(var(--glow-blue) / 0.4), 0 0 16px hsl(var(--glow-blue) / 0.2)'
-                                }}
-                            >
-                                Oil Plant
-                            </h3>
-                            <p className="text-white/90 text-sm leading-relaxed">
-                                Detailed engineering and EPC support for a 600 MTPD Sulphuric Acid Plant, covering high-temperature and low-pressure piping, static equipment design, GA drawings, datasheets, P&IDs, plot plans, MTOs, vendor document review.
-                            </p>
-                        </div>
-                    </CardContent>
-                </Card>
+    const mainProject = {
+        name: "Sulphuric Acid Plant (600 MTPD)",
+        location: "Gujarat, India",
+        description: "Delivered early engineering covering process validation, high-temperature/low-pressure piping philosophy, static equipment sizing, P&IDs, plot plans, GA drawings, and vendor document review.",
+        image: sulphuricAcid3d
+    };
 
-                {feedProjects.map((project, index) => (
-                    <Card key={index} className="hover:shadow-lg hover:border-primary/30 transition-all duration-300 overflow-hidden relative border-primary/10 min-h-[280px] group bg-white">
-                        <CardContent className="p-0 relative h-full">
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/10 group-hover:from-primary/10 group-hover:to-primary/20 transition-all duration-300" />
-                            <div className="relative h-full flex flex-col justify-end p-6">
-                                <div className="mb-3">
-                                    <span className="text-xs font-medium text-primary/80 bg-primary/10 px-3 py-1 rounded-full">
-                                        {project.location}
-                                    </span>
-                                </div>
-                                <h3
-                                    className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300"
-                                    style={{
-                                        textShadow: '0 0 10px hsl(var(--primary) / 0.1)'
-                                    }}
-                                >
-                                    {project.name}
-                                </h3>
-                                <p className="text-muted-foreground text-sm leading-relaxed text-justify">
-                                    {project.description}
-                                </p>
-                            </div>
-                        </CardContent>
-                    </Card>
-                ))}
-            </div>
-        </section>
+    const allProjects = [mainProject, ...feedProjects];
+
+    return (
+        <ProjectSection
+            title="FEED Engineering"
+            subtitle="Front-End Engineering Design"
+            projects={allProjects}
+        />
     );
 };
 
