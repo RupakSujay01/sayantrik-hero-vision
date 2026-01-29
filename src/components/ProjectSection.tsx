@@ -93,15 +93,28 @@ const ProjectSection = ({ title, subtitle, projects }: ProjectSectionProps) => {
                         <div className="w-full md:w-1/2 p-12 flex flex-col justify-center bg-white relative">
                             <div className="absolute top-0 left-0 w-2 h-full bg-[#ED2939]" />
 
+                            <div className="absolute top-8 left-8">
+                                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-slate-100 text-slate-600 text-sm font-bold uppercase tracking-widest rounded-full">
+                                    <span className="w-2 h-2 rounded-full bg-[#ED2939]" />
+                                    {selectedProject?.location}
+                                </span>
+                            </div>
+
                             <DialogHeader className="mb-8">
-                                <div className="mb-4">
-                                    <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-slate-100 text-slate-600 text-sm font-bold uppercase tracking-widest rounded-full">
-                                        <span className="w-2 h-2 rounded-full bg-[#ED2939]" />
-                                        {selectedProject?.location}
-                                    </span>
-                                </div>
-                                <DialogTitle className="text-3xl md:text-5xl font-black text-slate-900 leading-tight mb-2">
-                                    {selectedProject?.name}
+                                <DialogTitle className="text-2xl md:text-4xl font-black text-slate-900 leading-tight mb-2">
+                                    {(() => {
+                                        if (!selectedProject?.name) return null;
+                                        const match = selectedProject.name.match(/^(.*?)(\s*\(.*\))$/);
+                                        if (match) {
+                                            return (
+                                                <>
+                                                    {match[1]}
+                                                    <span className="block text-xl md:text-2xl font-bold opacity-80 mt-1">{match[2].trim()}</span>
+                                                </>
+                                            );
+                                        }
+                                        return selectedProject.name;
+                                    })()}
                                 </DialogTitle>
                             </DialogHeader>
                             <div className="prose prose-lg text-slate-600 leading-relaxed text-left">

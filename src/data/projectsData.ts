@@ -1,14 +1,25 @@
+import ammoniaPlantImg from '../assets/ammonia-plant-3d.png';
+import compressorStationImg from '../assets/compressor-station-3d.png';
+import sulphuricAcidPlantImg from '../assets/sulphuric-acid-plant-3d.png';
+
 export interface Project {
   name: string;
   location: string;
   description: string;
+  image?: string;
 }
 
 export const feedProjects: Project[] = [
   {
-    name: "60MW / 90MW LNG / LPG Storage and Regasification",
-    location: "5 European Sites",
-    description: "FEED+ engineering services for LNG/LPG storage and regasification plants. Scope included feasibility validation, process design, vaporization/storage sizing (30–200 MT), engineering deliverables for all disciplines, RFQ packages, MTOs, and EPC contractor selection support."
+    name: "LNG/LPG Storage & Regasification (60–90 MW)",
+    location: "Europe (Multiple Sites)",
+    description: "FEED+ engineering services for LNG/LPG unloading, storage, and vaporization systems. Scope included feasibility validation, process design, storage sizing (30–200 MT), engineering deliverables for all disciplines, RFQ packages, MTOs, and EPC contractor selection support."
+  },
+  {
+    name: "Ammonia Plant Revamp (1650 MTPD)",
+    location: "Middle East",
+    description: "Detailed engineering for a major ammonia plant revamp including piping rerouting, stress analysis, tie-in engineering, pipe rack modifications, and constructability reviews.",
+    image: ammoniaPlantImg
   },
   {
     name: "MB-01 Meglumine Project",
@@ -16,14 +27,29 @@ export const feedProjects: Project[] = [
     description: "Basic engineering for MB-01 Meglumine Project. Scope included process deliverables (P&IDs, line lists), equipment datasheets, piping layouts, BOQs, electrical system design (SLDs, load lists, cable schedules), HVAC system design, clean room design, CSA reports, and 3D modeling."
   },
   {
-    name: "15 TPD Green Hydrogen Plant",
-    location: "Pre-FEED Engineering",
-    description: "Pre-FEED engineering for 15 TPD Green Hydrogen Plant (625 kg/hr) including process design (PFD/P&ID), piping MTOs, civil/structural MTOs, static equipment design, electrical load lists, I/O lists, and electrolyser foundation design."
+    name: "Green Hydrogen Plant (15 TPD)",
+    location: "India",
+    description: "Pre-FEED engineering for a 15 TPD (625 kg/hr) Green Hydrogen Plant. Developed process design (PFD/P&IDs), electrolyser foundation design, piping/civil MTOs, and static equipment design, including electrical load and I/O lists."
   },
   {
-    name: "2 TPD Green Hydrogen Plant",
-    location: "Pre-FEED Engineering",
-    description: "Pre-FEED for 2 TPD Green Hydrogen Plant including PFD/P&ID development, piping MTOs, civil/structural MTOs, electrolyser foundation design, electrical lists, and instrumentation scope."
+    name: "Green Hydrogen Pilot Plant (2 TPD)",
+    location: "India",
+    description: "Conducted preliminary engineering for a hydrogen facility. Deliverables included PFD/P&ID development, piping and structural MTOs, instrumentation scope, and electrolyser civil design."
+  },
+  {
+    name: "Grassroot Process Unit (Modular Skids)",
+    location: "Singapore",
+    description: "Engineering for modularized process skids covering structural design, piping layout, pile cap design, equipment relocation, and sea transportation analysis."
+  },
+  {
+    name: "Electrical System Study (Multi-Product Berth)",
+    location: "Middle East",
+    description: "Performed FEED-stage electrical modeling including Load Flow, Short Circuit, Motor Starting, Harmonic, and Arc Flash analysis using CYME software."
+  },
+  {
+    name: "Acetophenone Recovery Unit (60 TPD)",
+    location: "India",
+    description: "Delivered Front-End Engineering Design including process simulation, equipment sizing, layout optimization, and detailed MTOs for cost estimation."
   },
   {
     name: "Centralized Wastewater Treatment Plant",
@@ -49,14 +75,16 @@ export const feedProjects: Project[] = [
 
 export const detailProjects: Project[] = [
   {
-    name: "Compressor Station Project",
-    location: "Detailed Engineering",
-    description: "Comprehensive detailed engineering and multidisciplinary support for EPC procurement and construction (3 working + 1 standby compressors). Deliverables included: PFDs, P&IDs, datasheets, line/valve lists, GA drawings, stress analysis, 3D model reviews, electrical SLDs, DCS/PLC interface documents, firefighting system design, HVAC layouts, procurement support, and as-built documentation."
+    name: "Gas Compressor Station (3W + 1S)",
+    location: "Turkey",
+    description: "Multi-discipline detailed engineering for a 3+1 Gas Compressor Station (3 Working + 1 Standby). Scope included process design, stress analysis, 3D modeling, electrical SLDs, firefighting/HVAC design, and procurement support. Comprehensive deliverables included PFDs, P&IDs, datasheets, GA drawings, DCS/PLC interface documents, and as-built documentation for EPC execution.",
+    image: compressorStationImg
   },
   {
-    name: "600 MTPD Sulphuric Acid (SA - V) Plant",
-    location: "Process Technology Project",
-    description: "Detailed engineering and EPC support for a 600 MTPD Sulphuric Acid Plant, covering high-temperature and low-pressure piping, static equipment design, GA drawings, datasheets, P&IDs, plot plans, MTOs, vendor document review, and validation of the basic engineering package for OSBL facilities."
+    name: "Sulphuric Acid Plant (600 MTPD)",
+    location: "India",
+    description: "Detailed engineering and EPC support for a 600 MTPD Sulphuric Acid Plant. Scope included OSBL validation, corrosive service piping (high-temperature/low-pressure), static equipment GA drawings, datasheets, P&IDs, plot plans, MTOs, and vendor document review.",
+    image: sulphuricAcidPlantImg
   },
   {
     name: "300 MTPD Sulphuric Acid Plant",
