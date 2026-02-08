@@ -3,7 +3,7 @@ import { Users, Building2, Heart, Briefcase, Calendar, MapPin, Clock } from "luc
 const Careers = () => {
   return (
     <main className="min-h-screen bg-background">
-      <div className="container mx-auto px-6 py-20">
+      <div className="container mx-auto px-6 py-10 md:py-20">
         {/* Life at SEIPL Section */}
         <section className="mb-16 animate-fade-in">
           <div className="flex items-center gap-4 mb-8">

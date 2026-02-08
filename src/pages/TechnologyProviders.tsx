@@ -86,9 +86,9 @@ const TechnologyProviders = () => {
 
     return (
         <div className="min-h-screen bg-white">
-            <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 py-12 flex flex-col lg:flex-row gap-12 lg:gap-16 relative">
+            <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 py-6 lg:py-12 flex flex-col lg:flex-row gap-8 lg:gap-16 relative">
 
-                {/* Sticky Sidebar */}
+                {/* Sticky Sidebar - Desktop Only */}
                 <div className="hidden lg:block w-64 flex-shrink-0">
                     <div className="sticky top-32">
                         <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-4">
@@ -107,6 +107,26 @@ const TechnologyProviders = () => {
                                 />
                             ))}
                         </div>
+                    </div>
+                </div>
+
+                {/* Mobile Navigation - Sticky Top */}
+                <div className="lg:hidden sticky top-20 z-40 bg-white/95 backdrop-blur-sm py-4 border-b border-gray-100 mb-6 -mx-4 px-4 overflow-x-auto">
+                    <div className="flex space-x-2 min-w-max">
+                        {sidebarLinks.map((link) => (
+                            <button
+                                key={link.id}
+                                onClick={() => scrollToSection(link.id)}
+                                className={cn(
+                                    "px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap transition-colors",
+                                    activeSection === link.id
+                                        ? "bg-[#ED2939] text-white shadow-md"
+                                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                                )}
+                            >
+                                {link.label}
+                            </button>
+                        ))}
                     </div>
                 </div>
 

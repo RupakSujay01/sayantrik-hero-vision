@@ -7,8 +7,9 @@ const Hero = () => {
   const { scrollY } = useScroll();
 
   // Animation Physics - "Butter Smooth"
-  // Range: 0 to 300px scroll
-  const scrollRange = [0, 300];
+  // Range: 0 to 300px scroll (adjusted for mobile)
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const scrollRange = isMobile ? [0, 200] : [0, 300];
 
   // 1. Content fades in cleanly
   const contentOpacity = useTransform(scrollY, scrollRange, [0, 1]);
@@ -56,7 +57,7 @@ const Hero = () => {
         >
           <div className="max-w-7xl mx-auto text-center space-y-8">
             {/* Main Headline */}
-            <h1 className="font-heading leading-tight text-foreground glow-text">
+            <h1 className="font-heading leading-tight text-foreground glow-text text-4xl md:text-5xl lg:text-7xl">
               Engineering Excellence<br />
               Global Delivery<br />
               Innovation Leadership
@@ -69,7 +70,7 @@ const Hero = () => {
 
             {/* CTAs */}
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center bg-white/50 backdrop-blur-md rounded-xl p-6 shadow-xl border border-white/20 mt-8">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center bg-white/50 backdrop-blur-md rounded-xl p-4 md:p-6 shadow-xl border border-white/20 mt-8">
               <div className="space-y-2">
                 <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">2012</div>
                 <div className="text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Established</div>

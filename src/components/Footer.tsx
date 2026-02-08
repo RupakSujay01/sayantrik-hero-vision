@@ -37,11 +37,7 @@ const Footer = () => {
                 Sustainability & Safety
               </h3>
               <ul className="space-y-3">
-                <li>
-                  <Link to="/hse" className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium">
-                    HSE Policy
-                  </Link>
-                </li>
+
                 <li>
                   <Link to="/csr" className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium">
                     CSR Initiatives

@@ -631,11 +631,11 @@ const Services = () => {
       {/* Header and Lifecycle moved inside content area */}
 
       {/* Main Content with Sidebar */}
-      {/* Split Layout: Fixed Height for Independent Scrolling */}
-      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 h-[calc(100vh-80px)] overflow-hidden">
-        <div className="flex flex-col lg:flex-row gap-12 h-full">
+      {/* Split Layout: Responsive - Fixed Height Only on Large Screens */}
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 lg:h-[calc(100vh-80px)] lg:overflow-hidden h-auto overflow-visible">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 h-auto lg:h-full">
 
-          {/* Left Navigation - Independently Scrollable */}
+          {/* Left Navigation - Sticky/Fixed-Height on Desktop, Hidden/Different on Mobile */}
           <div className="hidden lg:block w-72 flex-shrink-0 h-full overflow-y-auto overscroll-contain custom-scrollbar pb-20">
             <div className="space-y-2 pr-4 pt-10">
               <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6 px-4">
@@ -657,8 +657,28 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Right Content - Independently Scrollable */}
-          <div id="services-content-area" className="flex-1 h-full overflow-y-auto overscroll-contain custom-scrollbar pb-32 pr-4 pt-10">
+          {/* Mobile Navigation - Sticky Top */}
+          <div className="lg:hidden sticky top-20 z-40 bg-white/95 backdrop-blur-sm py-4 border-b border-gray-100 mb-6 -mx-4 px-4 overflow-x-auto">
+            <div className="flex space-x-2 min-w-max">
+              {serviceSections.map((section) => (
+                <button
+                  key={section.id}
+                  onClick={() => scrollToSection(section.id)}
+                  className={cn(
+                    "px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap transition-colors",
+                    activeSection === section.id
+                      ? "bg-[#ED2939] text-white shadow-md"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  )}
+                >
+                  {section.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Content - Responsive scrolling */}
+          <div id="services-content-area" className="flex-1 h-auto lg:h-full lg:overflow-y-auto lg:overscroll-contain custom-scrollbar pb-20 lg:pb-32 lg:pr-4 pt-4 lg:pt-10">
 
             <div className="pt-0 pb-0">
               {/* 2. Section Title - Premium Centered Hybrid */}
@@ -685,7 +705,7 @@ const Services = () => {
 
             {/* 3. Interactive Project Lifecycle Table/Flow - Reduced Width Chevron Design */}
             <div className="max-w-[1900px] mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-              <div className="flex flex-col lg:flex-row h-auto lg:h-[125px] items-center lg:items-stretch justify-center max-w-[1800px] mx-auto">
+              <div className="flex flex-col lg:flex-row h-auto lg:h-[125px] items-center lg:items-stretch justify-center max-w-[1800px] mx-auto gap-4 lg:gap-0">
                 {lifecycleSteps.map((step, idx) => (
                   <motion.div
                     key={idx}
@@ -695,23 +715,26 @@ const Services = () => {
                     transition={{ type: "spring", bounce: 0.7, duration: 1.0, delay: step.delay }}
                     onClick={() => scrollToSection(step.targetId)}
                     className={`
-                    relative w-full lg:w-1/5 h-[155px] lg:h-auto
+                    relative w-full lg:w-1/5 h-auto lg:h-auto
                     flex flex-col
                     transition-all duration-300 ease-in-out
                     group cursor-pointer active:scale-95
                     lg:-ml-8 first:lg:ml-0
                     z-10
+                    rounded-xl lg:rounded-none
+                    overflow-hidden lg:overflow-visible
                 `}
                     style={{
                       zIndex: 50 - idx,
-                      filter: "drop-shadow(1px 0 0 #ED2939) drop-shadow(0 1px 0 #ED2939) drop-shadow(0 -1px 0 #ED2939)"
+                      filter: window.innerWidth >= 1024 ? "drop-shadow(1px 0 0 #ED2939) drop-shadow(0 1px 0 #ED2939) drop-shadow(0 -1px 0 #ED2939)" : "none",
+                      marginBottom: window.innerWidth < 1024 ? "1rem" : "0"
                     }}
                   >
                     <motion.div
                       transition={{ duration: 0.3 }}
-                      whileHover={{ scale: 1.15, y: -15 }}
+                      whileHover={{ scale: 1.02, y: -5 }}
                       className={cn(
-                        "h-full w-full p-2 flex flex-col items-center justify-center text-center transition-colors duration-500 bg-white text-black",
+                        "h-full w-full p-4 lg:p-2 flex flex-col items-center justify-center text-center transition-colors duration-500 bg-white text-black border lg:border-none border-red-100 shadow-sm lg:shadow-none rounded-xl lg:rounded-none",
                         "group-hover:text-[#ED2939] group-hover:bg-gradient-to-br group-hover:from-red-50 group-hover:to-red-100",
                         "group-hover:shadow-[0_20px_60px_rgba(237,41,57,0.15)] group-hover:z-[60]"
                       )}
@@ -723,13 +746,13 @@ const Services = () => {
                       }}
                     >
                       <div className="w-full lg:px-8">
-                        <h3 className="text-2xl lg:text-3xl font-black uppercase mb-1 tracking-tighter opacity-100">
+                        <h3 className="text-xl lg:text-3xl font-black uppercase mb-1 tracking-tighter opacity-100">
                           {step.fel}
                         </h3>
-                        <p className="text-sm font-bold uppercase tracking-wider mb-1 inline-block">
+                        <p className="text-xs lg:text-sm font-bold uppercase tracking-wider mb-1 inline-block">
                           {step.action}
                         </p>
-                        <div className="space-y-0">
+                        <div className="space-y-0 text-center">
                           <p className="text-[10px] uppercase tracking-widest opacity-75">Phase</p>
                           <p className="text-xs font-bold">{step.phase}</p>
                         </div>
