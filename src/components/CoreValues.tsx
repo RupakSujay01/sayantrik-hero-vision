@@ -73,7 +73,7 @@ const CoreValues = () => {
             <div className="container relative z-10 mx-auto px-6">
                 <div className="mb-12 text-left">
                     <div className="inline-block">
-                        <h2 className="text-5xl md:text-6xl font-heading font-bold text-white mb-4">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-4">
                             Our Core Values
                         </h2>
                         <div

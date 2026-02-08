@@ -31,11 +31,11 @@ const Hero = () => {
 
         {/* Background Image Layer */}
         <motion.div
-          className="absolute inset-0 bg-cover bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-no-repeat bg-center"
           style={{
             backgroundImage: `url(${heroEarth})`,
             backgroundPosition: "center 25%",
-            backgroundSize: "100% 100%",
+            backgroundSize: "cover",
             opacity: imageOpacity
           }}
         />
@@ -47,44 +47,43 @@ const Hero = () => {
 
         {/* Content Layer */}
         <motion.div
-          className="relative z-10 container mx-auto px-6 pb-12"
+          className="relative z-10 container mx-auto px-4 sm:px-6 pb-12"
           style={{
             y: contentY,
             opacity: contentOpacity,
             scale: contentScale
           }}
         >
-          <div className="max-w-7xl mx-auto text-center space-y-8">
+          <div className="max-w-7xl mx-auto text-center space-y-6 sm:space-y-8">
             {/* Main Headline */}
-            <h1 className="font-heading leading-tight text-foreground glow-text">
+            <h1 className="font-heading leading-tight text-foreground glow-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
               Engineering Excellence<br />
               Global Delivery<br />
               Innovation Leadership
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed font-semibold [text-shadow:0_0_10px_rgba(255,255,255,0.4)]">
-              Your Trusted Partner for Engineering Excellence in <br /> Energy & Chemicals.
+            <p className="text-base sm:text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed font-semibold [text-shadow:0_0_10px_rgba(255,255,255,0.4)]">
+              Your Trusted Partner for Engineering Excellence in Energy & Chemicals.
             </p>
 
-            {/* CTAs */}
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center bg-white/50 backdrop-blur-md rounded-xl p-6 shadow-xl border border-white/20 mt-8">
-              <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">2012</div>
-                <div className="text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Established</div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-8 text-center bg-white/50 backdrop-blur-md rounded-xl p-4 sm:p-6 shadow-xl border border-white/20 mt-6 sm:mt-8">
+              <div className="space-y-1 sm:space-y-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-primary">2012</div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Established</div>
               </div>
-              <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">250+</div>
-                <div className="text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Projects Completed</div>
+              <div className="space-y-1 sm:space-y-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-primary">250+</div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Projects Completed</div>
               </div>
-              <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">15+</div>
-                <div className="text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Global Projects</div>
+              <div className="space-y-1 sm:space-y-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-primary">15+</div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Global Projects</div>
               </div>
-              <div className="space-y-2">
-                <div className="text-3xl md:text-4xl font-heading font-extrabold text-primary">160+</div>
-                <div className="text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Expert Engineers</div>
+              <div className="space-y-1 sm:space-y-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-primary">160+</div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-foreground font-bold uppercase tracking-wide">Expert Engineers</div>
               </div>
             </div>
           </div>
