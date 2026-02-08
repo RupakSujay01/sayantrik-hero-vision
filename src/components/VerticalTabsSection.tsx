@@ -76,14 +76,13 @@ export const VerticalTabsSection = ({
 
     return (
         <div id="vertical-tabs-container" className={cn("w-full", containerClassName)}>
-            <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-col lg:flex-row gap-6 lg:gap-16">
-                {/* Left Column - Navigation */}
-                <div className="w-full lg:w-64 flex-shrink-0 pt-6 lg:pt-10">
+            <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-col md:flex-row gap-8 lg:gap-16">
+                {/* Left Column - Navigation (Fixed) */}
+                <div className="w-full md:w-64 flex-shrink-0 pt-6 md:pt-10">
                     <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-4">
                         Navigation
                     </h3>
-                    {/* Mobile: horizontal scroll tabs, Desktop: vertical list */}
-                    <div className="flex lg:flex-col gap-3 lg:gap-4 overflow-x-auto lg:overflow-x-visible lg:h-[calc(100vh-160px)] lg:overflow-y-auto pr-2 pb-4 custom-scrollbar overscroll-contain">
+                    <div className="flex flex-col gap-4 h-[calc(100vh-160px)] overflow-y-auto pr-2 pb-4 custom-scrollbar overscroll-contain">
                         {data.map((item, index) => (
                             <BubbleNavLink
                                 key={item.id}
@@ -99,9 +98,9 @@ export const VerticalTabsSection = ({
                     </div>
                 </div>
 
-                {/* Right Column - Content */}
-                <div className="flex-1 pr-0 lg:pr-12">
-                    <div id="portfolio-content-area" className="bg-white rounded-2xl p-4 sm:p-6 md:p-10 border border-gray-100 shadow-sm lg:h-[calc(100vh-160px)] overflow-y-auto custom-scrollbar overscroll-contain">
+                {/* Right Column - Content (Independent Scroll) */}
+                <div className="flex-1 pr-6 md:pr-12">
+                    <div id="portfolio-content-area" className="bg-white rounded-2xl p-6 md:p-10 border border-gray-100 shadow-sm h-[calc(100vh-160px)] overflow-y-auto custom-scrollbar overscroll-contain">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeItem.id}

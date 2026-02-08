@@ -10,7 +10,7 @@ export const FloatingActionButtons = () => {
     return (
         <>
             {/* Quality Button - Top Right */}
-            <div className="fixed top-20 right-2 z-40 hidden sm:block">
+            <div className="fixed top-20 right-2 z-40">
                 <Link to="/quality">
                     <Button
                         size="sm"

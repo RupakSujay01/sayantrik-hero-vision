@@ -40,8 +40,8 @@ export const BubbleNavLink = ({
             y: 0,
             scale: 1,
             transition: {
-                type: "tween" as const,
-                ease: "linear" as const,
+                type: "tween",
+                ease: "linear",
                 duration: 0.8,
                 delay: Math.abs(centerIndex - i) * 0.02,
             }

@@ -5,40 +5,58 @@ const Footer = () => {
   return (
     <footer className="bg-card border-t border-border mt-auto">
       <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           {/* Company Info & Corporate Responsibility */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-primary mb-4">
+              <h3 className="text-xl font-bold text-primary mb-4">
                 Sayantrik Engineer India Pvt Ltd
               </h3>
+
               <div className="flex gap-4">
-                <a href="mailto:info@sayantrik.com" className="text-muted-foreground hover:text-primary transition-colors">
+                <a
+                  href="mailto:info@sayantrik.com"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   <Mail className="h-5 w-5" />
                 </a>
-                <a href="https://www.linkedin.com/company/sayantrikengineers" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                <a
+                  href="https://www.linkedin.com/company/sayantrikengineers"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
                   <Linkedin className="h-5 w-5" />
                 </a>
               </div>
             </div>
+
+            {/* Corporate Responsibility - Moved Here */}
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-4">
+              <h3 className="text-xl font-bold text-black mb-4">
                 Sustainability & Safety
               </h3>
               <ul className="space-y-3">
                 <li>
-                  <Link to="/hse" className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium">HSE Policy</Link>
+                  <Link to="/hse" className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium">
+                    HSE Policy
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/csr" className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium">CSR Initiatives</Link>
+                  <Link to="/csr" className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium">
+                    CSR Initiatives
+                  </Link>
                 </li>
               </ul>
             </div>
           </div>
 
+
+
+
           {/* C&C Plant Process Info - Center */}
-          <div className="sm:text-center flex flex-col sm:items-center justify-start">
-            <h3 className="text-lg sm:text-xl font-bold text-primary mb-0 leading-tight">
+          <div className="text-center flex flex-col items-center justify-start">
+            <h3 className="text-xl font-bold text-primary mb-0 leading-tight">
               C&C Process Plants Inc (USA)
             </h3>
             <p className="text-muted-foreground text-xs mb-4 leading-normal mt-1">
@@ -52,16 +70,16 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="sm:text-right flex flex-col sm:items-end justify-start">
-            <h3 className="text-lg sm:text-xl font-bold text-primary mb-4">
+          <div className="text-right flex flex-col items-end justify-start">
+            <h3 className="text-xl font-bold text-primary mb-4">
               Contact Us
             </h3>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-sm text-muted-foreground sm:justify-end">
+              <li className="flex items-center gap-2 text-sm text-muted-foreground justify-end">
                 <span>info@sayantrik.com</span>
                 <Mail className="h-4 w-4 flex-shrink-0" />
               </li>
-              <li className="flex items-center gap-2 text-sm text-muted-foreground sm:justify-end">
+              <li className="flex items-center gap-2 text-sm text-muted-foreground justify-end">
                 <span>+91 79955 79900</span>
                 <Phone className="h-4 w-4 flex-shrink-0" />
               </li>
