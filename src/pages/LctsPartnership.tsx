@@ -192,12 +192,12 @@ const LctsPartnership = () => {
                             </thead>
                             <tbody>
                                 {[
-                                    { discipline: "Process Engineering", desc: "Simulations (HYSYS), Flare Header Analysis, Hydraulic Calculations, Utility Design, and Operating Manuals." },
-                                    { discipline: "Piping Engineering", desc: "3D Modeling, Pipe Stress Analysis (CAESAR II), Support Design, Isometrics, and Material Take-Offs (MTO)." },
-                                    { discipline: "Mechanical/Static", desc: "Pressure Vessel Design (PV Elite), Storage Tank Design, Heat Exchanger Design (TEMA), and Skidded Package Design." },
+                                    { discipline: "Process Engineering", desc: "Simulations, Flare Header Analysis, Hydraulic Calculations, Utility Design, and Operating Manuals." },
+                                    { discipline: "Piping Engineering", desc: "3D Modeling, Pipe Stress Analysis, Support Design, Isometrics, and Material Take-Offs (MTO)." },
+                                    { discipline: "Mechanical/Static", desc: "Pressure Vessel Design, Storage Tank Design, Heat Exchanger Design, and Skidded Package Design." },
                                     { discipline: "Electrical", desc: "Single Line Diagrams (SLD), Load Lists, Cable Schedules, Lighting/Earthing Design, and Substations." },
                                     { discipline: "Instrumentation", desc: "Instrument Index, Control Philosophies, Loop Diagrams, I/O Lists, and DCS/PLC Architecture." },
-                                    { discipline: "Civil & Structural", desc: "Structural Analysis (STAAD.Pro), Foundation Design, Pipe Rack Design, and Blast-Resistant Building Design." }
+                                    { discipline: "Civil & Structural", desc: "Structural Analysis, Foundation Design, Pipe Rack Design, and Blast-Resistant Building Design." }
                                 ].map((row, idx) => (
                                     <tr key={idx} className="border border-black hover:bg-gray-50">
                                         <td className="border border-black px-6 py-4 font-bold text-gray-900">{row.discipline}</td>

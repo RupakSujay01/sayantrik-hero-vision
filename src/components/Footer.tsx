@@ -31,20 +31,7 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Corporate Responsibility - Moved Here */}
-            <div>
-              <h3 className="text-xl font-bold text-black mb-4">
-                Sustainability & Safety
-              </h3>
-              <ul className="space-y-3">
 
-                <li>
-                  <Link to="/csr" className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium">
-                    CSR Initiatives
-                  </Link>
-                </li>
-              </ul>
-            </div>
           </div>
 
 

@@ -24,6 +24,7 @@ const Header = () => {
     { path: "/projects/feed", label: "Projects", hasDropdown: true },
     { path: "/technology-providers", label: "Technology Providers" },
     { path: "/lcts-partnership", label: "Our Partners" },
+    { path: "/csr", label: "CSR" },
     { path: "/careers", label: "Careers" },
     { path: "/contact", label: "Contact" },
   ];

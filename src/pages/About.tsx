@@ -384,7 +384,7 @@ const About = () => {
               <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-4 block">Head Office</span>
               <h3 className="font-heading text-foreground mb-4">Hyderabad, India</h3>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                Plot no. 56, Opp Srikara Hospitals Lane, Mythrinagar, Madinaguda
+                Global Headquarters & Engineering Centre. Coordinating with international branches in USA & Malaysia.
               </p>
               <span className="text-primary font-semibold">120+ Engineers</span>
             </div>

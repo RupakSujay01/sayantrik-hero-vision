@@ -9,6 +9,7 @@ import {
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
 import csrBg from "@/assets/csr-bg.png";
+import streetChildren from "@/assets/street-children.png";
 
 const CountUp = ({ end, suffix = "", label, className }: { end: number, suffix?: string, label: string, className?: string }) => {
   const ref = useRef(null);
@@ -181,8 +182,15 @@ const CSR = () => {
               <p className="text-lg text-slate-600 leading-relaxed mb-8 text-justify">
                 While more children in India are being enrolled in schools today, a significant number—particularly girls—drop out within a few years. They become invisible, lost in the cracks of our society.
               </p>
-              <div className="w-full h-64 bg-slate-200 rounded-2xl flex items-center justify-center border-2 border-dashed border-slate-300">
-                <span className="text-slate-400 font-bold uppercase">Image Placeholder: Street Child Reality</span>
+              <div className="w-full h-[320px] relative rounded-2xl overflow-hidden shadow-xl group">
+                <img
+                  src={streetChildren}
+                  alt="Street Child Reality"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-90 contrast-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
+                  <p className="text-white/90 font-medium italic text-lg border-l-4 border-[#ED2939] pl-4">"Restoring childhood to those who lost it too soon."</p>
+                </div>
               </div>
             </div>
 
@@ -383,7 +391,7 @@ const CSR = () => {
             style={{
               textShadow: "0 0 20px rgba(255,255,255,0.5)"
             }}
-            className="mt-12 text-xl font-serif font-bold text-black uppercase tracking-widest inline-block"
+            className="mt-12 text-sm md:text-xl font-sans font-bold text-black uppercase tracking-widest inline-block whitespace-nowrap"
           >
             Building Tomorrow's Infrastructure, Supporting Tomorrow's Leaders.
           </p>
