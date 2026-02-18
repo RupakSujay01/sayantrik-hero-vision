@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { MessageSquare, CheckCircle2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,19 +6,20 @@ import { Chatbot } from "@/components/Chatbot";
 
 export const FloatingActionButtons = () => {
     const [isChatOpen, setIsChatOpen] = useState(false);
-    // Assuming isMobile is determined elsewhere or needs to be defined
-    // For now, let's define a placeholder for isMobile to make the code syntactically correct.
-    // In a real application, this would likely come from a custom hook or context.
-    const isMobile = window.innerWidth < 768; // Example: simple check for mobile
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     return (
         <>
             {/* Quality Button - Top Right */}
-            <motion.div
-                className={`${isMobile ? 'relative pb-2' : 'absolute bottom-0 left-0 right-0'} z-10`}
-            // The original instruction had a syntax error in the style prop.
-            // I'm removing the malformed style prop to ensure syntactical correctness.
-            // If a style was intended, it should be an object, e.g., style={{ someProp: 'value' }}
+            <div
+                className={`fixed right-2 z-40 ${isMobile ? 'top-28' : 'top-20'}`}
             >
                 <Link to="/quality">
                     <Button
@@ -34,7 +35,7 @@ export const FloatingActionButtons = () => {
             </div>
 
             {/* HSE Button - Below Quality Button */}
-            <div className="fixed top-42 md:top-32 right-2 z-40">
+            <div className={`fixed right-2 z-40 ${isMobile ? 'top-44' : 'top-32'}`}>
                 <Link to="/hse">
                     <Button
                         size="sm"

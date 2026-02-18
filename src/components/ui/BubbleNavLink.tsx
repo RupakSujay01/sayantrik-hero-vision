@@ -16,7 +16,7 @@ interface BubbleNavLinkProps {
 
 // Defined OUTSIDE to ensure stability and prevent re-animation on re-renders
 const MotionButton = motion.button;
-const MotionLink = motion.create(Link);
+const MotionLink = motion(Link);
 
 export const BubbleNavLink = ({
     id,

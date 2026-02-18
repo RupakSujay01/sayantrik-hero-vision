@@ -33,10 +33,10 @@ const Hero = () => {
           className="absolute inset-0 bg-no-repeat z-0"
           style={{
             backgroundImage: `url(${heroEarth})`,
-            // Mobile: Fit width (100% auto) to avoid zoom, aligned top.
+            // Mobile: Cover to fill screen, center position.
             // Desktop: 100% 100% fixed aspect.
-            backgroundSize: isMobile ? "100% auto" : "100% 100%",
-            backgroundPosition: isMobile ? "top center" : "center 25%",
+            backgroundSize: isMobile ? "cover" : "100% 100%",
+            backgroundPosition: "center center",
             // Disable opacity transition on mobile
             opacity: isMobile ? 1 : imageOpacity
           }}

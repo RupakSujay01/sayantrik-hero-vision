@@ -100,8 +100,9 @@ export const VerticalTabsSection = ({
                 </div>
 
                 {/* Right Column - Content (Independent Scroll) */}
-                <div className="flex-1 pr-0 md:pr-12">
-                    <div id="portfolio-content-area" className="bg-white rounded-2xl p-6 md:p-10 border border-gray-100 shadow-sm h-auto md:h-[calc(100vh-160px)] overflow-visible md:overflow-y-auto custom-scrollbar overscroll-contain">
+                <div className="w-full md:flex-1 md:pr-12 md:pl-0">
+                    {/* Simplified mobile layout: No fixed verify or hidden overflow. Standard block. */}
+                    <div id="portfolio-content-area" className="bg-white rounded-2xl p-6 md:p-10 border border-gray-100 shadow-sm min-h-[500px] md:h-[calc(100vh-160px)] overflow-visible md:overflow-y-auto custom-scrollbar overscroll-contain">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeItem.id}
@@ -113,9 +114,9 @@ export const VerticalTabsSection = ({
                                     bounce: 0,
                                     duration: 0.5
                                 }}
-                                className="space-y-6"
+                                className="space-y-6 md:space-y-6 pb-20 md:pb-0" // Add bottom padding for mobile scroll
                             >
-                                <div className={cn("mb-8 pl-6 border-l-4", accentColor === 'green' ? "border-[#40a829]" : "border-[#ED2939]")}>
+                                <div className={cn("mb-6 md:mb-8 pl-4 md:pl-6 border-l-4", accentColor === 'green' ? "border-[#40a829]" : "border-[#ED2939]")}>
                                     <h2 className={cn("text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter", accentColor === 'green' ? "text-[#40a829]" : "text-gray-900")}>
                                         {activeItem.title}
                                     </h2>
