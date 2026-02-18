@@ -18,7 +18,11 @@ interface BubbleNavLinkProps {
 const MotionButton = motion.button;
 const MotionLink = motion.create(Link);
 
-index,
+export const BubbleNavLink = ({
+    id,
+    label,
+    isActive,
+    index,
     totalItems,
     onClick,
     to,
@@ -57,11 +61,13 @@ index,
         }
     };
 
-    isActive
-        ? accentColor === 'green'
-            ? "bg-gradient-to-r from-[#40a829]/10 to-white text-[#40a829] border-[#40a829] shadow-md"
-            : "bg-gradient-to-r from-[#ED2939]/10 to-white text-[#ED2939] border-[#ED2939] shadow-md"
-        : "bg-white text-gray-600 border-gray-200 hover:border-gray-300 hover:bg-gray-50 hover:shadow-md",
+    const baseClasses = cn(
+        "w-full text-left px-6 py-3.5 text-sm font-bold rounded-full transition-colors duration-300 border shadow-sm block relative group",
+        isActive
+            ? accentColor === 'green'
+                ? "bg-gradient-to-r from-[#40a829]/10 to-white text-[#40a829] border-[#40a829] shadow-md"
+                : "bg-gradient-to-r from-[#ED2939]/10 to-white text-[#ED2939] border-[#ED2939] shadow-md"
+            : "bg-white text-gray-600 border-gray-200 hover:border-gray-300 hover:bg-gray-50 hover:shadow-md",
         className
     );
 
