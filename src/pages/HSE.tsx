@@ -82,11 +82,11 @@ const HSE = () => {
                 <div className="max-w-6xl mx-auto">
                     {/* Header Section */}
                     <div className="mb-16">
-                        <h1 className="text-4xl md:text-5xl font-heading font-bold text-[#40a829] mb-6 drop-shadow-sm">
+                        <h1 className="text-3xl md:text-5xl font-heading font-bold text-[#40a829] mb-6 drop-shadow-sm">
                             Health, Safety & Environment (HSE)
                         </h1>
                         <div className="h-1 w-24 bg-[#40a829] mb-8" />
-                        <p className="lead text-xl text-slate-900 font-bold max-w-3xl drop-shadow-md">
+                        <p className="lead text-lg md:text-xl text-slate-900 font-bold max-w-3xl drop-shadow-md">
                             Sayantrik Engineers is committed to the highest standards of Health, Safety, and Environmental protection.
                         </p>
                     </div>
@@ -115,7 +115,7 @@ const HSE = () => {
 
                     {/* Footer Note */}
                     <div className="text-center p-8 bg-[#40a829]/10 backdrop-blur-md rounded-2xl border border-[#40a829]/20 shadow-inner">
-                        <h3 className="text-2xl md:text-3xl font-bold text-[#40a829] uppercase tracking-widest drop-shadow-sm">
+                        <h3 className="text-xl md:text-3xl font-bold text-[#40a829] uppercase tracking-widest drop-shadow-sm">
                             REMEMBER: SAFETY FIRST, ALWAYS!
                         </h3>
                     </div>

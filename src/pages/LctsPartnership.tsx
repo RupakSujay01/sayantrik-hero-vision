@@ -13,7 +13,7 @@ const LctsPartnership = () => {
             />
             {/* Hero Section */}
             <section className="relative text-white pt-32 pb-20 overflow-hidden">
-                <h1 className="absolute top-4 left-4 md:top-10 md:left-10 text-4xl md:text-5xl font-bold text-white uppercase tracking-wider z-20">
+                <h1 className="absolute top-4 left-4 md:top-10 md:left-10 text-3xl md:text-5xl font-bold text-white uppercase tracking-wider z-20">
                     LCTS Strategic Partnership
                 </h1>
                 <div className="absolute inset-0 z-0">
@@ -31,10 +31,10 @@ const LctsPartnership = () => {
                         <div className="inline-block px-4 py-1.5 mb-6 border border-[#ED2939] rounded-full bg-[#ED2939]/10 backdrop-blur-sm">
                             <span className="text-[#ED2939] font-bold tracking-widest text-xs uppercase">Strategic Alliance</span>
                         </div>
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight uppercase">
+                        <h1 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight uppercase">
                             Sayantrik Engineers <span className="text-[#ED2939]">&</span> LCTS
                         </h1>
-                        <p className="text-xl md:text-2xl text-gray-300 font-light mb-8">
+                        <p className="text-lg md:text-2xl text-gray-300 font-light mb-8">
                             Lucke Consulting Technology Services LLC <span className="text-gray-500 mx-2">|</span> Houston, Texas, USA
                         </p>
                         <div className="flex flex-wrap justify-center gap-6 text-sm font-semibold tracking-wider text-gray-400 uppercase">
@@ -69,7 +69,7 @@ const LctsPartnership = () => {
             <section className="py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mb-12 pl-6 border-l-4 border-[#ED2939]">
-                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                        <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                             The Partnership Model
                         </h2>
                     </div>
@@ -133,7 +133,7 @@ const LctsPartnership = () => {
             <section className="py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mb-12 pl-6 border-l-4 border-[#ED2939]">
-                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                        <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                             Integrated Project Delivery Matrix
                         </h2>
                     </div>
@@ -183,7 +183,7 @@ const LctsPartnership = () => {
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mb-12 pl-6 border-l-4 border-[#ED2939]">
-                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                        <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                             Comprehensive Engineering Deliverables
                         </h2>
                     </div>
@@ -222,7 +222,7 @@ const LctsPartnership = () => {
                     <div className="w-full border-t-2 border-[#ED2939] mb-20" />
                     <div className="grid md:grid-cols-2 gap-16">
                         <div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-6 uppercase">Strategic Synergy & Global Compliance</h3>
+                            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 uppercase">Strategic Synergy & Global Compliance</h3>
                             <div className="space-y-6">
                                 <div className="flex gap-4">
                                     <Globe2 className="w-8 h-8 text-[#ED2939] flex-shrink-0" />
@@ -275,7 +275,7 @@ const LctsPartnership = () => {
             <section className="bg-[#ED2939] text-white py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-5xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-12">Built on Trust & Expertise</h2>
+                        <h2 className="text-2xl md:text-4xl font-bold mb-12">Built on Trust & Expertise</h2>
 
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 text-center">
                             <div>

@@ -16,13 +16,13 @@ const Careers = () => {
             <div className="p-3 bg-primary/10 rounded-lg">
               <Heart className="w-8 h-8 text-primary" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+            <h1 className="text-3xl md:text-5xl font-bold text-foreground">
               Life at SEIPL
             </h1>
           </div>
 
           <div className="space-y-8">
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               At Sayantrik Engineers, we believe that our people are our greatest asset. We foster a culture of innovation, collaboration, and continuous learning that empowers our team members to grow both personally and professionally.
             </p>
 
@@ -78,13 +78,13 @@ const Careers = () => {
             <div className="p-3 bg-primary/10 rounded-lg">
               <Briefcase className="w-8 h-8 text-primary" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
               Current Openings
             </h2>
           </div>
 
           <div className="space-y-6">
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               Join our team of engineering professionals and be part of exciting projects that shape the future of the industry. We're always looking for talented individuals who share our passion for excellence.
             </p>
 

@@ -158,13 +158,13 @@ const TechnologyProviders = () => {
                                     PARTNERSHIP PROGRAMME
                                 </span>
                                 <motion.h1
-                                    className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight"
+                                    className="text-2xl md:text-4xl font-bold text-gray-900 leading-tight"
                                     whileInView={{ color: "#111827" }} // Keeping title dark for readability
                                 >
                                     Your Technology. Our Local Expertise.<br />
                                     <span className="text-[#ED2939]">Together, We Deliver.</span>
                                 </motion.h1>
-                                <p className="text-lg text-gray-600 max-w-3xl leading-relaxed text-justify">
+                                <p className="text-base md:text-lg text-gray-600 max-w-3xl leading-relaxed text-justify">
                                     An open invitation to technology licensors, process developers, and equipment suppliers to partner with Sayantrik Engineers for comprehensive project execution across India and emerging markets.
                                 </p>
                             </div>
@@ -205,7 +205,7 @@ const TechnologyProviders = () => {
                         className="scroll-mt-24 p-8 bg-white rounded-2xl border border-gray-200 shadow-sm transition-all duration-500"
                     >
                         <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                            <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                            <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                                 What We Offer
                             </h2>
                             <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
@@ -323,7 +323,7 @@ const TechnologyProviders = () => {
                         className="scroll-mt-24 p-8 bg-white rounded-2xl border border-gray-200 shadow-sm transition-all duration-500"
                     >
                         <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                            <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                            <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                                 Sectors We Support
                             </h2>
                             <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
@@ -368,7 +368,7 @@ const TechnologyProviders = () => {
                         className="scroll-mt-24 p-8 bg-white rounded-2xl border border-gray-200 shadow-sm transition-all duration-500"
                     >
                         <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                            <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                            <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                                 Partnership Models
                             </h2>
                             <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
@@ -442,7 +442,7 @@ const TechnologyProviders = () => {
 
                             <div className="relative z-10 grid md:grid-cols-2 gap-10 items-center">
                                 <div>
-                                    <h2 className="text-2xl md:text-3xl font-bold mb-6">Built on Trust & Expertise</h2>
+                                    <h2 className="text-xl md:text-3xl font-bold mb-6">Built on Trust & Expertise</h2>
                                     <div className="grid grid-cols-2 gap-6 mb-6">
                                         <div>
                                             <div className="text-3xl font-bold mb-1">160+</div>

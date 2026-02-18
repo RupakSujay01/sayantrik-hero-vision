@@ -23,8 +23,8 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <span className="text-primary font-bold tracking-widest uppercase text-lg mb-1 block">Who We Are</span>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-slate-900 tracking-tight leading-tight mb-2 font-heading">
+              <span className="text-primary font-bold tracking-widest uppercase text-sm md:text-lg mb-1 block">Who We Are</span>
+              <h1 className="text-3xl md:text-7xl lg:text-8xl font-bold text-slate-900 tracking-tight leading-tight mb-2 font-heading">
                 SAYANTRIK <span className="text-slate-400">ENGINEERS</span>
               </h1>
             </motion.div>
@@ -35,7 +35,7 @@ const About = () => {
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="max-w-5xl mx-auto"
             >
-              <p className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed whitespace-normal md:whitespace-nowrap">
+              <p className="text-base md:text-2xl text-slate-600 font-light leading-relaxed whitespace-normal md:whitespace-nowrap">
                 Engineering Excellence. <span className="text-foreground font-medium">Founder-Led Accountability.</span> Global Delivery.
               </p>
               <div className="h-1 w-24 bg-primary mx-auto mt-4 rounded-full"></div>
@@ -72,12 +72,12 @@ const About = () => {
         {/* 2. Our Story */}
         <section className="grid md:grid-cols-12 gap-12 items-start border-t border-border pt-16">
           <div className="md:col-span-4">
-            <h2 className="text-3xl font-heading font-bold text-foreground mb-4">Our Story</h2>
-            <p className="text-lg text-muted-foreground font-medium leading-relaxed">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">Our Story</h2>
+            <p className="text-base md:text-lg text-muted-foreground font-medium leading-relaxed">
               From a vision of efficient engineering to a global delivery partner.
             </p>
           </div>
-          <div className="md:col-span-8 space-y-6 text-lg text-slate-700 leading-relaxed text-justify">
+          <div className="md:col-span-8 space-y-6 text-base md:text-lg text-slate-700 leading-relaxed text-justify">
             <p>
               Sayantrik Engineers India Pvt Ltd began with a singularity of purpose: to bridge the gap between complex industrial challenges and seamless execution. Founded over a decade ago, we recognized a critical need in the Oil & Gas and Petrochemical sectors for an engineering partner that could combine deep technical expertise with the agility of a founder-led organization.
             </p>
@@ -100,10 +100,10 @@ const About = () => {
           </div>
           <div className="space-y-8">
             <div>
-              <h2 className="text-3xl font-heading font-bold text-foreground mb-2">The Catalyst</h2>
-              <p className="text-sm font-bold text-primary uppercase tracking-widest">Founding Inspiration</p>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-2">The Catalyst</h2>
+              <p className="text-xs md:text-sm font-bold text-primary uppercase tracking-widest">Founding Inspiration</p>
             </div>
-            <div className="space-y-6 text-lg text-slate-700 leading-relaxed">
+            <div className="space-y-6 text-base md:text-lg text-slate-700 leading-relaxed">
               <p>
                 Our story is rooted in the belief that engineering excellence is not just about calculations, but about ownership. The founding team, comprised of veterans from major EPC organizations, saw an opportunity to create a firm where "good enough" was never acceptable.
               </p>
@@ -120,8 +120,8 @@ const About = () => {
         {/* 4. Company Evolution & Capabilities */}
         <section className="space-y-12 pt-12 border-t border-border">
           <div className="max-w-4xl">
-            <h2 className="text-3xl font-heading font-bold text-foreground mb-6">Evolution of Capabilities</h2>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-6">Evolution of Capabilities</h2>
+            <p className="text-base md:text-xl text-muted-foreground leading-relaxed">
               We have systematically expanded our competencies to offer a full-spectrum EPCM portfolio, evolving from process design specialists to integrated project delivery partners.
             </p>
           </div>
@@ -150,8 +150,8 @@ const About = () => {
         <section className="space-y-12 pb-12 border-b border-border">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6">
             <div className="max-w-2xl">
-              <h2 className="text-3xl font-heading font-bold text-foreground mb-4">Core Values</h2>
-              <p className="text-lg text-muted-foreground">The principles that guide every decision, design, and delivery.</p>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">Core Values</h2>
+              <p className="text-base md:text-lg text-muted-foreground">The principles that guide every decision, design, and delivery.</p>
             </div>
           </div>
 
@@ -187,8 +187,8 @@ const About = () => {
         {/* 6. Leadership */}
         <section className="space-y-16 border-t border-border pt-16">
           <div className="max-w-4xl">
-            <h2 className="text-3xl font-heading font-bold text-foreground mb-4">Leadership</h2>
-            <p className="text-lg text-muted-foreground">Guided by industry veterans with decades of global EPC experience.</p>
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">Leadership</h2>
+            <p className="text-base md:text-lg text-muted-foreground">Guided by industry veterans with decades of global EPC experience.</p>
           </div>
 
           {/* a) Board of Directors */}
@@ -433,8 +433,8 @@ const About = () => {
           <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary to-purple-600"></div>
 
           <div className="max-w-3xl mx-auto space-y-6 relative z-10">
-            <h2 className="text-3xl md:text-5xl font-heading font-bold leading-tight">Ready to Engineer the Future?</h2>
-            <p className="text-lg md:text-xl text-slate-300">
+            <h2 className="text-2xl md:text-5xl font-heading font-bold leading-tight">Ready to Engineer the Future?</h2>
+            <p className="text-base md:text-xl text-slate-300">
               Whether you need a partner for your next complex project or looking to join a team of innovators.
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center pt-6">

@@ -776,24 +776,24 @@ const Services = () => {
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
                 <div className="lg:w-3/4">
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                    <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                       FEL-1 | IDENTIFY
                     </h2>
-                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                    <p className="text-xs md:text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                       Feasibility Study (Concept Development)
                     </p>
                     <div className="max-w-3xl mt-4">
-                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                      <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
                         In FEL-1, we evaluate project options at a conceptual level, review technologies and layouts, estimate costs and schedules at a high level, and identify key risks. The outcome is a recommended concept and business case to justify moving forward.
                       </p>
                     </div>
                   </div>
 
                   <div className="max-w-3xl mb-10 pl-6 flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4">
-                    <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight shrink-0">
+                    <h3 className="text-lg md:text-xl font-black text-gray-900 uppercase tracking-tight shrink-0">
                       PURPOSE:
                     </h3>
-                    <p className="text-lg font-bold text-gray-900 leading-relaxed">
+                    <p className="text-base md:text-lg font-bold text-gray-900 leading-relaxed">
                       Assess whether the project is technically and economically viable.
                     </p>
                   </div>
@@ -847,24 +847,24 @@ const Services = () => {
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
                 <div className="lg:w-3/4">
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                    <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                       FEL-2 | SELECT
                     </h2>
-                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                    <p className="text-xs md:text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                       Pre-FEED (Basis of Design)
                     </p>
                     <div className="max-w-3xl mt-4">
-                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                      <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
                         During FEL-2, engineering definition is matured. We develop the Basis of Design, perform preliminary simulations and equipment sizing, prepare early layouts and PFDs, assess constructability and regulatory needs, and refine cost and schedule accuracy.
                       </p>
                     </div>
                   </div>
 
                   <div className="max-w-3xl mb-10 pl-6 flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4">
-                    <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight shrink-0">
+                    <h3 className="text-lg md:text-xl font-black text-gray-900 uppercase tracking-tight shrink-0">
                       PURPOSE:
                     </h3>
-                    <p className="text-lg font-bold text-gray-900 leading-relaxed">
+                    <p className="text-base md:text-lg font-bold text-gray-900 leading-relaxed">
                       Convert the selected concept into a clearly defined project scope.
                     </p>
                   </div>
@@ -921,14 +921,14 @@ const Services = () => {
                 <div className="lg:w-3/4">
                   {/* Header */}
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                    <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                       FEED | FEL-3
                     </h2>
-                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                    <p className="text-xs md:text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                       Front-End Engineering Design
                     </p>
                     <div className="max-w-3xl">
-                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                      <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
                         The most critical phase for capital cost optimisation. We define the project baseline, identify technical risks, and establish the 30% cost estimate accuracy required for Final Investment Decision (FID).
                       </p>
                     </div>
@@ -1055,14 +1055,14 @@ const Services = () => {
                 <div className="lg:w-3/4">
                   {/* Header */}
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                    <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                       DETAILED ENGINEERING
                     </h2>
-                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                    <p className="text-xs md:text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                       Precision Execution | FEL-4
                     </p>
                     <div className="max-w-3xl">
-                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                      <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
                         We transform the process package into a construction-ready blueprints, encompassing all disciplines from process and mechanical to instrumentation and civil.
                       </p>
                     </div>
@@ -1157,14 +1157,14 @@ const Services = () => {
                 <div className="lg:w-3/4">
                   {/* Header */}
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                    <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                       EPC: Execute
                     </h2>
-                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                    <p className="text-xs md:text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                       Engineering, Procurement & Construction
                     </p>
                     <div className="max-w-3xl">
-                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                      <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
                         Complete engineering backbone for your turnkey projects – from design to commissioning support.
                       </p>
                     </div>
@@ -1231,14 +1231,14 @@ const Services = () => {
                 <div className="lg:w-3/4">
                   {/* Header */}
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                    <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                       EPCM | Full Lifecycle
                     </h2>
-                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                    <p className="text-xs md:text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                       Engineering, Procurement & Construction Management
                     </p>
                     <div className="max-w-3xl">
-                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                      <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
                         Full transparency and control over your project – we manage, you decide.
                       </p>
                     </div>
@@ -1296,14 +1296,14 @@ const Services = () => {
                 <div className="lg:w-3/4">
                   {/* Header */}
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                    <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                       PMC | Full Lifecycle
                     </h2>
-                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                    <p className="text-xs md:text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                       Project Management Consultancy
                     </p>
                     <div className="max-w-3xl">
-                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                      <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
                         Expert oversight that keeps your project on track – schedule, cost, and quality.
                       </p>
                     </div>
@@ -1361,14 +1361,14 @@ const Services = () => {
                 <div className="lg:w-3/4">
                   {/* Header */}
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                    <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                       OWNER'S ENGINEER
                     </h2>
-                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                    <p className="text-xs md:text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                       Technical Advisory & Independent Review
                     </p>
                     <div className="max-w-3xl">
-                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                      <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
                         Your technical guardian – independent expertise protecting your investment through full lifecycle oversight.
                       </p>
                     </div>
@@ -1426,14 +1426,14 @@ const Services = () => {
                 <div className="lg:w-3/4">
                   {/* Header */}
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                    <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                       PROCESS TECHNOLOGY INTEGRATION
                     </h2>
-                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                    <p className="text-xs md:text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                       Licensor Partnership & BOP Engineering
                     </p>
                     <div className="max-w-3xl">
-                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                      <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
                         We bridge the gap between process technology and physical reality, delivering seamless facility integration and Indian regulatory compliance.
                       </p>
                     </div>
@@ -1503,14 +1503,14 @@ const Services = () => {
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
                 <div className="lg:w-3/4">
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                    <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                       BROWNFIELD MODIFICATIONS
                     </h2>
-                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                    <p className="text-xs md:text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                       Plant Revamp & Tie-in Engineering
                     </p>
                     <div className="max-w-3xl">
-                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                      <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
                         We specialise in modifications to live operating assets, where safety, minimal downtime, and exact as-built accuracy are non-negotiable.
                       </p>
                     </div>
@@ -1561,14 +1561,14 @@ const Services = () => {
               <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
                 <div className="lg:w-3/4">
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
-                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                    <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                       LASER SCAN & DIGITAL TWINS
                     </h2>
-                    <p className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
+                    <p className="text-xs md:text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                       Reality Capture & As-Built Modeling
                     </p>
                     <div className="max-w-xl">
-                      <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                      <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
                         Eliminate fit-up issues and manual measurement errors. We convert high-definition point clouds into intelligent 3D CAD models.
                       </p>
                     </div>

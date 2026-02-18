@@ -50,14 +50,15 @@ const Hero = () => {
 
         {/* Content Layer */}
         <motion.div
-          className="relative z-10 container mx-auto px-4 md:px-6 py-6 md:pb-12 w-full flex-grow flex flex-col justify-center"
+          // Mobile: flex-grow-0 and justify-start to prevent gaps. Desktop: flex-grow and justify-center.
+          className={`relative z-10 container mx-auto px-4 md:px-6 w-full flex flex-col ${isMobile ? 'flex-grow-0 justify-start py-8' : 'flex-grow justify-center py-12'}`}
           style={{
             y: isMobile ? 0 : contentY,
             opacity: isMobile ? 1 : contentOpacity,
             scale: isMobile ? 1 : contentScale
           }}
         >
-          <div className="max-w-7xl mx-auto text-center space-y-6 md:space-y-8 mt-16 md:mt-0">
+          <div className="max-w-7xl mx-auto text-center space-y-6 md:space-y-8 mt-4 md:mt-0">
             {/* Main Headline */}
             <h1 className="font-heading leading-tight text-white drop-shadow-md glow-text text-3xl sm:text-4xl md:text-5xl lg:text-7xl break-words">
               Engineering Excellence<br />

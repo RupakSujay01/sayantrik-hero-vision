@@ -10,7 +10,7 @@ export const FloatingActionButtons = () => {
     return (
         <>
             {/* Quality Button - Top Right */}
-            <div className="fixed top-20 right-2 z-40">
+            <div className="fixed top-40 md:top-20 right-2 z-40">
                 <Link to="/quality">
                     <Button
                         size="sm"
@@ -25,7 +25,7 @@ export const FloatingActionButtons = () => {
             </div>
 
             {/* HSE Button - Below Quality Button */}
-            <div className="fixed top-32 right-2 z-40">
+            <div className="fixed top-56 md:top-32 right-2 z-40">
                 <Link to="/hse">
                     <Button
                         size="sm"

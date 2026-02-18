@@ -13,10 +13,10 @@ const Contact = () => {
         url="/contact"
       />
       <div className="container mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 animate-fade-in">
+        <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4 animate-fade-in">
           Contact Us
         </h1>
-        <p className="text-xl text-muted-foreground mb-12">
+        <p className="text-lg md:text-xl text-muted-foreground mb-12">
           We're Here to Serve You
         </p>
 
@@ -25,7 +25,7 @@ const Contact = () => {
           <div className="space-y-8">
             {/* Head Office */}
             <div className="bg-card border border-border rounded-lg p-6 animate-fade-in hover:shadow-xl hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] group">
-              <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2 group-hover:gap-3 transition-all duration-300">
+              <h2 className="text-xl md:text-2xl font-bold text-primary mb-4 flex items-center gap-2 group-hover:gap-3 transition-all duration-300">
                 <MapPin className="h-6 w-6 group-hover:text-primary-glow transition-colors duration-300" />
                 Head Office Address
               </h2>
@@ -51,7 +51,7 @@ const Contact = () => {
 
             {/* Contact Details */}
             <div className="bg-card border border-border rounded-lg p-6 space-y-6 hover:shadow-xl hover:border-primary/50 transition-all duration-300">
-              <h2 className="text-2xl font-bold text-primary mb-4">Contact Information</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-primary mb-4">Contact Information</h2>
 
               <div className="space-y-4">
                 <div>
@@ -94,7 +94,7 @@ const Contact = () => {
 
             {/* Business Hours */}
             <div className="bg-card border border-border rounded-lg p-6 hover:shadow-xl hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] group">
-              <h2 className="text-2xl font-bold text-primary mb-4 flex items-center gap-2 group-hover:gap-3 transition-all duration-300">
+              <h2 className="text-xl md:text-2xl font-bold text-primary mb-4 flex items-center gap-2 group-hover:gap-3 transition-all duration-300">
                 <Clock className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
                 Business Hours
               </h2>
@@ -105,7 +105,7 @@ const Contact = () => {
 
             {/* Social Media */}
             <div className="bg-card border border-border rounded-lg p-6 hover:shadow-xl hover:border-primary/50 transition-all duration-300">
-              <h2 className="text-2xl font-bold text-primary mb-4">Connect with Us</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-primary mb-4">Connect with Us</h2>
               <div className="flex gap-4">
                 <a
                   href="https://www.linkedin.com/company/sayantrikengineers"
@@ -121,7 +121,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="bg-card border border-border rounded-lg p-8 animate-fade-in hover:shadow-xl hover:border-primary/50 transition-all duration-300">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Get In Touch</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-foreground mb-6">Get In Touch</h2>
             <form className="space-y-6">
               <div className="group">
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2 group-focus-within:text-primary transition-colors duration-300">

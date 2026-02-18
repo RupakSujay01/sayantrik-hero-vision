@@ -115,7 +115,7 @@ const CSR = () => {
       />
 
       {/* SECTION 1: HERO & PHILOSOPHY */}
-      <section className="relative pt-32 pb-20 px-6 bg-slate-900 text-white overflow-hidden">
+      <section className="relative pt-24 pb-12 px-6 bg-slate-900 text-white overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -143,16 +143,16 @@ const CSR = () => {
               <span>Let These Smiles Never Fade</span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-4 leading-none">
+            <h1 className="text-3xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter mb-4 leading-none">
               Corporate Social <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">Responsibility</span>
             </h1>
 
-            <h2 className="text-xl md:text-2xl text-slate-400 font-medium mb-8">
+            <h2 className="text-lg md:text-2xl text-slate-400 font-medium mb-8">
               Building Tomorrow's Future, Today
             </h2>
 
-            <div className="prose prose-lg prose-invert text-slate-300 leading-relaxed mb-12 max-w-3xl text-justify">
+            <div className="prose prose-base md:prose-lg prose-invert text-slate-300 leading-relaxed mb-12 max-w-3xl text-justify">
               <p className="mb-4">
                 At Sayantrik Engineers, we believe that true success extends beyond business metrics. As an organisation that has grown from a small startup in 2012 to a multinational engineering consultancy, we recognise our responsibility to give back to the communities that have supported our journey.
               </p>
@@ -178,15 +178,15 @@ const CSR = () => {
       </section>
 
       {/* SECTION 2: THE PROBLEM */}
-      <section className="py-20 px-6 bg-slate-50">
+      <section className="py-12 px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <h2 className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mb-2">The Reality</h2>
-              <h3 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight mb-6">
+              <h3 className="text-2xl md:text-4xl font-black text-slate-900 uppercase tracking-tight mb-6">
                 The Problem Kadam Addresses
               </h3>
-              <p className="text-lg text-slate-600 leading-relaxed mb-8 text-justify">
+              <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-8 text-justify">
                 While more children in India are being enrolled in schools today, a significant number—particularly girls—drop out within a few years. They become invisible, lost in the cracks of our society.
               </p>
               <div className="w-full h-[320px] relative rounded-2xl overflow-hidden shadow-xl group">
@@ -230,7 +230,7 @@ const CSR = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-sm font-bold text-[#ED2939] uppercase tracking-widest mb-2">Our Approach</h2>
-            <h3 className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tight">
+            <h3 className="text-2xl md:text-5xl font-black text-slate-900 uppercase tracking-tight">
               How Kadam Works
             </h3>
             <p className="text-slate-500 mt-2 font-medium">Streets to School to Success</p>
@@ -258,7 +258,7 @@ const CSR = () => {
       <section className="py-20 px-6 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight mb-4">
+            <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight mb-4">
               Beyond Education: <span className="text-[#ED2939]">Holistic Development</span>
             </h2>
           </div>
@@ -321,7 +321,7 @@ const CSR = () => {
       <section className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight">
+            <h2 className="text-2xl md:text-4xl font-black text-slate-900 uppercase tracking-tight">
               Sayantrik + Kadam Partnership
             </h2>
             <div className="w-24 h-1 bg-[#ED2939] mx-auto mt-6" />
@@ -374,7 +374,7 @@ const CSR = () => {
       {/* SECTION 7: CTA FOOTER */}
       <section className="py-20 px-6 bg-[#ED2939] text-white text-center">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-8">
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-8">
             Join Us in Making a Difference
           </h2>
           <div className="flex flex-wrap justify-center gap-4 mb-12">
