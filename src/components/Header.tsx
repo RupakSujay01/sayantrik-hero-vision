@@ -222,27 +222,28 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
-          <Button variant="ghost" size="icon" className="md:hidden text-black" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
+          {/* Mobile Navigation - Horizontal Scroll Bar */}
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden py-6 space-y-4 animate-fade-in bg-white/95 backdrop-blur-md rounded-b-xl px-6 absolute top-16 left-0 right-0 border-b border-border/20 shadow-xl h-[calc(100vh-4rem)] flex flex-col justify-start pt-10">
-            {navItems.map((item) => (
+      {/* Mobile Nav Bar - Below Logo */}
+      <div className="md:hidden border-t border-border/20 overflow-x-auto no-scrollbar bg-white/95 backdrop-blur-sm">
+        <div className="flex items-center whitespace-nowrap px-4 h-10">
+          {navItems.map((item, index) => (
+            <div key={item.path} className="flex items-center">
               <Link
-                key={item.path}
                 to={item.path}
-                onClick={() => setIsMenuOpen(false)}
-                className={`block py-3 text-lg font-semibold transition-colors hover:text-primary text-black text-center border-b border-gray-100 last:border-0`}
+                className={`text-xs font-semibold uppercase tracking-wide px-3 py-1 ${isActive(item.path) ? "text-primary" : "text-slate-600"}`}
               >
                 {item.label}
               </Link>
-            ))}
-          </nav>
-        )}
+              {/* Divider Line (except for last item) */}
+              {index < navItems.length - 1 && (
+                <div className="h-3 w-[1px] bg-border px-[0.5px] mx-1 opacity-50" />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </header>
   );

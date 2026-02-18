@@ -50,7 +50,7 @@ const Hero = () => {
 
         {/* Content Layer */}
         <motion.div
-          className="relative z-10 container mx-auto px-4 md:px-6 py-12 md:pb-12 w-full flex-grow flex flex-col justify-center"
+          className="relative z-10 container mx-auto px-4 md:px-6 py-6 md:pb-12 w-full flex-grow flex flex-col justify-center"
           style={{
             y: isMobile ? 0 : contentY,
             opacity: isMobile ? 1 : contentOpacity,
@@ -59,7 +59,7 @@ const Hero = () => {
         >
           <div className="max-w-7xl mx-auto text-center space-y-6 md:space-y-8 mt-16 md:mt-0">
             {/* Main Headline */}
-            <h1 className="font-heading leading-tight text-foreground glow-text text-3xl sm:text-4xl md:text-5xl lg:text-7xl break-words">
+            <h1 className="font-heading leading-tight text-white drop-shadow-md glow-text text-3xl sm:text-4xl md:text-5xl lg:text-7xl break-words">
               Engineering Excellence<br />
               Global Delivery<br />
               Innovation Leadership
@@ -72,7 +72,7 @@ const Hero = () => {
 
             {/* CTAs */}
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8 text-center bg-white/50 backdrop-blur-md rounded-xl p-3 md:p-6 shadow-xl border border-white/20 mt-6 md:mt-8 mx-auto max-w-full">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8 text-center bg-white/50 backdrop-blur-md rounded-xl p-3 md:p-6 shadow-xl border border-white/20 mt-3 md:mt-8 mx-auto max-w-full">
               <div className="space-y-1 md:space-y-2">
                 <div className="text-2xl md:text-4xl font-heading font-extrabold text-primary">2012</div>
                 <div className="text-[10px] md:text-sm text-foreground font-bold uppercase tracking-wide">Established</div>
@@ -95,7 +95,7 @@ const Hero = () => {
 
         {/* Stats Banner CTA - Synchronized with content */}
         <motion.div
-          className={`${isMobile ? 'relative pb-12' : 'absolute bottom-0 left-0 right-0'} z-10`}
+          className={`${isMobile ? 'relative pb-6' : 'absolute bottom-0 left-0 right-0'} z-10`}
           style={{
             y: isMobile ? 0 : contentY,
             opacity: isMobile ? 1 : contentOpacity,
