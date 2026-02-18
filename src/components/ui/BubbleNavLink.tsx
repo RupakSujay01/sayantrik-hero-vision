@@ -11,21 +11,19 @@ interface BubbleNavLinkProps {
     onClick?: () => void;
     to?: string;
     accentColor?: 'red' | 'green';
+    className?: string;
 }
 
 // Defined OUTSIDE to ensure stability and prevent re-animation on re-renders
 const MotionButton = motion.button;
 const MotionLink = motion.create(Link);
 
-export const BubbleNavLink = ({
-    id,
-    label,
-    isActive,
-    index,
+index,
     totalItems,
     onClick,
     to,
-    accentColor = 'red'
+    accentColor = 'red',
+    className
 }: BubbleNavLinkProps) => {
     const centerIndex = Math.floor(totalItems / 2);
 
@@ -59,13 +57,12 @@ export const BubbleNavLink = ({
         }
     };
 
-    const baseClasses = cn(
-        "w-full text-left px-6 py-3.5 text-sm font-bold rounded-full transition-colors duration-300 border shadow-sm block relative group",
-        isActive
-            ? accentColor === 'green'
-                ? "bg-gradient-to-r from-[#40a829]/10 to-white text-[#40a829] border-[#40a829] shadow-md"
-                : "bg-gradient-to-r from-[#ED2939]/10 to-white text-[#ED2939] border-[#ED2939] shadow-md"
-            : "bg-white text-gray-600 border-gray-200 hover:border-gray-300 hover:bg-gray-50 hover:shadow-md"
+    isActive
+        ? accentColor === 'green'
+            ? "bg-gradient-to-r from-[#40a829]/10 to-white text-[#40a829] border-[#40a829] shadow-md"
+            : "bg-gradient-to-r from-[#ED2939]/10 to-white text-[#ED2939] border-[#ED2939] shadow-md"
+        : "bg-white text-gray-600 border-gray-200 hover:border-gray-300 hover:bg-gray-50 hover:shadow-md",
+        className
     );
 
     const content = (

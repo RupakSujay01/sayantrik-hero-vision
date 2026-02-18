@@ -43,9 +43,9 @@ const About = () => {
           </div>
         </div>
 
-        {/* Metric Grid - White Strip */}
-        <div className="w-full bg-slate-50 border-y border-border -mx-6 md:-mx-0 px-6 md:rounded-lg mb-24">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-x divide-border">
+        {/* Metric Grid - Centered Box Style */}
+        <div className="w-full max-w-6xl mx-auto bg-slate-50 border border-border rounded-xl mb-24 p-6 shadow-sm">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {[
               { value: "13+", label: "Years in Operation" },
               { value: "150+", label: "Engineering Professionals" },
@@ -56,13 +56,13 @@ const About = () => {
             ].map((metric, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="py-12 px-4 flex flex-col items-center justify-center text-center hover:bg-white transition-colors group"
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                className="flex flex-col items-center justify-center text-center group"
               >
-                <span className="text-3xl md:text-4xl font-bold text-[#1B264F] mb-3 font-heading tracking-tight group-hover:scale-110 transition-transform duration-300">{metric.value}</span>
+                <span className="text-3xl md:text-4xl font-bold text-[#1B264F] mb-2 font-heading tracking-tight group-hover:text-primary transition-colors duration-300">{metric.value}</span>
                 <span className="text-xs md:text-sm text-slate-500 font-medium uppercase tracking-wide leading-tight">{metric.label}</span>
               </motion.div>
             ))}

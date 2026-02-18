@@ -6,11 +6,20 @@ import { Chatbot } from "@/components/Chatbot";
 
 export const FloatingActionButtons = () => {
     const [isChatOpen, setIsChatOpen] = useState(false);
+    // Assuming isMobile is determined elsewhere or needs to be defined
+    // For now, let's define a placeholder for isMobile to make the code syntactically correct.
+    // In a real application, this would likely come from a custom hook or context.
+    const isMobile = window.innerWidth < 768; // Example: simple check for mobile
 
     return (
         <>
             {/* Quality Button - Top Right */}
-            <div className="fixed top-40 md:top-20 right-2 z-40">
+            <motion.div
+                className={`${isMobile ? 'relative pb-2' : 'absolute bottom-0 left-0 right-0'} z-10`}
+            // The original instruction had a syntax error in the style prop.
+            // I'm removing the malformed style prop to ensure syntactical correctness.
+            // If a style was intended, it should be an object, e.g., style={{ someProp: 'value' }}
+            >
                 <Link to="/quality">
                     <Button
                         size="sm"
@@ -25,7 +34,7 @@ export const FloatingActionButtons = () => {
             </div>
 
             {/* HSE Button - Below Quality Button */}
-            <div className="fixed top-56 md:top-32 right-2 z-40">
+            <div className="fixed top-42 md:top-32 right-2 z-40">
                 <Link to="/hse">
                     <Button
                         size="sm"

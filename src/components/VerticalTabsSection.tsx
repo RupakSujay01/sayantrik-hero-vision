@@ -82,7 +82,7 @@ export const VerticalTabsSection = ({
                     <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 px-4">
                         Navigation
                     </h3>
-                    <div className="flex flex-col gap-4 h-[calc(100vh-160px)] overflow-y-auto pr-2 pb-4 custom-scrollbar overscroll-contain">
+                    <div className="flex flex-row md:flex-col gap-4 overflow-x-auto md:overflow-y-auto pb-4 md:pb-0 md:h-[calc(100vh-160px)] pr-2 custom-scrollbar overscroll-contain snap-x md:snap-none">
                         {data.map((item, index) => (
                             <BubbleNavLink
                                 key={item.id}
@@ -93,14 +93,15 @@ export const VerticalTabsSection = ({
                                 totalItems={data.length}
                                 onClick={() => setActiveId(item.id)}
                                 accentColor={accentColor}
+                                className="w-auto md:w-full flex-shrink-0 whitespace-nowrap snap-start"
                             />
                         ))}
                     </div>
                 </div>
 
                 {/* Right Column - Content (Independent Scroll) */}
-                <div className="flex-1 pr-6 md:pr-12">
-                    <div id="portfolio-content-area" className="bg-white rounded-2xl p-6 md:p-10 border border-gray-100 shadow-sm h-[calc(100vh-160px)] overflow-y-auto custom-scrollbar overscroll-contain">
+                <div className="flex-1 pr-0 md:pr-12">
+                    <div id="portfolio-content-area" className="bg-white rounded-2xl p-6 md:p-10 border border-gray-100 shadow-sm h-auto md:h-[calc(100vh-160px)] overflow-visible md:overflow-y-auto custom-scrollbar overscroll-contain">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeItem.id}
@@ -115,12 +116,12 @@ export const VerticalTabsSection = ({
                                 className="space-y-6"
                             >
                                 <div className={cn("mb-8 pl-6 border-l-4", accentColor === 'green' ? "border-[#40a829]" : "border-[#ED2939]")}>
-                                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
+                                    <h2 className={cn("text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter", accentColor === 'green' ? "text-[#40a829]" : "text-gray-900")}>
                                         {activeItem.title}
                                     </h2>
                                     {/* Optional Subtitle if we had one, for now just the standardized title */}
                                 </div>
-                                <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
+                                <div className="space-y-4 text-base md:text-lg text-gray-600 leading-relaxed">
                                     {activeItem.description.map((line, idx) => {
                                         // Header: **Text**
                                         if (line.startsWith('**') && line.endsWith('**')) {
