@@ -230,13 +230,13 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="md:hidden py-4 space-y-3 animate-fade-in bg-background/90 backdrop-blur-sm rounded-lg px-4">
+          <nav className="md:hidden py-6 space-y-4 animate-fade-in bg-white/95 backdrop-blur-md rounded-b-xl px-6 absolute top-16 left-0 right-0 border-b border-border/20 shadow-xl h-[calc(100vh-4rem)] flex flex-col justify-start pt-10">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block py-2 text-sm font-medium transition-colors hover:text-primary text-black`}
+                className={`block py-3 text-lg font-semibold transition-colors hover:text-primary text-black text-center border-b border-gray-100 last:border-0`}
               >
                 {item.label}
               </Link>

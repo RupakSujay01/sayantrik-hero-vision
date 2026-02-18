@@ -1,8 +1,14 @@
 import { Users, Building2, Heart, Briefcase, Calendar, MapPin, Clock } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const Careers = () => {
   return (
     <main className="min-h-screen bg-background">
+      <SEO
+        title="Careers"
+        description="Join Sayantrik Engineers. Explore exciting career opportunities in engineering, project management, and design."
+        url="/careers"
+      />
       <div className="container mx-auto px-6 py-10 md:py-20">
         {/* Life at SEIPL Section */}
         <section className="mb-16 animate-fade-in">

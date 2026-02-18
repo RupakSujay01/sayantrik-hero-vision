@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { CheckCircle2, ChevronRight, Plus, Building2, Factory, Zap, Leaf } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { BubbleNavLink } from '@/components/ui/BubbleNavLink';
+import { SEO } from "@/components/SEO";
 
 const TechnologyProviders = () => {
     const [activeSection, setActiveSection] = useState('opportunity');
@@ -86,6 +87,11 @@ const TechnologyProviders = () => {
 
     return (
         <div className="min-h-screen bg-white">
+            <SEO
+                title="Technology Providers"
+                description="Join Sayantrik Engineers as a technology partner. We offer local expertise and seamless integration for global technology licensors."
+                url="/technology-providers"
+            />
             <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 py-6 lg:py-12 flex flex-col lg:flex-row gap-8 lg:gap-16 relative">
 
                 {/* Sticky Sidebar - Desktop Only */}

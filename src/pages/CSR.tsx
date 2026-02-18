@@ -46,6 +46,8 @@ const CountUp = ({ end, suffix = "", label, className }: { end: number, suffix?:
   );
 };
 
+import { SEO } from "@/components/SEO";
+
 const CSR = () => {
   // Section 2: The Problem Data
   const problems = [
@@ -106,6 +108,11 @@ const CSR = () => {
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
+      <SEO
+        title="CSR Initiatives"
+        description="Our Corporate Social Responsibility initiatives focusing on child welfare, education, and holistic development through Kadam Public Charitable Trust."
+        url="/csr"
+      />
 
       {/* SECTION 1: HERO & PHILOSOPHY */}
       <section className="relative pt-32 pb-20 px-6 bg-slate-900 text-white overflow-hidden">
@@ -391,7 +398,7 @@ const CSR = () => {
             style={{
               textShadow: "0 0 20px rgba(255,255,255,0.5)"
             }}
-            className="mt-12 text-sm md:text-xl font-sans font-bold text-black uppercase tracking-widest inline-block whitespace-nowrap"
+            className="mt-12 text-sm md:text-xl font-sans font-bold text-black uppercase tracking-widest inline-block whitespace-normal md:whitespace-nowrap"
           >
             Building Tomorrow's Infrastructure, Supporting Tomorrow's Leaders.
           </p>

@@ -1,4 +1,5 @@
 
+import { SEO } from "@/components/SEO";
 
 const HSE = () => {
     const sections = [
@@ -66,6 +67,11 @@ const HSE = () => {
 
     return (
         <div className="pt-24 pb-16 relative overflow-hidden">
+            <SEO
+                title="HSE Quality"
+                description="Sayantrik Engineers is committed to the highest standards of Health, Safety, and Environmental protection. Safety first, always."
+                url="/hse"
+            />
             {/* Green Gradient Background */}
             <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-green-50 via-emerald-50 to-green-100" />

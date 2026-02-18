@@ -1,9 +1,15 @@
 import { motion } from "framer-motion";
 import { Users, Building2, Heart, Briefcase, Calendar, MapPin, Clock } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const About = () => {
   return (
     <main className="min-h-screen bg-background">
+      <SEO
+        title="About Us"
+        description="Learn about Sayantrik Engineers' journey, leadership, and commitment to engineering excellence and founder-led accountability."
+        url="/about"
+      />
       <div className="container mx-auto px-6 py-10 md:py-20 space-y-24">
 
         {/* 1. Hero Section - Modern Clean Style */}
@@ -29,7 +35,7 @@ const About = () => {
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               className="max-w-5xl mx-auto"
             >
-              <p className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed whitespace-nowrap">
+              <p className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed whitespace-normal md:whitespace-nowrap">
                 Engineering Excellence. <span className="text-foreground font-medium">Founder-Led Accountability.</span> Global Delivery.
               </p>
               <div className="h-1 w-24 bg-primary mx-auto mt-4 rounded-full"></div>

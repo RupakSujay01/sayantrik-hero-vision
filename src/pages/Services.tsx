@@ -12,6 +12,7 @@ import {
 
 import { BubbleNavLink } from "@/components/ui/BubbleNavLink";
 import Footer from "@/components/Footer";
+import { SEO } from "@/components/SEO";
 
 const Services = () => {
   const lifecycleSteps = [
@@ -626,6 +627,11 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Services"
+        description="Comprehensive engineering services including Feasibility Studies (FEL-1/2/3), Detailed Engineering, EPCM, and Laser Scanning."
+        url="/services"
+      />
 
 
       {/* Header and Lifecycle moved inside content area */}
@@ -665,7 +671,7 @@ const Services = () => {
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
                   className={cn(
-                    "px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap transition-colors",
+                    "px-5 py-3 rounded-full text-base font-bold whitespace-nowrap transition-colors transform active:scale-95",
                     activeSection === section.id
                       ? "bg-[#ED2939] text-white shadow-md"
                       : "bg-gray-100 text-gray-600 hover:bg-gray-200"

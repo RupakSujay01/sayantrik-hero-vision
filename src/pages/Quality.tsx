@@ -1,9 +1,15 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, ShieldCheck, Award } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const Quality = () => {
     return (
         <div className="min-h-screen bg-white">
+            <SEO
+                title="Quality Policy"
+                description="Our Quality Policy: Excellence in every deliverable, integrity in every action. ISO 9001:2015 Certified."
+                url="/quality"
+            />
             {/* Hero Section */}
             <section className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-black text-white">
                 <div className="absolute inset-0 z-0">

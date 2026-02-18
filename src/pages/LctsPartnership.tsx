@@ -1,10 +1,16 @@
 import { motion } from "framer-motion";
+import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 import { CheckCircle2, ShieldCheck, Zap, Factory, Globe2, Users, Layout, Settings } from "lucide-react";
 
 const LctsPartnership = () => {
     return (
-        <div className="min-h-screen bg-white">
+        <main className="min-h-screen bg-white">
+            <SEO
+                title="LCTS Partnership"
+                description="Explore our strategic partnership with LCTS, enhancing our capabilities in refinery and petrochemical process technologies."
+                url="/lcts-partnership"
+            />
             {/* Hero Section */}
             <section className="relative text-white pt-32 pb-20 overflow-hidden">
                 <h1 className="absolute top-4 left-4 md:top-10 md:left-10 text-4xl md:text-5xl font-bold text-white uppercase tracking-wider z-20">
@@ -314,7 +320,7 @@ const LctsPartnership = () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
     );
 };
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { SEO } from "@/components/SEO";
 
 export interface Project {
     name: string;
@@ -38,6 +39,11 @@ const ProjectSection = ({ title, subtitle, projects }: ProjectSectionProps) => {
 
     return (
         <section>
+            <SEO
+                title={title}
+                description={`${title} - ${subtitle}. Explore our delivered projects.`}
+                url="/projects"
+            />
             <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
                 <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                     {title}

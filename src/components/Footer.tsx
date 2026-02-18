@@ -7,13 +7,13 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           {/* Company Info & Corporate Responsibility */}
-          <div className="space-y-8">
-            <div>
+          <div className="space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="w-full">
               <h3 className="text-xl font-bold text-primary mb-4">
                 Sayantrik Engineer India Pvt Ltd
               </h3>
 
-              <div className="flex gap-4">
+              <div className="flex gap-4 justify-center md:justify-start">
                 <a
                   href="mailto:info@sayantrik.com"
                   className="text-muted-foreground hover:text-primary transition-colors"
@@ -53,16 +53,16 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="text-right flex flex-col items-end justify-start">
+          <div className="text-center md:text-right flex flex-col items-center md:items-end justify-start">
             <h3 className="text-xl font-bold text-primary mb-4">
               Contact Us
             </h3>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-sm text-muted-foreground justify-end">
+            <ul className="space-y-3 w-full">
+              <li className="flex items-center gap-2 text-sm text-muted-foreground justify-center md:justify-end">
                 <span>info@sayantrik.com</span>
                 <Mail className="h-4 w-4 flex-shrink-0" />
               </li>
-              <li className="flex items-center gap-2 text-sm text-muted-foreground justify-end">
+              <li className="flex items-center gap-2 text-sm text-muted-foreground justify-center md:justify-end">
                 <span>+91 79955 79900</span>
                 <Phone className="h-4 w-4 flex-shrink-0" />
               </li>

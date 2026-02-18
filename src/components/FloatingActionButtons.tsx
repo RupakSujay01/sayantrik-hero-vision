@@ -17,7 +17,7 @@ export const FloatingActionButtons = () => {
                         className="h-10 w-auto rounded-full shadow-lg bg-[#40a829] hover:bg-[#40a829]/90 text-white transition-all duration-500 ease-in-out flex items-center justify-center overflow-hidden px-3"
                     >
                         <CheckCircle2 className="h-5 w-5 flex-shrink-0 mr-0.5" />
-                        <span className="whitespace-nowrap font-semibold text-xs">
+                        <span className="whitespace-nowrap font-semibold text-xs hidden md:inline">
                             Quality Deliverables is our Core value
                         </span>
                     </Button>
@@ -32,7 +32,7 @@ export const FloatingActionButtons = () => {
                         className="h-10 w-auto rounded-full shadow-lg bg-[#40a829] hover:bg-[#40a829]/90 text-white transition-all duration-500 ease-in-out flex items-center justify-center overflow-hidden px-3"
                     >
                         <CheckCircle2 className="h-5 w-5 flex-shrink-0 mr-0.5" />
-                        <span className="whitespace-nowrap font-semibold text-xs">
+                        <span className="whitespace-nowrap font-semibold text-xs hidden md:inline">
                             Safety First, Always
                         </span>
                     </Button>
