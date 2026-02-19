@@ -28,6 +28,7 @@ import FeedProjects from "./pages/projects/FeedProjects";
 import DetailProjects from "./pages/projects/DetailProjects";
 import AsBuiltProjects from "./pages/projects/AsBuiltProjects";
 import PreBidProjects from "./pages/projects/PreBidProjects";
+import DigitalisationProjects from "./pages/projects/DigitalisationProjects";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -82,6 +83,7 @@ const AppContent = () => {
               <Route path="detail" element={<DetailProjects />} />
               <Route path="as-built" element={<AsBuiltProjects />} />
               <Route path="pre-bid" element={<PreBidProjects />} />
+              <Route path="digitalisation" element={<DigitalisationProjects />} />
             </Route>
 
             <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />

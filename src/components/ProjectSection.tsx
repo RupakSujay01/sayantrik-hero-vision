@@ -85,7 +85,11 @@ const ProjectSection = ({ title, subtitle, projects }: ProjectSectionProps) => {
                                         textShadow: '0 0 10px rgba(255,255,255,0.8)'
                                     }}
                                 >
-                                    {project.name}
+                                    {project.name.split('\n').map((line, i) => (
+                                        <span key={i} className="block">
+                                            {line}
+                                        </span>
+                                    ))}
                                 </h3>
                             </div>
                         </CardContent>
@@ -107,7 +111,11 @@ const ProjectSection = ({ title, subtitle, projects }: ProjectSectionProps) => {
                                     </span>
                                 </div>
                                 <DialogTitle className="text-3xl md:text-5xl font-black text-slate-900 leading-tight mb-2">
-                                    {selectedProject?.name}
+                                    {selectedProject?.name.split('\n').map((line, i) => (
+                                        <span key={i} className="block">
+                                            {line}
+                                        </span>
+                                    ))}
                                 </DialogTitle>
                             </DialogHeader>
                             <div className="prose prose-lg text-slate-600 leading-relaxed text-left">
