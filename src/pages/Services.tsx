@@ -1,5 +1,5 @@
 ﻿import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 
 import { BubbleNavLink } from "@/components/ui/BubbleNavLink";
-import Footer from "@/components/Footer";
 import { SEO } from "@/components/SEO";
 
 const Services = () => {
@@ -207,96 +206,53 @@ const Services = () => {
 
   const [activeSection, setActiveSection] = useState("feed");
 
+  const location = useLocation();
+
+  // Scroll to hash on mount or hash change
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      // Small delay to ensure content is rendered
+      const timeoutId = setTimeout(() => {
+        scrollToSection(id);
+      }, 100);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [location.hash]);
+
   // Scroll Spy to update active section
   useEffect(() => {
-    const contentArea = document.getElementById('services-content-area');
-
     const handleScroll = () => {
-      const isMobile = window.innerWidth < 1024;
+      const scrollPosition = window.scrollY + 130;
+      for (const section of serviceSections) {
+        const element = document.getElementById(section.id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const absoluteTop = rect.top + window.scrollY;
+          const absoluteBottom = rect.bottom + window.scrollY;
 
-      if (isMobile) {
-        // Mobile: Scroll is on window
-        const scrollPosition = window.scrollY + 300; // Increased offset for mobile header + nav
-
-        for (const section of serviceSections) {
-          const element = document.getElementById(section.id);
-          if (element) {
-            // Get position relative to document
-            const rect = element.getBoundingClientRect();
-            const absoluteTop = rect.top + window.scrollY;
-            const absoluteBottom = rect.bottom + window.scrollY;
-
-            if (scrollPosition >= absoluteTop && scrollPosition < absoluteBottom) {
-              setActiveSection(section.id);
-              break;
-            }
-          }
-        }
-      } else {
-        // Desktop: Scroll is on contentArea
-        if (!contentArea) return;
-
-        // Use scrollTop of the container + offset
-        const scrollPosition = contentArea.scrollTop + 150;
-
-        for (const section of serviceSections) {
-          const element = document.getElementById(section.id);
-          if (element) {
-            const areaRect = contentArea.getBoundingClientRect();
-            const elemRect = element.getBoundingClientRect();
-
-            // Calculate element's top position relative to container's visible top
-            const relativeTop = elemRect.top - areaRect.top + contentArea.scrollTop;
-            const relativeBottom = elemRect.bottom - areaRect.top + contentArea.scrollTop;
-
-            if (scrollPosition >= relativeTop && scrollPosition < relativeBottom) {
-              setActiveSection(section.id);
-              break;
-            }
+          if (scrollPosition >= absoluteTop && scrollPosition < absoluteBottom) {
+            setActiveSection(section.id);
+            break;
           }
         }
       }
     };
 
-    // Attach listeners based on initial view, but also handle dynamic changes if possible.
-    // Ideally we should listen to both or handle resize. 
-    // For robust hybrid behavior:
-    window.addEventListener("scroll", handleScroll); // Covers mobile
-    if (contentArea) contentArea.addEventListener("scroll", handleScroll); // Covers desktop container
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (contentArea) contentArea.removeEventListener("scroll", handleScroll);
-    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    const contentArea = document.getElementById('services-content-area');
-    const isMobile = window.innerWidth < 1024;
-
     if (element) {
-      if (isMobile) {
-        // Mobile: Scroll window
-        const headerOffset = 220; // Height of header + mobile nav sticky bar
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
-      } else if (contentArea) {
-        // Desktop: Scroll container
-        const areaRect = contentArea.getBoundingClientRect();
-        const elemRect = element.getBoundingClientRect();
-
-        // Target scroll position = current scrollTop + (element top relative to viewport - content top relative to viewport) - offset
-        const offset = 40; // Small top padding
-        const targetScroll = contentArea.scrollTop + (elemRect.top - areaRect.top) - offset;
-
-        contentArea.scrollTo({ top: targetScroll, behavior: 'smooth' });
-      }
+      const offset = 130;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "auto"
+      });
       setActiveSection(id);
     }
   };
@@ -677,11 +633,11 @@ const Services = () => {
 
       {/* Main Content with Sidebar */}
       {/* Split Layout: Responsive - Fixed Height Only on Large Screens */}
-      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 lg:h-[calc(100vh-80px)] lg:overflow-hidden h-auto overflow-visible">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 h-auto lg:h-full">
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 h-auto overflow-visible">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 h-auto">
 
-          {/* Left Navigation - Sticky/Fixed-Height on Desktop, Hidden/Different on Mobile */}
-          <div className="hidden lg:block w-72 flex-shrink-0 h-full overflow-y-auto overscroll-contain custom-scrollbar pb-20">
+          {/* Left Navigation - Sticky */}
+          <div className="hidden lg:block w-72 flex-shrink-0 sticky top-32 h-fit pb-20">
             <div className="space-y-2 pr-4 pt-10">
               <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6 px-4">
                 Services
@@ -722,8 +678,8 @@ const Services = () => {
             </div>
           </div>
 
-          {/* Right Content - Responsive scrolling */}
-          <div id="services-content-area" className="flex-1 h-auto lg:h-full lg:overflow-y-auto lg:overscroll-contain custom-scrollbar pb-20 lg:pb-32 lg:pr-4 pt-4 lg:pt-10">
+          {/* Right Content */}
+          <div id="services-content-area" className="flex-1 h-auto lg:pr-4 pt-4 lg:pt-10">
 
             <div className="pt-0 pb-0">
               {/* 2. Section Title - Premium Centered Hybrid */}
@@ -988,29 +944,7 @@ const Services = () => {
                     ))}
                   </div>
 
-                  {/* Strategic Partnership Box - Moved Horizontal */}
-                  <div className="mt-8 bg-slate-900 text-white p-8 rounded-2xl relative overflow-hidden group flex flex-col md:flex-row items-center gap-8">
 
-                    <div className="relative z-10 flex-1 text-center md:text-left">
-                      <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
-                        <h4 className="text-[#ED2939] font-black uppercase tracking-widest text-sm">Strategic Partnership</h4>
-                        <span className="w-1 h-1 rounded-full bg-white/20"></span>
-                        <span className="text-gray-400 text-xs font-bold uppercase tracking-wider">Energy Sector Focus</span>
-                      </div>
-                      <h3 className="text-2xl font-bold mb-3">LCTS Partnership</h3>
-                      <p className="text-gray-300 text-sm leading-relaxed max-w-2xl">
-                        For refinery, petrochemical, and LNG projects, leveraging our partnership providing Houston-based process engineering leadership with 80+ years of combined experience.
-                      </p>
-                    </div>
-
-                    <div className="relative z-10 shrink-0">
-                      <Link to="/lcts-partnership">
-                        <button className="px-6 py-3 bg-[#ED2939] hover:bg-[#c41e2b] text-white font-bold uppercase tracking-widest text-xs rounded-lg transition-colors shadow-lg shadow-red-900/20">
-                          Learn More
-                        </button>
-                      </Link>
-                    </div>
-                  </div>
                 </div>
 
                 {/* Right: Sayantrik Advantage */}
@@ -1041,39 +975,39 @@ const Services = () => {
               </div>
 
               {/* Metrics Bar - Enhanced Premium Design */}
-              <div className="mt-12">
-                <div className="bg-white rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] p-6 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-100 hover:-translate-y-1 transition-transform duration-500">
+              <div className="mt-4">
+                <div className="bg-white rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] py-3 px-6 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-100 hover:-translate-y-1 transition-transform duration-500">
 
                   {/* Metric 1 */}
-                  <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
-                    <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <TrendingUp className="w-7 h-7" />
+                  <div className="flex-1 w-full flex items-center justify-center gap-5 py-2 px-4 group">
+                    <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <TrendingUp className="w-6 h-6" />
                     </div>
                     <div className="text-left">
                       <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Duration</p>
-                      <p className="text-2xl font-bold text-gray-900 tracking-tight">4-8 Months</p>
+                      <p className="text-xl font-bold text-gray-900 tracking-tight">4-8 Months</p>
                     </div>
                   </div>
 
                   {/* Metric 2 */}
-                  <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
-                    <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <Users className="w-7 h-7" />
+                  <div className="flex-1 w-full flex items-center justify-center gap-5 py-2 px-4 group">
+                    <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <Users className="w-6 h-6" />
                     </div>
                     <div className="text-left">
                       <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Team</p>
-                      <p className="text-2xl font-bold text-gray-900 tracking-tight">PM + Leads</p>
+                      <p className="text-xl font-bold text-gray-900 tracking-tight">PM + Leads</p>
                     </div>
                   </div>
 
                   {/* Metric 3 */}
-                  <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
-                    <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <FileCheck className="w-7 h-7" />
+                  <div className="flex-1 w-full flex items-center justify-center gap-5 py-2 px-4 group">
+                    <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <FileCheck className="w-6 h-6" />
                     </div>
                     <div className="text-left">
                       <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Output</p>
-                      <p className="text-2xl font-bold text-gray-900 tracking-tight">FEED Package</p>
+                      <p className="text-xl font-bold text-gray-900 tracking-tight">FEED Package</p>
                     </div>
                   </div>
 
@@ -1150,38 +1084,38 @@ const Services = () => {
             </div>
 
             {/* 7. Flexible Engagement Models - Refined Metrics Style */}
-            <div className="bg-white rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] p-6 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-100 hover:-translate-y-1 transition-transform duration-500">
+            <div className="bg-white rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] py-3 px-6 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-100 hover:-translate-y-1 transition-transform duration-500">
 
               {/* Model 1: Full Detail Engineering */}
-              <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
-                <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <Layers className="w-7 h-7" />
+              <div className="flex-1 w-full flex items-center justify-center gap-5 py-2 px-4 group">
+                <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <Layers className="w-6 h-6" />
                 </div>
                 <div className="text-left">
                   <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Full Detail Engineering</p>
-                  <p className="text-sm font-medium text-gray-600 leading-tight">End-to-end ownership from FEED handover to IFC.</p>
+                  <p className="text-xs font-medium text-gray-600 leading-tight">End-to-end ownership from FEED handover to IFC.</p>
                 </div>
               </div>
 
               {/* Model 2: Team Augmentation */}
-              <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
-                <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <UserPlus className="w-7 h-7" />
+              <div className="flex-1 w-full flex items-center justify-center gap-5 py-2 px-4 group">
+                <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <UserPlus className="w-6 h-6" />
                 </div>
                 <div className="text-left">
                   <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Team Augmentation</p>
-                  <p className="text-sm font-medium text-gray-600 leading-tight">Dedicated resources embedded directly into your project team.</p>
+                  <p className="text-xs font-medium text-gray-600 leading-tight">Dedicated resources embedded directly into your project team.</p>
                 </div>
               </div>
 
               {/* Model 3: Discipline Packages */}
-              <div className="flex-1 w-full flex items-center justify-center gap-5 p-4 group">
-                <div className="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <Briefcase className="w-7 h-7" />
+              <div className="flex-1 w-full flex items-center justify-center gap-5 py-2 px-4 group">
+                <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <Briefcase className="w-6 h-6" />
                 </div>
                 <div className="text-left">
                   <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Discipline Packages</p>
-                  <p className="text-sm font-medium text-gray-600 leading-tight">Specific scope like piping design, structural analysis, or electrical.</p>
+                  <p className="text-xs font-medium text-gray-600 leading-tight">Specific scope like piping design, structural analysis, or electrical.</p>
                 </div>
               </div>
 
@@ -1725,7 +1659,7 @@ const Services = () => {
             {/* 15. Closing Trust Section: Why Clients Choose Us */}
             {/* 15. Closing Trust Section: Why Clients Choose Us - Premium Dark Redesign */}
             {/* 15. Closing Trust Section: Why Clients Choose Us - Premium Dark Redesign */}
-            <div className="w-full bg-[#ED2939] py-16 mt-16 relative overflow-hidden rounded-2xl">
+            <div className="w-full bg-[#ED2939] py-20 mt-16 relative overflow-hidden rounded-2xl">
               {/* Ambient Background Glow */}
               <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-white/10 blur-[120px]" />
@@ -1763,9 +1697,6 @@ const Services = () => {
                 </div>
               </div>
             </div>
-
-            {/* Global Footer */}
-            <Footer />
 
           </div>
         </div>

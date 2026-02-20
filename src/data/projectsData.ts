@@ -27,12 +27,6 @@ export interface Project {
 
 export const feedProjects: Project[] = [
   {
-    name: "Sulphuric Acid Plant (600 MTPD)",
-    location: "Gujarat, India",
-    description: "Detailed engineering and EPC support for a 600 MTPD Sulphuric Acid Plant, covering high-temperature and low-pressure piping, static equipment design, GA drawings, datasheets, P&IDs, plot plans, MTOs, vendor document review, and validation of the basic engineering package for OSBL facilities.",
-    image: sulphuricAcid3d
-  },
-  {
     name: "LNG/LPG Storage & Regasification\n(60–90 MW)",
     location: "Europe (Multiple Sites)",
     description: "FEED and engineering services for LNG/LPG storage and regasification plants across 5 European sites. Scope included feasibility validation, process design, vaporization/storage sizing (30–200 MT), engineering deliverables for all disciplines, RFQ packages, MTOs, and EPC contractor selection support.",

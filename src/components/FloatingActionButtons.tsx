@@ -3,16 +3,34 @@ import { Link } from "react-router-dom";
 import { MessageSquare, CheckCircle2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Chatbot } from "@/components/Chatbot";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const FloatingActionButtons = () => {
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [hasScrolled, setHasScrolled] = useState(false);
 
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        const handleScroll = () => {
+            const scrollThreshold = 10;
+            if (window.scrollY > scrollThreshold) {
+                setHasScrolled(true);
+            } else {
+                setHasScrolled(false);
+            }
+        };
+
         checkMobile();
+        handleScroll(); // Check initial scroll position
+
         window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('resize', checkMobile);
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     return (
@@ -22,30 +40,62 @@ export const FloatingActionButtons = () => {
                 className={`fixed right-2 z-40 ${isMobile ? 'top-28' : 'top-20'}`}
             >
                 <Link to="/quality">
-                    <Button
-                        size="sm"
-                        className="h-10 w-auto rounded-full shadow-lg bg-[#40a829] hover:bg-[#40a829]/90 text-white transition-all duration-500 ease-in-out flex items-center justify-center overflow-hidden px-3"
+                    <motion.div
+                        initial={false}
+                        animate={{
+                            width: hasScrolled ? 40 : (isMobile ? 40 : "auto"),
+                        }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="h-10 bg-[#40a829] hover:bg-[#40a829]/90 text-white rounded-full shadow-lg flex items-center justify-center overflow-hidden"
                     >
-                        <CheckCircle2 className="h-5 w-5 flex-shrink-0 mr-0.5" />
-                        <span className="whitespace-nowrap font-semibold text-xs hidden md:inline">
-                            Quality Deliverables is our Core value
-                        </span>
-                    </Button>
+                        <div className="flex items-center px-3 h-full">
+                            <CheckCircle2 className="h-5 w-5 flex-shrink-0" />
+                            <AnimatePresence mode="popLayout" initial={false}>
+                                {!hasScrolled && !isMobile && (
+                                    <motion.span
+                                        initial={{ opacity: 0, width: 0, marginLeft: 0 }}
+                                        animate={{ opacity: 1, width: "auto", marginLeft: 6 }}
+                                        exit={{ opacity: 0, width: 0, marginLeft: 0 }}
+                                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                                        className="whitespace-nowrap font-semibold text-xs hidden md:inline"
+                                    >
+                                        Quality Deliverables is our Core value
+                                    </motion.span>
+                                )}
+                            </AnimatePresence>
+                        </div>
+                    </motion.div>
                 </Link>
             </div>
 
             {/* HSE Button - Below Quality Button */}
             <div className={`fixed right-2 z-40 ${isMobile ? 'top-40' : 'top-32'}`}>
                 <Link to="/hse">
-                    <Button
-                        size="sm"
-                        className="h-10 w-auto rounded-full shadow-lg bg-[#40a829] hover:bg-[#40a829]/90 text-white transition-all duration-500 ease-in-out flex items-center justify-center overflow-hidden px-3"
+                    <motion.div
+                        initial={false}
+                        animate={{
+                            width: hasScrolled ? 40 : (isMobile ? 40 : "auto"),
+                        }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="h-10 bg-[#40a829] hover:bg-[#40a829]/90 text-white rounded-full shadow-lg flex items-center justify-center overflow-hidden"
                     >
-                        <CheckCircle2 className="h-5 w-5 flex-shrink-0 mr-0.5" />
-                        <span className="whitespace-nowrap font-semibold text-xs hidden md:inline">
-                            Safety First, Always
-                        </span>
-                    </Button>
+                        <div className="flex items-center px-3 h-full">
+                            <CheckCircle2 className="h-5 w-5 flex-shrink-0" />
+                            <AnimatePresence mode="popLayout" initial={false}>
+                                {!hasScrolled && !isMobile && (
+                                    <motion.span
+                                        initial={{ opacity: 0, width: 0, marginLeft: 0 }}
+                                        animate={{ opacity: 1, width: "auto", marginLeft: 6 }}
+                                        exit={{ opacity: 0, width: 0, marginLeft: 0 }}
+                                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                                        className="whitespace-nowrap font-semibold text-xs hidden md:inline"
+                                    >
+                                        Safety First, Always
+                                    </motion.span>
+                                )}
+                            </AnimatePresence>
+                        </div>
+                    </motion.div>
                 </Link>
             </div>
 

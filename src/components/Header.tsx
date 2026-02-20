@@ -18,7 +18,7 @@ const Header = () => {
 
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/about", label: "About Us", hasDropdown: true },
+    { path: "/about", label: "About Us" },
     { path: "/portfolio", label: "Portfolio", hasDropdown: true },
     { path: "/services", label: "Services", hasDropdown: true },
     { path: "/projects/feed", label: "Projects", hasDropdown: true },
@@ -36,13 +36,13 @@ const Header = () => {
         title: "Services",
         items: [
           { label: "FEED", link: "/services#feed" },
-          { label: "Detailed Engineering", link: "/services#feed" },
+          { label: "Detailed Engineering", link: "/services#detailed-engineering" },
           { label: "EPC", link: "/services#epc" },
           { label: "EPCM", link: "/services#epcm" },
-          { label: "PMC", link: "/services#epcm" },
-          { label: "Owner's Engineer", link: "/services#epcm" },
+          { label: "PMC", link: "/services#pmc" },
+          { label: "Owner's Engineer", link: "/services#owners-engineer" },
           { label: "Process Technology Integration", link: "/services#process-technology" },
-          { label: "Brownfield Modifications", link: "/services#epcm" },
+          { label: "Brownfield Modifications", link: "/services#brownfield" },
           { label: "Laser Scan & Digital Twins", link: "/services#laser-scan" },
         ],
       },
@@ -65,14 +65,7 @@ const Header = () => {
     ],
   };
 
-  const aboutDropdown = {
-    sections: [
-      {
-        title: "Company",
-        items: [{ label: "Who We Are", link: "/about#who-we-are" }, { label: "Our Vision", link: "/about#vision" }],
-      },
-    ],
-  };
+
 
   const contactDropdown = {
     sections: [
@@ -106,8 +99,7 @@ const Header = () => {
         return servicesDropdown;
       case "Projects":
         return projectsDropdown;
-      case "About Us":
-        return aboutDropdown;
+
       case "Contact":
         return contactDropdown;
       case "Portfolio":

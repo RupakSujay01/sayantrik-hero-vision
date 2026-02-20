@@ -4,14 +4,19 @@ import { Linkedin, Mail, Phone } from "lucide-react";
 const Footer = () => {
   return (
     <footer className="bg-card border-t border-border mt-auto">
-      <div className="container mx-auto px-6 py-12">
+      <div className="container mx-auto px-6 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           {/* Company Info & Corporate Responsibility */}
-          <div className="space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
+          <div className="space-y-4 flex flex-col items-center md:items-start text-center md:text-left">
             <div className="w-full">
-              <h3 className="text-xl font-bold text-primary mb-4">
+              <h3 className="text-xl font-bold text-primary mb-2">
                 Sayantrik Engineer India Pvt Ltd
               </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                Plot No. 56, Mythrinagar, Madinaguda,<br />
+                Near Srikara Hospital, Hyderabad- 500049,<br />
+                Telangana, India
+              </p>
 
               <div className="flex gap-4 justify-center md:justify-start">
                 <a
@@ -73,7 +78,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-border mt-8 pt-8 text-center">
+        <div className="border-t border-border mt-4 pt-4 text-center">
           <p className="text-sm text-muted-foreground">
             © 2026 Sayantrik Engineer India Pvt Ltd. All rights reserved.
           </p>

@@ -57,7 +57,7 @@ const TechnologyProviders = () => {
             title: 'Energy',
             color: 'text-[#ED2939]',
             bg: 'bg-red-50',
-            items: ['Upstream: EOR, Water Treatment', 'Midstream: Gas Processing, NGL', 'Downstream: Refining, Coking, FCC', 'LNG & GTL: Liquefaction, Regasification']
+            items: ['Upstream: EOR', 'Midstream: Gas Processing, NGL', 'Downstream: Refining, Coking, FCC', 'LNG & GTL: Liquefaction, Regasification']
         },
         {
             id: 'chemicals',
@@ -137,7 +137,7 @@ const TechnologyProviders = () => {
                 </div>
 
                 {/* Main Content */}
-                <div className="flex-1 space-y-12 pb-8">
+                <div className="flex-1 space-y-12 pb-0">
                     {/* Section 1: The Opportunity */}
                     <motion.section
                         id="opportunity"
@@ -256,19 +256,19 @@ const TechnologyProviders = () => {
                                         <div>
                                             <h4 className="text-xs font-bold text-gray-500 uppercase mb-2">BOP Integration</h4>
                                             <ul className="space-y-1.5 text-sm text-gray-600">
-                                                <li>• Utility Systems</li>
-                                                <li>• Power Distribution</li>
-                                                <li>• Control Room/DCS</li>
-                                                <li>• Fire Protection</li>
+                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />Utility Systems</li>
+                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />Power Distribution</li>
+                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />Control Room/DCS</li>
+                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />Fire Protection</li>
                                             </ul>
                                         </div>
                                         <div>
                                             <h4 className="text-xs font-bold text-gray-500 uppercase mb-2">OSBL Facilities</h4>
                                             <ul className="space-y-1.5 text-sm text-gray-600">
-                                                <li>• Raw Material Storage</li>
-                                                <li>• Product Dispatch</li>
-                                                <li>• ETP / WTP</li>
-                                                <li>• Pipe Racks</li>
+                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />Raw Material Storage</li>
+                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />Product Dispatch</li>
+                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />ETP / WTP</li>
+                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />Pipe Racks</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -438,7 +438,7 @@ const TechnologyProviders = () => {
                         transition={{ duration: 0.5 }}
                         className="scroll-mt-24"
                     >
-                        <div className="bg-[#ED2939] rounded-2xl p-8 md:p-12 text-white overflow-hidden relative shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                        <div className="bg-[#ED2939] rounded-2xl p-8 md:p-12 pb-20 text-white overflow-hidden relative shadow-xl hover:shadow-2xl transition-shadow duration-300">
 
                             <div className="relative z-10 grid md:grid-cols-2 gap-10 items-center">
                                 <div>

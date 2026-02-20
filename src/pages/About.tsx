@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Users, Building2, Heart, Briefcase, Calendar, MapPin, Clock } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import placeholder from "@/assets/logo.png"; // Fallback
@@ -31,6 +33,31 @@ const directClients = [
 ];
 
 const About = () => {
+  const location = useLocation();
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 130;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const timeoutId = setTimeout(() => {
+        scrollToSection(id);
+      }, 100);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [location.hash]);
+
   return (
     <main className="min-h-screen bg-background">
       <SEO
@@ -98,7 +125,7 @@ const About = () => {
         </div>
 
         {/* 2. Our Story */}
-        <section className="grid md:grid-cols-12 gap-12 items-start border-t border-border pt-16">
+        <section id="who-we-are" className="grid md:grid-cols-12 gap-12 items-start border-t border-border pt-16">
           <div className="md:col-span-4">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">Our Story</h2>
             <p className="text-base md:text-lg text-muted-foreground font-medium leading-relaxed">
@@ -118,8 +145,8 @@ const About = () => {
           </div>
         </section>
 
-        {/* 3. Founding Inspiration */}
-        <section className="grid md:grid-cols-2 gap-12 items-center bg-slate-50 -mx-6 px-6 py-20 md:mx-0 md:px-0 md:bg-transparent md:py-0">
+        {/* 3. Our Vision */}
+        <section id="vision" className="grid md:grid-cols-2 gap-12 items-center bg-slate-50 -mx-6 px-6 py-20 md:mx-0 md:px-0 md:bg-transparent md:py-0">
           <div className="relative aspect-[3/4] md:aspect-square bg-slate-200 rounded-lg overflow-hidden border border-border shadow-sm">
             {/* Placeholder for Founder Photo */}
             <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-bold uppercase tracking-widest">
@@ -128,8 +155,8 @@ const About = () => {
           </div>
           <div className="space-y-8">
             <div>
-              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-2">The Catalyst</h2>
-              <p className="text-xs md:text-sm font-bold text-primary uppercase tracking-widest">Founding Inspiration</p>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-2">Our Vision</h2>
+              <p className="text-xs md:text-sm font-bold text-primary uppercase tracking-widest">Growth & Excellence</p>
             </div>
             <div className="space-y-6 text-base md:text-lg text-slate-700 leading-relaxed">
               <p>
@@ -145,72 +172,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* 4. Company Evolution & Capabilities */}
-        <section className="space-y-12 pt-12 border-t border-border">
-          <div className="max-w-4xl">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-6">Evolution of Capabilities</h2>
-            <p className="text-base md:text-xl text-muted-foreground leading-relaxed">
-              We have systematically expanded our competencies to offer a full-spectrum EPCM portfolio, evolving from process design specialists to integrated project delivery partners.
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-3 border-t border-l border-border bg-border gap-px">
-            {[
-              "Feasibility Studies (FEL-1/2/3)",
-              "Basic Engineering Design",
-              "Front-End Engineering Design (FEED)",
-              "Detailed Engineering",
-              "Procurement Support",
-              "Construction Management",
-              "Safety Studies (HAZOP/SIL)",
-              "3D Modelling & Laser Scanning",
-              "As-Built Documentation"
-            ].map((capability, idx) => (
-              <div key={idx} className="bg-background p-6 flex items-center shadow-sm">
-                <div className="w-2 h-2 bg-primary rounded-full mr-4 flex-shrink-0"></div>
-                <span className="font-medium text-foreground">{capability}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 5. Values */}
-        <section className="space-y-12 pb-12 border-b border-border">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-6">
-            <div className="max-w-2xl">
-              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4">Core Values</h2>
-              <p className="text-base md:text-lg text-muted-foreground">The principles that guide every decision, design, and delivery.</p>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Technical Integrity",
-                desc: "We adhere to the highest engineering standards. Accuracy, compliance, and safety are non-negotiable in our deliverables."
-              },
-              {
-                title: "Client-Centric Agility",
-                desc: "We adapt to our clients' needs without compromising quality, offering flexible engagement models that large EPCs cannot match."
-              },
-              {
-                title: "Transparency",
-                desc: "Open communication is the bedrock of our relationships. We believe in proactive reporting and honest stakeholder management."
-              },
-              {
-                title: "Sustainable Innovation",
-                desc: "We integrate sustainability into our designs, constantly seeking efficient, future-proof solutions for the energy transition."
-              }
-            ].map((value, idx) => (
-              <div key={idx} className="group p-10 bg-slate-50 rounded-lg border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300">
-                <h3 className="text-2xl font-heading font-bold text-foreground mb-4 group-hover:text-primary transition-colors">{value.title}</h3>
-                <p className="text-slate-600 leading-relaxed font-medium">
-                  {value.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
 
         {/* 6. Leadership */}
         <section className="space-y-16 border-t border-border pt-16">
@@ -260,19 +222,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* c) Engineering Leadership */}
-          <div className="space-y-8">
-            <h3 className="text-xl font-bold text-primary uppercase tracking-widest border-b border-border pb-2">Engineering Leadership</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {['Process', 'Piping', 'Electrical', 'Instrumentation', 'Civil/Structural', 'Mechanical', 'Project Mgmt', 'Digital Twin'].map((dept, i) => (
-                <div key={i} className="text-center p-4 border border-border rounded bg-white hover:shadow-md transition-shadow">
-                  <div className="w-20 h-20 mx-auto bg-slate-100 rounded-full mb-3"></div>
-                  <h5 className="font-bold text-foreground text-sm">{dept} Lead</h5>
-                  <p className="text-xs text-muted-foreground">Heading {dept}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+
         </section>
 
         {/* 7. Clients */}
@@ -429,63 +379,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* 11. Sectors Served - Redesigned to match Disciplines in Services */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.6 }}
-          className="py-16 bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100 my-16 relative overflow-hidden"
-        >
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, scaleX: 0 },
-              visible: { opacity: 1, scaleX: 1, transition: { duration: 1.5, delay: 1.0 } }
-            }}
-            className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-gray-100 via-[#ED2939] to-gray-100"
-          />
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, scaleX: 0 },
-              visible: { opacity: 1, scaleX: 1, transition: { duration: 0.8, delay: 1.0 } }
-            }}
-            className="absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-gray-100 via-[#ED2939] to-gray-100"
-          />
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">Sectors Served</h3>
-            <div className="w-16 h-1 bg-[#ED2939] mx-auto mt-4 rounded-full" />
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 px-6 md:px-10 max-w-7xl mx-auto">
-            {['Oil & Gas', 'Refining', 'Petrochemicals', 'Chemicals', 'Green Energy', 'Infrastructure'].map((item, idx) => (
-              <motion.div
-                key={idx}
-                variants={{
-                  hidden: {
-                    backgroundColor: "rgba(249, 250, 251, 0.8)",
-                    borderColor: "rgb(243, 244, 246)",
-                    boxShadow: "none"
-                  },
-                  visible: {
-                    backgroundColor: "#ffffff",
-                    borderColor: "rgba(237, 41, 57, 0.3)",
-                    boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-                    transition: { duration: 1.5, delay: 1.0 }
-                  }
-                }}
-                className="p-6 rounded-xl border h-full flex items-center justify-center min-h-[100px] cursor-default"
-              >
-                <motion.span
-                  variants={{
-                    hidden: { color: "#000000" },
-                    visible: { color: "#ED2939", transition: { duration: 1.5, delay: 1.0 } }
-                  }}
-                  className="text-lg font-bold leading-tight"
-                >
-                  {item}
-                </motion.span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+
 
         {/* Global Presence */}
         <section className="mb-16 animate-fade-in border border-border rounded-lg p-8">

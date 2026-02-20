@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
-import { CheckCircle2, ShieldCheck, Zap, Factory, Globe2, Users, Layout, Settings } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Zap, Globe2, Users, Settings } from "lucide-react";
 
 const LctsPartnership = () => {
     return (
@@ -48,8 +48,19 @@ const LctsPartnership = () => {
             </section>
 
             {/* Intro Quote */}
-            <section className="py-16 bg-white border-b border-gray-100">
-                <div className="max-w-7xl mx-auto px-4 text-center">
+            <div className="max-w-7xl mx-auto px-4 -mt-10 relative z-20">
+                <motion.section
+                    initial={{ opacity: 0, y: 20, borderColor: "rgba(229, 231, 235, 1)" }}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0,
+                        borderColor: "#ED2939",
+                        boxShadow: "0 20px 25px -5px rgba(237, 41, 57, 0.1), 0 10px 10px -5px rgba(237, 41, 57, 0.04)"
+                    }}
+                    viewport={{ once: false, margin: "-10%" }}
+                    transition={{ duration: 0.5 }}
+                    className="py-12 px-8 bg-white rounded-2xl border border-gray-200 shadow-sm transition-all duration-500 text-center"
+                >
                     <div className="mb-8 flex justify-center">
                         <div className="inline-flex items-center justify-center border-2 border-gray-900/10 rounded-full px-4 py-3 md:px-8 bg-gray-50/50 backdrop-blur-sm">
                             <h2 className="text-sm md:text-lg lg:text-xl font-bold text-gray-900 tracking-tight whitespace-normal md:whitespace-nowrap flex flex-col md:flex-row items-center gap-2 md:gap-4">
@@ -60,14 +71,25 @@ const LctsPartnership = () => {
                         </div>
                     </div>
                     <p className="text-lg text-gray-600 leading-relaxed max-w-4xl mx-auto text-justify">
-                        This agreement marks a significant milestone for Sayantrik Engineer India Pvt Ltd, positioning us as a key player in the global technology transfer landscape. It underscores our commitment to bringing world-class technology to our clients and driving industrial growth through innovation.trik’s specialised multi-disciplinary engineering expertise."
+                        This agreement marks a significant milestone for Sayantrik Engineer India Pvt Ltd, positioning us as a key player in the global technology transfer landscape. It underscores our commitment to bringing world-class technology to our clients and driving industrial growth through innovation.
                     </p>
-                </div>
-            </section>
+                </motion.section>
+            </div>
 
             {/* The Partnership Model */}
-            <section className="py-20 bg-gray-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+                <motion.section
+                    initial={{ opacity: 0, y: 20, borderColor: "rgba(229, 231, 235, 1)" }}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0,
+                        borderColor: "#ED2939",
+                        boxShadow: "0 20px 25px -5px rgba(237, 41, 57, 0.1), 0 10px 10px -5px rgba(237, 41, 57, 0.04)"
+                    }}
+                    viewport={{ once: false, margin: "-10%" }}
+                    transition={{ duration: 0.5 }}
+                    className="py-12 px-8 bg-white rounded-2xl border border-gray-200 shadow-sm transition-all duration-500"
+                >
                     <div className="mb-12 pl-6 border-l-4 border-[#ED2939]">
                         <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                             The Partnership Model
@@ -98,11 +120,11 @@ const LctsPartnership = () => {
                                 ))}
                             </ul>
                         </div>
-                        <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                        <div className="bg-gray-50/50 p-8 rounded-xl border border-gray-100">
                             {/* 2-Column Comparison Table style for capabilities */}
                             <div className="grid grid-cols-2 divide-x divide-gray-200">
                                 <div className="px-4">
-                                    <h4 className="font-bold text-[#ED2939] mb-4 uppercase tracking-wide">LCTS (Houston)</h4>
+                                    <h4 className="font-bold text-[#ED2939] mb-4 uppercase tracking-wide text-sm">LCTS (Houston)</h4>
                                     <ul className="text-sm space-y-2 text-gray-600">
                                         <li>Process Design & Simulation</li>
                                         <li>Technology Selection</li>
@@ -112,7 +134,7 @@ const LctsPartnership = () => {
                                     </ul>
                                 </div>
                                 <div className="px-4 pl-8">
-                                    <h4 className="font-bold text-[#ED2939] mb-4 uppercase tracking-wide">Sayantrik (India)</h4>
+                                    <h4 className="font-bold text-[#ED2939] mb-4 uppercase tracking-wide text-sm">Sayantrik (India)</h4>
                                     <ul className="text-sm space-y-2 text-gray-600">
                                         <li>Detail Engineering</li>
                                         <li>3D Plant Modeling</li>
@@ -124,14 +146,25 @@ const LctsPartnership = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </motion.section>
+            </div>
 
 
 
             {/* Responsibility Matrix (Styled Table) */}
-            <section className="py-20 bg-gray-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pb-12">
+                <motion.section
+                    initial={{ opacity: 0, y: 20, borderColor: "rgba(229, 231, 235, 1)" }}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0,
+                        borderColor: "#ED2939",
+                        boxShadow: "0 20px 25px -5px rgba(237, 41, 57, 0.1), 0 10px 10px -5px rgba(237, 41, 57, 0.04)"
+                    }}
+                    viewport={{ once: false, margin: "-10%" }}
+                    transition={{ duration: 0.5 }}
+                    className="py-12 px-8 bg-white rounded-2xl border border-gray-200 shadow-sm transition-all duration-500"
+                >
                     <div className="mb-12 pl-6 border-l-4 border-[#ED2939]">
                         <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                             Integrated Project Delivery Matrix
@@ -176,12 +209,23 @@ const LctsPartnership = () => {
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </section>
+                </motion.section>
+            </div>
 
             {/* Engineering Matrix (Styled Table) */}
-            <section className="py-20 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pb-12">
+                <motion.section
+                    initial={{ opacity: 0, y: 20, borderColor: "rgba(229, 231, 235, 1)" }}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0,
+                        borderColor: "#ED2939",
+                        boxShadow: "0 20px 25px -5px rgba(237, 41, 57, 0.1), 0 10px 10px -5px rgba(237, 41, 57, 0.04)"
+                    }}
+                    viewport={{ once: false, margin: "-10%" }}
+                    transition={{ duration: 0.5 }}
+                    className="py-12 px-8 bg-white rounded-2xl border border-gray-200 shadow-sm transition-all duration-500"
+                >
                     <div className="mb-12 pl-6 border-l-4 border-[#ED2939]">
                         <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                             Comprehensive Engineering Deliverables
@@ -213,13 +257,23 @@ const LctsPartnership = () => {
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </section>
+                </motion.section>
+            </div>
 
             {/* Benefits / Synergy */}
-            <section className="pt-4 pb-20 bg-gray-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="w-full border-t-2 border-[#ED2939] mb-20" />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pb-20">
+                <motion.section
+                    initial={{ opacity: 0, y: 20, borderColor: "rgba(229, 231, 235, 1)" }}
+                    whileInView={{
+                        opacity: 1,
+                        y: 0,
+                        borderColor: "#ED2939",
+                        boxShadow: "0 20px 25px -5px rgba(237, 41, 57, 0.1), 0 10px 10px -5px rgba(237, 41, 57, 0.04)"
+                    }}
+                    viewport={{ once: false, margin: "-10%" }}
+                    transition={{ duration: 0.5 }}
+                    className="py-12 px-8 bg-white rounded-2xl border border-gray-200 shadow-sm transition-all duration-500"
+                >
                     <div className="grid md:grid-cols-2 gap-16">
                         <div>
                             <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 uppercase">Strategic Synergy & Global Compliance</h3>
@@ -248,8 +302,8 @@ const LctsPartnership = () => {
                             </div>
                         </div>
 
-                        <div className="bg-white p-8 border border-gray-200 rounded-xl shadow-lg md:-mt-8">
-                            <h3 className="text-xl font-bold text-gray-900 mb-6 border-b pb-4">Client Benefits</h3>
+                        <div className="md:mt-0">
+                            <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-8 uppercase">Client Benefits</h3>
                             <ul className="space-y-4">
                                 {[
                                     { title: "TECHNICAL EXCELLENCE", text: "Access to 80+ years of combined process expertise from Houston industry veterans." },
@@ -268,8 +322,8 @@ const LctsPartnership = () => {
                             </ul>
                         </div>
                     </div>
-                </div>
-            </section>
+                </motion.section>
+            </div>
 
             {/* Built on Trust & Expertise Box */}
             <section className="bg-[#ED2939] text-white py-20">

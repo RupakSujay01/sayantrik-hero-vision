@@ -66,7 +66,7 @@ const HSE = () => {
     ];
 
     return (
-        <div className="pt-24 pb-16 relative overflow-hidden">
+        <div className="pt-24 pb-0 relative overflow-hidden">
             <SEO
                 title="HSE Quality"
                 description="Sayantrik Engineers is committed to the highest standards of Health, Safety, and Environmental protection. Safety first, always."
@@ -114,7 +114,7 @@ const HSE = () => {
                     </div>
 
                     {/* Footer Note */}
-                    <div className="text-center p-8 bg-[#40a829]/10 backdrop-blur-md rounded-2xl border border-[#40a829]/20 shadow-inner">
+                    <div className="text-center p-8 pb-20 bg-[#40a829]/10 backdrop-blur-md rounded-2xl border border-[#40a829]/20 shadow-inner">
                         <h3 className="text-xl md:text-3xl font-bold text-[#40a829] uppercase tracking-widest drop-shadow-sm">
                             REMEMBER: SAFETY FIRST, ALWAYS!
                         </h3>
