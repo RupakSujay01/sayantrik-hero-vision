@@ -1,6 +1,34 @@
 import { motion } from "framer-motion";
 import { Users, Building2, Heart, Briefcase, Calendar, MapPin, Clock } from "lucide-react";
 import { SEO } from "@/components/SEO";
+import placeholder from "@/assets/logo.png"; // Fallback
+
+/*
+import clientCgc from "@/assets/cgc-logo.jpg";
+import clientDynaciate from "@/assets/dynaciate-logo.png";
+import clientIsgec from "@/assets/isgec-logo.png";
+import clientKbr from "@/assets/kbr-logo.png";
+import clientLnt from "@/assets/lnt-logo.jpg";
+import clientLntSnl from "@/assets/lnt-snl-logo.jpg";
+import clientMaire from "@/assets/maire-tecnimont-logo.jpg";
+import clientMcdermott from "@/assets/mcdermott-logo.png";
+import clientMeil from "@/assets/meil-logo.jpg";
+import clientPunj from "@/assets/punj-lloyd-logo.jpg";
+import clientSidvin from "@/assets/sidvin-logo.jpg";
+import clientStandard from "@/assets/standard-group-logo.png";
+import clientTata from "@/assets/tata-technologies-logo.jpg";
+import clientTecnimont from "@/assets/tecnimont-logo.png";
+import clientThermax from "@/assets/thermax-logo.jpg";
+import clientThermosystems from "@/assets/thermosystems-logo.png";
+import clientThyssenkrupp from "@/assets/thyssenkrupp-logo.png";
+import clientWorley from "@/assets/worley-logo.jpg";
+import clientPoratha from "@/assets/poratha-logo.png";
+*/
+
+const directClients = [
+  placeholder, placeholder, placeholder, placeholder, placeholder,
+  placeholder, placeholder, placeholder, placeholder, placeholder
+];
 
 const About = () => {
   return (
@@ -256,23 +284,69 @@ const About = () => {
 
           <div className="space-y-8">
             <h3 className="text-sm font-bold text-purple-600 uppercase tracking-widest">Direct Clients / EPC Contractors</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="h-12 bg-slate-100 rounded flex items-center justify-center text-xs font-bold text-slate-400 border border-slate-200">
-                  CLIENT LOGO
-                </div>
-              ))}
+            {/* Scrolling Marquee Container */}
+            <div className="w-full bg-white border-y border-gray-100 py-10 overflow-hidden relative group">
+              {/* Gradient Masks for smooth fade at edges */}
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
+
+              <div className="flex overflow-hidden">
+                <motion.div
+                  className="flex gap-16 items-center flex-nowrap pl-16"
+                  animate={{ x: "-50%" }}
+                  transition={{
+                    repeat: Infinity,
+                    ease: "linear",
+                    duration: 30, // Adjust speed as needed
+                    repeatType: "loop"
+                  }}
+                  style={{ width: "fit-content" }}
+                >
+                  {[...directClients, ...directClients, ...directClients, ...directClients].map((logo, idx) => (
+                    <div key={idx} className="flex-shrink-0 h-16 w-40 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100">
+                      <img
+                        src={logo}
+                        alt="Client Logo"
+                        className="max-h-full max-w-full object-contain mix-blend-multiply"
+                      />
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
             </div>
           </div>
 
           <div className="space-y-8">
             <h3 className="text-sm font-bold text-blue-600 uppercase tracking-widest">End Clients / Owner Operators</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="h-12 bg-slate-100 rounded flex items-center justify-center text-xs font-bold text-slate-400 border border-slate-200">
-                  CLIENT LOGO
-                </div>
-              ))}
+            {/* Scrolling Marquee Container */}
+            <div className="w-full bg-white border-y border-gray-100 py-10 overflow-hidden relative group">
+              {/* Gradient Masks for smooth fade at edges */}
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
+
+              <div className="flex overflow-hidden">
+                <motion.div
+                  className="flex gap-16 items-center flex-nowrap pl-16"
+                  animate={{ x: "-50%" }}
+                  transition={{
+                    repeat: Infinity,
+                    ease: "linear",
+                    duration: 30, // Adjust speed as needed
+                    repeatType: "loop"
+                  }}
+                  style={{ width: "fit-content" }}
+                >
+                  {[...directClients, ...directClients, ...directClients, ...directClients].map((logo, idx) => (
+                    <div key={idx} className="flex-shrink-0 h-16 w-40 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100">
+                      <img
+                        src={logo}
+                        alt="Client Logo"
+                        className="max-h-full max-w-full object-contain mix-blend-multiply"
+                      />
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
             </div>
           </div>
         </section>
@@ -355,23 +429,63 @@ const About = () => {
           </div>
         </section>
 
-        {/* 11. Industry Sectors */}
-        <section className="space-y-12 border-t border-border pt-16">
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl font-heading font-bold text-foreground mb-4">Sectors Served</h2>
+        {/* 11. Sectors Served - Redesigned to match Disciplines in Services */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.6 }}
+          className="py-16 bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100 my-16 relative overflow-hidden"
+        >
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, scaleX: 0 },
+              visible: { opacity: 1, scaleX: 1, transition: { duration: 1.5, delay: 1.0 } }
+            }}
+            className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-gray-100 via-[#ED2939] to-gray-100"
+          />
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, scaleX: 0 },
+              visible: { opacity: 1, scaleX: 1, transition: { duration: 0.8, delay: 1.0 } }
+            }}
+            className="absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-gray-100 via-[#ED2939] to-gray-100"
+          />
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">Sectors Served</h3>
+            <div className="w-16 h-1 bg-[#ED2939] mx-auto mt-4 rounded-full" />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-            {['Oil & Gas', 'Refining', 'Petrochemicals', 'Chemicals', 'Green Energy', 'Infrastructure'].map((sector, i) => (
-              <div key={i} className="flex flex-col items-center justify-center p-8 bg-slate-50 border border-slate-100 hover:border-primary/50 hover:shadow-lg transition-all rounded-lg group text-center space-y-4">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
-                  {/* Icon placeholder - using generic div for now, likely use Lucide in real scenario if available */}
-                  <div className="w-6 h-6 bg-slate-300 rounded-full group-hover:bg-primary transition-colors"></div>
-                </div>
-                <h3 className="font-bold text-foreground group-hover:text-primary transition-colors">{sector}</h3>
-              </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 px-6 md:px-10 max-w-7xl mx-auto">
+            {['Oil & Gas', 'Refining', 'Petrochemicals', 'Chemicals', 'Green Energy', 'Infrastructure'].map((item, idx) => (
+              <motion.div
+                key={idx}
+                variants={{
+                  hidden: {
+                    backgroundColor: "rgba(249, 250, 251, 0.8)",
+                    borderColor: "rgb(243, 244, 246)",
+                    boxShadow: "none"
+                  },
+                  visible: {
+                    backgroundColor: "#ffffff",
+                    borderColor: "rgba(237, 41, 57, 0.3)",
+                    boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                    transition: { duration: 1.5, delay: 1.0 }
+                  }
+                }}
+                className="p-6 rounded-xl border h-full flex items-center justify-center min-h-[100px] cursor-default"
+              >
+                <motion.span
+                  variants={{
+                    hidden: { color: "#000000" },
+                    visible: { color: "#ED2939", transition: { duration: 1.5, delay: 1.0 } }
+                  }}
+                  className="text-lg font-bold leading-tight"
+                >
+                  {item}
+                </motion.span>
+              </motion.div>
             ))}
           </div>
-        </section>
+        </motion.div>
 
         {/* Global Presence */}
         <section className="mb-16 animate-fade-in border border-border rounded-lg p-8">

@@ -35,7 +35,7 @@ export const FloatingActionButtons = () => {
             </div>
 
             {/* HSE Button - Below Quality Button */}
-            <div className={`fixed right-2 z-40 ${isMobile ? 'top-44' : 'top-32'}`}>
+            <div className={`fixed right-2 z-40 ${isMobile ? 'top-40' : 'top-32'}`}>
                 <Link to="/hse">
                     <Button
                         size="sm"

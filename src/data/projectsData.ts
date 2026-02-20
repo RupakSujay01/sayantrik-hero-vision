@@ -1,4 +1,22 @@
 import sulphuricAcid3d from "@/assets/sulphuric-acid-plant-3d.png";
+import lngLpgStorage from "@/assets/lng-lpg-storage.jpg";
+import greenHydrogenPlant from "@/assets/green-hydrogen-plant.jpg";
+import greenHydrogenPilot from "@/assets/green-hydrogen-pilot.png";
+import ammoniaPlantRevamp from "@/assets/ammonia-plant-revamp.png";
+import acetophenoneRecovery from "@/assets/acetophenone-recovery-unit.jpg";
+import cymePowerSystem from "@/assets/cyme-power-system-simulator.jpg";
+import roseBankFpso from "@/assets/rose-bank-fpso.jpg";
+import mb01Meglumine from "@/assets/mb-01-meglumine-project.png";
+import botasAdapazari from "@/assets/botas-adapazari-compressor.png";
+import gtlPilotPlant from "@/assets/gtl-pilot-plant.jpg";
+import sulphuricAcidDetailed from "@/assets/sulphuric-acid-plant-detailed.png";
+import sulphuricAcid300 from "@/assets/sulphuric-acid-plant-300-mtpd.png";
+import onshorePipelines from "@/assets/onshore-pipelines-terminals.png";
+import gasMidstreamPipeline from "@/assets/gas-midstream-pipeline.jpg";
+import sruThermalReactor from "@/assets/sru-thermal-reactor.png";
+import teaInjectionPackage from "@/assets/tea-injection-package.png";
+import p80Fpso from "@/assets/p-80-fpso.png";
+import edcPlantCivil from "@/assets/edc-plant-civil-structural.png";
 
 export interface Project {
   name: string;
@@ -17,47 +35,50 @@ export const feedProjects: Project[] = [
   {
     name: "LNG/LPG Storage & Regasification\n(60–90 MW)",
     location: "Europe (Multiple Sites)",
-    description: "FEED and engineering services for LNG/LPG storage and regasification plants across 5 European sites. Scope included feasibility validation, process design, vaporization/storage sizing (30–200 MT), engineering deliverables for all disciplines, RFQ packages, MTOs, and EPC contractor selection support."
+    description: "FEED and engineering services for LNG/LPG storage and regasification plants across 5 European sites. Scope included feasibility validation, process design, vaporization/storage sizing (30–200 MT), engineering deliverables for all disciplines, RFQ packages, MTOs, and EPC contractor selection support.",
+    image: lngLpgStorage
   },
   {
     name: "Green Hydrogen Plant\n(15 TPD)",
     location: "Jharkhand, India",
-    description: "Pre-FEED engineering for 15 TPD Green Hydrogen Plant (625 kg/hr) including process design (PFD/P&ID), piping MTOs, civil/structural MTOs, static equipment design, electrical load lists, I/O lists, and electrolyser foundation design."
+    description: "Pre-FEED engineering for 15 TPD Green Hydrogen Plant (625 kg/hr) including process design (PFD/P&ID), piping MTOs, civil/structural MTOs, static equipment design, electrical load lists, I/O lists, and electrolyser foundation design.",
+    image: greenHydrogenPlant
   },
   {
     name: "Green Hydrogen Pilot Plant\n(2 TPD)",
     location: "Madhya Pradesh, India",
-    description: "Pre-FEED for 2 TPD Green Hydrogen Plant including PFD/P&ID development, piping MTOs, civil/structural MTOs, electrolyser foundation design, electrical lists, and instrumentation scope."
+    description: "Pre-FEED for 2 TPD Green Hydrogen Plant including PFD/P&ID development, piping MTOs, civil/structural MTOs, electrolyser foundation design, electrical lists, and instrumentation scope.",
+    image: greenHydrogenPilot
   },
   {
     name: "Ammonia Plant Revamp\n(1650 MTPD)",
     location: "USA / UAE",
-    description: "FEED for revamping the ammonia faculties from 1050 MTPD capacity to 1600 MTPD capacity. Piping layout/ 3D Model/MTO/TIE-IN Cable layouts Pipe rack adequacy for extensions Pipe support drawings Decommissioning plans for Electricals & Instrument system cabinets and hook up details."
+    description: "FEED for revamping the ammonia faculties from 1050 MTPD capacity to 1600 MTPD capacity. Piping layout/ 3D Model/MTO/TIE-IN Cable layouts Pipe rack adequacy for extensions Pipe support drawings Decommissioning plans for Electricals & Instrument system cabinets and hook up details.",
+    image: ammoniaPlantRevamp
   },
   {
     name: "Acetophenone Recovery Unit\n(60 TPD)",
     location: "Gujarat, India",
-    description: "Delivered Front-End Engineering Design including process simulation, equipment sizing, layout optimization, and detailed MTOs for cost estimation."
-  },
-  {
-    name: "Electrical System Study\n(Multi-Product Berth)",
-    location: "Middle East",
-    description: "Performed FEED-stage electrical modeling including Load Flow, Short Circuit, Motor Starting, Harmonic, and Arc Flash analysis using CYME software."
+    description: "Delivered Front-End Engineering Design including process simulation, equipment sizing, layout optimization, and detailed MTOs for cost estimation.",
+    image: acetophenoneRecovery
   },
   {
     name: "CYME Power System Simulator",
     location: "Qatar, Middle East",
-    description: "FEED for Vapour Recovery System Short circuit Study Motor Starting study Transient Stability Arc Flash Analysis Protective device coordination."
+    description: "FEED for Vapour Recovery System Short circuit Study Motor Starting study Transient Stability Arc Flash Analysis Protective device coordination.",
+    image: cymePowerSystem
   },
   {
     name: "ROSE BANK FPSO - FEED Engineering",
     location: "Northwest of Shetland Island, Scotland",
-    description: "1) Gas Treating for Dehydration and H2S Removal using chemical scavenging. 2) Gas export via pipeline through the turret (Export to SIRGE pipeline)."
+    description: "1) Gas Treating for Dehydration and H2S Removal using chemical scavenging. 2) Gas export via pipeline through the turret (Export to SIRGE pipeline).",
+    image: roseBankFpso
   },
   {
     name: "MB-01 Meglumine Project",
     location: "Hyderabad, India",
-    description: "Basic engineering for MB-01 Meglumine Project. Scope included process deliverables (P&IDs, line lists), equipment datasheets, piping layouts, BOQs, electrical system design (SLDs, load lists, cable schedules), HVAC system design, clean room design, CSA reports, and 3D modeling."
+    description: "Basic engineering for MB-01 Meglumine Project. Scope included process deliverables (P&IDs, line lists), equipment datasheets, piping layouts, BOQs, electrical system design (SLDs, load lists, cable schedules), HVAC system design, clean room design, CSA reports, and 3D modeling.",
+    image: mb01Meglumine
   },
 
 ];
@@ -66,42 +87,50 @@ export const detailProjects: Project[] = [
   {
     name: "Bota's Adapazari Compressor Station Project",
     location: "Turkey",
-    description: "Comprehensive detailed engineering and multidisciplinary support for EPC procurement and construction of the Compressor Station Project (3 working + 1 standby compressors, total flow capacity 1,945,000 Sm³/h). Deliverables included: PFDs, P&IDs, datasheets, line/valve lists, GA drawings, stress analysis, 3D model reviews, electrical SLDs, DCS/PLC interface documents, firefighting system design, HVAC layouts, procurement support, and as-built documentation."
+    description: "Comprehensive detailed engineering and multidisciplinary support for EPC procurement and construction of the Compressor Station Project (3 working + 1 standby compressors, total flow capacity 1,945,000 Sm³/h). Deliverables included: PFDs, P&IDs, datasheets, line/valve lists, GA drawings, stress analysis, 3D model reviews, electrical SLDs, DCS/PLC interface documents, firefighting system design, HVAC layouts, procurement support, and as-built documentation.",
+    image: botasAdapazari
   },
   {
     name: "GTL Pilot Plant Engineering Services",
     location: "USA",
-    description: "Multi-discipline detailed engineering services are required to progress the project from the FEL phase to Approved for Construction (AFC), including provisions for future commercial plant expansion. The scope covers Mechanical (Static & Rotary), Piping, Instrumentation & Control, Electrical, Civil & Structural, and project interfaces."
+    description: "Multi-discipline detailed engineering services are required to progress the project from the FEL phase to Approved for Construction (AFC), including provisions for future commercial plant expansion. The scope covers Mechanical (Static & Rotary), Piping, Instrumentation & Control, Electrical, Civil & Structural, and project interfaces.",
+    image: gtlPilotPlant
   },
   {
     name: "Sulphuric Acid Plant (600 MTPD)",
     location: "Gujarat, India",
-    description: "Detailed engineering and EPC support for a 600 MTPD Sulphuric Acid Plant, covering high-temperature and low-pressure piping, static equipment design, GA drawings, datasheets, P&IDs, plot plans, MTOs, vendor document review, and validation of the basic engineering package for OSBL facilities."
+    description: "Detailed engineering and EPC support for a 600 MTPD Sulphuric Acid Plant, covering high-temperature and low-pressure piping, static equipment design, GA drawings, datasheets, P&IDs, plot plans, MTOs, vendor document review, and validation of the basic engineering package for OSBL facilities.",
+    image: sulphuricAcidDetailed
   },
   {
     name: "Sulphuric Acid Plant\n(300 MTPD)",
     location: "Karnataka, India",
-    description: "Detailed engineering for a 300 MTPD Sulphuric Acid Plant including civil, structural, piping, electrical, and instrumentation works. Deliverables included: foundations, racks, layouts, static equipment GA drawings, datasheets, P&IDs, MTOs, and vendor reviews with interface to licensor DMCC and client MCFL."
+    description: "Detailed engineering for a 300 MTPD Sulphuric Acid Plant including civil, structural, piping, electrical, and instrumentation works. Deliverables included: foundations, racks, layouts, static equipment GA drawings, datasheets, P&IDs, MTOs, and vendor reviews with interface to licensor DMCC and client MCFL.",
+    image: sulphuricAcid300
   },
   {
-    name: "Refinery Pipelines & Terminals\n(9 MMTPA)",
+    name: "9 MMTPA - Onshore Pipelines & Associated Terminals",
     location: "Chennai, India",
-    description: "End-to-end detailed engineering for onshore pipelines and terminals at Cauvery Basin Refinery. Scope covered PFDs, P&IDs, datasheets, HAZOP/SIL support, 3D modeling, plot plans, procurement support, and multidisciplinary design for crude oil/product pipelines and booster stations."
+    description: "End-to-end detailed engineering for onshore pipelines and terminals at Cauvery Basin Refinery. Scope covered PFDs, P&IDs, datasheets, HAZOP/SIL support, 3D modeling, plot plans, procurement support, and multidisciplinary design for crude oil/product pipelines, manifold junction, jetty and booster stations.",
+    image: onshorePipelines
   },
   {
     name: "Gas Midstream Pipeline System\n(115 km)",
-    location: "Iraq",
-    description: "Pipeline engineering for AR Ratawi Gas Midstream Project (114.9 km). Deliverables: alignment sheets, horizontal/vertical profiles, crossing schedules, condensate pipeline (10” & 24”), integrated GIS/survey data, and validation reports."
+    location: "Turkey",
+    description: "Detailed engineering for 115 km of 40-inch gas pipeline including block valve stations and pigging stations. Scope involved route finalization, alignment sheets, crossing drawings (HDD/Open cut), hydraulic calculations, stress analysis, cathodic protection design, and preparation of construction tender packages.",
+    image: gasMidstreamPipeline
   },
   {
     name: "SRU Thermal Reactor & Incinerator",
-    location: "Bihar, India",
-    description: "Detailed engineering of Thermal Reactor & Incinerator Packages and 40 static equipment units for IOCL SRU. Scope: review of licensor package, 3D model development, datasheets, GA drawings, fabrication drawings, and as-built documentation."
+    location: "Mumbai, India",
+    description: "3D modelling and detailed engineering. Scope included equipment modeling, piping routing, nozzle orientation checks, clash detection, isometric extraction, and MTO generation for seamless procurement and construction.",
+    image: sruThermalReactor
   },
   {
     name: "Refinery TEA Injection Package",
     location: "Rajasthan, India",
-    description: "Detailed engineering for TEA Injection Package at HRRL Refinery. Scope included piping, civil, and structural engineering, vendor document reviews, and coordination with licensor Heurtey."
+    description: "Detailed engineering for TEA Injection Package at HRRL Refinery. Scope included piping, civil, and structural engineering, vendor document reviews, and coordination with licensor Heurtey.",
+    image: teaInjectionPackage
   },
   {
     name: "Hydrogen Plant Modular Skids",
@@ -111,12 +140,14 @@ export const detailProjects: Project[] = [
   {
     name: "P-80 FPSO Instrumentation Support",
     location: "Brazil",
-    description: "Instrumentation engineering support for Petrobras P-80 FPSO Project in Brazil. Scope included cable scheduling, routing, 3D modeling of tray systems, tray layout sheets, and multidisciplinary coordination for 10 modules."
+    description: "Instrumentation engineering support for Petrobras P-80 FPSO Project in Brazil. Scope included cable scheduling, routing, 3D modeling of tray systems, tray layout sheets, and multidisciplinary coordination for 10 modules.",
+    image: p80Fpso
   },
   {
     name: "EDC Plant Civil & Structural",
-    location: "Dahej, India",
-    description: "Civil & structural engineering design for Tekla Vinyls Program 1260 KTA EDC Plant. Scope included modularization design, 3D modeling, pile caps, vent blower sheds, pedestals, and structural detailing."
+    location: "Oman",
+    description: "Civil and Structural detailed engineering for EDC Plant. Scope included 3D modeling of pipe racks and equipment structures, connection design, foundation deliverables, and structural analysis reports.",
+    image: edcPlantCivil
   },
   {
     name: "Ammonia Plant Electrical and Static Equipment",
@@ -319,16 +350,7 @@ export const preBidProjects: Project[] = [
     location: "India",
     description: "Provided layout studies, MTOs, and technical bid inputs for Sulphur Recovery and Utility units to support EPC tendering."
   },
-  {
-    name: "EPC Bid Support (Oil & Gas)",
-    location: "Middle East",
-    description: "Developed pre-bid 3D models and generated precise quantity take-offs (MTOs) to support commercial proposals."
-  },
-  {
-    name: "Modular Fabrication Planning",
-    location: "Europe",
-    description: "Pre-bid engineering support focused on modular fabrication strategies, packing, and installation planning."
-  },
+
   {
     name: "Skid-Mounted Water Treatment Unit",
     location: "Philippines",

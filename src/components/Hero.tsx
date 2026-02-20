@@ -1,21 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import heroEarth from "@/assets/hero-bg-new.jpg";
 
 const Hero = () => {
   const { scrollY } = useScroll();
 
+  // Apply spring physics to the scroll value for "butter smooth" effect
+  const smoothScrollY = useSpring(scrollY, {
+    stiffness: 350,
+    damping: 28,
+    restDelta: 0.001
+  });
+
   // Animation Physics - "Butter Smooth"
-  // Range: 0 to 300px scroll (adjusted for mobile)
+  // Range: 0 to 150px scroll (reduced from 300px for faster transition)
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const scrollRange = [0, 300];
+  const scrollRange = [0, 150];
 
   // Animated values (Only apply on Desktop)
-  const contentOpacity = useTransform(scrollY, scrollRange, [0, 1]);
-  const contentY = useTransform(scrollY, scrollRange, [60, 0]);
-  const contentScale = useTransform(scrollY, scrollRange, [0.95, 1]);
-  const imageOpacity = useTransform(scrollY, scrollRange, [1, 0.4]);
+  // key: using smoothScrollY instead of raw scrollY
+  const contentOpacity = useTransform(smoothScrollY, scrollRange, [0, 1]);
+  const contentY = useTransform(smoothScrollY, scrollRange, [60, 0]);
+  const contentScale = useTransform(smoothScrollY, scrollRange, [0.95, 1]);
+  const imageOpacity = useTransform(smoothScrollY, scrollRange, [1, 0.4]);
 
   return (
     // Mobile: Auto height, normal scroll. Desktop: 200vh for scroll effect.
@@ -35,7 +43,7 @@ const Hero = () => {
             backgroundImage: `url(${heroEarth})`,
             // Mobile: Cover to fill screen, center position.
             // Desktop: 100% 100% fixed aspect.
-            backgroundSize: isMobile ? "cover" : "100% 100%",
+            backgroundSize: "100% 100%",
             backgroundPosition: "center center",
             // Disable opacity transition on mobile
             opacity: isMobile ? 1 : imageOpacity

@@ -208,56 +208,95 @@ const Services = () => {
   const [activeSection, setActiveSection] = useState("feed");
 
   // Scroll Spy to update active section
-  // Scroll Spy to update active section
   useEffect(() => {
     const contentArea = document.getElementById('services-content-area');
-    if (!contentArea) return;
 
     const handleScroll = () => {
-      // Use scrollTop of the container + offset
-      const scrollPosition = contentArea.scrollTop + 150;
+      const isMobile = window.innerWidth < 1024;
 
-      for (const section of serviceSections) {
-        const element = document.getElementById(section.id);
-        if (element) {
-          // Get position relative to the container? 
-          // element.offsetTop works if element is direct child, but it's nested.
-          // Use getBoundingClientRect logic relative to container top.
+      if (isMobile) {
+        // Mobile: Scroll is on window
+        const scrollPosition = window.scrollY + 300; // Increased offset for mobile header + nav
 
-          // Easier: element.offsetTop is generally safe if strict relative/absolute positioning isn't messing it up.
-          // But simpler:
-          const areaRect = contentArea.getBoundingClientRect();
-          const elemRect = element.getBoundingClientRect();
+        for (const section of serviceSections) {
+          const element = document.getElementById(section.id);
+          if (element) {
+            // Get position relative to document
+            const rect = element.getBoundingClientRect();
+            const absoluteTop = rect.top + window.scrollY;
+            const absoluteBottom = rect.bottom + window.scrollY;
 
-          // Calculate element's top position relative to container's visible top
-          const relativeTop = elemRect.top - areaRect.top + contentArea.scrollTop;
-          const relativeBottom = elemRect.bottom - areaRect.top + contentArea.scrollTop;
+            if (scrollPosition >= absoluteTop && scrollPosition < absoluteBottom) {
+              setActiveSection(section.id);
+              break;
+            }
+          }
+        }
+      } else {
+        // Desktop: Scroll is on contentArea
+        if (!contentArea) return;
 
-          if (scrollPosition >= relativeTop && scrollPosition < relativeBottom) {
-            setActiveSection(section.id);
-            break;
+        // Use scrollTop of the container + offset
+        const scrollPosition = contentArea.scrollTop + 150;
+
+        for (const section of serviceSections) {
+          const element = document.getElementById(section.id);
+          if (element) {
+            const areaRect = contentArea.getBoundingClientRect();
+            const elemRect = element.getBoundingClientRect();
+
+            // Calculate element's top position relative to container's visible top
+            const relativeTop = elemRect.top - areaRect.top + contentArea.scrollTop;
+            const relativeBottom = elemRect.bottom - areaRect.top + contentArea.scrollTop;
+
+            if (scrollPosition >= relativeTop && scrollPosition < relativeBottom) {
+              setActiveSection(section.id);
+              break;
+            }
           }
         }
       }
     };
 
-    contentArea.addEventListener("scroll", handleScroll);
-    return () => contentArea.removeEventListener("scroll", handleScroll);
+    // Attach listeners based on initial view, but also handle dynamic changes if possible.
+    // Ideally we should listen to both or handle resize. 
+    // For robust hybrid behavior:
+    window.addEventListener("scroll", handleScroll); // Covers mobile
+    if (contentArea) contentArea.addEventListener("scroll", handleScroll); // Covers desktop container
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (contentArea) contentArea.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     const contentArea = document.getElementById('services-content-area');
+    const isMobile = window.innerWidth < 1024;
 
-    if (element && contentArea) {
-      const areaRect = contentArea.getBoundingClientRect();
-      const elemRect = element.getBoundingClientRect();
+    if (element) {
+      if (isMobile) {
+        // Mobile: Scroll window
+        const headerOffset = 220; // Height of header + mobile nav sticky bar
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-      // Target scroll position = current scrollTop + (element top relative to viewport - content top relative to viewport) - offset
-      const offset = 40; // Small top padding
-      const targetScroll = contentArea.scrollTop + (elemRect.top - areaRect.top) - offset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      } else if (contentArea) {
+        // Desktop: Scroll container
+        const areaRect = contentArea.getBoundingClientRect();
+        const elemRect = element.getBoundingClientRect();
 
-      contentArea.scrollTo({ top: targetScroll, behavior: 'smooth' });
+        // Target scroll position = current scrollTop + (element top relative to viewport - content top relative to viewport) - offset
+        const offset = 40; // Small top padding
+        const targetScroll = contentArea.scrollTop + (elemRect.top - areaRect.top) - offset;
+
+        contentArea.scrollTo({ top: targetScroll, behavior: 'smooth' });
+      }
       setActiveSection(id);
     }
   };
