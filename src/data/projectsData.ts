@@ -99,7 +99,6 @@ export const feedProjects: Project[] = [
     description: "Basic engineering for MB-01 Meglumine Project. Scope included process deliverables (P&IDs, line lists), equipment datasheets, piping layouts, BOQs, electrical system design (SLDs, load lists, cable schedules), HVAC system design, clean room design, CSA reports, and 3D modeling.",
     image: mb01Meglumine
   },
-
 ];
 
 export const detailProjects: Project[] = [
@@ -152,11 +151,6 @@ export const detailProjects: Project[] = [
     image: teaInjectionPackage
   },
   {
-    name: "Hydrogen Plant Modular Skids",
-    location: "Malaysia",
-    description: "Detailed engineering for 21 process skids. Scope included 3D modeling, GA drawings, connection details, and fabrication/erection documentation."
-  },
-  {
     name: "P-80 FPSO Instrumentation Support",
     location: "Brazil",
     description: "Instrumentation engineering support for Petrobras P-80 FPSO Project in Brazil. Scope included cable scheduling, routing, 3D modeling of tray systems, tray layout sheets, and multidisciplinary coordination for 10 modules.",
@@ -193,50 +187,10 @@ export const detailProjects: Project[] = [
     image: recycledWaterTanks
   },
   {
-    name: "Sakura Waste Water Treatment Plant",
-    location: "Bintulu, Malaysia",
-    description: "HDPE waste water piping design works with max size 8” and total length of 2000m including stress analysis, Isometrics, 3D Modeling, piping support drawings and pipe bridges, design of Structural platforms and tank supporting structure."
-  },
-  {
-    name: "Offshore Basket Design",
-    location: "Malaysia/Brunei",
-    description: "Design approval of scaffloding offshore basket 04 type - total 12 no's as per std. requirement latest ISO 10855-1:2018 DNVGL standard for certification 2.7-1."
-  },
-  {
-    name: "Double Door Chiller Container",
-    location: "Malaysia/Brunei",
-    description: "Design Calculation and Fabrication drawings of double door chiller container."
-  },
-  {
-    name: "Shop Drawings (Pipe Spool)",
-    location: "Johor Bahru, Malaysia",
-    description: "Preparing shop drawings for pipe spool and LSP chamber for emerson process management (M) SDN BHD."
-  },
-  {
-    name: "Mineral Wool Insulation Plant",
-    location: "Johor Bahru, Malaysia",
-    description: "Static Analysis and preparation of Shop drawings for Knauf insulation."
-  },
-  {
     name: "Linde Hydrogen Manufacturing Unit",
     location: "Port Dickson, Malaysia",
     description: "Structural detailing along with fabrication and erection drawing and single part drawings. Total 180 MT.",
     image: lindeHydrogen
-  },
-  {
-    name: "LPG Bottling Plant (120 TMTPA)",
-    location: "Jharkhand, India",
-    description: "Detailed Engineering for LPG Bottling Plant."
-  },
-  {
-    name: "Unloading Bay Facility (Cairn Rava)",
-    location: "Yanam, India",
-    description: "Design and Engineering services for Unloading Bay (Electrical, Piping, Instrumentation and P&ID)."
-  },
-  {
-    name: "Scrubber and BWTS System Retrofit",
-    location: "Global (Ships)",
-    description: "Detail Engineering of retrofit of scrubber and BWTS system."
   },
   {
     name: "ONGC Western Offshore Platforms Makeover",
@@ -293,11 +247,6 @@ export const detailProjects: Project[] = [
     image: raichemAoExtension
   },
   {
-    name: "Waterflood Pipeline Replacement",
-    location: "Brunei",
-    description: "Riser location and Pipeline Route Study, Shore Approach Design, On-bottom & Lateral stability analysis using in-house spreadsheets, Free span and crossing analysis report, Pipeline and Riser installation analysis, Pre-commissioning and Decommissioning Report, Operating Guidelines Report and MTO report."
-  },
-  {
     name: "Verification of 700 PSVs",
     location: "USA",
     description: "Verification and validation of ~700 PSVs against latest API standards. Delivered detailed compliance reports, gap analysis, and recommendations across 17 operating scenarios.",
@@ -315,85 +264,24 @@ export const detailProjects: Project[] = [
     description: "Civil & structural design for Agro Pellet Feeding Systems. Scope included conveyor supports, chute/silo foundations, construction drawings, safety-focused designs, and maintenance-friendly layouts.",
     image: agroPelletFeeding
   },
-  {
-    name: "Chimney Foundation Design",
-    location: "Hyderabad, India",
-    description: "Civil & structural foundation design for Chimney Project. Delivered foundation analysis, soil condition review, structural drawings, and construction-ready packages."
-  },
-  {
-    name: "Boiler Area External Sheds",
-    location: "Hyderabad, India",
-    description: "Engineering and structural design for Boiler Area External Sheds. Scope: foundation design, fire-resistant structures, safety integration, access platforms, and final construction drawings."
-  },
-  {
-    name: "Water Treatment Plant (200 MLD)",
-    location: "India",
-    description: "Large-scale multi-discipline detailed engineering and 3D modeling for a municipal water treatment facility."
-  },
-  {
-    name: "MBR Plant for Municipality",
-    location: "India",
-    description: "Detailed Engineering and 3D modeling for the MBR Plant, which includes Equipment, Piping, and Structural design and documentation."
-  },
-  {
-    name: "New Sewage Treatment Plant (STP)",
-    location: "Andhra Pradesh",
-    description: "Detailed Engineering & 3D Modeling services including Equipment, Process Piping, Structural, and GA drawings for a new STP project."
-  },
-  {
-    name: "Demineralization (DM) Plant",
-    location: "Visakhapatnam, India",
-    description: "Detailed Engineering and 3D model preparation for the Demineralization Plant, including all associated Equipment, Interconnecting Piping, and Structural elements."
-  },
-  {
-    name: "Pre-Fabricated WTP (Power Plant)",
-    location: "Odisha, India",
-    description: "3D Modeling & Detailed Engineering for a skid-mounted, pre-fabricated WTP for a power plant, including Equipment, Process Piping, and Instrumentation layout."
-  }
 ];
 
 export const asBuiltProjects: Project[] = [
-  {
-    name: "RO Plant Upgrade",
-    location: "Malaysia",
-    description: "Updating detailed engineering models to reflect post-construction conditions, including red-line incorporation and final spool documentation."
-  },
-  {
-    name: "Process Piping Rerouting",
-    location: "India",
-    description: "As-built 3D model updates capturing newly installed piping routes and support structures to ensure accurate plant records."
-  },
   {
     name: "GSPL Operational Stations (As-Built)",
     location: "Gujarat, India",
     description: "Preparation of As built drawings (Plot plan, GA and P&ID) HSE drawings.",
     image: gsplAsBuilt
   },
-  {
-    name: "Effluent Treatment Plant Revamp",
-    location: "India",
-    description: "Detailed 3D modeling and engineering for equipment, piping, and structural modifications in an operating treatment facility."
-  }
 ];
 
 export const preBidProjects: Project[] = [
-  {
-    name: "Refinery Expansion (SRU & Utilities)",
-    location: "India",
-    description: "Provided layout studies, MTOs, and technical bid inputs for Sulphur Recovery and Utility units to support EPC tendering."
-  },
-
   {
     name: "Skid-Mounted Water Treatment Unit",
     location: "Philippines",
     description: "Created preliminary 3D models and equipment lists to generate bid-stage Bill of Materials (BOM) and cost estimates.",
     image: skidWaterTreatment
   },
-  {
-    name: "Revamp of Urea and Ammonia Plant",
-    location: "GOA, India",
-    description: "Pre Bid engineering support to EPC bidder Zauri Agro Chemicals limited. Scope included development of the As built 3D models from laser scan. Estimation for new modifications."
-  }
 ];
 export const digitalisationProjects: Project[] = [
   {
@@ -403,20 +291,10 @@ export const digitalisationProjects: Project[] = [
     image: condensateDigitization
   },
   {
-    name: "Reverse Engineering of Steel Plant",
-    location: "Port Dickson, Malaysia",
-    description: "Development of 3D model and PDMS tagging for Coke oven area Battery area."
-  },
-  {
     name: "Platform R.12 & HRA, Offshore",
     location: "Mumbai, India",
     description: "3D Modelling of R.12 Platform and HRA platform PDMS tagging.",
     image: platformR12
-  },
-  {
-    name: "100 KTA Poly Carbonate Plant",
-    location: "China",
-    description: "Development of SP Intelligent PID 200 PID's in SPPID software."
   },
   {
     name: "TGV SRAAC Caustic Soda Plant",
@@ -442,9 +320,5 @@ export const digitalisationProjects: Project[] = [
     description: "Site Traversing and Registration of Each module to be closed at Max 3.5mm error and Entire Plant Primitive model developed and converted to PDMS dump model",
     image: ammoniaPlantRussia
   },
-  {
-    name: "Confidential Project (P&IDs)",
-    location: "Mumbai, India",
-    description: "Preparation of PID's in SPPID Software Completed around 500 P&ID's till now."
-  }
 ];
+

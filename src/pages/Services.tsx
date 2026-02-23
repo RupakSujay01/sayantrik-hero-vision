@@ -348,22 +348,14 @@ const Services = () => {
     {
       title: "Integrated Delivery",
       desc: "Engineering, procurement support, and construction oversight provided by one cohesive team.",
-
     },
     {
       title: "Local Presence",
       desc: "A strong India vendor network combined with expert site supervision capability.",
-
-    },
-    {
-      title: "Transparent Reporting",
-      desc: "Real-time project dashboards, cost tracking, and schedule monitoring.",
-
     },
     {
       title: "Risk Mitigation",
       desc: "Independent oversight that protects your interests throughout the entire project.",
-
     }
   ];
 
@@ -921,27 +913,35 @@ const Services = () => {
                     </p>
                   </div>
 
-                  {/* Compact Metrics Row */}
-                  <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-gray-100 pt-6">
-                    <div className="flex items-center gap-3 bg-red-50/50 px-4 py-2 rounded-xl border border-red-100/50">
-                      <TrendingUp className="w-4 h-4 text-[#ED2939]" />
+                  {/* Premium Metrics Row */}
+                  <div className="mt-8 mb-12 bg-white rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] py-5 px-6 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-100 border border-gray-100/50 hover:-translate-y-1 transition-transform duration-500">
+                    <div className="flex-1 w-full flex items-center justify-center gap-5 py-3 px-6 group">
+                      <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <Clock className="w-6 h-6" />
+                      </div>
                       <div className="text-left">
-                        <p className="text-[9px] font-black uppercase tracking-widest text-[#ED2939]">Duration</p>
-                        <p className="text-sm font-bold text-gray-900">4-8 Months</p>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Duration</p>
+                        <p className="text-sm font-bold text-gray-900 leading-tight">4-8 Months</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3 bg-red-50/50 px-4 py-2 rounded-xl border border-red-100/50">
-                      <Users className="w-4 h-4 text-[#ED2939]" />
+
+                    <div className="flex-1 w-full flex items-center justify-center gap-5 py-3 px-6 group">
+                      <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <Users className="w-6 h-6" />
+                      </div>
                       <div className="text-left">
-                        <p className="text-[9px] font-black uppercase tracking-widest text-[#ED2939]">Team</p>
-                        <p className="text-sm font-bold text-gray-900">PM + Leads</p>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Team Size</p>
+                        <p className="text-sm font-bold text-gray-900 leading-tight">PM + Leads</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3 bg-red-50/50 px-4 py-2 rounded-xl border border-red-100/50">
-                      <FileCheck className="w-4 h-4 text-[#ED2939]" />
+
+                    <div className="flex-1 w-full flex items-center justify-center gap-5 py-3 px-6 group">
+                      <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <FileCheck className="w-6 h-6" />
+                      </div>
                       <div className="text-left">
-                        <p className="text-[9px] font-black uppercase tracking-widest text-[#ED2939]">Output</p>
-                        <p className="text-sm font-bold text-gray-900">FEED Package</p>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Key Output</p>
+                        <p className="text-sm font-bold text-gray-900 leading-tight">FEED Package</p>
                       </div>
                     </div>
                   </div>
@@ -1051,41 +1051,39 @@ const Services = () => {
             </div>
 
             {/* 7. Flexible Engagement Models - Refined Metrics Style */}
-            <div className="bg-white rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] py-3 px-6 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-100 hover:-translate-y-1 transition-transform duration-500">
-
+            <div className="mt-8 mb-12 bg-white rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] py-5 px-6 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-100 border border-gray-100/50 hover:-translate-y-1 transition-transform duration-500">
               {/* Model 1: Full Detail Engineering */}
-              <div className="flex-1 w-full flex items-center justify-center gap-5 py-2 px-4 group">
+              <div className="flex-1 w-full flex items-center justify-center gap-5 py-3 px-6 group">
                 <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Layers className="w-6 h-6" />
                 </div>
                 <div className="text-left">
                   <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Full Detail Engineering</p>
-                  <p className="text-xs font-medium text-gray-600 leading-tight">End-to-end ownership from FEED handover to IFC.</p>
+                  <p className="text-sm font-bold text-gray-900 leading-tight">End-to-end ownership from FEED handover to IFC.</p>
                 </div>
               </div>
 
               {/* Model 2: Team Augmentation */}
-              <div className="flex-1 w-full flex items-center justify-center gap-5 py-2 px-4 group">
+              <div className="flex-1 w-full flex items-center justify-center gap-5 py-3 px-6 group">
                 <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <UserPlus className="w-6 h-6" />
                 </div>
                 <div className="text-left">
                   <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Team Augmentation</p>
-                  <p className="text-xs font-medium text-gray-600 leading-tight">Dedicated resources embedded directly into your project team.</p>
+                  <p className="text-sm font-bold text-gray-900 leading-tight">Dedicated resources embedded directly into your project team.</p>
                 </div>
               </div>
 
               {/* Model 3: Discipline Packages */}
-              <div className="flex-1 w-full flex items-center justify-center gap-5 py-2 px-4 group">
+              <div className="flex-1 w-full flex items-center justify-center gap-5 py-3 px-6 group">
                 <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <Briefcase className="w-6 h-6" />
+                  <Box className="w-6 h-6" />
                 </div>
                 <div className="text-left">
                   <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Discipline Packages</p>
-                  <p className="text-xs font-medium text-gray-600 leading-tight">Specific scope like piping design, structural analysis, or electrical.</p>
+                  <p className="text-sm font-bold text-gray-900 leading-tight">Specific scope like piping design, structural analysis, or electrical.</p>
                 </div>
               </div>
-
             </div>
 
             <div className="w-full border-t-2 border-[#ED2939] my-8" />
@@ -1164,11 +1162,8 @@ const Services = () => {
 
             {/* 9. Service Detail: EPCM | Full Lifecycle */}
             <div id="epcm" className="max-w-7xl mx-auto pt-6 mb-8 group">
-              {/* Header */}
               <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-12 mb-10">
-                {/* Left: What You Get (Management Benefits Grid) */}
                 <div className="lg:w-3/4">
-                  {/* Header */}
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
                     <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                       EPCM | Full Lifecycle
@@ -1176,7 +1171,7 @@ const Services = () => {
                     <p className="text-xs md:text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                       Engineering, Procurement & Construction Management
                     </p>
-                    <div className="max-w-3xl">
+                    <div className="max-w-3xl mt-4">
                       <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
                         Full transparency and control over your project – we manage, you decide.
                       </p>
@@ -1186,10 +1181,9 @@ const Services = () => {
                   <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
                     Management Benefits
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {featuresEpcm.map((feature, idx) => (
                       <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
-
                         <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
                         <p className="text-gray-600 leading-relaxed text-sm font-medium">
                           {feature.desc}

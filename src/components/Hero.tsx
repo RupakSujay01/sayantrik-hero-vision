@@ -2,95 +2,84 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import leftImage from "@/assets/rose-bank-fpso.jpg";
-import rightImage from "@/assets/oil-plant.png";
+// Using the 6 high-quality images provided by the user
+import img1 from "@/assets/hero-1.jpg";
+import img2 from "@/assets/hero-2.png";
+import img3 from "@/assets/hero-3.jpg";
+import img5 from "@/assets/hero-5.jpg";
+import img6 from "@/assets/hero-6.jpg";
+import img7 from "@/assets/hero-7.jpg";
+import img8 from "@/assets/hero-8.jpg";
 
 const Hero = () => {
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const [step, setStep] = useState(0); // 0: Left, 1: None, 2: Right, 3: None
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setStep((prev) => (prev + 1) % 4);
-    }, 4000);
+      setCurrentImageIndex((prev) => (prev + 1) % 6);
+    }, 5000); // 5 seconds per image
 
     return () => clearInterval(interval);
   }, []);
 
+  const heroImages = [img8, img1, img6, img7, img3, img5];
+
+  const frames = [
+    {
+      id: "frame-1",
+      clipPath: "polygon(0 0, 27.5% 0, 22.5% 100%, 0 100%)",
+    },
+    {
+      id: "frame-2",
+      clipPath: "polygon(27.5% 0, 52.5% 0, 47.5% 100%, 22.5% 100%)",
+    },
+    {
+      id: "frame-3",
+      clipPath: "polygon(52.5% 0, 77.5% 0, 72.5% 100%, 47.5% 100%)",
+    },
+    {
+      id: "frame-4",
+      clipPath: "polygon(77.5% 0, 100% 0, 100% 100%, 72.5% 100%)",
+    },
+  ];
+
   return (
     <section className="relative min-h-[85vh] md:h-[90vh] bg-black overflow-hidden flex items-center justify-center">
-      {/* Background Sliders */}
+      {/* Background Sliders - Seamless Reconstruction Grid */}
       <div className="absolute inset-0 z-[1] overflow-hidden">
-        {/* Left/Top Diagonal Slider */}
-        <div
-          className="absolute inset-0"
-          style={{
-            clipPath: "polygon(0 0, 70% 0, 30% 100%, 0 100%)",
-            zIndex: 2
-          }}
-        >
-          <AnimatePresence mode="wait">
-            {step === 0 && (
+        {frames.map((frame) => (
+          <div
+            key={frame.id}
+            className="absolute inset-0"
+            style={{
+              clipPath: frame.clipPath,
+              zIndex: 2
+            }}
+          >
+            <AnimatePresence mode="wait">
               <motion.div
-                key="left-image"
-                initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 1, scale: 1.15 }}
+                key={`${frame.id}-${currentImageIndex}`}
+                initial={{ opacity: 0, scale: 1.0 }}
+                animate={{ opacity: 1, scale: 1.0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1.5, ease: "easeInOut" }}
-                className="absolute inset-0 bg-cover bg-center"
+                className="absolute inset-0"
                 style={{
-                  backgroundImage: `url(${leftImage})`,
+                  backgroundImage: `url(${heroImages[currentImageIndex]})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat'
                 }}
               />
-            )}
-          </AnimatePresence>
-        </div>
-
-        {/* Right/Bottom Diagonal Slider */}
-        <div
-          className="absolute inset-0"
-          style={{
-            clipPath: "polygon(70% 0, 100% 0, 100% 100%, 30% 100%)",
-            zIndex: 2
-          }}
-        >
-          <AnimatePresence mode="wait">
-            {step === 2 && (
-              <motion.div
-                key="right-image"
-                initial={{ opacity: 0, scale: 1.1 }}
-                animate={{ opacity: 1, scale: 1.15 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
-                className="absolute inset-0 bg-cover bg-center"
-                style={{
-                  backgroundImage: `url(${rightImage})`,
-                }}
-              />
-            )}
-          </AnimatePresence>
-        </div>
+            </AnimatePresence>
+          </div>
+        ))}
       </div>
-
-      {/* Precise Diagonal Divider Line */}
-      <svg
-        className="absolute inset-0 w-full h-full z-[2] pointer-events-none"
-        preserveAspectRatio="none"
-        viewBox="0 0 100 100"
-      >
-        <line
-          x1="70"
-          y1="0"
-          x2="30"
-          y2="100"
-          stroke="rgba(255,255,255,0.2)"
-          strokeWidth="0.2"
-        />
-      </svg>
 
       {/* Dark Overlay for Text Contrast */}
       <div
-        className={`absolute inset-0 pointer-events-none z-[3] ${isMobile ? 'bg-gradient-to-b from-black/60 via-black/40 to-black' : 'bg-black/30'}`}
+        className={`absolute inset-0 pointer-events-none z-[3] ${isMobile ? 'bg-gradient-to-b from-black/80 via-black/40 to-black/80' : 'bg-black/30'}`}
       />
 
       {/* Content Layer */}
@@ -163,4 +152,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

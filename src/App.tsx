@@ -13,6 +13,7 @@ import Services from "./pages/Services";
 import Business from "./pages/Business";
 import Disciplines from "./pages/Disciplines";
 import Projects from "./pages/Projects";
+import ProjectsComingSoon from "./pages/ProjectsComingSoon";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import HSE from "./pages/HSE";
@@ -75,6 +76,8 @@ const AppContent = () => {
             <Route path="/portfolio" element={<PageTransition><Business /></PageTransition>} />
             <Route path="/disciplines" element={<PageTransition><Disciplines /></PageTransition>} />
 
+            <Route path="/projects" element={<PageTransition><ProjectsComingSoon /></PageTransition>} />
+            {/* Original Project Routes - Hidden for now
             <Route path="/projects" element={<PageTransition><Projects /></PageTransition>}>
               <Route index element={<Navigate to="feed" replace />} />
               <Route path="feed" element={<FeedProjects />} />
@@ -83,6 +86,7 @@ const AppContent = () => {
               <Route path="pre-bid" element={<PreBidProjects />} />
               <Route path="digitalisation" element={<DigitalisationProjects />} />
             </Route>
+            */}
 
             <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
             <Route path="/technology-providers" element={<PageTransition><TechnologyProviders /></PageTransition>} />

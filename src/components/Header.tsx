@@ -3,12 +3,19 @@ import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
 import logo from "@/assets/logo_sb.png";
-// import { removeBackground, loadImageFromUrl } from "@/utils/removeBackground";
+import isoBadge from "@/assets/iso-9001-badge.png";
+import isoCertificate from "@/assets/iso-9001-certificate.png";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
-  // const [logoUrl, setLogoUrl] = useState<string>(logo); // REMOVED
+  const [showCertificate, setShowCertificate] = useState(false);
   const hoverOpenTimeoutRef = useRef<number | null>(null);
   const hoverCloseTimeoutRef = useRef<number | null>(null);
   const location = useLocation();
@@ -20,7 +27,7 @@ const Header = () => {
     { path: "/", label: "Home" },
     { path: "/portfolio", label: "Portfolio", hasDropdown: true },
     { path: "/services", label: "Services", hasDropdown: true },
-    { path: "/projects/feed", label: "Projects", hasDropdown: true },
+    { path: "/projects", label: "Projects" },
     { path: "/technology-providers", label: "Technology Providers" },
     { path: "/lcts-partnership", label: "Our Partners" },
     { path: "/csr", label: "CSR" },
@@ -216,8 +223,55 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right Spacer to balance the logo area */}
-          <div className="flex-1 hidden md:block" />
+          {/* Right Area: ISO Certification */}
+          <div className="flex-1 hidden md:flex items-center justify-end">
+            <div
+              onClick={() => setShowCertificate(true)}
+              className="flex items-center gap-3 cursor-pointer group bg-slate-50 hover:bg-slate-100 px-4 py-2 rounded-xl transition-all duration-300 border border-slate-100 hover:border-slate-200"
+            >
+              <div className="flex flex-col items-end">
+                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none mb-1">Certified</span>
+                <span className="text-xs font-black text-slate-900 tracking-tight leading-none">ISO 9001:2015</span>
+              </div>
+              <div className="w-10 h-10 flex items-center justify-center p-0.5 bg-white rounded-lg shadow-sm group-hover:scale-105 transition-transform duration-300 border border-slate-200">
+                <img src={isoBadge} alt="ISO 9001 Badge" className="w-full h-full object-contain" />
+              </div>
+            </div>
+          </div>
+
+          <Dialog open={showCertificate} onOpenChange={setShowCertificate}>
+            <DialogContent className="sm:max-w-[480px] w-[95vw] border-none p-0 overflow-hidden bg-white/95 backdrop-blur-md h-[90vh] flex flex-col [&>button]:scale-90 [&>button]:text-[#ED2939] [&>button]:opacity-100 [&>button]:top-3 [&>button]:right-3 [&>button]:outline [&>button]:outline-[0.5px] [&>button]:outline-[#ED2939]/20 [&>button]:rounded-full [&>button]:p-1 [&>button]:bg-white [&>button:hover]:bg-[#ED2939]/5 [&>button]:transition-all">
+              <DialogHeader className="p-4 bg-slate-900 text-white shrink-0">
+                <DialogTitle className="text-lg font-black uppercase tracking-tight flex items-center gap-3">
+                  <div className="bg-white p-1 rounded-md">
+                    <img src={isoBadge} alt="ISO" className="h-5 w-5 object-contain" />
+                  </div>
+                  ISO Certification
+                </DialogTitle>
+              </DialogHeader>
+              <div className="flex-1 overflow-hidden p-4 md:p-8 flex flex-col items-center justify-center bg-slate-50/50">
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#ED2939]/5 to-blue-500/5 rounded-full blur-3xl opacity-50 pointer-events-none" />
+                  <img
+                    src={isoCertificate}
+                    alt="ISO 9001:2015 Certificate"
+                    className="max-w-full max-h-full object-contain drop-shadow-2xl rounded-sm border border-slate-200"
+                  />
+                </div>
+              </div>
+              <div className="p-4 bg-white border-t border-slate-100 flex items-center justify-between shrink-0">
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Standard</span>
+                  <span className="text-xs font-black text-slate-900 uppercase">ISO 9001:2015</span>
+                </div>
+                <div className="flex items-center gap-4 text-[9px] font-bold text-slate-400 uppercase tracking-widest">
+                  <span className="flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-green-500" /> Verified</span>
+                  <div className="w-[1px] h-3 bg-slate-200" />
+                  <span>Accreditation: TUV SUD</span>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
 

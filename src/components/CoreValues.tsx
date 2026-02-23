@@ -77,7 +77,7 @@ const CoreValues = () => {
                             Our Core Values
                         </h2>
                         <div
-                            className={`h-2 bg-[#40a829] rounded-full transition-all duration-500 ease-in-out ${isVisible ? "w-full" : "w-2"
+                            className={`h-2 bg-primary rounded-full transition-all duration-500 ease-in-out ${isVisible ? "w-full" : "w-2"
                                 }`}
                         />
                     </div>
@@ -87,15 +87,15 @@ const CoreValues = () => {
                     {values.map((value, index) => (
                         <div
                             key={index}
-                            className="group p-4 bg-white/95 backdrop-blur-sm border border-white/20 rounded-lg shadow-md hover:shadow-xl hover:border-[#40a829]/50 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-[1.01] relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-4"
+                            className="group p-4 bg-white/95 backdrop-blur-sm border border-white/20 rounded-lg shadow-md hover:shadow-xl hover:border-primary/50 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-[1.01] relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-4"
                         >
                             {/* Clean Numbering */}
-                            <div className="text-2xl md:text-3xl font-bold text-[#40a829]/35 group-hover:text-[#40a829]/55 transition-colors shrink-0 w-12 text-center">
+                            <div className="text-2xl md:text-3xl font-bold text-primary/35 group-hover:text-primary/55 transition-colors shrink-0 w-12 text-center">
                                 {(index + 1).toString().padStart(2, '0')}
                             </div>
 
                             <div className="flex-1 flex flex-col md:flex-row md:items-center md:gap-6 z-10 w-full">
-                                <h4 className="font-heading text-lg font-bold text-slate-900 group-hover:text-[#40a829] transition-colors shrink-0 md:w-1/3">
+                                <h4 className="font-heading text-lg font-bold text-slate-900 group-hover:text-primary transition-colors shrink-0 md:w-1/3">
                                     {value.title}
                                 </h4>
 
@@ -105,7 +105,7 @@ const CoreValues = () => {
                             </div>
 
                             {/* Hover Accent Line */}
-                            <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#40a829]/0 group-hover:bg-[#40a829] transition-colors duration-300" />
+                            <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary/0 group-hover:bg-primary transition-colors duration-300" />
                         </div>
                     ))}
                 </div>
