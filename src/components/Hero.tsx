@@ -1,27 +1,96 @@
+import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import heroEarth from "@/assets/hero-bg-new.jpg";
+import leftImage from "@/assets/rose-bank-fpso.jpg";
+import rightImage from "@/assets/oil-plant.png";
 
 const Hero = () => {
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const [step, setStep] = useState(0); // 0: Left, 1: None, 2: Right, 3: None
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStep((prev) => (prev + 1) % 4);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative min-h-[85vh] md:h-[90vh] bg-black overflow-hidden flex items-center justify-center">
-      {/* Background Image Layer */}
-      <div
-        className="absolute inset-0 bg-no-repeat z-0"
-        style={{
-          backgroundImage: `url(${heroEarth})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
-          opacity: 0.6
-        }}
-      />
+      {/* Background Sliders */}
+      <div className="absolute inset-0 z-[1] overflow-hidden">
+        {/* Left/Top Diagonal Slider */}
+        <div
+          className="absolute inset-0"
+          style={{
+            clipPath: "polygon(0 0, 70% 0, 30% 100%, 0 100%)",
+            zIndex: 2
+          }}
+        >
+          <AnimatePresence mode="wait">
+            {step === 0 && (
+              <motion.div
+                key="left-image"
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1.15 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: `url(${leftImage})`,
+                }}
+              />
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* Right/Bottom Diagonal Slider */}
+        <div
+          className="absolute inset-0"
+          style={{
+            clipPath: "polygon(70% 0, 100% 0, 100% 100%, 30% 100%)",
+            zIndex: 2
+          }}
+        >
+          <AnimatePresence mode="wait">
+            {step === 2 && (
+              <motion.div
+                key="right-image"
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1.15 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: `url(${rightImage})`,
+                }}
+              />
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* Precise Diagonal Divider Line */}
+      <svg
+        className="absolute inset-0 w-full h-full z-[2] pointer-events-none"
+        preserveAspectRatio="none"
+        viewBox="0 0 100 100"
+      >
+        <line
+          x1="70"
+          y1="0"
+          x2="30"
+          y2="100"
+          stroke="rgba(255,255,255,0.2)"
+          strokeWidth="0.2"
+        />
+      </svg>
 
       {/* Dark Overlay for Text Contrast */}
       <div
-        className={`absolute inset-0 pointer-events-none z-0 ${isMobile ? 'bg-gradient-to-b from-black/60 via-black/40 to-black' : 'bg-black/40'}`}
+        className={`absolute inset-0 pointer-events-none z-[3] ${isMobile ? 'bg-gradient-to-b from-black/60 via-black/40 to-black' : 'bg-black/30'}`}
       />
 
       {/* Content Layer */}

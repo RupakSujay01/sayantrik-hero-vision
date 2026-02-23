@@ -10,7 +10,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
-import About from "./pages/About";
 import Business from "./pages/Business";
 import Disciplines from "./pages/Disciplines";
 import Projects from "./pages/Projects";
@@ -73,7 +72,6 @@ const AppContent = () => {
           >
             <Route path="/" element={<PageTransition><Index /></PageTransition>} />
             <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
-            <Route path="/about" element={<PageTransition><About /></PageTransition>} />
             <Route path="/portfolio" element={<PageTransition><Business /></PageTransition>} />
             <Route path="/disciplines" element={<PageTransition><Disciplines /></PageTransition>} />
 

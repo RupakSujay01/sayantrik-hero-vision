@@ -18,7 +18,6 @@ const Header = () => {
 
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/about", label: "About Us" },
     { path: "/portfolio", label: "Portfolio", hasDropdown: true },
     { path: "/services", label: "Services", hasDropdown: true },
     { path: "/projects/feed", label: "Projects", hasDropdown: true },
@@ -114,16 +113,18 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-white shadow-sm">
       <div className="w-full px-4 md:px-8">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="bg-white rounded-md p-1">
-              <img src={logo} alt="Sayantrik Engineer India Logo" className="h-9 object-contain" />
-            </div>
-            <span className="text-xl md:text-2xl font-bold text-black">Sayantrik Engineers</span>
-          </Link>
+        <div className="flex h-16 items-center">
+          {/* Logo Area */}
+          <div className="flex-1 flex items-center">
+            <Link to="/" className="flex items-center space-x-3">
+              <div className="bg-white rounded-md p-1">
+                <img src={logo} alt="Sayantrik Engineer India Logo" className="h-9 object-contain" />
+              </div>
+              <span className="text-xl md:text-2xl font-bold text-black">Sayantrik Engineers</span>
+            </Link>
+          </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Centered */}
           <nav className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <div
@@ -215,7 +216,8 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Mobile Navigation - Horizontal Scroll Bar */}
+          {/* Right Spacer to balance the logo area */}
+          <div className="flex-1 hidden md:block" />
         </div>
       </div>
 
