@@ -7,6 +7,29 @@ import acetophenoneRecovery from "@/assets/acetophenone-recovery-unit.jpg";
 import cymePowerSystem from "@/assets/cyme-power-system-simulator.jpg";
 import roseBankFpso from "@/assets/rose-bank-fpso.jpg";
 import mb01Meglumine from "@/assets/mb-01-meglumine-project.png";
+import ammoniaPlantElectrical from "@/assets/ammonia-plant-electrical.png";
+import emasProject from "@/assets/emas-project.jpg";
+import processWaterTankDubai from "@/assets/process-water-tank-dubai.jpg";
+import recycledWaterTanks from "@/assets/recycled-water-tanks.jpg";
+import lindeHydrogen from "@/assets/linde-hydrogen.jpg";
+import ongcOffshore from "@/assets/ongc-offshore.jpg";
+import rapidTankFarm from "@/assets/rapid-tank-farm.png";
+import cairnNeStage2 from "@/assets/cairn-ne-stage2.jpg";
+import lactUnits from "@/assets/lact-units.png";
+import gailTerminal from "@/assets/gail-terminal.png";
+import praiPowerPlant from "@/assets/prai-power-plant.jpg";
+import jawa2Demineralization from "@/assets/jawa2-demineralization.jpg";
+import tataSteelSupport from "@/assets/tata-steel-support.jpg";
+import raichemAoExtension from "@/assets/raichem-ao-extension.jpg";
+import psvVerification from "@/assets/psv-verification.jpg";
+import pilotReactorFlaker from "@/assets/pilot-reactor-flaker.png";
+import agroPelletFeeding from "@/assets/agro-pellet-feeding.png";
+import skidWaterTreatment from "@/assets/skid-water-treatment.jpg";
+import gsplAsBuilt from "@/assets/gspl-as-built.png";
+import condensateDigitization from "@/assets/condensate-digitization.png";
+import platformR12 from "@/assets/platform-r12.png";
+import butadienePlant from "@/assets/butadiene-plant.png";
+import basf2ehMalaysia from "@/assets/basf-2eh-malaysia.png";
 import botasAdapazari from "@/assets/botas-adapazari-compressor.png";
 import gtlPilotPlant from "@/assets/gtl-pilot-plant.jpg";
 import sulphuricAcidDetailed from "@/assets/sulphuric-acid-plant-detailed.png";
@@ -17,6 +40,8 @@ import sruThermalReactor from "@/assets/sru-thermal-reactor.png";
 import teaInjectionPackage from "@/assets/tea-injection-package.png";
 import p80Fpso from "@/assets/p-80-fpso.png";
 import edcPlantCivil from "@/assets/edc-plant-civil-structural.png";
+import tgvSraacCaustic from "@/assets/tgv-sraac-caustic-soda.png";
+import ammoniaPlantRussia from "@/assets/ammonia-plant-russia.png";
 
 export interface Project {
   name: string;
@@ -146,27 +171,26 @@ export const detailProjects: Project[] = [
   {
     name: "Ammonia Plant Electrical and Static Equipment",
     location: "Mexico",
-    description: "Electrical: Electrical lighting engineering for Ammonia Plant O&U area in Mexico. Scope: lighting design calculations, layouts for 25 areas, illumination reports, and BOQs. \nStatic: Vendor document review of 115 static equipment drawings for Ammonia Plant in Mexico. Scope: GA reviews, detailed drawing checks, and vendor compliance validation."
+    description: "Electrical: Electrical lighting engineering for Ammonia Plant O&U area in Mexico. Scope: lighting design calculations, layouts for 25 areas, illumination reports, and BOQs. \nStatic: Vendor document review of 115 static equipment drawings for Ammonia Plant in Mexico. Scope: GA reviews, detailed drawing checks, and vendor compliance validation.",
+    image: ammoniaPlantElectrical
   },
   {
     name: "Effluent Management at Source\n(EMAS)",
     location: "Melaka, Malaysia",
-    description: "Detail Design work related to modification of existing effluent treatment plant which includes replacement of CS service water network with GRE, GRVE pipe network. Scope includes all non metallic Piping Detail Design complying to ISO17692 & PTS with 3D Modeling in PDMS, PMS preparation, Admin/Spec customization, Stress Analysis, Surge Analysis, ISO Dwgs, Shop Drawings, GAD, As Built."
-  },
-  {
-    name: "Industrial Water Tanks\n(INTEL FALCON)",
-    location: "Kulim, Malaysia",
-    description: "Detail Design for Dome Roof Industrial Water Tanks 14.0 m Dia x 20.0 m Ht including Tank Ring Beam Foundation Design, Nozzle FEA."
+    description: "Detail Design work related to modification of existing effluent treatment plant which includes replacement of CS service water network with GRE, GRVE pipe network. Scope includes all non metallic Piping Detail Design complying to ISO17692 & PTS with 3D Modeling in PDMS, PMS preparation, Admin/Spec customization, Stress Analysis, Surge Analysis, ISO Dwgs, Shop Drawings, GAD, As Built.",
+    image: emasProject
   },
   {
     name: "Process Water Tank\n(Dubai Waste Mgmt)",
     location: "UAE/Malaysia",
-    description: "Detail Design of Rafter Supported Cone Roof Process Water Tank with BIM 500 Modeling (completed)."
+    description: "Detail Design of Rafter Supported Cone Roof Process Water Tank with BIM 500 Modeling (completed).",
+    image: processWaterTankDubai
   },
   {
     name: "Recycled Water System Tanks\n(ADWDA)",
     location: "Malaysia / Abu Dhabi",
-    description: "Detailed engineering for new raw water 3 tanks for ABU DHABI."
+    description: "Detailed engineering for new raw water 3 tanks for ABU DHABI.",
+    image: recycledWaterTanks
   },
   {
     name: "Sakura Waste Water Treatment Plant",
@@ -196,7 +220,8 @@ export const detailProjects: Project[] = [
   {
     name: "Linde Hydrogen Manufacturing Unit",
     location: "Port Dickson, Malaysia",
-    description: "Structural detailing along with fabrication and erection drawing and single part drawings. Total 180 MT."
+    description: "Structural detailing along with fabrication and erection drawing and single part drawings. Total 180 MT.",
+    image: lindeHydrogen
   },
   {
     name: "LPG Bottling Plant (120 TMTPA)",
@@ -216,47 +241,56 @@ export const detailProjects: Project[] = [
   {
     name: "ONGC Western Offshore Platforms Makeover",
     location: "Mumbai High, India",
-    description: "Brownfield Modifications of Various platforms of ONGC in western offshore (35 Platforms) 1) Verify the the structural integrity perform the local / global/push over analysis as required for the platforms 2) Study the field survey report for the damaged structures 3) Prepare the Demolition drawings / Construction drawings 4) Submit the report."
+    description: "Brownfield Modifications of Various platforms of ONGC in western offshore (35 Platforms) 1) Verify the the structural integrity perform the local / global/push over analysis as required for the platforms 2) Study the field survey report for the damaged structures 3) Prepare the Demolition drawings / Construction drawings 4) Submit the report.",
+    image: ongcOffshore
   },
   {
     name: "RAPID Tank Farm Project",
     location: "Johor, Malaysia",
-    description: "Piping Layout Engineering for firewater network systems -SPI services for Entire Project -SPEL services for Entire Project -Vendor Management services -Completion Management SMCC /PSSR/RFSU."
+    description: "Piping Layout Engineering for firewater network systems -SPI services for Entire Project -SPEL services for Entire Project -Vendor Management services -Completion Management SMCC /PSSR/RFSU.",
+    image: rapidTankFarm
   },
   {
     name: "Cairn NE Stage - II Project",
     location: "Rajasthan, India",
-    description: "1) Pump sizing and Piping systems Hydraulics 2) Under ground Pipeline Studies 3) Piping Layouts / Isometrics Preparations."
+    description: "1) Pump sizing and Piping systems Hydraulics 2) Under ground Pipeline Studies 3) Piping Layouts / Isometrics Preparations.",
+    image: cairnNeStage2
   },
   {
     name: "GAIL Terminal Drawings",
     location: "Chennai, India",
-    description: "Preparation of GAS Terminal Drawings for various consumer sites for layouts that includes piping, electrical, equipment layout, Condensate handling facilities for GAIL, India in Cauvery Basin. This also includes Hazardous area classification drawings as per OISD-113 & IS-5572."
+    description: "Preparation of GAS Terminal Drawings for various consumer sites for layouts that includes piping, electrical, equipment layout, Condensate handling facilities for GAIL, India in Cauvery Basin. This also includes Hazardous area classification drawings as per OISD-113 & IS-5572.",
+    image: gailTerminal
   },
   {
     name: "Lact Units at AL Baraka Metering Station",
     location: "Sohar, Oman",
-    description: "Detail design for structural steel shed and foundations. Storage tanks design and fabrication drawings Nozzle FEA studies for tanks Piping layouts / piping spool drawings."
+    description: "Detail design for structural steel shed and foundations. Storage tanks design and fabrication drawings Nozzle FEA studies for tanks Piping layouts / piping spool drawings.",
+    image: lactUnits
   },
   {
     name: "Prai Combined Cycle Power Plant",
     location: "Penang, Malaysia",
-    description: "Detailed Engineering for Water Treatment facilities for a Demineralization SKID based plant -3D MODELING IN CADWORX -Piping layouts/ Isometrics/MTO for procurement -Skid Detailed drawings -Structural MTO -Cable tray / tubing / instrument data sheets / Hookup drawings As built Drawings."
+    description: "Detailed Engineering for Water Treatment facilities for a Demineralization SKID based plant -3D MODELING IN CADWORX -Piping layouts/ Isometrics/MTO for procurement -Skid Detailed drawings -Structural MTO -Cable tray / tubing / instrument data sheets / Hookup drawings As built Drawings.",
+    image: praiPowerPlant
   },
   {
     name: "Jawa 2 Demineralization Plant Project",
     location: "JAWA, Indonesia",
-    description: "Detailed Engineering for Water Treatment facilities for a Demineralization SKID based plant -3D MODELING IN CADWORX -Piping layouts/ Isometrics/MTO for procurement -Skid Detailed drawings -Structural MTO -Cable tray / tubing / instrument data sheets / Hookup drawings."
+    description: "Detailed Engineering for Water Treatment facilities for a Demineralization SKID based plant -3D MODELING IN CADWORX -Piping layouts/ Isometrics/MTO for procurement -Skid Detailed drawings -Structural MTO -Cable tray / tubing / instrument data sheets / Hookup drawings.",
+    image: jawa2Demineralization
   },
   {
     name: "Engineering support for TATA STEEL",
     location: "Jamshedpur, India",
-    description: "Engineering support for TATA STEEL Plant, Jamshedpur. Discipline inolved piping, Mechanical, Structural and Electrical."
+    description: "Engineering support for TATA STEEL Plant, Jamshedpur. Discipline inolved piping, Mechanical, Structural and Electrical.",
+    image: tataSteelSupport
   },
   {
     name: "Raichem AO Block Extension",
     location: "Raichur, India",
-    description: "Piping layouts and Isometrics - 8000 Lines Process Hydraulic calculations for piping systems involving for pumps and Reactors , Distillation column Pipe rack design along with Equipment foundation Cable tray routing, Cable sizing, Plant lighting calculations Vendor Interaction for VDR."
+    description: "Piping layouts and Isometrics - 8000 Lines Process Hydraulic calculations for piping systems involving for pumps and Reactors , Distillation column Pipe rack design along with Equipment foundation Cable tray routing, Cable sizing, Plant lighting calculations Vendor Interaction for VDR.",
+    image: raichemAoExtension
   },
   {
     name: "Waterflood Pipeline Replacement",
@@ -266,17 +300,20 @@ export const detailProjects: Project[] = [
   {
     name: "Verification of 700 PSVs",
     location: "USA",
-    description: "Verification and validation of ~700 PSVs against latest API standards. Delivered detailed compliance reports, gap analysis, and recommendations across 17 operating scenarios."
+    description: "Verification and validation of ~700 PSVs against latest API standards. Delivered detailed compliance reports, gap analysis, and recommendations across 17 operating scenarios.",
+    image: psvVerification
   },
   {
     name: "Pilot Reactor and Flaker Plant",
     location: "Kashipur, India",
-    description: "Detailed engineering for Pilot Reactor & Flaker Plant. Scope: basic plant layout, GA drawings, piping/isometrics, civil foundations, structural design, load mapping, emergency access design, control philosophy, utility mapping, and integration planning."
+    description: "Detailed engineering for Pilot Reactor & Flaker Plant. Scope: basic plant layout, GA drawings, piping/isometrics, civil foundations, structural design, load mapping, emergency access design, control philosophy, utility mapping, and integration planning.",
+    image: pilotReactorFlaker
   },
   {
     name: "Agro Pellet Feeding Systems",
     location: "Hyderabad, India",
-    description: "Civil & structural design for Agro Pellet Feeding Systems. Scope included conveyor supports, chute/silo foundations, construction drawings, safety-focused designs, and maintenance-friendly layouts."
+    description: "Civil & structural design for Agro Pellet Feeding Systems. Scope included conveyor supports, chute/silo foundations, construction drawings, safety-focused designs, and maintenance-friendly layouts.",
+    image: agroPelletFeeding
   },
   {
     name: "Chimney Foundation Design",
@@ -329,7 +366,8 @@ export const asBuiltProjects: Project[] = [
   {
     name: "GSPL Operational Stations (As-Built)",
     location: "Gujarat, India",
-    description: "Preparation of As built drawings (Plot plan, GA and P&ID) HSE drawings."
+    description: "Preparation of As built drawings (Plot plan, GA and P&ID) HSE drawings.",
+    image: gsplAsBuilt
   },
   {
     name: "Effluent Treatment Plant Revamp",
@@ -348,7 +386,8 @@ export const preBidProjects: Project[] = [
   {
     name: "Skid-Mounted Water Treatment Unit",
     location: "Philippines",
-    description: "Created preliminary 3D models and equipment lists to generate bid-stage Bill of Materials (BOM) and cost estimates."
+    description: "Created preliminary 3D models and equipment lists to generate bid-stage Bill of Materials (BOM) and cost estimates.",
+    image: skidWaterTreatment
   },
   {
     name: "Revamp of Urea and Ammonia Plant",
@@ -360,7 +399,8 @@ export const digitalisationProjects: Project[] = [
   {
     name: "Condensate Processing Plant Digitization",
     location: "Middle East / Abu Dhabi",
-    description: "Complete Master Document Updating and synchronization of model & documents with respect to all current and completed revamp activities. Activates related to Block 1 to Block 9 and Pipe Racks. Scope Includes: Developing Intelligent SP3D MODEL, Data Gathering and site verification of entire data related to Piping, Equipment, Cable Trays and Structural details."
+    description: "Complete Master Document Updating and synchronization of model & documents with respect to all current and completed revamp activities. Activates related to Block 1 to Block 9 and Pipe Racks. Scope Includes: Developing Intelligent SP3D MODEL, Data Gathering and site verification of entire data related to Piping, Equipment, Cable Trays and Structural details.",
+    image: condensateDigitization
   },
   {
     name: "Reverse Engineering of Steel Plant",
@@ -370,7 +410,8 @@ export const digitalisationProjects: Project[] = [
   {
     name: "Platform R.12 & HRA, Offshore",
     location: "Mumbai, India",
-    description: "3D Modelling of R.12 Platform and HRA platform PDMS tagging."
+    description: "3D Modelling of R.12 Platform and HRA platform PDMS tagging.",
+    image: platformR12
   },
   {
     name: "100 KTA Poly Carbonate Plant",
@@ -380,12 +421,26 @@ export const digitalisationProjects: Project[] = [
   {
     name: "TGV SRAAC Caustic Soda Plant",
     location: "Andhra Pradesh, India",
-    description: "Laser Scanning and 3D Modeling."
+    description: "Laser Scanning and 3D Modeling.",
+    image: tgvSraacCaustic
   },
   {
     name: "BASF Aromatics, Butadiene and 2EH Acid Plant",
     location: "Germany",
-    description: "Hybrid 3D Modeling."
+    description: "Preparation of Hybrid SP3D model, PID verification across dumb model, Highlighting changes with colour code given.",
+    image: butadienePlant
+  },
+  {
+    name: "BASF 2-EH Acid Plant",
+    location: "Kuantan, Malaysia",
+    description: "Developed an intelligent hybrid 3D model for the BASF 2-EH Acid Plant, covering Plant-1, Plant-2, and Tank Farm Areas, using SP3D / Smart 3D (S3D) based on available engineering inputs and LFM (Laser Scan) data. The work supported brownfield verification and modification activities and was executed in compliance with Worley and BASF engineering standards.",
+    image: basf2ehMalaysia
+  },
+  {
+    name: "Primitive Modeling for Ammonia Plant",
+    location: "Dorogobuzh - Russia",
+    description: "Site Traversing and Registration of Each module to be closed at Max 3.5mm error and Entire Plant Primitive model developed and converted to PDMS dump model",
+    image: ammoniaPlantRussia
   },
   {
     name: "Confidential Project (P&IDs)",

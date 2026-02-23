@@ -13,8 +13,8 @@ const LctsPartnership = () => {
             />
             {/* Hero Section */}
             <section className="relative text-white pt-32 pb-20 overflow-hidden">
-                <h1 className="absolute top-4 left-4 md:top-10 md:left-10 text-3xl md:text-5xl font-bold text-white uppercase tracking-wider z-20">
-                    LCTS Strategic Partnership
+                <h1 className="absolute top-4 md:top-10 left-0 right-0 text-center text-3xl md:text-5xl font-bold text-white uppercase tracking-wider z-20">
+                    SAYANTRIK LCTS Strategic Partnership
                 </h1>
                 <div className="absolute inset-0 z-0">
                     <img src="/images/lcts-bg.png" alt="LCTS Background" className="w-full h-full object-cover" />

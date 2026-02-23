@@ -576,10 +576,6 @@ const Services = () => {
       desc: "Reduce site visits by 80% with millimetre-accurate virtual reality environments."
     },
     {
-      title: "Tank Calibration",
-      desc: " precise volume analysis and deformation monitoring using 3D laser scanning."
-    },
-    {
       title: "BIM Integration",
       desc: "Intelligent 3D models compatible with all major engineering platforms."
     }
@@ -768,7 +764,7 @@ const Services = () => {
 
             {/* 4a. Service Detail: FEL-1 */}
             <div id="fel-1" className="max-w-7xl mx-auto pt-6 mb-8 group">
-              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+              <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-12">
                 <div className="lg:w-3/4">
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
                     <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
@@ -809,17 +805,16 @@ const Services = () => {
                   </div>
                 </div>
 
-                {/* Right: Strategic Focus Sidebar */}
                 <div className="lg:w-1/4">
-                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                    <div className="flex flex-col items-center text-center">
-                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                        Strategic Focus
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200 h-full">
+                    <div className="flex flex-col items-start text-left">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#ED2939]"></span>
+                        STRATEGIC FOCUS
                       </h3>
                       <div className="w-full space-y-4">
                         {advantagesFel1.map((adv, idx) => (
-                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                          <div key={idx} className="w-full flex flex-col items-start gap-2 text-left text-gray-900 bg-white p-5 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
                             <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
                               {adv.title}
                             </h4>
@@ -839,7 +834,7 @@ const Services = () => {
 
             {/* 4b. Service Detail: FEL-2 */}
             <div id="fel-2" className="max-w-7xl mx-auto pt-6 mb-8 group">
-              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+              <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-12">
                 <div className="lg:w-3/4">
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
                     <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
@@ -880,17 +875,16 @@ const Services = () => {
                   </div>
                 </div>
 
-                {/* Right: Strategic Focus Sidebar */}
                 <div className="lg:w-1/4">
-                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                    <div className="flex flex-col items-center text-center">
-                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                        Strategic Focus
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200 h-full">
+                    <div className="flex flex-col items-start text-left">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#ED2939]"></span>
+                        STRATEGIC FOCUS
                       </h3>
                       <div className="w-full space-y-4">
                         {advantagesFel2.map((adv, idx) => (
-                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                          <div key={idx} className="w-full flex flex-col items-start gap-2 text-left text-gray-900 bg-white p-5 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
                             <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
                               {adv.title}
                             </h4>
@@ -911,31 +905,52 @@ const Services = () => {
             {/* 4. Service Detail: FEED | FEL-3 */}
             <div id="feed" className="max-w-7xl mx-auto pt-6 mb-8 group">
               {/* Header */}
-              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
+              <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-12 mb-10">
                 {/* Left: What You Get (Feature Grid) */}
                 <div className="lg:w-3/4">
                   {/* Header */}
-                  <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
+                  <div className="mb-8 pl-6 border-l-4 border-[#ED2939]">
                     <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
                       FEED | FEL-3
                     </h2>
                     <p className="text-xs md:text-sm font-bold text-[#ED2939] uppercase tracking-widest mt-2">
                       Front-End Engineering Design
                     </p>
-                    <div className="max-w-3xl">
-                      <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
-                        The most critical phase for capital cost optimisation. We define the project baseline, identify technical risks, and establish the 30% cost estimate accuracy required for Final Investment Decision (FID).
-                      </p>
-                    </div>
+                    <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
+                      The most critical phase for capital cost optimisation. We define the project baseline, identify technical risks, and establish the 30% cost estimate accuracy required for Final Investment Decision (FID).
+                    </p>
                   </div>
 
-                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
+                  {/* Compact Metrics Row */}
+                  <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-gray-100 pt-6">
+                    <div className="flex items-center gap-3 bg-red-50/50 px-4 py-2 rounded-xl border border-red-100/50">
+                      <TrendingUp className="w-4 h-4 text-[#ED2939]" />
+                      <div className="text-left">
+                        <p className="text-[9px] font-black uppercase tracking-widest text-[#ED2939]">Duration</p>
+                        <p className="text-sm font-bold text-gray-900">4-8 Months</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 bg-red-50/50 px-4 py-2 rounded-xl border border-red-100/50">
+                      <Users className="w-4 h-4 text-[#ED2939]" />
+                      <div className="text-left">
+                        <p className="text-[9px] font-black uppercase tracking-widest text-[#ED2939]">Team</p>
+                        <p className="text-sm font-bold text-gray-900">PM + Leads</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 bg-red-50/50 px-4 py-2 rounded-xl border border-red-100/50">
+                      <FileCheck className="w-4 h-4 text-[#ED2939]" />
+                      <div className="text-left">
+                        <p className="text-[9px] font-black uppercase tracking-widest text-[#ED2939]">Output</p>
+                        <p className="text-sm font-bold text-gray-900">FEED Package</p>
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4 mt-12">
                     Core Deliverables
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6">
                     {featuresFel3.map((feature, idx) => (
                       <div key={idx} className="bg-gray-50 border-l-4 border-gray-200 p-6 rounded-r-xl hover:border-[#ED2939] hover:bg-white hover:shadow-md transition-all duration-300 group">
-
                         <h4 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-3">{feature.title}</h4>
                         <p className="text-gray-600 leading-relaxed text-sm font-medium">
                           {feature.desc}
@@ -943,21 +958,19 @@ const Services = () => {
                       </div>
                     ))}
                   </div>
-
-
                 </div>
 
-                {/* Right: Sayantrik Advantage */}
+                {/* Right: Strategic Focus Sidebar */}
                 <div className="lg:w-1/4">
-                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                    <div className="flex flex-col items-center text-center">
-                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                        Strategic Focus
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200 h-full">
+                    <div className="flex flex-col items-start text-left">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#ED2939]"></span>
+                        STRATEGIC FOCUS
                       </h3>
                       <div className="w-full space-y-4">
                         {advantagesFel3.map((adv, idx) => (
-                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                          <div key={idx} className="w-full flex flex-col items-start gap-2 text-left text-gray-900 bg-white p-5 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
                             <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
                               {adv.title}
                             </h4>
@@ -969,53 +982,8 @@ const Services = () => {
                       </div>
                     </div>
                   </div>
-
-
                 </div>
               </div>
-
-              {/* Metrics Bar - Enhanced Premium Design */}
-              <div className="mt-4">
-                <div className="bg-white rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] py-3 px-6 flex flex-col md:flex-row items-center divide-y md:divide-y-0 md:divide-x divide-gray-100 hover:-translate-y-1 transition-transform duration-500">
-
-                  {/* Metric 1 */}
-                  <div className="flex-1 w-full flex items-center justify-center gap-5 py-2 px-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <TrendingUp className="w-6 h-6" />
-                    </div>
-                    <div className="text-left">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Duration</p>
-                      <p className="text-xl font-bold text-gray-900 tracking-tight">4-8 Months</p>
-                    </div>
-                  </div>
-
-                  {/* Metric 2 */}
-                  <div className="flex-1 w-full flex items-center justify-center gap-5 py-2 px-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <Users className="w-6 h-6" />
-                    </div>
-                    <div className="text-left">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Team</p>
-                      <p className="text-xl font-bold text-gray-900 tracking-tight">PM + Leads</p>
-                    </div>
-                  </div>
-
-                  {/* Metric 3 */}
-                  <div className="flex-1 w-full flex items-center justify-center gap-5 py-2 px-4 group">
-                    <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-[#ED2939] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <FileCheck className="w-6 h-6" />
-                    </div>
-                    <div className="text-left">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-[#ED2939] mb-1">Output</p>
-                      <p className="text-xl font-bold text-gray-900 tracking-tight">FEED Package</p>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-
-
             </div>
 
             <div className="w-full border-t-2 border-[#ED2939] my-8" />
@@ -1023,7 +991,7 @@ const Services = () => {
             {/* 6. Service Detail: DETAILED ENGINEERING | FEL-4 */}
             <div id="detailed-engineering" className="max-w-7xl mx-auto pt-6 mb-8 group">
               {/* Header */}
-              <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20 mb-6">
+              <div className="flex flex-col lg:flex-row items-stretch gap-12 lg:gap-20 mb-6">
                 {/* Left: What You Get (Deliverables Grid) */}
                 <div className="lg:w-3/4">
                   {/* Header */}
@@ -1057,17 +1025,16 @@ const Services = () => {
                   </div>
                 </div>
 
-                {/* Right: The Sayantrik Advantage (Core Strengths) */}
                 <div className="lg:w-1/4">
-                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                    <div className="flex flex-col items-center text-center">
-                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                        Strategic Focus
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200 h-full">
+                    <div className="flex flex-col items-start text-left">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#ED2939]"></span>
+                        STRATEGIC FOCUS
                       </h3>
-                      <div className="w-full space-y-1.5">
+                      <div className="w-full space-y-4">
                         {advantagesFel4.map((adv, idx) => (
-                          <div key={idx} className="flex flex-col items-center gap-1 justify-center text-center text-gray-900 bg-white py-2 px-4 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                          <div key={idx} className="w-full flex flex-col items-start gap-2 text-left text-gray-900 bg-white p-5 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
                             <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
                               {adv.title}
                             </h4>
@@ -1125,7 +1092,7 @@ const Services = () => {
 
             {/* 8. Service Detail: EPC | Execute */}
             <div id="epc" className="max-w-7xl mx-auto pt-6 mb-8 group">
-              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
+              <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-12 mb-10">
                 {/* Left: Content */}
                 <div className="lg:w-3/4">
                   {/* Header */}
@@ -1168,17 +1135,16 @@ const Services = () => {
                   </div>
                 </div>
 
-                {/* Right: Sidebar */}
                 <div className="lg:w-1/4">
-                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                    <div className="flex flex-col items-center text-center">
-                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                        Strategic Focus
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200 h-full">
+                    <div className="flex flex-col items-start text-left">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#ED2939]"></span>
+                        STRATEGIC FOCUS
                       </h3>
-                      <div className="w-full space-y-2.5">
+                      <div className="w-full space-y-4">
                         {advantagesEpc.map((adv, idx) => (
-                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-3 px-5 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                          <div key={idx} className="w-full flex flex-col items-start gap-2 text-left text-gray-900 bg-white p-5 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
                             <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
                               {adv.title}
                             </h4>
@@ -1199,7 +1165,7 @@ const Services = () => {
             {/* 9. Service Detail: EPCM | Full Lifecycle */}
             <div id="epcm" className="max-w-7xl mx-auto pt-6 mb-8 group">
               {/* Header */}
-              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
+              <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-12 mb-10">
                 {/* Left: What You Get (Management Benefits Grid) */}
                 <div className="lg:w-3/4">
                   {/* Header */}
@@ -1233,17 +1199,16 @@ const Services = () => {
                   </div>
                 </div>
 
-                {/* Right: The Sayantrik Advantage (Management Depth) */}
                 <div className="lg:w-1/4">
-                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                    <div className="flex flex-col items-center text-center">
-                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                        Strategic Focus
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200 h-full">
+                    <div className="flex flex-col items-start text-left">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#ED2939]"></span>
+                        STRATEGIC FOCUS
                       </h3>
-                      <div className="w-full space-y-2.5">
+                      <div className="w-full space-y-4">
                         {advantagesEpcm.map((adv, idx) => (
-                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-3 px-5 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                          <div key={idx} className="w-full flex flex-col items-start gap-2 text-left text-gray-900 bg-white p-5 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
                             <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
                               {adv.title}
                             </h4>
@@ -1264,7 +1229,7 @@ const Services = () => {
             {/* 10. Service Detail: PMC | Full Lifecycle */}
             <div id="pmc" className="max-w-7xl mx-auto pt-6 mb-8 group">
               {/* Header */}
-              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
+              <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-12 mb-10">
                 {/* Control & Oversight Grid (2x2) */}
                 <div className="lg:w-3/4">
                   {/* Header */}
@@ -1298,17 +1263,16 @@ const Services = () => {
                   </div>
                 </div>
 
-                {/* The Sayantrik Advantage - Boardroom Style Sidebar */}
                 <div className="lg:w-1/4">
-                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                    <div className="flex flex-col items-center text-center">
-                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                        Strategic Focus
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200 h-full">
+                    <div className="flex flex-col items-start text-left">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#ED2939]"></span>
+                        STRATEGIC FOCUS
                       </h3>
                       <div className="w-full space-y-4">
                         {advantagesPmc.map((adv, idx) => (
-                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                          <div key={idx} className="w-full flex flex-col items-start gap-2 text-left text-gray-900 bg-white p-5 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
                             <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
                               {adv.title}
                             </h4>
@@ -1329,7 +1293,7 @@ const Services = () => {
             {/* 11. Service Detail: OWNER'S ENGINEER | Full Lifecycle */}
             <div id="owners-engineer" className="max-w-7xl mx-auto pt-6 mb-8 group">
               {/* Header */}
-              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-10">
+              <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-12 mb-10">
                 {/* Left: What You Get (Quality Assurance Grid) */}
                 <div className="lg:w-3/4">
                   {/* Header */}
@@ -1363,17 +1327,16 @@ const Services = () => {
                   </div>
                 </div>
 
-                {/* Right: The Sayantrik Advantage (Strategic Value) */}
                 <div className="lg:w-1/4">
-                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                    <div className="flex flex-col items-center text-center">
-                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                        Strategic Focus
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200 h-full">
+                    <div className="flex flex-col items-start text-left">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#ED2939]"></span>
+                        STRATEGIC FOCUS
                       </h3>
                       <div className="w-full space-y-4">
                         {advantagesOe.map((adv, idx) => (
-                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                          <div key={idx} className="w-full flex flex-col items-start gap-2 text-left text-gray-900 bg-white p-5 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
                             <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
                               {adv.title}
                             </h4>
@@ -1394,7 +1357,7 @@ const Services = () => {
             {/* 12. Service Detail: PROCESS TECHNOLOGY INTEGRATION */}
             <div id="process-technology" className="max-w-7xl mx-auto pt-6 mb-8 group">
               {/* Header */}
-              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12 mb-12">
+              <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-12 mb-12">
                 {/* Left: What You Get (Integration Grid) */}
                 <div className="lg:w-3/4">
                   {/* Header */}
@@ -1443,17 +1406,16 @@ const Services = () => {
                   </div>
                 </div>
 
-                {/* Right: Partnership Models */}
                 <div className="lg:w-1/4">
-                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                    <div className="flex flex-col items-center text-center">
-                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                        Models
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200 h-full">
+                    <div className="flex flex-col items-start text-left">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#ED2939]"></span>
+                        STRATEGIC MODELS
                       </h3>
                       <div className="w-full space-y-4">
                         {partnershipModels.map((model, idx) => (
-                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                          <div key={idx} className="w-full flex flex-col items-start gap-2 text-left text-gray-900 bg-white p-5 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
                             <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
                               {model.title}
                             </h4>
@@ -1473,7 +1435,7 @@ const Services = () => {
 
             {/* 13. Service Detail: BROWNFIELD MODIFICATIONS */}
             <div id="brownfield" className="max-w-7xl mx-auto pt-6 mb-8 group">
-              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+              <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-12">
                 <div className="lg:w-3/4">
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
                     <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
@@ -1506,15 +1468,15 @@ const Services = () => {
                 </div>
 
                 <div className="lg:w-1/4">
-                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                    <div className="flex flex-col items-center text-center">
-                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                        Capabilities
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200 h-full">
+                    <div className="flex flex-col items-start text-left">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#ED2939]"></span>
+                        CORE CAPABILITIES
                       </h3>
                       <div className="w-full space-y-4">
                         {projectTypes.map((type, idx) => (
-                          <div key={idx} className="flex flex-col items-center gap-2 justify-center text-center text-gray-900 bg-white py-4 px-6 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                          <div key={idx} className="w-full flex items-start gap-2 text-left text-gray-900 bg-white p-5 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
                             <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
                               {type.title}
                             </h4>
@@ -1531,7 +1493,7 @@ const Services = () => {
 
             {/* 14. Service Detail: LASER SCAN & DIGITAL TWINS */}
             <div id="laser-scan" className="max-w-7xl mx-auto pt-6 mb-8 group">
-              <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+              <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-12">
                 <div className="lg:w-3/4">
                   <div className="mb-10 pl-6 border-l-4 border-[#ED2939]">
                     <h2 className="text-2xl md:text-4xl font-black text-gray-900 uppercase tracking-tighter">
@@ -1561,15 +1523,15 @@ const Services = () => {
                 </div>
 
                 <div className="lg:w-1/4">
-                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200">
-                    <div className="flex flex-col items-center text-center">
-                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 text-center flex items-center justify-center gap-2 whitespace-nowrap">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#ED2939]"></span>
-                        Strategic Focus
+                  <div className="bg-gray-50 p-6 rounded-2xl border-2 border-dashed border-gray-200 h-full">
+                    <div className="flex flex-col items-start text-left">
+                      <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-8 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-[#ED2939]"></span>
+                        STRATEGIC FOCUS
                       </h3>
-                      <div className="w-full space-y-1.5">
+                      <div className="w-full space-y-4">
                         {advantagesLaser.map((adv, idx) => (
-                          <div key={idx} className="flex flex-col items-center gap-1 justify-center text-center text-gray-900 bg-white py-2 px-4 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
+                          <div key={idx} className="w-full flex flex-col items-start gap-2 text-left text-gray-900 bg-white p-5 rounded-xl shadow-sm border border-gray-100 transition-all hover:shadow-md hover:border-[#ED2939]/30 group">
                             <h4 className="text-sm font-bold uppercase tracking-widest group-hover:text-[#ED2939] transition-colors">
                               {adv.title}
                             </h4>
@@ -1698,10 +1660,10 @@ const Services = () => {
               </div>
             </div>
 
-          </div>
-        </div>
-      </div>
-    </div>
+          </div >
+        </div >
+      </div >
+    </div >
   );
 };
 
