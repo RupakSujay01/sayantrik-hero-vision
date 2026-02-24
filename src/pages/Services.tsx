@@ -647,7 +647,7 @@ const Services = () => {
           </div>
 
           {/* Mobile Navigation - Sticky Top */}
-          <div className="lg:hidden sticky top-20 z-40 bg-white/95 backdrop-blur-sm py-4 border-b border-gray-100 mb-6 -mx-4 px-4 overflow-x-auto">
+          <div className="lg:hidden sticky top-32 z-40 bg-white/95 backdrop-blur-sm py-4 border-b border-gray-100 mb-6 -mx-4 px-4 overflow-x-auto">
             <div className="flex space-x-2 min-w-max">
               {serviceSections.map((section) => (
                 <button

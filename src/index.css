@@ -74,7 +74,7 @@ All colors MUST be HSL.
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 2rem;
+    scroll-padding-top: 8rem;
   }
 
   body {
@@ -177,5 +177,14 @@ All colors MUST be HSL.
 
   .scroll-snap-center {
     scroll-snap-align: center;
+  }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
 }

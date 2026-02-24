@@ -223,8 +223,8 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right Area: ISO Certification */}
-          <div className="flex-1 hidden md:flex items-center justify-end">
+          {/* Right Area: ISO Certification (Desktop) */}
+          <div className="hidden md:flex flex-1 items-center justify-end">
             <div
               onClick={() => setShowCertificate(true)}
               className="flex items-center gap-3 cursor-pointer group bg-slate-50 hover:bg-slate-100 px-4 py-2 rounded-xl transition-all duration-300 border border-slate-100 hover:border-slate-200"
@@ -235,6 +235,19 @@ const Header = () => {
               </div>
               <div className="w-10 h-10 flex items-center justify-center p-0.5 bg-white rounded-lg shadow-sm group-hover:scale-105 transition-transform duration-300 border border-slate-200">
                 <img src={isoBadge} alt="ISO 9001 Badge" className="w-full h-full object-contain" />
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile ISO Badge */}
+          <div className="md:hidden flex items-center pr-2">
+            <div
+              onClick={() => setShowCertificate(true)}
+              className="flex items-center gap-1.5 cursor-pointer bg-slate-50 px-2.5 py-1.5 rounded-lg border border-slate-100 active:bg-slate-100"
+            >
+              <span className="text-[9px] font-black text-slate-900 leading-none">ISO</span>
+              <div className="w-6 h-6 flex items-center justify-center bg-white rounded-md shadow-sm border border-slate-200">
+                <img src={isoBadge} alt="ISO" className="w-full h-full object-contain p-0.5" />
               </div>
             </div>
           </div>
@@ -275,22 +288,17 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Nav Bar - Below Logo */}
-      <div className="md:hidden border-t border-border/20 overflow-x-auto no-scrollbar bg-white/95 backdrop-blur-sm">
-        <div className="flex items-center whitespace-nowrap px-4 h-10">
-          {navItems.map((item, index) => (
-            <div key={item.path} className="flex items-center">
-              <Link
-                to={item.path}
-                className={`text-xs font-semibold uppercase tracking-wide px-3 py-1 ${isActive(item.path) ? "text-primary" : "text-slate-600"}`}
-              >
-                {item.label}
-              </Link>
-              {/* Divider Line (except for last item) */}
-              {index < navItems.length - 1 && (
-                <div className="h-3 w-[1px] bg-border px-[0.5px] mx-1 opacity-50" />
-              )}
-            </div>
+      {/* Mobile Nav Bar - Below Logo (Grid Layout) */}
+      <div className="md:hidden border-t border-border/10 bg-white/95 backdrop-blur-sm">
+        <div className="grid grid-cols-5 gap-y-1 gap-x-0 px-2 py-2">
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`text-[9px] font-black uppercase tracking-tight px-1 py-1.5 text-center flex items-center justify-center leading-tight transition-colors ${isActive(item.path) ? "text-primary" : "text-slate-500"}`}
+            >
+              {item.label}
+            </Link>
           ))}
         </div>
       </div>

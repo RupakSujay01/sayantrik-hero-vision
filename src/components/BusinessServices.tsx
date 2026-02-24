@@ -41,7 +41,7 @@ export const BusinessServices = () => {
             isSustainability ? "bg-gradient-to-br from-green-50/50 to-white" : "bg-white"
         )}>
             {/* Category Toggles - Sticky */}
-            <div className="sticky top-16 z-40 bg-white/95 backdrop-blur-sm py-4 border-b border-gray-100/50 shadow-sm transition-all duration-300">
+            <div className="sticky top-32 md:top-16 z-40 bg-white/95 backdrop-blur-sm py-4 border-b border-gray-100/50 shadow-sm transition-all duration-300">
                 <div className="flex justify-center">
                     <div className="inline-flex bg-gray-100 p-1 rounded-full flex-wrap justify-center shadow-inner">
                         {(['Energy', 'Chemicals', 'Power', 'Sustainability'] as const).map((category) => {

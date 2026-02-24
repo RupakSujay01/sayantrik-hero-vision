@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { MessageSquare, CheckCircle2, X } from "lucide-react";
+import { MessageSquare, CheckCircle2, X, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Chatbot } from "@/components/Chatbot";
+import { EnquiryForm } from "@/components/EnquiryForm";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const FloatingActionButtons = () => {
     const [isChatOpen, setIsChatOpen] = useState(false);
+    const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -102,14 +104,28 @@ export const FloatingActionButtons = () => {
             {/* Chatbot Component */}
             <Chatbot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
 
-            {/* Chat/Contact Button - Bottom Right */}
-            <div className="fixed bottom-6 right-6 z-50">
+            {/* Enquiry Form Component */}
+            <EnquiryForm isOpen={isEnquiryOpen} onClose={() => setIsEnquiryOpen(false)} />
+
+            {/* Floating Buttons Bottom Right */}
+            <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+                {/* Enquiry Button */}
+                <Button
+                    size="lg"
+                    onClick={() => setIsEnquiryOpen(true)}
+                    className="h-14 w-14 rounded-full shadow-[0_10px_25px_-5px_rgba(232,160,32,0.4)] bg-[#e8a020] hover:bg-[#f0c050] text-[#0a0d12] transition-all duration-300 hover:scale-110 flex items-center justify-center border-none"
+                    title="Submit Enquiry"
+                >
+                    <ClipboardList className="h-9 w-9" />
+                </Button>
+
+                {/* Chat Toggle */}
                 <Button
                     size="lg"
                     onClick={() => setIsChatOpen(!isChatOpen)}
                     className="h-14 w-14 rounded-full shadow-lg bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-110 flex items-center justify-center"
                 >
-                    {isChatOpen ? <X className="h-6 w-6" /> : <MessageSquare className="h-6 w-6" />}
+                    {isChatOpen ? <X className="h-8 w-8" /> : <MessageSquare className="h-8 w-8" />}
                 </Button>
             </div>
         </>
