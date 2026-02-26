@@ -1,7 +1,45 @@
+"use client"; // Add this if you are using Next.js App Router
+
+import React, { useEffect } from "react";
 import { Users, Building2, Heart, Briefcase, Calendar, MapPin, Clock } from "lucide-react";
 import { SEO } from "@/components/SEO";
 
 const Careers = () => {
+  useEffect(() => {
+    // 1. Load the Zoho CSS
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://static.zohocdn.com/recruit/embed_careers_site/css/v1.1/embed_jobs.css";
+    document.head.appendChild(link);
+
+    // 2. Load the Zoho Script
+    const script = document.createElement("script");
+    script.src = "https://static.zohocdn.com/recruit/embed_careers_site/javascript/v1.1/embed_jobs.js";
+    script.async = true;
+
+    // 3. Initialize the widget once the script loads
+    script.onload = () => {
+      if (window.rec_embed_js) {
+        window.rec_embed_js.load({
+          widget_id: "rec_job_listing_div",
+          page_name: "Careers",
+          source: "CareerSite",
+          site: "https://sayantrik.zohorecruit.in",
+          brand_color: "#6875E2",
+          empty_job_msg: "No current Openings",
+        });
+      }
+    };
+
+    document.body.appendChild(script);
+
+    // Cleanup function to prevent duplicate scripts if the component unmounts
+    return () => {
+      if (document.head.contains(link)) document.head.removeChild(link);
+      if (document.body.contains(script)) document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <main className="min-h-screen bg-background">
       <SEO
@@ -88,68 +126,18 @@ const Careers = () => {
               Join our team of engineering professionals and be part of exciting projects that shape the future of the industry. We're always looking for talented individuals who share our passion for excellence.
             </p>
 
-            {/* Job Listings */}
-            <div className="space-y-4">
-              {[
-                {
-                  title: "Senior Process Engineer",
-                  location: "Hyderabad, Mumbai, Chennai",
-                  type: "Full-time",
-                  experience: "5-8 years",
-                  description: "Lead process design and optimisation for oil & gas projects"
-                },
-                {
-                  title: "Piping Design Engineer",
-                  location: "Hyderabad, Chennai",
-                  type: "Full-time",
-                  experience: "3-6 years",
-                  description: "Design and analyse piping systems for petrochemical facilities"
-                },
-                {
-                  title: "Project Manager",
-                  location: "Mumbai, Malaysia",
-                  type: "Full-time",
-                  experience: "8-12 years",
-                  description: "Manage end-to-end project delivery and client relationships"
-                },
-                {
-                  title: "Electrical Engineer",
-                  location: "Hyderabad, Mumbai",
-                  type: "Full-time",
-                  experience: "4-7 years",
-                  description: "Design electrical systems and instrumentation for industrial projects"
-                }
-              ].map((job, index) => (
-                <div key={index} className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-foreground mb-2">{job.title}</h3>
-                      <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-3">
-                        <div className="flex items-center gap-1">
-                          <MapPin className="w-4 h-4" />
-                          {job.location}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Clock className="w-4 h-4" />
-                          {job.type}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Briefcase className="w-4 h-4" />
-                          {job.experience}
-                        </div>
-                      </div>
-                      <p className="text-muted-foreground">{job.description}</p>
-                    </div>
-                    <button className="bg-primary text-primary-foreground px-6 py-2 rounded-md hover:bg-primary/90 transition-colors">
-                      Apply Now
-                    </button>
-                  </div>
+            {/* ZOHO RECRUIT WIDGET INTEGRATION */}
+            <div className="embed_jobs_head embed_jobs_with_style_3 mt-8">
+              <div className="embed_jobs_head2">
+                <div className="embed_jobs_head3">
+                  {/* This empty div is what the Zoho script will target and fill with jobs */}
+                  <div id="rec_job_listing_div"></div>
                 </div>
-              ))}
+              </div>
             </div>
 
             {/* Application Process */}
-            <div className="bg-card border border-border rounded-lg p-8 mt-8">
+            <div className="bg-card border border-border rounded-lg p-8 mt-12">
               <h3 className="text-2xl font-bold text-foreground mb-6">How to Apply</h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center">
@@ -157,7 +145,7 @@ const Careers = () => {
                     <span className="text-xl font-bold text-primary">1</span>
                   </div>
                   <h4 className="font-semibold text-foreground mb-2">Submit Application</h4>
-                  <p className="text-sm text-muted-foreground">Send your resume and cover letter to our HR team</p>
+                  <p className="text-sm text-muted-foreground">Apply directly through the open roles listed above</p>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
