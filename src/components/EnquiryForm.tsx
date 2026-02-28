@@ -239,7 +239,7 @@ export const EnquiryForm = ({ isOpen, onClose, initialClientType }: EnquiryFormP
                                                 <label className="font-['Barlow_Condensed'] text-[11px] font-semibold uppercase tracking-[2.5px] text-[#94a3b8]">Full Name <span className="text-[#ED2939]">*</span></label>
                                                 <input
                                                     {...register('full_name', { required: 'Name is required' })}
-                                                    placeholder="John Smith"
+                                                    placeholder="Enter your full name"
                                                     className={`w-full bg-white/5 border px-4 py-3 text-sm focus:outline-none focus:border-[#ED2939] transition-colors rounded-none ${errors.full_name ? 'border-[#e05050]' : 'border-[#1e2840]'}`}
                                                 />
                                             </div>
@@ -247,7 +247,7 @@ export const EnquiryForm = ({ isOpen, onClose, initialClientType }: EnquiryFormP
                                                 <label className="font-['Barlow_Condensed'] text-[11px] font-semibold uppercase tracking-[2.5px] text-[#94a3b8]">Company / Organisation <span className="text-[#ED2939]">*</span></label>
                                                 <input
                                                     {...register('company', { required: 'Company is required' })}
-                                                    placeholder="Acme Engineering Ltd."
+                                                    placeholder="Enter your company name"
                                                     className={`w-full bg-white/5 border px-4 py-3 text-sm focus:outline-none focus:border-[#ED2939] transition-colors rounded-none ${errors.company ? 'border-[#e05050]' : 'border-[#1e2840]'}`}
                                                 />
                                             </div>
@@ -256,7 +256,7 @@ export const EnquiryForm = ({ isOpen, onClose, initialClientType }: EnquiryFormP
                                                 <input
                                                     type="email"
                                                     {...register('email', { required: 'Email is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } })}
-                                                    placeholder="john@company.com"
+                                                    placeholder="Enter your email address"
                                                     className={`w-full bg-white/5 border px-4 py-3 text-sm focus:outline-none focus:border-[#ED2939] transition-colors rounded-none ${errors.email ? 'border-[#e05050]' : 'border-[#1e2840]'}`}
                                                 />
                                             </div>
@@ -277,7 +277,7 @@ export const EnquiryForm = ({ isOpen, onClose, initialClientType }: EnquiryFormP
                                                     <input
                                                         type="tel"
                                                         {...register('phone', { required: 'Phone is required' })}
-                                                        placeholder="98765 43210"
+                                                        placeholder="Enter your contact number"
                                                         className={`flex-1 bg-white/5 border px-4 py-3 text-sm focus:outline-none focus:border-[#ED2939] transition-colors rounded-none ${errors.phone ? 'border-[#e05050]' : 'border-[#1e2840]'}`}
                                                     />
                                                 </div>

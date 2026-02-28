@@ -267,7 +267,7 @@ const Contact = () => {
                     <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 pl-4">Full Name</label>
                     <Input
                       {...register("fullName")}
-                      placeholder="John Doe"
+                      placeholder="Enter your full name"
                       className={`bg-slate-50 border-none rounded-2xl h-14 px-6 focus:ring-2 focus:ring-[#ED2939]/20 transition-all text-slate-900 font-bold ${errors.fullName ? 'ring-2 ring-red-500' : ''}`}
                     />
                     {errors.fullName && <p className="text-[10px] text-red-500 font-bold pl-4 uppercase">{errors.fullName.message}</p>}
@@ -278,7 +278,7 @@ const Contact = () => {
                       <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 pl-4">Contact No</label>
                       <Input
                         {...register("contactNo")}
-                        placeholder="+91 00000 00000"
+                        placeholder="Enter your contact number"
                         className={`bg-slate-50 border-none rounded-2xl h-14 px-6 focus:ring-2 focus:ring-[#ED2939]/20 transition-all text-slate-900 font-bold ${errors.contactNo ? 'ring-2 ring-red-500' : ''}`}
                       />
                       {errors.contactNo && <p className="text-[10px] text-red-500 font-bold pl-4 uppercase">{errors.contactNo.message}</p>}
@@ -288,7 +288,7 @@ const Contact = () => {
                       <Input
                         {...register("email")}
                         type="email"
-                        placeholder="john@company.com"
+                        placeholder="Enter your email address"
                         className={`bg-slate-50 border-none rounded-2xl h-14 px-6 focus:ring-2 focus:ring-[#ED2939]/20 transition-all text-slate-900 font-bold ${errors.email ? 'ring-2 ring-red-500' : ''}`}
                       />
                       {errors.email && <p className="text-[10px] text-red-500 font-bold pl-4 uppercase">{errors.email.message}</p>}
