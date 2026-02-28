@@ -177,11 +177,7 @@ const Services = () => {
       desc: "We work on your preferred design platforms and follow your specific standards.",
 
     },
-    {
-      title: "Vendor Integration",
-      desc: "Seamless incorporation of vendor data with rigorous technical review.",
 
-    },
     {
       title: "Schedule Adherence",
       desc: "Proven track record of on-time delivery with construction-sequenced work packages.",
@@ -223,15 +219,16 @@ const Services = () => {
   // Scroll Spy to update active section
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 130;
-      for (const section of serviceSections) {
+      const scrollPosition = window.scrollY + 200; // Adjusted offset for better trigger point
+      for (let i = serviceSections.length - 1; i >= 0; i--) {
+        const section = serviceSections[i];
         const element = document.getElementById(section.id);
         if (element) {
           const rect = element.getBoundingClientRect();
           const absoluteTop = rect.top + window.scrollY;
-          const absoluteBottom = rect.bottom + window.scrollY;
 
-          if (scrollPosition >= absoluteTop && scrollPosition < absoluteBottom) {
+          // By iterating backwards, the first one we find where we have scrolled past its top is the active one
+          if (scrollPosition >= absoluteTop) {
             setActiveSection(section.id);
             break;
           }
@@ -240,8 +237,24 @@ const Services = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
+    // Call once on mount to set initial correct section
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Sync sidebar and mobile nav scroll position to keep active nav item visible
+  useEffect(() => {
+    const navItem = document.getElementById(`nav-${activeSection}`);
+    if (navItem) {
+      navItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // Also scroll the mobile sticky nav
+    const mobileNavItem = document.getElementById(`mobile-nav-${activeSection}`);
+    if (mobileNavItem) {
+      mobileNavItem.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+  }, [activeSection]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -625,36 +638,38 @@ const Services = () => {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 h-auto">
 
           {/* Left Navigation - Sticky */}
-          <div className="hidden lg:block w-72 flex-shrink-0 sticky top-32 h-fit pb-20">
-            <div className="space-y-2 pr-4 pt-10">
+          <div id="services-sidebar-nav" className="hidden lg:block w-72 flex-shrink-0 sticky top-32 h-[calc(100vh-140px)] overflow-y-auto scrollbar-none pb-20 pt-4 px-2">
+            <div className="space-y-4">
               <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6 px-4">
                 Services
               </h3>
               <div className="flex flex-col gap-4">
                 {serviceSections.map((section, index) => (
-                  <BubbleNavLink
-                    key={section.id}
-                    id={section.id}
-                    label={section.label}
-                    isActive={activeSection === section.id}
-                    index={index}
-                    totalItems={serviceSections.length}
-                    onClick={() => scrollToSection(section.id)}
-                  />
+                  <div key={section.id} id={`nav-${section.id}`} className="scroll-m-8">
+                    <BubbleNavLink
+                      id={section.id}
+                      label={section.label}
+                      isActive={activeSection === section.id}
+                      index={index}
+                      totalItems={serviceSections.length}
+                      onClick={() => scrollToSection(section.id)}
+                    />
+                  </div>
                 ))}
               </div>
             </div>
           </div>
 
           {/* Mobile Navigation - Sticky Top */}
-          <div className="lg:hidden sticky top-32 z-40 bg-white/95 backdrop-blur-sm py-4 border-b border-gray-100 mb-6 -mx-4 px-4 overflow-x-auto">
+          <div id="services-mobile-nav" className="lg:hidden sticky top-32 z-40 bg-white/95 backdrop-blur-sm py-4 border-b border-gray-100 mb-6 -mx-4 px-4 overflow-x-auto scroll-smooth">
             <div className="flex space-x-2 min-w-max">
               {serviceSections.map((section) => (
                 <button
                   key={section.id}
+                  id={`mobile-nav-${section.id}`}
                   onClick={() => scrollToSection(section.id)}
                   className={cn(
-                    "px-5 py-3 rounded-full text-base font-bold whitespace-nowrap transition-colors transform active:scale-95",
+                    "px-5 py-3 rounded-full text-base font-bold whitespace-nowrap transition-colors transform active:scale-95 scroll-m-4",
                     activeSection === section.id
                       ? "bg-[#ED2939] text-white shadow-md"
                       : "bg-gray-100 text-gray-600 hover:bg-gray-200"

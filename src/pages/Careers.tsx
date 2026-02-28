@@ -25,7 +25,7 @@ const Careers = () => {
           page_name: "Careers",
           source: "CareerSite",
           site: "https://sayantrik.zohorecruit.in",
-          brand_color: "#6875E2",
+          brand_color: "#E11D48", // Using the closest hex to hsl(355 84% 55%) Tailwind rose-600/Sayantrik Primary
           empty_job_msg: "No current Openings",
         });
       }
@@ -111,7 +111,7 @@ const Careers = () => {
         </section>
 
         {/* Hiring Section */}
-        <section className="animate-fade-in">
+        <section className="animate-fade-in relative z-10">
           <div className="flex items-center gap-4 mb-8">
             <div className="p-3 bg-primary/10 rounded-lg">
               <Briefcase className="w-8 h-8 text-primary" />
@@ -127,13 +127,8 @@ const Careers = () => {
             </p>
 
             {/* ZOHO RECRUIT WIDGET INTEGRATION */}
-            <div className="embed_jobs_head embed_jobs_with_style_3 mt-8">
-              <div className="embed_jobs_head2">
-                <div className="embed_jobs_head3">
-                  {/* This empty div is what the Zoho script will target and fill with jobs */}
-                  <div id="rec_job_listing_div"></div>
-                </div>
-              </div>
+            <div className="bg-card border border-border rounded-lg p-6 shadow-sm mt-8 relative z-10">
+              <div id="rec_job_listing_div" className="min-h-[300px]"></div>
             </div>
 
             {/* Application Process */}

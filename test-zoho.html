@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <div id="rec_job_listing_div"></div>
+    <script src="https://static.zohocdn.com/recruit/embed_careers_site/javascript/v1.1/embed_jobs.js"></script>
+    <script>
+        window.onload = () => {
+            rec_embed_js.load({
+                widget_id: "rec_job_listing_div",
+                page_name: "Careers",
+                source: "CareerSite",
+                site: "https://sayantrik.zohorecruit.in",
+                empty_job_msg: "No current Openings"
+            });
+        };
+    </script>
+</body>
+
+</html>

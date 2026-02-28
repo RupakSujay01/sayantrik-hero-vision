@@ -1,0 +1,4 @@
+.cw-rec-filter
+.cw-facet-checkbox
+.cw-facet-checkbox-label
+.cw-easyapply-loading
