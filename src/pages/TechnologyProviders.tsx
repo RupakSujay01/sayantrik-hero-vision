@@ -5,8 +5,10 @@ import { CheckCircle2, ChevronRight, Plus, Building2, Factory, Zap, Leaf } from 
 import { cn } from '@/lib/utils';
 import { BubbleNavLink } from '@/components/ui/BubbleNavLink';
 import { SEO } from "@/components/SEO";
+import { useEnquiry } from "@/hooks/useEnquiry";
 
 const TechnologyProviders = () => {
+    const { openEnquiry } = useEnquiry();
     const [activeSection, setActiveSection] = useState('opportunity');
 
     const scrollToSection = (id: string) => {
@@ -218,22 +220,32 @@ const TechnologyProviders = () => {
                             <div className="grid md:grid-cols-11 gap-4 items-stretch">
                                 {/* Left Pane */}
                                 <div className="md:col-span-4 md:col-start-2 bg-gray-50/50 border border-gray-200 rounded-xl p-4 shadow-sm hover:border-[#ED2939]/30 transition-colors">
-                                    <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center">
-                                        ISBL - LICENSOR CORE
+                                    <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center uppercase tracking-wide">
+                                        ISBL - ENGINEERING SUPPORT
                                     </h3>
-                                    <ul className="space-y-1.5">
+                                    <ul className="space-y-2 mb-4">
                                         {[
-                                            'Core Process Design',
-                                            'Proprietary Equipment',
-                                            'Process Guarantees',
-                                            'Start-up Supervision'
+                                            'Hydraulics & Sizing Verification',
+                                            'Equipment Sizing Review & Optimisation',
+                                            'Process & Utility P&ID Integration',
+                                            'Tie-in & Interconnection Engineering',
+                                            'Detailed Engineering (Civil / Structural / Piping / E&I)',
+                                            'As-Built & 3D Model Development (E3D / SP3D)'
                                         ].map((item, idx) => (
-                                            <li key={idx} className="flex items-center text-gray-600 text-sm">
-                                                <div className="w-1.5 h-1.5 bg-[#ED2939] rounded-full mr-2" />
-                                                {item}
+                                            <li key={idx} className="flex items-start text-gray-700 text-sm">
+                                                <div className="w-1.5 h-1.5 bg-[#ED2939] rounded-full mr-2.5 mt-1.5 shrink-0" />
+                                                <span>{item}</span>
                                             </li>
                                         ))}
                                     </ul>
+                                    <div className="mt-4 pt-3 border-t border-white">
+                                        <div className="pl-3 py-2 border-l-2 border-gray-200 bg-gray-100/30">
+                                            <p className="text-xs text-gray-500 italic leading-relaxed">
+                                                <span className="mr-1.5 opacity-60">✦</span>
+                                                Core Process Design, Proprietary Equipment, Process Guarantees & Start-up Supervision remain the exclusive scope of the Technology Licensor.
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 {/* Bridge Icon */}
@@ -256,19 +268,19 @@ const TechnologyProviders = () => {
                                         <div>
                                             <h4 className="text-xs font-bold text-gray-500 uppercase mb-2">BOP Integration</h4>
                                             <ul className="space-y-1.5 text-sm text-gray-600">
-                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />Utility Systems</li>
-                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />Power Distribution</li>
-                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />Control Room/DCS</li>
-                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />Fire Protection</li>
+                                                <li className="flex items-start"><div className="w-1.5 h-1.5 bg-[#ED2939] rounded-full mr-2.5 mt-1.5 shrink-0" /><span>Utility Systems</span></li>
+                                                <li className="flex items-start"><div className="w-1.5 h-1.5 bg-[#ED2939] rounded-full mr-2.5 mt-1.5 shrink-0" /><span>Power Distribution</span></li>
+                                                <li className="flex items-start"><div className="w-1.5 h-1.5 bg-[#ED2939] rounded-full mr-2.5 mt-1.5 shrink-0" /><span>Control Room/DCS</span></li>
+                                                <li className="flex items-start"><div className="w-1.5 h-1.5 bg-[#ED2939] rounded-full mr-2.5 mt-1.5 shrink-0" /><span>Fire Protection</span></li>
                                             </ul>
                                         </div>
                                         <div>
                                             <h4 className="text-xs font-bold text-gray-500 uppercase mb-2">OSBL Facilities</h4>
                                             <ul className="space-y-1.5 text-sm text-gray-600">
-                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />Raw Material Storage</li>
-                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />Product Dispatch</li>
-                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />ETP / WTP</li>
-                                                <li className="flex items-center"><div className="w-1 h-1 bg-[#ED2939] rounded-full mr-2" />Pipe Racks</li>
+                                                <li className="flex items-start"><div className="w-1.5 h-1.5 bg-[#ED2939] rounded-full mr-2.5 mt-1.5 shrink-0" /><span>Raw Material Storage</span></li>
+                                                <li className="flex items-start"><div className="w-1.5 h-1.5 bg-[#ED2939] rounded-full mr-2.5 mt-1.5 shrink-0" /><span>Product Dispatch</span></li>
+                                                <li className="flex items-start"><div className="w-1.5 h-1.5 bg-[#ED2939] rounded-full mr-2.5 mt-1.5 shrink-0" /><span>ETP / WTP</span></li>
+                                                <li className="flex items-start"><div className="w-1.5 h-1.5 bg-[#ED2939] rounded-full mr-2.5 mt-1.5 shrink-0" /><span>Pipe Racks</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -474,12 +486,12 @@ const TechnologyProviders = () => {
                                     <p className="text-white/90 mb-6 text-sm leading-relaxed text-justify">
                                         Establish your engineering arm in India with a partner that understands the nuances of local execution and world-class technology.
                                     </p>
-                                    <Link
-                                        to="/contact"
+                                    <button
+                                        onClick={() => openEnquiry('Technology Provider')}
                                         className="inline-block w-full py-3 bg-white text-[#ED2939] font-bold rounded-lg hover:bg-gray-50 transition-colors shadow-lg text-sm text-center"
                                     >
                                         Contact Our Partnership Team
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
                         </div>

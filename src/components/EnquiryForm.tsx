@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle2, ChevronRight, HardHat, Building2, Users, Radio, Zap, Database, FlaskConical } from 'lucide-react';
@@ -6,6 +6,7 @@ import { X, CheckCircle2, ChevronRight, HardHat, Building2, Users, Radio, Zap, D
 interface EnquiryFormProps {
     isOpen: boolean;
     onClose: () => void;
+    initialClientType?: string;
 }
 
 type FormData = {
@@ -37,27 +38,76 @@ const dialCodes = [
     { code: '+20', label: '+20 🇪🇬' },
 ];
 
-export const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
+export const EnquiryForm = ({ isOpen, onClose, initialClientType }: EnquiryFormProps) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const { register, handleSubmit, formState: { errors }, reset, watch } = useForm<FormData>({
+    const { register, handleSubmit, formState: { errors }, reset, watch, setValue } = useForm<FormData>({
         defaultValues: {
             dial_code: '+91',
-            sectors: []
+            sectors: [],
+            client_type: initialClientType || ''
         }
     });
 
+    // Update form when initialClientType changes or form opens
+    useEffect(() => {
+        if (isOpen && initialClientType) {
+            setValue('client_type', initialClientType);
+        }
+    }, [isOpen, initialClientType, setValue]);
+
     const onSubmit = async (data: FormData) => {
         setIsSubmitting(true);
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        console.log('Form Submitted:', data);
-        setIsSubmitting(false);
-        setIsSubmitted(true);
-        setTimeout(() => {
-            onClose();
-            setIsSubmitted(false);
-            reset();
-        }, 2000);
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({
+                    access_key: "e728c4e1-b9c6-44b4-92c2-cffa0635b9cd",
+                    subject: `New Project Enquiry from ${data.company}`,
+                    from_name: "Sayantrik Website",
+                    name: data.full_name,
+                    email: data.email,
+                    company: data.company,
+                    phone: `${data.dial_code} ${data.phone}`,
+                    client_type: data.client_type,
+                    target_sectors: data.sectors.join(', '),
+                    message: data.query,
+                    reference_rfq: data.reference || "None provided"
+                }),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                // FIRE GOOGLE ANALYTICS CONVERSION EVENT
+                if (typeof window.gtag === 'function') {
+                    window.gtag('event', 'enquiry_form_india', {
+                        'event_category': 'lead',
+                        'event_label': 'India Enquiry Drawer',
+                        'business_entity': 'Sayantrik India'
+                    });
+                }
+
+                setIsSubmitted(true);
+                setTimeout(() => {
+                    onClose();
+                    setIsSubmitted(false);
+                    reset();
+                }, 2000);
+            } else {
+                throw new Error(result.message || "Failed to submit");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Failed to send enquiry. Please try again later.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -78,29 +128,30 @@ export const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className="relative w-full max-w-3xl p-[1px] bg-gradient-to-br from-[#e8a020]/40 via-[#e8a020]/10 to-[#e8a020]/30 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden"
+                        className="relative w-full max-w-3xl p-[1px] bg-gradient-to-br from-[#ED2939]/40 via-[#ED2939]/10 to-[#ED2939]/30 rounded-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden"
                     >
                         {/* Form Content Container with internal outline and hidden scrollbar */}
-                        <div className="relative w-full max-h-[90vh] overflow-y-auto bg-[#111620] rounded-2xl scrollbar-none outline outline-1 outline-[#e8a020]/20">
-                            {/* Close Button */}
+                        <div className="relative w-full max-h-[90vh] overflow-y-auto bg-[#111620] rounded-2xl scrollbar-none outline outline-1 outline-[#ED2939]/20">
+                            {/* Cancel Button */}
                             <button
                                 onClick={onClose}
-                                className="absolute top-6 right-6 text-[#5a6480] hover:text-white transition-colors z-20"
+                                className="absolute top-5 right-5 flex items-center gap-1.5 text-[#94a3b8] hover:text-white bg-white/5 hover:bg-white/10 border border-[#1e2840] hover:border-[#ED2939]/50 transition-all rounded px-3 py-1.5 z-20 group"
                             >
-                                <X className="w-6 h-6" />
+                                <X className="w-3.5 h-3.5 group-hover:text-[#ED2939] transition-colors" />
+                                <span className="font-['Barlow_Condensed'] text-[11px] font-semibold uppercase tracking-wider">Cancel</span>
                             </button>
 
                             <div className="p-8 md:p-12 font-['Barlow'] font-light text-[#d8dde8]">
                                 {/* Header */}
                                 <div className="mb-10">
-                                    <div className="flex items-center gap-3 text-[#e8a020] font-['Barlow_Condensed'] text-[11px] font-semibold uppercase tracking-[4px] mb-3">
-                                        <div className="w-8 h-[1px] bg-[#e8a020]" />
+                                    <div className="flex items-center gap-3 text-[#ED2939] font-['Barlow_Condensed'] text-[11px] font-semibold uppercase tracking-[4px] mb-3">
+                                        <div className="w-8 h-[1px] bg-[#ED2939]" />
                                         Get in Touch
                                     </div>
                                     <h2 className="text-4xl md:text-5xl font-['Barlow_Condensed'] font-bold text-white uppercase tracking-tighter leading-none mb-4">
-                                        Submit Your <span className="text-[#e8a020]">Enquiry</span>
+                                        Submit Your <span className="text-[#ED2939]">Enquiry</span>
                                     </h2>
-                                    <p className="text-[#5a6480] text-sm leading-relaxed max-w-lg">
+                                    <p className="text-[#94a3b8] text-sm leading-relaxed max-w-lg">
                                         Tell us about your project. Our engineering team will respond within 24 hours.
                                     </p>
                                 </div>
@@ -110,7 +161,7 @@ export const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
                                     {/* Organization Type */}
                                     <div className="space-y-6">
                                         <div className="flex items-center gap-4">
-                                            <span className="font-['Barlow_Condensed'] text-[10px] font-semibold uppercase tracking-[3px] text-[#5a6480] whitespace-nowrap">You Are A</span>
+                                            <span className="font-['Barlow_Condensed'] text-[11px] font-semibold uppercase tracking-[3px] text-[#94a3b8] whitespace-nowrap">You Are A</span>
                                             <div className="flex-1 h-[1px] bg-[#1e2840]" />
                                         </div>
                                         <div className="flex flex-wrap gap-2.5">
@@ -124,8 +175,8 @@ export const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
                                                 <label
                                                     key={type.id}
                                                     className={`flex items-center gap-2 px-4 py-2.5 border transition-all cursor-pointer select-none font-['Barlow_Condensed'] text-[13px] font-semibold uppercase tracking-wider ${watch('client_type') === type.id
-                                                            ? 'bg-[#e8a020] border-[#e8a020] text-[#0a0d12]'
-                                                            : 'border-[#1e2840] text-[#5a6480] hover:border-[#e8a020] hover:text-[#e8a020]'
+                                                        ? 'bg-[#ED2939] border-[#ED2939] text-white'
+                                                        : 'border-[#1e2840] text-[#94a3b8] hover:border-[#ED2939] hover:text-[#ED2939]'
                                                         }`}
                                                 >
                                                     <input
@@ -145,7 +196,7 @@ export const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
                                     {/* Industry Sector */}
                                     <div className="space-y-6">
                                         <div className="flex items-center gap-4">
-                                            <span className="font-['Barlow_Condensed'] text-[10px] font-semibold uppercase tracking-[3px] text-[#5a6480] whitespace-nowrap">Industry Sector</span>
+                                            <span className="font-['Barlow_Condensed'] text-[11px] font-semibold uppercase tracking-[3px] text-[#94a3b8] whitespace-nowrap">Industry Sector</span>
                                             <div className="flex-1 h-[1px] bg-[#1e2840]" />
                                         </div>
                                         <div className="flex flex-wrap gap-2.5">
@@ -158,8 +209,8 @@ export const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
                                                 <label
                                                     key={sector.id}
                                                     className={`flex items-center gap-2 px-4 py-2.5 border transition-all cursor-pointer select-none font-['Barlow_Condensed'] text-[13px] font-semibold uppercase tracking-wider ${watch('sectors')?.includes(sector.id)
-                                                            ? 'bg-[#e8a020] border-[#e8a020] text-[#0a0d12]'
-                                                            : 'border-[#1e2840] text-[#5a6480] hover:border-[#e8a020] hover:text-[#e8a020]'
+                                                        ? 'bg-[#ED2939] border-[#ED2939] text-white'
+                                                        : 'border-[#1e2840] text-[#94a3b8] hover:border-[#ED2939] hover:text-[#ED2939]'
                                                         }`}
                                                 >
                                                     <input
@@ -178,45 +229,45 @@ export const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
 
                                     {/* Contact Details */}
                                     <div className="space-y-6">
-                                        <div className="flex items-center gap-4 text-[#5a6480]">
-                                            <span className="font-['Barlow_Condensed'] text-[10px] font-semibold uppercase tracking-[3px] whitespace-nowrap">Contact Details</span>
+                                        <div className="flex items-center gap-4 text-[#94a3b8]">
+                                            <span className="font-['Barlow_Condensed'] text-[11px] font-semibold uppercase tracking-[3px] whitespace-nowrap">Contact Details</span>
                                             <div className="flex-1 h-[1px] bg-[#1e2840]" />
                                         </div>
 
                                         <div className="grid md:grid-cols-2 gap-x-6 gap-y-8">
                                             <div className="space-y-2">
-                                                <label className="font-['Barlow_Condensed'] text-[10px] font-semibold uppercase tracking-[2.5px] text-[#5a6480]">Full Name <span className="text-[#e8a020]">*</span></label>
+                                                <label className="font-['Barlow_Condensed'] text-[11px] font-semibold uppercase tracking-[2.5px] text-[#94a3b8]">Full Name <span className="text-[#ED2939]">*</span></label>
                                                 <input
                                                     {...register('full_name', { required: 'Name is required' })}
                                                     placeholder="John Smith"
-                                                    className={`w-full bg-white/5 border px-4 py-3 text-sm focus:outline-none focus:border-[#e8a020] transition-colors rounded-none ${errors.full_name ? 'border-[#e05050]' : 'border-[#1e2840]'}`}
+                                                    className={`w-full bg-white/5 border px-4 py-3 text-sm focus:outline-none focus:border-[#ED2939] transition-colors rounded-none ${errors.full_name ? 'border-[#e05050]' : 'border-[#1e2840]'}`}
                                                 />
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="font-['Barlow_Condensed'] text-[10px] font-semibold uppercase tracking-[2.5px] text-[#5a6480]">Company / Organisation <span className="text-[#e8a020]">*</span></label>
+                                                <label className="font-['Barlow_Condensed'] text-[11px] font-semibold uppercase tracking-[2.5px] text-[#94a3b8]">Company / Organisation <span className="text-[#ED2939]">*</span></label>
                                                 <input
                                                     {...register('company', { required: 'Company is required' })}
                                                     placeholder="Acme Engineering Ltd."
-                                                    className={`w-full bg-white/5 border px-4 py-3 text-sm focus:outline-none focus:border-[#e8a020] transition-colors rounded-none ${errors.company ? 'border-[#e05050]' : 'border-[#1e2840]'}`}
+                                                    className={`w-full bg-white/5 border px-4 py-3 text-sm focus:outline-none focus:border-[#ED2939] transition-colors rounded-none ${errors.company ? 'border-[#e05050]' : 'border-[#1e2840]'}`}
                                                 />
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="font-['Barlow_Condensed'] text-[10px] font-semibold uppercase tracking-[2.5px] text-[#5a6480]">Email Address <span className="text-[#e8a020]">*</span></label>
+                                                <label className="font-['Barlow_Condensed'] text-[11px] font-semibold uppercase tracking-[2.5px] text-[#94a3b8]">Email Address <span className="text-[#ED2939]">*</span></label>
                                                 <input
                                                     type="email"
                                                     {...register('email', { required: 'Email is required', pattern: { value: /^\S+@\S+$/i, message: 'Invalid email' } })}
                                                     placeholder="john@company.com"
-                                                    className={`w-full bg-white/5 border px-4 py-3 text-sm focus:outline-none focus:border-[#e8a020] transition-colors rounded-none ${errors.email ? 'border-[#e05050]' : 'border-[#1e2840]'}`}
+                                                    className={`w-full bg-white/5 border px-4 py-3 text-sm focus:outline-none focus:border-[#ED2939] transition-colors rounded-none ${errors.email ? 'border-[#e05050]' : 'border-[#1e2840]'}`}
                                                 />
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="font-['Barlow_Condensed'] text-[10px] font-semibold uppercase tracking-[2.5px] text-[#5a6480]">Phone Number <span className="text-[#e8a020]">*</span></label>
+                                                <label className="font-['Barlow_Condensed'] text-[11px] font-semibold uppercase tracking-[2.5px] text-[#94a3b8]">Phone Number <span className="text-[#ED2939]">*</span></label>
                                                 <div className="flex">
                                                     <div className="bg-white/5 border border-r-0 border-[#1e2840] px-3 flex items-center gap-2">
                                                         <span className="text-sm">🌐</span>
                                                         <select
                                                             {...register('dial_code')}
-                                                            className="bg-transparent border-none text-[#5a6480] font-['Barlow_Condensed'] text-xs font-semibold focus:outline-none cursor-pointer p-0"
+                                                            className="bg-transparent border-none text-[#94a3b8] font-['Barlow_Condensed'] text-xs font-semibold focus:outline-none cursor-pointer p-0"
                                                         >
                                                             {dialCodes.map(code => (
                                                                 <option key={code.code} value={code.code} className="bg-[#111620]">{code.label}</option>
@@ -227,7 +278,7 @@ export const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
                                                         type="tel"
                                                         {...register('phone', { required: 'Phone is required' })}
                                                         placeholder="98765 43210"
-                                                        className={`flex-1 bg-white/5 border px-4 py-3 text-sm focus:outline-none focus:border-[#e8a020] transition-colors rounded-none ${errors.phone ? 'border-[#e05050]' : 'border-[#1e2840]'}`}
+                                                        className={`flex-1 bg-white/5 border px-4 py-3 text-sm focus:outline-none focus:border-[#ED2939] transition-colors rounded-none ${errors.phone ? 'border-[#e05050]' : 'border-[#1e2840]'}`}
                                                     />
                                                 </div>
                                             </div>
@@ -236,27 +287,27 @@ export const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
 
                                     {/* Your Query */}
                                     <div className="space-y-6">
-                                        <div className="flex items-center gap-4 text-[#5a6480]">
-                                            <span className="font-['Barlow_Condensed'] text-[10px] font-semibold uppercase tracking-[3px] whitespace-nowrap">Your Query</span>
+                                        <div className="flex items-center gap-4 text-[#94a3b8]">
+                                            <span className="font-['Barlow_Condensed'] text-[11px] font-semibold uppercase tracking-[3px] whitespace-nowrap">Your Query</span>
                                             <div className="flex-1 h-[1px] bg-[#1e2840]" />
                                         </div>
 
                                         <div className="space-y-6">
                                             <div className="space-y-2">
-                                                <label className="font-['Barlow_Condensed'] text-[10px] font-semibold uppercase tracking-[2.5px] text-[#5a6480]">Briefly describe your requirement <span className="text-[#e8a020]">*</span></label>
+                                                <label className="font-['Barlow_Condensed'] text-[11px] font-semibold uppercase tracking-[2.5px] text-[#94a3b8]">Briefly describe your requirement <span className="text-[#ED2939]">*</span></label>
                                                 <textarea
                                                     {...register('query', { required: 'Please describe your requirement', minLength: { value: 10, message: 'Minimum 10 characters' } })}
                                                     placeholder="Describe your project scope, location, timeline, or any specific services you're looking for…"
                                                     rows={4}
-                                                    className={`w-full bg-white/5 border px-4 py-3 text-sm focus:outline-none focus:border-[#e8a020] transition-colors rounded-none resize-none ${errors.query ? 'border-[#e05050]' : 'border-[#1e2840]'}`}
+                                                    className={`w-full bg-white/5 border px-4 py-3 text-sm focus:outline-none focus:border-[#ED2939] transition-colors rounded-none resize-none ${errors.query ? 'border-[#e05050]' : 'border-[#1e2840]'}`}
                                                 />
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="font-['Barlow_Condensed'] text-[10px] font-semibold uppercase tracking-[2.5px] text-[#5a6480]">Project Reference / RFQ Number <small className="font-light lowercase normal-case opacity-60">(Optional)</small></label>
+                                                <label className="font-['Barlow_Condensed'] text-[11px] font-semibold uppercase tracking-[2.5px] text-[#94a3b8]">Project Reference / RFQ Number <small className="font-light lowercase normal-case opacity-60">(Optional)</small></label>
                                                 <input
                                                     {...register('reference')}
                                                     placeholder="e.g. RFQ-2025-001"
-                                                    className="w-full bg-white/5 border border-[#1e2840] px-4 py-3 text-sm focus:outline-none focus:border-[#e8a020] transition-colors rounded-none"
+                                                    className="w-full bg-white/5 border border-[#1e2840] px-4 py-3 text-sm focus:outline-none focus:border-[#ED2939] transition-colors rounded-none"
                                                 />
                                             </div>
                                         </div>
@@ -264,8 +315,8 @@ export const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
 
                                     {/* Footer / Submit */}
                                     <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-6">
-                                        <p className="text-[#5a6480] text-[11px] leading-relaxed">
-                                            Fields marked <span className="text-[#e8a020]">*</span> are required.<br />
+                                        <p className="text-[#94a3b8] text-[11px] leading-relaxed">
+                                            Fields marked <span className="text-[#ED2939]">*</span> are required.<br />
                                             We respond within 1 business day.
                                         </p>
 
@@ -288,7 +339,7 @@ export const EnquiryForm = ({ isOpen, onClose }: EnquiryFormProps) => {
                                                 <button
                                                     type="submit"
                                                     disabled={isSubmitting}
-                                                    className={`group relative bg-[#e8a020] hover:bg-[#f0c050] text-[#0a0d12] font-['Barlow_Condensed'] font-bold uppercase tracking-[3px] py-4 px-10 transition-all flex items-center gap-3 active:scale-[0.98] ${isSubmitting ? 'opacity-70 cursor-wait' : ''}`}
+                                                    className={`group relative bg-[#ED2939] hover:bg-[#ff3b4b] text-white font-['Barlow_Condensed'] font-bold uppercase tracking-[3px] py-4 px-10 transition-all flex items-center gap-3 active:scale-[0.98] ${isSubmitting ? 'opacity-70 cursor-wait' : ''}`}
                                                 >
                                                     {isSubmitting ? 'Sending…' : 'Send Enquiry'}
                                                     {!isSubmitting && <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />}

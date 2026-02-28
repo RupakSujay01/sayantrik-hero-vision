@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 import { CheckCircle2, ShieldCheck, Zap, Globe2, Users, Settings } from "lucide-react";
+import { useEnquiry } from "@/hooks/useEnquiry";
 
 const LctsPartnership = () => {
+    const { openEnquiry } = useEnquiry();
     return (
         <main className="min-h-screen bg-white">
             <SEO
@@ -31,10 +33,27 @@ const LctsPartnership = () => {
                         <div className="inline-block px-4 py-1.5 mb-6 border border-[#ED2939] rounded-full bg-[#ED2939]/10 backdrop-blur-sm">
                             <span className="text-[#ED2939] font-bold tracking-widest text-xs uppercase">Strategic Alliance</span>
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight uppercase">
-                            Sayantrik Engineers <span className="text-[#ED2939]">&</span> LCTS
-                        </h1>
-                        <p className="text-lg md:text-2xl text-gray-300 font-light mb-8">
+
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 mb-4 max-w-5xl mx-auto">
+                            <img
+                                src="/images/uploaded-logo-2.png"
+                                alt="LCTS Logo"
+                                className="h-28 sm:h-36 md:h-44 object-contain bg-white rounded-xl shadow-lg p-0 hover:scale-[1.03] transition-transform"
+                                onError={(e) => (e.currentTarget.src = "/logo.png")}
+                            />
+
+                            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight uppercase px-4 whitespace-nowrap">
+                                Sayantrik <span className="text-[#ED2939]">&</span> LCTS
+                            </h1>
+
+                            <img
+                                src="/images/uploaded-logo-3.png"
+                                alt="Sayantrik Logo"
+                                className="h-24 sm:h-32 md:h-40 object-contain bg-white rounded-xl shadow-lg p-1 md:p-2 hover:scale-105 transition-transform"
+                            />
+                        </div>
+
+                        <p className="text-lg md:text-2xl text-gray-300 font-light mb-8 mt-6">
                             Lucke Consulting Technology Services LLC <span className="text-gray-500 mx-2">|</span> Houston, Texas, USA
                         </p>
                         <div className="flex flex-wrap justify-center gap-6 text-sm font-semibold tracking-wider text-gray-400 uppercase">
@@ -364,12 +383,12 @@ const LctsPartnership = () => {
                                 </div>
                             </div>
 
-                            <Link
-                                to="/contact"
+                            <button
+                                onClick={() => openEnquiry('Technology Provider')}
                                 className="inline-flex items-center px-8 py-3 bg-white text-[#ED2939] font-bold rounded-full hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 duration-200"
                             >
                                 Contact Our Partnership Team
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </div>

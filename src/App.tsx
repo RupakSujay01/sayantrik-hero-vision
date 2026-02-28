@@ -23,6 +23,7 @@ import LctsPartnership from "./pages/LctsPartnership";
 import Quality from "./pages/Quality";
 import NotFound from "./pages/NotFound";
 import { FloatingActionButtons } from "./components/FloatingActionButtons";
+import { EnquiryProvider } from "./hooks/useEnquiry";
 
 import FeedProjects from "./pages/projects/FeedProjects";
 import DetailProjects from "./pages/projects/DetailProjects";
@@ -31,6 +32,7 @@ import PreBidProjects from "./pages/projects/PreBidProjects";
 import DigitalisationProjects from "./pages/projects/DigitalisationProjects";
 
 import ScrollToTop from "./components/ScrollToTop";
+import CookieBanner from "./components/CookieBanner";
 
 const queryClient = new QueryClient();
 
@@ -41,7 +43,9 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <AppContent />
+          <EnquiryProvider>
+            <AppContent />
+          </EnquiryProvider>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
@@ -103,6 +107,7 @@ const AppContent = () => {
 
       <FloatingActionButtons />
       <Footer />
+      <CookieBanner />
     </div>
   );
 };

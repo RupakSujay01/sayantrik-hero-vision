@@ -2,27 +2,55 @@
 <html lang="en">
 
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5X65BDLVX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    // Initialize your specific tags
+    gtag('config', 'G-5X65BDLVX');
+    gtag('config', 'GT-NMLTDJBV');
+
+    // Content Group Assignment for India vs CCE USA 
+    // (Ensure these paths match your actual USA page URLs)
+    var ccePaths = ['/usa', '/cce-usa', '/us-services', '/us-projects', '/american-operations'];
+    var currentPath = window.location.pathname.toLowerCase();
+    var contentGroup = 'Sayantrik India'; // Default to India
+
+    for (var i = 0; i < ccePaths.length; i++) {
+      if (currentPath.indexOf(ccePaths[i]) !== -1) {
+        contentGroup = 'CCE USA';
+        break;
+      }
+    }
+
+    // Send the segmented data to GA4
+    gtag('set', 'content_group', contentGroup);
+    gtag('event', 'page_view', { 'business_entity': contentGroup });
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sayantrik Engineers India Pvt Ltd - Multi-discipline Engineering Excellence</title>
   <link rel="canonical" href="https://www.sayantrik.com/" />
+
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Sayantrik Engineering Services Pvt. Ltd.",
-  "url": "https://www.sayantrik.com/",
-  "logo": "https://www.sayantrik.com/og-sayantrik.png",
-  "description": "Engineering consultancy providing services for Oil & Gas, Energy, and industrial infrastructure projects.",
-  "foundingDate": "2012",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Mumbai",
-    "addressCountry": "IN"
-  },
-  "sameAs": []
-}
-</script>
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Sayantrik Engineering Services Pvt. Ltd.",
+    "url": "https://www.sayantrik.com/",
+    "logo": "https://www.sayantrik.com/og-sayantrik.png",
+    "description": "Engineering consultancy providing services for Oil & Gas, Energy, and industrial infrastructure projects.",
+    "foundingDate": "2012",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mumbai",
+      "addressCountry": "IN"
+    },
+    "sameAs": []
+  }
+  </script>
 
   <meta name="description"
     content="Leading engineering consultancy delivering multi-discipline services in Oil & Gas, Refinery, Petrochemicals, Chemicals, and Pharmaceutical industries. 13+ years of excellence, 250+ projects delivered." />

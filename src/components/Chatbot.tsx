@@ -136,7 +136,7 @@ export const Chatbot = ({ isOpen, onClose }: ChatbotProps) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed bottom-24 right-6 z-50 w-[350px] md:w-[400px] bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300 flex flex-col h-[500px]">
+        <div className="fixed bottom-24 right-24 md:right-28 z-50 w-[350px] md:w-[400px] bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300 flex flex-col h-[500px]">
             {/* Header */}
             <div className="bg-primary p-4 flex items-center justify-between shrink-0">
                 <div className="flex items-center gap-3">

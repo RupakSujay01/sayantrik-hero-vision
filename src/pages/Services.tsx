@@ -1127,11 +1127,14 @@ const Services = () => {
                   <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-4">
                     Core Pillars
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 relative">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
                     {epcPillars.map((pillar, idx) => (
                       <div key={idx} className={`rounded-xl border border-gray-200 overflow-hidden bg-slate-50 hover:shadow-xl transition-shadow duration-300`}>
-                        <div className="bg-gray-900 p-6 flex items-center justify-between">
+                        <div className="bg-gray-900 p-6 flex items-baseline gap-2">
                           <h3 className="text-xl font-bold text-white tracking-wider">{pillar.title}</h3>
+                          {(pillar.title === "PROCUREMENT" || pillar.title === "CONSTRUCTION") && (
+                            <span className="text-sm text-gray-400 font-medium">(technical support)</span>
+                          )}
                         </div>
                         <div className="p-8">
                           <ul className="space-y-4">
@@ -1205,6 +1208,11 @@ const Services = () => {
                         </p>
                       </div>
                     ))}
+                  </div>
+                  <div className="mt-8 pl-6 border-l-4 border-[#ED2939]">
+                    <p className="text-sm md:text-base font-bold text-gray-700 leading-relaxed">
+                      Sayantrik provides EPCM services for mid-size capital projects (CAPEX up to ₹500 Cr / $60M) and engineering-intensive sub-packages within larger EPCM frameworks.
+                    </p>
                   </div>
                 </div>
 

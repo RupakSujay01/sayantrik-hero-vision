@@ -94,7 +94,7 @@ const Hero = () => {
           >
             Engineering Excellence<br />
             Global Delivery<br />
-            Innovation Leadership
+            Reliable Timely Execution
           </motion.h1>
 
           {/* Sub-headline */}

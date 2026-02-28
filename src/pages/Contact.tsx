@@ -30,13 +30,43 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call to send email to info@sayantrik.com
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      toast.success('Enquiry sent successfully!', {
-        description: "We will get back to you at info@sayantrik.com soon."
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "e728c4e1-b9c6-44b4-92c2-cffa0635b9cd",
+          subject: `New Contact Request from ${data.fullName}`,
+          from_name: "Sayantrik Website",
+          name: data.fullName,
+          email: data.email,
+          phone: data.contactNo,
+          message: data.remarks
+        }),
       });
-      reset();
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast.success('Enquiry sent successfully!', {
+          description: "We will get back to you at info@sayantrik.com soon."
+        });
+
+        // FIRE GOOGLE ANALYTICS CONVERSION EVENT
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'contact_form_india', {
+            'event_category': 'lead',
+            'event_label': 'India Contact Form',
+            'business_entity': 'Sayantrik India'
+          });
+        }
+
+        reset();
+      } else {
+        throw new Error(result.message || "Failed to submit");
+      }
     } catch (error) {
       toast.error('Failed to send enquiry. Please try again later.');
     } finally {
@@ -133,10 +163,26 @@ const Contact = () => {
                         </p>
                       </div>
                       <div className="flex flex-col gap-3">
-                        <a href="mailto:info@sayantrik.com" className="flex items-center gap-3 text-slate-600 hover:text-[#ED2939] transition-colors p-3 bg-slate-50 rounded-xl font-bold text-sm">
+                        <a
+                          href="mailto:info@sayantrik.com"
+                          className="flex items-center gap-3 text-slate-600 hover:text-[#ED2939] transition-colors p-3 bg-slate-50 rounded-xl font-bold text-sm"
+                          onClick={() => {
+                            if (typeof window.gtag === 'function') {
+                              window.gtag('event', 'email_click', { 'business_entity': 'Sayantrik India' });
+                            }
+                          }}
+                        >
                           <Mail className="w-4 h-4" /> info@sayantrik.com
                         </a>
-                        <a href="tel:04035531580" className="flex items-center gap-3 text-slate-600 hover:text-[#ED2939] transition-colors p-3 bg-slate-50 rounded-xl font-bold text-sm">
+                        <a
+                          href="tel:04035531580"
+                          className="flex items-center gap-3 text-slate-600 hover:text-[#ED2939] transition-colors p-3 bg-slate-50 rounded-xl font-bold text-sm"
+                          onClick={() => {
+                            if (typeof window.gtag === 'function') {
+                              window.gtag('event', 'phone_click', { 'business_entity': 'Sayantrik India' });
+                            }
+                          }}
+                        >
                           <Phone className="w-4 h-4" /> 040 – 3553 1580
                         </a>
                       </div>
@@ -188,7 +234,15 @@ const Contact = () => {
                   <div className="bg-[#ED2939] rounded-3xl p-6 shadow-[0_15px_40px_-15px_rgba(237,41,57,0.3)] flex flex-col justify-center">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                       <p className="text-white font-black text-xl">Join Our Team</p>
-                      <a href="mailto:hr@sayantrik.com" className="inline-flex items-center gap-2 text-white bg-white/10 hover:bg-white/20 transition-colors px-5 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest whitespace-nowrap w-fit">
+                      <a
+                        href="mailto:hr@sayantrik.com"
+                        className="inline-flex items-center gap-2 text-white bg-white/10 hover:bg-white/20 transition-colors px-5 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest whitespace-nowrap w-fit"
+                        onClick={() => {
+                          if (typeof window.gtag === 'function') {
+                            window.gtag('event', 'email_click', { 'business_entity': 'Sayantrik India' });
+                          }
+                        }}
+                      >
                         <Mail className="w-3.5 h-3.5" /> hr@sayantrik.com
                       </a>
                     </div>
