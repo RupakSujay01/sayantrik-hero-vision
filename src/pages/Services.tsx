@@ -1130,7 +1130,7 @@ const Services = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
                     {epcPillars.map((pillar, idx) => (
                       <div key={idx} className={`rounded-xl border border-gray-200 overflow-hidden bg-slate-50 hover:shadow-xl transition-shadow duration-300`}>
-                        <div className="bg-gray-900 p-6 flex items-baseline gap-2">
+                        <div className="bg-gray-900 p-6 flex flex-col items-start gap-1">
                           <h3 className="text-xl font-bold text-white tracking-wider">{pillar.title}</h3>
                           {(pillar.title === "PROCUREMENT" || pillar.title === "CONSTRUCTION") && (
                             <span className="text-sm text-gray-400 font-medium">(technical support)</span>
