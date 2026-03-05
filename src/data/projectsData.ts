@@ -75,24 +75,14 @@ export const feedProjects: Project[] = [
     description: "FEED for revamping the ammonia faculties from 1050 MTPD capacity to 1600 MTPD capacity. Piping layout/ 3D Model/MTO/TIE-IN Cable layouts Pipe rack adequacy for extensions Pipe support drawings Decommissioning plans for Electricals & Instrument system cabinets and hook up details.",
     image: ammoniaPlantRevamp
   },
-  {
-    name: "Acetophenone Recovery Unit\n(60 TPD)",
-    location: "Gujarat, India",
-    description: "Delivered Front-End Engineering Design including process simulation, equipment sizing, layout optimization, and detailed MTOs for cost estimation.",
-    image: acetophenoneRecovery
-  },
+
   {
     name: "CYME Power System Simulator",
     location: "Qatar, Middle East",
     description: "FEED for Vapour Recovery System Short circuit Study Motor Starting study Transient Stability Arc Flash Analysis Protective device coordination.",
     image: cymePowerSystem
   },
-  {
-    name: "ROSE BANK FPSO - FEED Engineering",
-    location: "Northwest of Shetland Island, Scotland",
-    description: "1) Gas Treating for Dehydration and H2S Removal using chemical scavenging. 2) Gas export via pipeline through the turret (Export to SIRGE pipeline).",
-    image: roseBankFpso
-  },
+
   {
     name: "MB-01 Meglumine Project",
     location: "Hyderabad, India",
@@ -263,15 +253,6 @@ export const detailProjects: Project[] = [
     location: "Hyderabad, India",
     description: "Civil & structural design for Agro Pellet Feeding Systems. Scope included conveyor supports, chute/silo foundations, construction drawings, safety-focused designs, and maintenance-friendly layouts.",
     image: agroPelletFeeding
-  },
-];
-
-export const asBuiltProjects: Project[] = [
-  {
-    name: "GSPL Operational Stations (As-Built)",
-    location: "Gujarat, India",
-    description: "Preparation of As built drawings (Plot plan, GA and P&ID) HSE drawings.",
-    image: gsplAsBuilt
   },
 ];
 

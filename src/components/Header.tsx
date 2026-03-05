@@ -63,7 +63,6 @@ const Header = () => {
         items: [
           { label: "Feed Engineering", link: "/projects/feed" },
           { label: "Detail Engineering", link: "/projects/detail" },
-          { label: "As-built Engineering", link: "/projects/as-built" },
           { label: "Pre-bid Engineering", link: "/projects/pre-bid" },
           { label: "Digitalisation Projects", link: "/projects/digitalisation" },
         ],

@@ -10,7 +10,6 @@ const ProjectLayout = () => {
     const sidebarLinks = [
         { id: "feed", label: "FEED Engineering", path: "/projects/feed" },
         { id: "detail", label: "Detail Engineering", path: "/projects/detail" },
-        { id: "as-built", label: "As-Built Engineering", path: "/projects/as-built" },
         { id: "pre-bid", label: "Pre-Bid Engineering", path: "/projects/pre-bid" },
         { id: "digitalisation", label: "Digitalisation Projects", path: "/projects/digitalisation" },
     ];

@@ -27,7 +27,6 @@ import { EnquiryProvider } from "./hooks/useEnquiry";
 
 import FeedProjects from "./pages/projects/FeedProjects";
 import DetailProjects from "./pages/projects/DetailProjects";
-import AsBuiltProjects from "./pages/projects/AsBuiltProjects";
 import PreBidProjects from "./pages/projects/PreBidProjects";
 import DigitalisationProjects from "./pages/projects/DigitalisationProjects";
 
@@ -80,17 +79,14 @@ const AppContent = () => {
             <Route path="/portfolio" element={<PageTransition><Business /></PageTransition>} />
             <Route path="/disciplines" element={<PageTransition><Disciplines /></PageTransition>} />
 
-            <Route path="/projects" element={<PageTransition><ProjectsComingSoon /></PageTransition>} />
-            {/* Original Project Routes - Hidden for now
+            {/* <Route path="/projects" element={<PageTransition><ProjectsComingSoon /></PageTransition>} /> */}
             <Route path="/projects" element={<PageTransition><Projects /></PageTransition>}>
               <Route index element={<Navigate to="feed" replace />} />
               <Route path="feed" element={<FeedProjects />} />
               <Route path="detail" element={<DetailProjects />} />
-              <Route path="as-built" element={<AsBuiltProjects />} />
               <Route path="pre-bid" element={<PreBidProjects />} />
               <Route path="digitalisation" element={<DigitalisationProjects />} />
             </Route>
-            */}
 
             <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
             <Route path="/technology-providers" element={<PageTransition><TechnologyProviders /></PageTransition>} />
