@@ -119,10 +119,10 @@ export const FloatingActionButtons = () => {
                     <Button
                         size="icon"
                         onClick={() => openEnquiry()}
-                        className="h-12 w-12 rounded-full shadow-[0_10px_25px_-5px_rgba(237,41,57,0.4)] bg-[#ED2939] hover:bg-[#ff3b4b] text-white transition-all duration-300 hover:scale-110 flex items-center justify-center border-none ring-2 ring-white/40 ring-offset-1 ring-offset-[#ED2939]"
+                        className="h-[52px] w-[52px] rounded-full shadow-[0_10px_25px_-5px_rgba(237,41,57,0.4)] bg-[#ED2939] hover:bg-[#ff3b4b] text-white transition-all duration-300 hover:scale-110 flex items-center justify-center border-none ring-2 ring-white/40 ring-offset-1 ring-offset-[#ED2939]"
                         title="Submit Enquiry"
                     >
-                        <ClipboardList className="h-6 w-6" />
+                        <ClipboardList className="h-7 w-7" />
                     </Button>
                 </div>
 
@@ -132,9 +132,9 @@ export const FloatingActionButtons = () => {
                     <Button
                         size="icon"
                         onClick={() => setIsChatOpen(!isChatOpen)}
-                        className="h-12 w-12 rounded-full shadow-lg bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-110 flex items-center justify-center ring-2 ring-white/40 ring-offset-1 ring-offset-primary"
+                        className="h-[52px] w-[52px] rounded-full shadow-lg bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-110 flex items-center justify-center ring-2 ring-white/40 ring-offset-1 ring-offset-primary"
                     >
-                        {isChatOpen ? <X className="h-6 w-6" /> : <MessageSquare className="h-6 w-6" />}
+                        {isChatOpen ? <X className="h-7 w-7" /> : <MessageSquare className="h-7 w-7" />}
                     </Button>
                 </div>
             </div>
