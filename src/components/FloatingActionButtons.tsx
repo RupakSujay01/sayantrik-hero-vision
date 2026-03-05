@@ -119,10 +119,10 @@ export const FloatingActionButtons = () => {
                     <Button
                         size="lg"
                         onClick={() => openEnquiry()}
-                        className="h-14 w-14 rounded-full shadow-[0_10px_25px_-5px_rgba(237,41,57,0.4)] bg-[#ED2939] hover:bg-[#ff3b4b] text-white transition-all duration-300 hover:scale-110 flex items-center justify-center border-none ring-2 ring-white/40 ring-offset-2 ring-offset-[#ED2939]"
+                        className="h-11 w-11 rounded-full shadow-[0_10px_25px_-5px_rgba(237,41,57,0.4)] bg-[#ED2939] hover:bg-[#ff3b4b] text-white transition-all duration-300 hover:scale-110 flex items-center justify-center border-none ring-2 ring-white/40 ring-offset-2 ring-offset-[#ED2939]"
                         title="Submit Enquiry"
                     >
-                        <ClipboardList className="h-9 w-9" />
+                        <ClipboardList className="h-6 w-6" />
                     </Button>
                 </div>
 
@@ -132,9 +132,9 @@ export const FloatingActionButtons = () => {
                     <Button
                         size="lg"
                         onClick={() => setIsChatOpen(!isChatOpen)}
-                        className="h-14 w-14 rounded-full shadow-lg bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-110 flex items-center justify-center ring-2 ring-white/40 ring-offset-2 ring-offset-primary"
+                        className="h-11 w-11 rounded-full shadow-lg bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 hover:scale-110 flex items-center justify-center ring-2 ring-white/40 ring-offset-2 ring-offset-primary"
                     >
-                        {isChatOpen ? <X className="h-8 w-8" /> : <MessageSquare className="h-8 w-8" />}
+                        {isChatOpen ? <X className="h-5 w-5" /> : <MessageSquare className="h-5 w-5" />}
                     </Button>
                 </div>
             </div>
