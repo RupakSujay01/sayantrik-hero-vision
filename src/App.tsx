@@ -6,29 +6,32 @@ import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import PageTransition from "./components/PageTransition";
+import React, { Suspense } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Index from "./pages/Index";
-import Services from "./pages/Services";
-import Business from "./pages/Business";
-import Disciplines from "./pages/Disciplines";
-import Projects from "./pages/Projects";
-import ProjectsComingSoon from "./pages/ProjectsComingSoon";
-import Contact from "./pages/Contact";
-import Careers from "./pages/Careers";
-import HSE from "./pages/HSE";
-import CSR from "./pages/CSR";
-import TechnologyProviders from "./pages/TechnologyProviders";
-import LctsPartnership from "./pages/LctsPartnership";
-import Quality from "./pages/Quality";
-import NotFound from "./pages/NotFound";
+import LoadingSpinner from "./components/LoadingSpinner";
 import { FloatingActionButtons } from "./components/FloatingActionButtons";
 import { EnquiryProvider } from "./hooks/useEnquiry";
 
-import FeedProjects from "./pages/projects/FeedProjects";
-import DetailProjects from "./pages/projects/DetailProjects";
-import PreBidProjects from "./pages/projects/PreBidProjects";
-import DigitalisationProjects from "./pages/projects/DigitalisationProjects";
+const Index = React.lazy(() => import("./pages/Index"));
+const Services = React.lazy(() => import("./pages/Services"));
+const Business = React.lazy(() => import("./pages/Business"));
+const Disciplines = React.lazy(() => import("./pages/Disciplines"));
+const Projects = React.lazy(() => import("./pages/Projects"));
+const ProjectsComingSoon = React.lazy(() => import("./pages/ProjectsComingSoon"));
+const Contact = React.lazy(() => import("./pages/Contact"));
+const Careers = React.lazy(() => import("./pages/Careers"));
+const HSE = React.lazy(() => import("./pages/HSE"));
+const CSR = React.lazy(() => import("./pages/CSR"));
+const TechnologyProviders = React.lazy(() => import("./pages/TechnologyProviders"));
+const LctsPartnership = React.lazy(() => import("./pages/LctsPartnership"));
+const Quality = React.lazy(() => import("./pages/Quality"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
+
+const FeedProjects = React.lazy(() => import("./pages/projects/FeedProjects"));
+const DetailProjects = React.lazy(() => import("./pages/projects/DetailProjects"));
+const PreBidProjects = React.lazy(() => import("./pages/projects/PreBidProjects"));
+const DigitalisationProjects = React.lazy(() => import("./pages/projects/DigitalisationProjects"));
 
 import ScrollToTop from "./components/ScrollToTop";
 import CookieBanner from "./components/CookieBanner";
@@ -70,34 +73,36 @@ const AppContent = () => {
 
       <main id="main-content" className="flex-grow">
         <AnimatePresence mode="wait">
-          <Routes
-            location={location}
-            key={location.pathname.startsWith('/projects') ? '/projects' : location.pathname}
-          >
-            <Route path="/" element={<PageTransition><Index /></PageTransition>} />
-            <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
-            <Route path="/portfolio" element={<PageTransition><Business /></PageTransition>} />
-            <Route path="/disciplines" element={<PageTransition><Disciplines /></PageTransition>} />
+          <Suspense fallback={<LoadingSpinner />} key={location.pathname}>
+            <Routes
+              location={location}
+              key={location.pathname.startsWith('/projects') ? '/projects' : location.pathname}
+            >
+              <Route path="/" element={<PageTransition><Index /></PageTransition>} />
+              <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
+              <Route path="/portfolio" element={<PageTransition><Business /></PageTransition>} />
+              <Route path="/disciplines" element={<PageTransition><Disciplines /></PageTransition>} />
 
-            {/* <Route path="/projects" element={<PageTransition><ProjectsComingSoon /></PageTransition>} /> */}
-            <Route path="/projects" element={<PageTransition><Projects /></PageTransition>}>
-              <Route index element={<Navigate to="feed" replace />} />
-              <Route path="feed" element={<FeedProjects />} />
-              <Route path="detail" element={<DetailProjects />} />
-              <Route path="pre-bid" element={<PreBidProjects />} />
-              <Route path="digitalisation" element={<DigitalisationProjects />} />
-            </Route>
+              {/* <Route path="/projects" element={<PageTransition><ProjectsComingSoon /></PageTransition>} /> */}
+              <Route path="/projects" element={<PageTransition><Projects /></PageTransition>}>
+                <Route index element={<Navigate to="feed" replace />} />
+                <Route path="feed" element={<FeedProjects />} />
+                <Route path="detail" element={<DetailProjects />} />
+                <Route path="pre-bid" element={<PreBidProjects />} />
+                <Route path="digitalisation" element={<DigitalisationProjects />} />
+              </Route>
 
-            <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-            <Route path="/technology-providers" element={<PageTransition><TechnologyProviders /></PageTransition>} />
-            <Route path="/lcts-partnership" element={<PageTransition><LctsPartnership /></PageTransition>} />
-            <Route path="/careers" element={<PageTransition><Careers /></PageTransition>} />
-            <Route path="/hse" element={<PageTransition><HSE /></PageTransition>} />
-            <Route path="/csr" element={<PageTransition><CSR /></PageTransition>} />
-            <Route path="/quality" element={<PageTransition><Quality /></PageTransition>} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
-          </Routes>
+              <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+              <Route path="/technology-providers" element={<PageTransition><TechnologyProviders /></PageTransition>} />
+              <Route path="/lcts-partnership" element={<PageTransition><LctsPartnership /></PageTransition>} />
+              <Route path="/careers" element={<PageTransition><Careers /></PageTransition>} />
+              <Route path="/hse" element={<PageTransition><HSE /></PageTransition>} />
+              <Route path="/csr" element={<PageTransition><CSR /></PageTransition>} />
+              <Route path="/quality" element={<PageTransition><Quality /></PageTransition>} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+            </Routes>
+          </Suspense>
         </AnimatePresence>
       </main>
 
