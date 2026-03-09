@@ -1,6 +1,7 @@
 import sulphuricAcid3d from "@/assets/sulphuric-acid-plant-3d.png";
 import cokeDrum3dScanning from "@/assets/coke-drum-3d-scanning.png";
 import tgvSraacNew from "@/assets/tgv-sraac-new.png";
+import condensateProcessingPlant from "@/assets/condensate-processing-plant.png";
 import lngLpgStorage from "@/assets/lng-lpg-storage.jpg";
 import greenHydrogenPlant from "@/assets/green-hydrogen-plant.jpg";
 import greenHydrogenPilot from "@/assets/green-hydrogen-pilot.png";
@@ -278,10 +279,10 @@ export const asBuiltProjects: Project[] = [
 
 export const digitalisationProjects: Project[] = [
   {
-    name: "Condensate Processing Plant Digitization",
+    name: "Condensate Processing Plant Digitalization",
     location: "Middle East / Abu Dhabi",
     description: "Complete Master Document Updating and synchronization of model & documents with respect to all current and completed revamp activities. Activates related to Block 1 to Block 9 and Pipe Racks. Scope Includes: Developing Intelligent SP3D MODEL, Data Gathering and site verification of entire data related to Piping, Equipment, Cable Trays and Structural details.",
-    image: platformR12
+    image: condensateProcessingPlant
   },
   {
     name: "Platform R.12 & HRA, Offshore",
