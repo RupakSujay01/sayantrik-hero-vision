@@ -264,6 +264,16 @@ export const preBidProjects: Project[] = [
     image: skidWaterTreatment
   },
 ];
+
+export const asBuiltProjects: Project[] = [
+  {
+    name: "GSPL As-Built Documentation",
+    location: "India",
+    description: "Complete as-built engineering documentation and verification for the GSPL pipeline infrastructure project.",
+    image: gsplAsBuilt
+  },
+];
+
 export const digitalisationProjects: Project[] = [
   {
     name: "Condensate Processing Plant Digitization",
