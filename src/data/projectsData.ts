@@ -279,19 +279,19 @@ export const digitalisationProjects: Project[] = [
     name: "Condensate Processing Plant Digitization",
     location: "Middle East / Abu Dhabi",
     description: "Complete Master Document Updating and synchronization of model & documents with respect to all current and completed revamp activities. Activates related to Block 1 to Block 9 and Pipe Racks. Scope Includes: Developing Intelligent SP3D MODEL, Data Gathering and site verification of entire data related to Piping, Equipment, Cable Trays and Structural details.",
-    image: condensateDigitization
+    image: tgvSraacCaustic
   },
   {
     name: "Platform R.12 & HRA, Offshore",
     location: "Mumbai, India",
     description: "3D Modelling of R.12 Platform and HRA platform PDMS tagging.",
-    image: platformR12
+    image: condensateDigitization
   },
   {
     name: "TGV SRAAC Caustic Soda Plant",
     location: "Andhra Pradesh, India",
     description: "Laser Scanning and 3D Modeling.",
-    image: tgvSraacCaustic
+    image: platformR12
   },
   {
     name: "BASF Aromatics, Butadiene and 2EH Acid Plant",
