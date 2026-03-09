@@ -293,7 +293,7 @@ export const digitalisationProjects: Project[] = [
     name: "TGV SRAAC Caustic Soda Plant",
     location: "Andhra Pradesh, India",
     description: "Laser Scanning and 3D Modeling.",
-    image: platformR12
+    image: tgvSraacNew
   },
   {
     name: "BASF Aromatics, Butadiene and 2EH Acid Plant",
