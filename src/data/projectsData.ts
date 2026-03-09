@@ -279,10 +279,10 @@ export const asBuiltProjects: Project[] = [
 
 export const digitalisationProjects: Project[] = [
   {
-    name: "Condensate Processing Plant Digitization",
+    name: "Condensate Processing Plant Digitalization",
     location: "Middle East / Abu Dhabi",
     description: "Complete Master Document Updating and synchronization of model & documents with respect to all current and completed revamp activities. Activates related to Block 1 to Block 9 and Pipe Racks. Scope Includes: Developing Intelligent SP3D MODEL, Data Gathering and site verification of entire data related to Piping, Equipment, Cable Trays and Structural details.",
-    image: platformR12
+    image: condensateProcessingPlant
   },
   {
     name: "Platform R.12 & HRA, Offshore",
