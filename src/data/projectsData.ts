@@ -42,7 +42,7 @@ import teaInjectionPackage from "@/assets/tea-injection-package.png";
 import p80Fpso from "@/assets/p-80-fpso.png";
 import edcPlantCivil from "@/assets/edc-plant-civil-structural.png";
 import tgvSraacCaustic from "@/assets/tgv-sraac-caustic-soda.png";
-import ammoniaPlantRussia from "@/assets/ammonia-plant-russia.png";
+
 
 export interface Project {
   name: string;
