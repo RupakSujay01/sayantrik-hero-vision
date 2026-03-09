@@ -281,7 +281,7 @@ export const digitalisationProjects: Project[] = [
     name: "Condensate Processing Plant Digitization",
     location: "Middle East / Abu Dhabi",
     description: "Complete Master Document Updating and synchronization of model & documents with respect to all current and completed revamp activities. Activates related to Block 1 to Block 9 and Pipe Racks. Scope Includes: Developing Intelligent SP3D MODEL, Data Gathering and site verification of entire data related to Piping, Equipment, Cable Trays and Structural details.",
-    image: tgvSraacCaustic
+    image: platformR12
   },
   {
     name: "Platform R.12 & HRA, Offshore",
