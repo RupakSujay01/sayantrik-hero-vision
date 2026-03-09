@@ -1,23 +1,28 @@
-"use client"; // Add this if you are using Next.js App Router
-
 import React, { useEffect } from "react";
-import { Users, Building2, Heart, Briefcase, Calendar, MapPin, Clock } from "lucide-react";
+import { Users, Building2, Heart, Briefcase, Calendar, MapPin } from "lucide-react";
 import { SEO } from "@/components/SEO";
+
+declare global {
+  interface Window {
+    rec_embed_js: {
+      load: (config: Record<string, string>) => void;
+    };
+  }
+}
 
 const Careers = () => {
   useEffect(() => {
-    // 1. Load the Zoho CSS
+    // Load the Zoho CSS
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = "https://static.zohocdn.com/recruit/embed_careers_site/css/v1.1/embed_jobs.css";
     document.head.appendChild(link);
 
-    // 2. Load the Zoho Script
+    // Load the Zoho Script
     const script = document.createElement("script");
     script.src = "https://static.zohocdn.com/recruit/embed_careers_site/javascript/v1.1/embed_jobs.js";
     script.async = true;
 
-    // 3. Initialize the widget once the script loads
     script.onload = () => {
       if (window.rec_embed_js) {
         window.rec_embed_js.load({
@@ -25,7 +30,7 @@ const Careers = () => {
           page_name: "Careers",
           source: "CareerSite",
           site: "https://sayantrik.zohorecruit.in",
-          brand_color: "#E11D48", // Using the closest hex to hsl(355 84% 55%) Tailwind rose-600/Sayantrik Primary
+          brand_color: "#E11D48",
           empty_job_msg: "No current Openings",
         });
       }
@@ -33,7 +38,6 @@ const Careers = () => {
 
     document.body.appendChild(script);
 
-    // Cleanup function to prevent duplicate scripts if the component unmounts
     return () => {
       if (document.head.contains(link)) document.head.removeChild(link);
       if (document.body.contains(script)) document.body.removeChild(script);
