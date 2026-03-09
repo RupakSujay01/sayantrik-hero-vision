@@ -1,4 +1,5 @@
 import sulphuricAcid3d from "@/assets/sulphuric-acid-plant-3d.png";
+import cokeDrum3dScanning from "@/assets/coke-drum-3d-scanning.png";
 import lngLpgStorage from "@/assets/lng-lpg-storage.jpg";
 import greenHydrogenPlant from "@/assets/green-hydrogen-plant.jpg";
 import greenHydrogenPilot from "@/assets/green-hydrogen-pilot.png";
@@ -41,7 +42,7 @@ import teaInjectionPackage from "@/assets/tea-injection-package.png";
 import p80Fpso from "@/assets/p-80-fpso.png";
 import edcPlantCivil from "@/assets/edc-plant-civil-structural.png";
 import tgvSraacCaustic from "@/assets/tgv-sraac-caustic-soda.png";
-import ammoniaPlantRussia from "@/assets/ammonia-plant-russia.png";
+
 
 export interface Project {
   name: string;
@@ -306,10 +307,10 @@ export const digitalisationProjects: Project[] = [
     image: basf2ehMalaysia
   },
   {
-    name: "Primitive Modeling for Ammonia Plant",
-    location: "Dorogobuzh - Russia",
-    description: "Site Traversing and Registration of Each module to be closed at Max 3.5mm error and Entire Plant Primitive model developed and converted to PDMS dump model",
-    image: ammoniaPlantRussia
+    name: "3D Laser Scanning & Constructability Review for COKE Drum Replacements",
+    location: "Jamnagar, India",
+    description: "Laser scanning, detailed survey, and point cloud registration were executed on the elevated platform under live operating conditions, precisely capturing the as-built structural geometry with high-fidelity accuracy. The resultant digital deliverables — including the registered point cloud and validated 3D model — formed the engineering basis for a comprehensive structural reassessment conducted in close technical interface with RIL and FW Houston. This rigorous validation process provided the engineering confidence required to define the cut elevation at 106 meters and execute a complex single-lift operation with controlled risk, full technical precision, and assured structural integrity.",
+    image: cokeDrum3dScanning
   },
 ];
 
