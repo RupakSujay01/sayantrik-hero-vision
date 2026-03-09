@@ -1,4 +1,5 @@
 import sulphuricAcid3d from "@/assets/sulphuric-acid-plant-3d.png";
+import cokeDrum3dScanning from "@/assets/coke-drum-3d-scanning.png";
 import lngLpgStorage from "@/assets/lng-lpg-storage.jpg";
 import greenHydrogenPlant from "@/assets/green-hydrogen-plant.jpg";
 import greenHydrogenPilot from "@/assets/green-hydrogen-pilot.png";
