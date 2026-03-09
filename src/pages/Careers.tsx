@@ -131,8 +131,12 @@ const Careers = () => {
             </p>
 
             {/* ZOHO RECRUIT WIDGET INTEGRATION */}
-            <div className="bg-card border border-border rounded-lg p-6 shadow-sm mt-8 relative z-10">
-              <div id="rec_job_listing_div" className="min-h-[300px]"></div>
+            <div className="embed_jobs_head embed_jobs_with_style_3 mt-8 relative z-10">
+              <div className="embed_jobs_head2">
+                <div className="embed_jobs_head3">
+                  <div id="rec_job_listing_div" className="min-h-[300px]"></div>
+                </div>
+              </div>
             </div>
 
             {/* Application Process */}
