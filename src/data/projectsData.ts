@@ -1,12 +1,8 @@
 import sulphuricAcid3d from "@/assets/sulphuric-acid-plant-3d.png";
-import cokeDrum3dScanning from "@/assets/coke-drum-3d-scanning.png";
-import tgvSraacNew from "@/assets/tgv-sraac-new.png";
-import condensateProcessingPlant from "@/assets/condensate-processing-plant.png";
-import lngLpgStorage from "@/assets/lng-lpg-storage.jpg";
+import lngLpgStorage from "@/assets/lng-lpg-storage-new.jpg";
 import greenHydrogenPlant from "@/assets/green-hydrogen-plant.jpg";
 import greenHydrogenPilot from "@/assets/green-hydrogen-pilot.png";
 import ammoniaPlantRevamp from "@/assets/ammonia-plant-revamp.png";
-import acetophenoneRecovery from "@/assets/acetophenone-recovery-unit.jpg";
 import cymePowerSystem from "@/assets/cyme-power-system-simulator.jpg";
 import roseBankFpso from "@/assets/rose-bank-fpso.jpg";
 import mb01Meglumine from "@/assets/mb-01-meglumine-project.png";
@@ -19,19 +15,19 @@ import ongcOffshore from "@/assets/ongc-offshore.jpg";
 import rapidTankFarm from "@/assets/rapid-tank-farm.png";
 import cairnNeStage2 from "@/assets/cairn-ne-stage2.jpg";
 import lactUnits from "@/assets/lact-units.png";
-import gailTerminal from "@/assets/gail-terminal.png";
+import gailTerminal from "@/assets/gail-terminal-new.jpg";
 import praiPowerPlant from "@/assets/prai-power-plant.jpg";
 import jawa2Demineralization from "@/assets/jawa2-demineralization.jpg";
-import tataSteelSupport from "@/assets/tata-steel-support.jpg";
+
 import raichemAoExtension from "@/assets/raichem-ao-extension.jpg";
 import psvVerification from "@/assets/psv-verification.jpg";
 import pilotReactorFlaker from "@/assets/pilot-reactor-flaker.png";
 import agroPelletFeeding from "@/assets/agro-pellet-feeding.png";
-import skidWaterTreatment from "@/assets/skid-water-treatment.jpg";
+
 import gsplAsBuilt from "@/assets/gspl-as-built.png";
-import condensateDigitization from "@/assets/condensate-digitization.png";
-import platformR12 from "@/assets/platform-r12.png";
-import butadienePlant from "@/assets/butadiene-plant.png";
+import condensateDigitization from "@/assets/condensate-processing-new.jpg";
+import platformR12 from "@/assets/platform-r12-new.jpg";
+import butadienePlant from "@/assets/basf-aromatics.jpg";
 import basf2ehMalaysia from "@/assets/basf-2eh-malaysia.png";
 import botasAdapazari from "@/assets/botas-adapazari-compressor.png";
 import gtlPilotPlant from "@/assets/gtl-pilot-plant.jpg";
@@ -43,8 +39,18 @@ import sruThermalReactor from "@/assets/sru-thermal-reactor.png";
 import teaInjectionPackage from "@/assets/tea-injection-package.png";
 import p80Fpso from "@/assets/p-80-fpso.png";
 import edcPlantCivil from "@/assets/edc-plant-civil-structural.png";
-import tgvSraacCaustic from "@/assets/tgv-sraac-caustic-soda.png";
 
+import intelFalcon from "@/assets/intel-falcon.jpg";
+import sakuraWasteWater from "@/assets/sakura-waste-water.jpg";
+import offshoreBasket from "@/assets/offshore-basket.jpg";
+import shopDrawings from "@/assets/shop-drawings.jpg";
+import gsplAsBuiltNew from "@/assets/gspl-as-built-new.jpg";
+import acetophenoneRecovery from "@/assets/acetophenone-recovery.jpg";
+import nrlSru from "@/assets/nrl-sru.jpg";
+import ureaAmmoniaRevamp from "@/assets/urea-ammonia-revamp.png";
+import tgvSraacNew from "@/assets/tgv-sraac-updated.jpg";
+import cokeDrumReplacement from "@/assets/coke-drum-replacement.png";
+import mrplRefinery from "@/assets/mrpl-refinery.png";
 
 export interface Project {
   name: string;
@@ -132,15 +138,15 @@ export const detailProjects: Project[] = [
     image: gasMidstreamPipeline
   },
   {
-    name: "SRU Thermal Reactor & Incinerator",
-    location: "Mumbai, India",
-    description: "3D modelling and detailed engineering. Scope included equipment modeling, piping routing, nozzle orientation checks, clash detection, isometric extraction, and MTO generation for seamless procurement and construction.",
+    name: "Thermal Reactor & Incinerator packages &  PDP Validation for Sulphur Recovery Unit (SRU)",
+    location: "Bihar, India",
+    description: "Detailed engineering of Thermal Reactor & Incinerator Packages and 40 static equipment units for IOCL SRU. Scope: review of licensor package, 3D model development, datasheets, GA drawings, fabrication drawings, and as-built documentation.",
     image: sruThermalReactor
   },
   {
     name: "Refinery TEA Injection Package",
     location: "Rajasthan, India",
-    description: "Detailed engineering for TEA Injection Package at HRRL Refinery. Scope included piping, civil, and structural engineering, vendor document reviews, and coordination with licensor Heurtey.",
+    description: "Detailed engineering for TEA Injection Package at HRRL Refinery. Scope included to close 90% model review comments from piping, civil, and structural engineering, Fabrication drawings for structures. Modules lifiting analysis reports verifications.",
     image: teaInjectionPackage
   },
   {
@@ -152,7 +158,7 @@ export const detailProjects: Project[] = [
   {
     name: "EDC Plant Civil & Structural",
     location: "Oman",
-    description: "Civil and Structural detailed engineering for EDC Plant. Scope included 3D modeling of pipe racks and equipment structures, connection design, foundation deliverables, and structural analysis reports.",
+    description: "Civil & structural engineering design Scope included modularization design, 3D modeling, pile caps, vent blower sheds, pedestals, and structural detailing. (Incineration unit, Piperack and vent blower shed) for Vinyls Program 1260 KTA EDC Plant.",
     image: edcPlantCivil
   },
   {
@@ -207,13 +213,13 @@ export const detailProjects: Project[] = [
     name: "GAIL Terminal Drawings",
     location: "Chennai, India",
     description: "Preparation of GAS Terminal Drawings for various consumer sites for layouts that includes piping, electrical, equipment layout, Condensate handling facilities for GAIL, India in Cauvery Basin. This also includes Hazardous area classification drawings as per OISD-113 & IS-5572.",
-    image: gailTerminal
+    image: lactUnits
   },
   {
     name: "Lact Units at AL Baraka Metering Station",
     location: "Sohar, Oman",
     description: "Detail design for structural steel shed and foundations. Storage tanks design and fabrication drawings Nozzle FEA studies for tanks Piping layouts / piping spool drawings.",
-    image: lactUnits
+    image: gailTerminal
   },
   {
     name: "Prai Combined Cycle Power Plant",
@@ -227,12 +233,7 @@ export const detailProjects: Project[] = [
     description: "Detailed Engineering for Water Treatment facilities for a Demineralization SKID based plant -3D MODELING IN CADWORX -Piping layouts/ Isometrics/MTO for procurement -Skid Detailed drawings -Structural MTO -Cable tray / tubing / instrument data sheets / Hookup drawings.",
     image: jawa2Demineralization
   },
-  {
-    name: "Engineering support for TATA STEEL",
-    location: "Jamshedpur, India",
-    description: "Engineering support for TATA STEEL Plant, Jamshedpur. Discipline inolved piping, Mechanical, Structural and Electrical.",
-    image: tataSteelSupport
-  },
+
   {
     name: "Raichem AO Block Extension",
     location: "Raichur, India",
@@ -252,19 +253,61 @@ export const detailProjects: Project[] = [
     image: pilotReactorFlaker
   },
   {
-    name: "Agro Pellet Feeding Systems",
+    name: "Agro Pellet Feeding Systems, Chimney Foundation Design, and Boiler Area External Sheds",
     location: "Hyderabad, India",
-    description: "Civil & structural design for Agro Pellet Feeding Systems. Scope included conveyor supports, chute/silo foundations, construction drawings, safety-focused designs, and maintenance-friendly layouts.",
+    description: "Civil & structural design for Agro Pellet Feeding Systems, Chimney Foundation, and Boiler Area External Sheds. Scope included conveyor supports, chute/silo foundations, foundation analysis, soil condition review, fire-resistant structures, safety integration, access platforms, maintenance-friendly layouts, and final construction-ready structural drawings and packages.",
     image: agroPelletFeeding
+  },
+  {
+    name: "Industrial Water Tanks (INTEL FALCON)",
+    location: "Kulim, Malaysia",
+    description: "Detail Design for Dome Roof Industrial Water Tanks 14.0 m Dia x 20.0 m Ht including Tank Ring Beam Foundation Design, Nozzle FEA.",
+    image: intelFalcon
+  },
+  {
+    name: "Sakura Waste Water Treatment Plant",
+    location: "Bintulu, Malaysia",
+    description: "HDPE waste water piping design works with max size 8” and total length of 2000m including stress analysis, Isometrics, 3D Modeling, piping support drawings and pipe bridges, design of Structural platforms and tank supporting structure.",
+    image: sakuraWasteWater
+  },
+  {
+    name: "Offshore Basket & Chiller Container Design",
+    location: "Malaysia/Brunei",
+    description: "Design approval of scaffolding offshore basket 04 type (total 12 nos) as per std. requirement latest ISO 10855-1:2018 DNVGL standard for certification 2.7-1. Design Calculation and Fabrication drawings of double door chiller container.",
+    image: offshoreBasket
+  },
+  {
+    name: "Shop Drawings & Static Analysis for Process Plants",
+    location: "Johor Bahru, Malaysia",
+    description: "Preparing shop drawings for pipe spool and LSP chamber for Emerson Process Management (M) SDN BHD. Static Analysis and preparation of Shop drawings for Knauf insulation mineral wool plant.",
+    image: shopDrawings
+  },
+  {
+    name: "GSPL Operational Stations (As-Built)",
+    location: "Gujarat, India",
+    description: "Preparation of As built drawings (Plot plan, GA and P&ID) HSE drawings.",
+    image: gsplAsBuiltNew
   },
 ];
 
 export const preBidProjects: Project[] = [
   {
-    name: "Skid-Mounted Water Treatment Unit",
-    location: "Philippines",
-    description: "Created preliminary 3D models and equipment lists to generate bid-stage Bill of Materials (BOM) and cost estimates.",
-    image: skidWaterTreatment
+    name: "Acetophenone Recovery Unit (60 TPD)",
+    location: "Gujarat, India",
+    description: "Pre Bid engineering support to EPC bidder. Scope included development of multi dicpline engineering MTO and cost estimates",
+    image: acetophenoneRecovery
+  },
+  {
+    name: "Pre-Bid Engineering Support for Sulphur Recovery Unit (SRU) - Numaligarh Refinery Expansion Project",
+    location: "NRL, Assam",
+    description: "The project involves providing pre-bid engineering consultancy services for the EPCC-3 package of the Numaligarh Refinery Expansion Project, specifically focusing on the Sulphur Recovery Unit (SRU). The engineering support provided to ISGEC Heavy Engineering Ltd. encompasses several distinct plant areas, namely the Amine Regeneration Unit (ARU), Sour Water Stripper Unit (SWS), Sulphur Recovery Unit (SRU), and Tail Gas Treating Unit (TGTU). The primary responsibilities include preparing pre-bid queries for tender clarifications, identifying and supplying missing data necessary to complete vendor enquiry specifications, and performing technical compliance checks on vendor bids. Additionally, the scope entails providing cost impact sheets following vendor offer reviews and developing L1/L2 project management schedules",
+    image: nrlSru
+  },
+  {
+    name: "Revamp of Urea and Ammonia Plant",
+    location: "GOA, India",
+    description: "Support Owner operator: Scope include laser scaning and development of 3D asbuilt model, which will help the EPC bidders for understanding the plant coditions and make clear EPC bid for plant expansion. Interfaced with Licensor and EPC partners for the model deployments into there work environment.",
+    image: ureaAmmoniaRevamp
   },
 ];
 
@@ -279,40 +322,47 @@ export const asBuiltProjects: Project[] = [
 
 export const digitalisationProjects: Project[] = [
   {
-    name: "Condensate Processing Plant Digitalization",
+    name: "Condensate Processing Plant Digitization",
     location: "Middle East / Abu Dhabi",
-    description: "Complete Master Document Updating and synchronization of model & documents with respect to all current and completed revamp activities. Activates related to Block 1 to Block 9 and Pipe Racks. Scope Includes: Developing Intelligent SP3D MODEL, Data Gathering and site verification of entire data related to Piping, Equipment, Cable Trays and Structural details.",
-    image: condensateProcessingPlant
+    description: "Complete Master Document Updating and synchronization of model & documents with respect to all current and completed revamp activities. Activates related to Block 1 to Block 9 and Pipe Racks. Scope Includes: Developing Intelligent MODEL, Data Gathering and site verification of entire data related to Piping, Equipment, Cable Trays and Structural details.\nHelped to get the 3D Print of the model to show case in ADIPEC.",
+    image: condensateDigitization
   },
   {
     name: "Platform R.12 & HRA, Offshore",
     location: "Mumbai, India",
-    description: "3D Modelling of R.12 Platform and HRA platform PDMS tagging.",
-    image: condensateDigitization
+    description: "3D primitive model was developed based on the captured and validated data, and subsequently converted into DGN file format to ensure compatibility with the client’s engineering platform. Post-delivery, continuous technical support was extended to the EPC contractor to facilitate downstream engineering activities, design integration, and execution planning.",
+    image: platformR12
   },
   {
     name: "TGV SRAAC Caustic Soda Plant",
     location: "Andhra Pradesh, India",
-    description: "Laser Scanning and 3D Modeling.",
+    description: "TGV New Chlorine System Expansion Project, laser scanning and detailed site data acquisition were carried out to capture existing plant conditions in support of the capacity enhancement of the caustic soda production facility from 1,000 TPD to 1,500 TPD. Based on the validated as-built data, comprehensive 3D modeling was developed, including piping layouts and updated plot plans, enabling seamless integration of new systems within the existing infrastructure while ensuring constructability and operational continuity.",
     image: tgvSraacNew
   },
   {
-    name: "BASF Aromatics, Butadiene and 2EH Acid Plant",
+    name: "BASF Aromatics",
     location: "Germany",
-    description: "Preparation of Hybrid SP3D model, PID verification across dumb model, Highlighting changes with colour code given.",
+    description: "Preparation of 3d model from Point cloud and  PID verification redline mark up of PID's and GA drawings.",
     image: butadienePlant
   },
   {
-    name: "BASF 2-EH Acid Plant",
+    name: "Intelligent 3D Model Development for BASF 2-EH Acid Plant",
     location: "Kuantan, Malaysia",
     description: "Developed an intelligent hybrid 3D model for the BASF 2-EH Acid Plant, covering Plant-1, Plant-2, and Tank Farm Areas, using SP3D / Smart 3D (S3D) based on available engineering inputs and LFM (Laser Scan) data. The work supported brownfield verification and modification activities and was executed in compliance with Worley and BASF engineering standards.",
     image: basf2ehMalaysia
   },
+
   {
-    name: "3D Laser Scanning & Constructability Review for COKE Drum Replacements",
+    name: "3D laser Scanning and constructability review for COKE Drum replacements",
     location: "Jamnagar, India",
     description: "Laser scanning, detailed survey, and point cloud registration were executed on the elevated platform under live operating conditions, precisely capturing the as-built structural geometry with high-fidelity accuracy. The resultant digital deliverables — including the registered point cloud and validated 3D model — formed the engineering basis for a comprehensive structural reassessment conducted in close technical interface with RIL and FW Houston. This rigorous validation process provided the engineering confidence required to define the cut elevation at 106 meters and execute a complex single-lift operation with controlled risk, full technical precision, and assured structural integrity.",
-    image: cokeDrum3dScanning
+    image: cokeDrumReplacement
+  },
+  {
+    name: "Capacity Enhancement of MRPL Refinery Unit PSA-2 / RSU",
+    location: "Mangalore",
+    description: "Laser scanning, detailed site survey, and point cloud registration were successfully executed to capture accurate as-built conditions of the facility. Based on the registered data, a primitive 3D model was developed and delivered to the client as a foundational digital representation. Subsequently, a fully intelligent 3D model incorporating engineering attributes and system intelligence was developed and submitted to support detailed engineering, design validation, and future modification activities.",
+    image: mrplRefinery
   },
 ];
 

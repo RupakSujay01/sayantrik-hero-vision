@@ -12,17 +12,18 @@ declare global {
 
 const Careers = () => {
   useEffect(() => {
-    // Load the Zoho CSS
+    // 1. Load the Zoho CSS (Required for styling, even though they left it out of their snippet)
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = "https://static.zohocdn.com/recruit/embed_careers_site/css/v1.1/embed_jobs.css";
     document.head.appendChild(link);
 
-    // Load the Zoho Script
+    // 2. Load the Zoho Script dynamically for React
     const script = document.createElement("script");
     script.src = "https://static.zohocdn.com/recruit/embed_careers_site/javascript/v1.1/embed_jobs.js";
     script.async = true;
 
+    // 3. Execute the exact configuration they provided once the script loads
     script.onload = () => {
       if (window.rec_embed_js) {
         window.rec_embed_js.load({
@@ -38,6 +39,7 @@ const Careers = () => {
 
     document.body.appendChild(script);
 
+    // Cleanup function to prevent memory leaks if the user leaves the page
     return () => {
       if (document.head.contains(link)) document.head.removeChild(link);
       if (document.body.contains(script)) document.body.removeChild(script);
@@ -131,6 +133,7 @@ const Careers = () => {
             </p>
 
             {/* ZOHO RECRUIT WIDGET INTEGRATION */}
+            {/* Keeping your custom Tailwind classes so the layout doesn't break */}
             <div className="embed_jobs_head embed_jobs_with_style_3 mt-8 relative z-10">
               <div className="embed_jobs_head2">
                 <div className="embed_jobs_head3">
