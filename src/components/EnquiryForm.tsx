@@ -67,7 +67,7 @@ export const EnquiryForm = ({ isOpen, onClose, initialClientType }: EnquiryFormP
                     Accept: "application/json",
                 },
                 body: JSON.stringify({
-                    access_key: "e728c4e1-b9c6-44b4-92c2-cffa0635b9cd",
+                    access_key: "03a9b402-4371-448e-8ce1-f7d8a9bfc339",
                     subject: `New Project Enquiry from ${data.company}`,
                     from_name: "Sayantrik Website",
                     name: data.full_name,
